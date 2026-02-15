@@ -28,7 +28,7 @@ Prospective
 ## Core Concepts
 
 ### Parametric (Variance-Covariance) VaR
-Assumes returns are normally distributed. For a single asset or portfolio in dollar terms (assuming zero mean over short horizons):
+Assumes returns are normally distributed. For a single asset or portfolio in dollar terms (assuming zero expected return over short horizons):
 
 ```
 VaR = W * z_alpha * sigma_p
@@ -38,6 +38,12 @@ where:
 - W = portfolio value
 - z_alpha = z-score for confidence level (1.645 for 95%, 2.326 for 99%)
 - sigma_p = portfolio volatility over the relevant horizon
+
+More generally, including expected return:
+
+```
+VaR_alpha = mu - z_alpha * sigma
+```
 
 To convert from 1-day VaR to h-day VaR (assuming i.i.d. returns):
 
@@ -50,7 +56,7 @@ For a portfolio with weight vector w and covariance matrix Sigma:
 
 ```
 sigma_p = sqrt(w' * Sigma * w)
-VaR_p = W * z_alpha * sqrt(w' * Sigma * w)
+VaR_p   = W * z_alpha * sqrt(w' * Sigma * w)
 ```
 
 The covariance matrix captures both individual volatilities and correlations between assets.
@@ -168,48 +174,55 @@ Common factor models: Fama-French (market, size, value, momentum), Barra risk mo
 **Solution:**
 
 Daily volatility:
+
 ```
 sigma_daily = 0.15 / sqrt(252) = 0.15 / 15.875 = 0.00945
 ```
 
 1-day 95% VaR:
+
 ```
 VaR = $1,000,000 * 1.645 * 0.00945 = $15,545
 ```
 
 Alternatively, computing directly from annual figures:
+
 ```
 VaR_annual = $1,000,000 * 1.645 * 0.15 = $246,750
-VaR_1-day = $246,750 / sqrt(252) = $15,545
+VaR_1day   = $246,750 / sqrt(252)       = $15,545
 ```
 
 Interpretation: There is a 5% chance of losing more than $15,545 in a single day under normal market conditions.
 
 ### Example 2: Monte Carlo VaR
-**Given:** A two-asset portfolio (60% equities, 40% bonds). Equities: mu=10%, sigma=18%. Bonds: mu=4%, sigma=5%. Correlation rho=-0.2. Portfolio value = $1,000,000.
+**Given:** A two-asset portfolio (60% equities, 40% bonds). Equities: mu = 10%, sigma = 18%. Bonds: mu = 4%, sigma = 5%. Correlation rho = -0.2. Portfolio value = $1,000,000.
 
 **Calculate:** 95% annual VaR via Monte Carlo simulation (conceptual steps).
 
 **Solution:**
 
-1. Construct covariance matrix:
+1. **Construct covariance matrix:**
+
 ```
-Sigma = [[0.0324, -0.0018],
-         [-0.0018, 0.0025]]
+Sigma = | 0.0324  -0.0018 |
+        | -0.0018  0.0025 |
 ```
 
-2. Cholesky decomposition of Sigma to get lower triangular matrix L.
+2. **Cholesky decomposition** of Sigma to get lower triangular matrix L.
 
-3. Simulate 10,000 scenarios: For each simulation, draw z ~ N(0, I), compute r = mu + L*z, then portfolio return R_p = w' * r.
+3. **Simulate 10,000 scenarios:** For each simulation, draw z ~ N(0, I), compute r = mu + L*z, then portfolio return R_p = w' * r.
 
-4. Compute portfolio P&L for each scenario: P&L = $1,000,000 * R_p.
+4. **Compute portfolio P&L** for each scenario: P&L = $1,000,000 * R_p.
 
-5. Sort P&L from worst to best. The 500th worst (5th percentile) is the 95% VaR.
+5. **Sort P&L** from worst to best. The 500th worst (5th percentile) is the 95% VaR.
 
 For this portfolio, the analytical answer provides a benchmark:
+
 ```
 sigma_p = sqrt(0.6^2 * 0.0324 + 0.4^2 * 0.0025 + 2 * 0.6 * 0.4 * (-0.0018))
-        = sqrt(0.01105) = 10.51%
+        = sqrt(0.01105)
+        = 10.51%
+
 VaR_95% = $1,000,000 * 1.645 * 0.1051 = $172,890
 ```
 
@@ -234,7 +247,7 @@ Interpretation: When losses exceed the 95% VaR threshold, the average loss is $2
 - **Correlation breakdown in crises:** Correlations spike toward 1.0 during market stress, precisely when diversification is most needed. Stress tests should use crisis-period correlations, not calm-period correlations.
 - **Using too short a lookback for covariance estimation:** Too short a window is noisy; too long a window includes stale data from different market regimes. A common compromise is 1-3 years of daily data, or use EWMA-weighted covariances.
 - **Not distinguishing between absolute VaR and relative VaR:** Absolute VaR includes expected return (VaR = -mu + z*sigma); relative VaR excludes it (VaR = z*sigma). For short horizons (1-10 days), the expected return is negligible and the distinction is minor. For longer horizons, it matters.
-- **Square-root-of-time scaling:** VaR_h = VaR_1 * sqrt(h) assumes i.i.d. returns. With serial correlation or volatility clustering, this scaling is inaccurate.
+- **Square-root-of-time scaling limitations:** VaR_h = VaR_1 * sqrt(h) assumes i.i.d. returns. With serial correlation or volatility clustering, this scaling is inaccurate.
 
 ## Cross-References
 - **historical-risk:** Historical VaR and realized volatility serve as non-parametric alternatives and calibration benchmarks for the forward-looking models in this skill.
@@ -242,4 +255,4 @@ Interpretation: When losses exceed the 95% VaR threshold, the average loss is $2
 - **volatility-modeling:** EWMA and GARCH volatility forecasts provide the volatility inputs (sigma) for parametric and Monte Carlo VaR.
 
 ## Reference Implementation
-See `scripts/forward_risk.py` for computational helpers.
+See `scripts/forward-risk.py` for computational helpers.

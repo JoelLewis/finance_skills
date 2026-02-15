@@ -40,7 +40,7 @@ Log returns are preferred: r_t = ln(P_t / P_{t-1}).
 Uses intraday high and low prices to capture intraday volatility that close-to-close misses. More efficient than close-to-close when the true process is continuous.
 
 ```
-sigma^2_Park = (1 / (4 * n * ln(2))) * sum( [ln(H_i / L_i)]^2 )
+sigma^2_Park = (1 / (4 * n * ln(2))) * sum( ln(H_i / L_i)^2 )
 ```
 
 This estimator is roughly 5x more efficient than close-to-close for a diffusion process, but is biased downward when there are jumps or when the range is discretized.
@@ -109,7 +109,7 @@ Semi-variance isolates downside risk and is the foundation for the Sortino ratio
 |---------|-----------|----------|
 | Annualized Volatility | sigma_ann = sigma_period * sqrt(N) | Convert period vol to annual vol |
 | Log Return | r_t = ln(P_t / P_{t-1}) | Compute continuously compounded returns |
-| Parkinson Variance | sigma^2 = (1/(4*n*ln2)) * sum(ln(H/L)^2) | Volatility from high-low data |
+| Parkinson Variance | sigma^2 = (1 / (4n ln2)) * sum(ln(H/L)^2) | Volatility from high-low data |
 | Drawdown | DD_t = (Peak_t - Value_t) / Peak_t | Measure peak-to-trough decline |
 | Max Drawdown | MDD = max(DD_t) | Worst historical decline |
 | Historical VaR (95%) | 5th percentile of return series | Non-parametric loss estimate |
@@ -127,10 +127,13 @@ Semi-variance isolates downside risk and is the foundation for the Sortino ratio
 **Solution:**
 
 ```
-sigma_annual = 0.012 * sqrt(252) = 0.012 * 15.875 = 0.1905
+sigma_annual = 0.012 * sqrt(252)
+             = 0.012 * 15.875
+             = 0.1905
+             ~ 19.05%
 ```
 
-The stock's annualized volatility is approximately 19.05%.
+The stock's annualized volatility is approximately 19%.
 
 ### Example 2: Maximum Drawdown from a Price Series
 **Given:** A fund's NAV follows this path over six months: $120, $135, $150, $130, $105, $125.
@@ -167,7 +170,7 @@ VaR_95% = -(-2.8%) = 2.8%
 Interpretation: On 95% of days, the loss is expected not to exceed 2.8% based on the historical distribution.
 
 ## Common Pitfalls
-- **Not annualizing volatility correctly:** Volatility scales with the square root of time (multiply by sqrt(N), not by N). Multiplying daily vol by 252 instead of sqrt(252) produces wildly inflated numbers.
+- **Not annualizing volatility correctly:** Volatility scales with the square root of time (multiply by sqrt(N)), not linearly. Multiplying daily vol by 252 instead of sqrt(252) produces wildly inflated numbers.
 - **Using calendar days vs trading days inconsistently:** Use 252 trading days (not 365 calendar days) for equity markets when annualizing. Bond markets and some international markets may differ.
 - **Survivorship bias in historical data:** Data sets that exclude delisted or failed securities understate realized risk.
 - **Lookback period sensitivity:** A 1-year lookback captures different risk regimes than a 5-year lookback. Always state the lookback window and consider whether it spans relevant market conditions.
@@ -180,4 +183,4 @@ Interpretation: On 95% of days, the loss is expected not to exceed 2.8% based on
 - **volatility-modeling:** EWMA and GARCH models extend the simple historical volatility estimators covered here into forecasting frameworks.
 
 ## Reference Implementation
-See `scripts/historical_risk.py` for computational helpers.
+See `scripts/historical-risk.py` for computational helpers.
