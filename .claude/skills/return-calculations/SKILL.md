@@ -168,7 +168,7 @@ Testing r = -0.0051 (approximately -0.51%):
 ```
 -100,000 + (-100,000)/0.9949 + 198,000/0.9899
 = -100,000 - 100,512.6 + 200,020.2
-~ -492.4  (close to zero; actual IRR is approximately -0.48%)
+approx -492.4  (close to zero; actual IRR approx -0.48%)
 ```
 
 The MWR is approximately **-0.48% annualized**.

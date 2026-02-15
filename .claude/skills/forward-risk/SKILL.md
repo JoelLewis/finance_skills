@@ -1,231 +1,245 @@
 ---
 name: forward-risk
-description: "Project future risk: parametric VaR, Monte Carlo VaR, CVaR/Expected Shortfall, scenario analysis, stress testing, factor-based risk decomposition. Use when a user wants to estimate potential future losses or stress-test a portfolio."
-allowed-tools: Bash(python *)
+description: Project future risk — parametric VaR, Monte Carlo VaR, CVaR/Expected Shortfall, scenario analysis, stress testing, factor-based risk decomposition.
+allowed-tools: ["Bash", "Read", "Write", "Edit"]
 ---
 
-# Forward Risk Estimation
+# Forward-Looking Risk Analysis
 
 ## Purpose
+Estimate potential future losses and risk exposures using parametric models, simulation, and scenario analysis. This skill covers parametric and Monte Carlo Value-at-Risk, Conditional VaR (Expected Shortfall), component and marginal VaR, stress testing, scenario analysis, and factor-based risk decomposition. These tools are essential for portfolio risk management and regulatory capital calculations.
 
-Forward-looking risk estimation that projects potential future losses under various assumptions. This skill answers the fundamental question: **"How much could we lose?"**
-
-Unlike historical risk (which measures what happened), forward risk uses models, simulations, and scenarios to estimate what might happen. Every output is an estimate conditional on assumptions that must be documented and understood. Forward risk is essential for portfolio construction, regulatory compliance (Basel III, Solvency II), risk budgeting, and capital allocation.
+## Layer
+1b — Forward-Looking Risk
 
 ## Direction
+Prospective
 
-**Prospective.** All outputs are forward-looking estimates. They depend critically on the assumptions made about return distributions, correlations, market regimes, and holding periods. These assumptions must always be stated explicitly alongside the results.
+## When to Use
+- Estimating potential future losses for a portfolio or position
+- Computing parametric VaR (variance-covariance method) for normally distributed returns
+- Running Monte Carlo simulations to estimate VaR for non-normal distributions
+- Computing CVaR / Expected Shortfall to understand tail risk beyond VaR
+- Decomposing portfolio risk into component and marginal contributions
+- Performing scenario analysis with historical or hypothetical shocks
+- Stress testing portfolios under extreme but plausible conditions
+- Breaking down risk into systematic factor risk and idiosyncratic risk
 
 ## Core Concepts
 
-### 1. Parametric VaR (Variance-Covariance Method)
-
-Assumes returns follow a known distribution (typically normal) and computes VaR analytically:
-
-**Single asset:**
-```
-VaR_alpha = -(mu + z_alpha * sigma)
-```
-
-Where:
-- `mu` = expected return over the holding period
-- `z_alpha` = z-score for the confidence level (e.g., -1.645 for 95%, -2.326 for 99%)
-- `sigma` = standard deviation of returns over the holding period
-
-**Portfolio:**
-```
-VaR_portfolio = z_alpha * sqrt(w' * Sigma * w)
-```
-
-Where:
-- `w` = vector of portfolio weights
-- `Sigma` = covariance matrix of asset returns
-
-**Holding period scaling (square root of time):**
-```
-VaR_T = VaR_1 * sqrt(T)
-```
-
-This assumes returns are i.i.d. -- a strong assumption that breaks down for longer horizons.
-
-**Properties:**
-- Fast to compute (closed-form solution)
-- Easily decomposed into component and marginal VaR
-- Requires only means, variances, and covariances
-- Fails badly for non-normal distributions (fat tails, skewness)
-- Underestimates tail risk for most financial return series
-
-### 2. Monte Carlo VaR
-
-Simulates a large number of return paths from an assumed distribution and computes VaR from the simulated distribution:
+### Parametric (Variance-Covariance) VaR
+Assumes returns are normally distributed. For a single asset or portfolio in dollar terms (assuming zero mean over short horizons):
 
 ```
-1. Estimate parameters (mu, sigma, or full distribution)
-2. Generate N simulated returns from the distribution
-3. For portfolios: simulate correlated returns using Cholesky decomposition
-4. Compute portfolio return for each simulation
-5. VaR = -Percentile(simulated_returns, 1 - confidence)
+VaR = W * z_alpha * sigma_p
 ```
 
-**Properties:**
-- Can accommodate any distribution (normal, Student-t, skewed, etc.)
-- Can model non-linear positions (options, structured products)
-- Computationally expensive (requires thousands of simulations for stable estimates)
-- Quality depends entirely on the assumed distribution -- garbage in, garbage out
-- Confidence intervals around the VaR estimate can be computed from simulation uncertainty
+where:
+- W = portfolio value
+- z_alpha = z-score for confidence level (1.645 for 95%, 2.326 for 99%)
+- sigma_p = portfolio volatility over the relevant horizon
 
-### 3. CVaR / Expected Shortfall (ES)
-
-The expected loss given that the loss exceeds VaR. Also called Conditional VaR or Expected Tail Loss:
+To convert from 1-day VaR to h-day VaR (assuming i.i.d. returns):
 
 ```
-CVaR_alpha = E[Loss | Loss > VaR_alpha]
+VaR_h = VaR_1 * sqrt(h)
 ```
 
-For a continuous distribution:
-```
-CVaR_alpha = (1/alpha) * integral from -inf to VaR_alpha of x * f(x) dx
-```
-
-For the normal distribution, CVaR has a closed-form solution:
-```
-CVaR_alpha = mu + sigma * phi(z_alpha) / alpha
-```
-
-Where `phi` is the standard normal PDF.
-
-**Properties:**
-- A coherent risk measure (satisfies subadditivity, unlike VaR)
-- Always greater than or equal to VaR
-- Tells you the expected severity of losses in the worst alpha% of scenarios
-- Required by Basel III for market risk capital (replaced VaR in the Fundamental Review of the Trading Book)
-- More sensitive to tail assumptions than VaR
-
-### 4. Scenario Analysis
-
-Apply specific, predefined market shocks and compute the portfolio impact:
+### Portfolio VaR (Multiple Assets)
+For a portfolio with weight vector w and covariance matrix Sigma:
 
 ```
-Portfolio_impact = sum(weight_i * beta_ij * shock_j)
+sigma_p = sqrt(w' * Sigma * w)
+VaR_p = W * z_alpha * sqrt(w' * Sigma * w)
 ```
 
-Where:
-- `weight_i` = portfolio weight of asset i
-- `beta_ij` = sensitivity of asset i to factor j
-- `shock_j` = assumed change in factor j (e.g., rates +200bps, equities -30%, oil +50%)
+The covariance matrix captures both individual volatilities and correlations between assets.
 
-**Types of scenarios:**
-- **Regulatory scenarios**: prescribed by regulators (e.g., CCAR stress tests)
-- **Historical scenarios**: replay of specific historical episodes (2008 GFC, 2020 COVID crash, 1997 Asian crisis)
-- **Hypothetical scenarios**: custom-designed to test specific vulnerabilities (e.g., simultaneous rate rise and credit spread widening)
+### Monte Carlo VaR
+Simulate a large number of portfolio return scenarios (e.g., 10,000+), then take the alpha-percentile of the simulated loss distribution.
 
-**Properties:**
-- Transparent and easy to communicate to stakeholders
-- Does not require distributional assumptions
-- Limited by imagination -- only tests the specific scenarios designed
-- Cannot assign probabilities to outcomes (unlike VaR)
+Steps:
+1. Estimate the return distribution parameters (mean vector, covariance matrix, or use a copula model).
+2. Generate N random return scenarios (e.g., via Cholesky decomposition of the covariance matrix for multivariate normal).
+3. Compute portfolio return for each scenario.
+4. Sort results and identify the alpha-percentile loss.
 
-### 5. Stress Testing
+Monte Carlo VaR can accommodate non-normal distributions, fat tails, path-dependent instruments, and nonlinear payoffs (e.g., options).
 
-More comprehensive than simple scenario analysis. Combines multiple correlated shocks applied to the full portfolio:
-
-**Historical stress test (replay):**
-```
-1. Select a historical crisis period (e.g., Sep 2008 - Mar 2009)
-2. Extract actual factor returns during that period
-3. Apply those returns to the current portfolio
-4. Compute portfolio P&L
-```
-
-**Hypothetical stress test:**
-```
-1. Define a custom shock vector across all relevant risk factors
-2. Propagate shocks through the portfolio using factor sensitivities
-3. Include second-order effects (correlation changes, liquidity impact)
-4. Compute total portfolio impact
-```
-
-**Properties:**
-- Captures correlated, multi-factor moves that VaR models may miss
-- Required by regulators for large financial institutions
-- Results are scenario-specific, not probabilistic
-- Should include both P&L impact and liquidity impact
-
-### 6. Factor-Based Risk Decomposition
-
-Decompose portfolio variance into systematic (factor) risk and idiosyncratic risk:
+### Conditional VaR (CVaR) / Expected Shortfall
+CVaR answers: "Given that losses exceed VaR, what is the expected loss?"
 
 ```
-R_p = sum(beta_i * F_i) + epsilon
-
-Var(R_p) = B' * Sigma_F * B + Sigma_epsilon
+ES_alpha = E[Loss | Loss > VaR_alpha]
 ```
 
-Where:
-- `B` = vector of portfolio factor exposures (weighted sum of asset betas)
-- `Sigma_F` = factor covariance matrix
-- `Sigma_epsilon` = diagonal matrix of idiosyncratic variances
-
-**Common factor models:**
-- **Fama-French**: Market, Size (SMB), Value (HML), Profitability (RMW), Investment (CMA)
-- **Barra/MSCI**: Industry factors + style factors (momentum, volatility, size, etc.)
-- **Macroeconomic**: GDP growth, inflation, interest rates, credit spreads
-
-This decomposition reveals:
-- What percentage of portfolio risk comes from market exposure vs stock-specific risk
-- Which factors contribute most to total risk
-- Where the portfolio is concentrated in factor space
-
-### 7. Regime-Switching (Brief Treatment)
-
-Markets alternate between distinct regimes (e.g., low-volatility/bull and high-volatility/bear). A Hidden Markov Model (HMM) approach:
+For a normal distribution:
 
 ```
-State S_t in {1, 2, ..., K} with transition probabilities P(S_t | S_{t-1})
-Returns: r_t | S_t ~ N(mu_{S_t}, sigma_{S_t}^2)
+ES_alpha = mu + sigma * phi(z_alpha) / (1 - alpha)
 ```
 
-**Key insight:** Risk estimates can differ dramatically depending on the current regime. A VaR computed using the full sample may underestimate risk if the market has just shifted into a high-volatility regime.
+where phi is the standard normal PDF.
 
-## Key Assumptions to Document
+CVaR is a **coherent risk measure** (unlike VaR) because it satisfies subadditivity: CVaR(A+B) <= CVaR(A) + CVaR(B). This means diversification always reduces or maintains CVaR, which is not guaranteed for VaR.
 
-Every forward risk estimate should explicitly state:
+### Component VaR
+Decomposes total portfolio VaR into contributions from each position. Component VaRs sum to total VaR.
 
-| Assumption | What It Means | Risk If Violated |
-|---|---|---|
-| Distribution (normal, t, etc.) | Shape of return tails | VaR underestimation if tails are fatter |
-| Stationarity | Parameters don't change over time | Regime shifts invalidate estimates |
-| Correlation stability | Correlation matrix is constant | Diversification benefits evaporate in crisis |
-| Holding period | Time horizon for the risk estimate | Longer horizons amplify model errors |
-| Liquidity | Positions can be liquidated at model prices | Actual losses may exceed model losses |
-| Independence | Returns are serially uncorrelated | Momentum/mean-reversion violates this |
+```
+CVaR_i = w_i * beta_i * VaR_p
+```
 
-## When to Use / When Not to Use
+where beta_i = Cov(R_i, R_p) / Var(R_p) is the asset's beta to the portfolio.
 
-| Scenario | Recommended Method |
-|---|---|
-| Quick daily risk limit monitoring | Parametric VaR |
-| Regulatory capital calculation (Basel III) | CVaR / Expected Shortfall |
-| Portfolio with options/non-linear payoffs | Monte Carlo VaR |
-| Board-level risk communication | Scenario analysis + stress testing |
-| Understanding risk factor exposures | Factor-based decomposition |
-| Short-term trading risk | VaR with recent volatility |
-| Long-term strategic planning | Scenario analysis with multiple regimes |
+Equivalently:
 
-**Common pitfalls:**
-- Treating VaR as a worst case (it is a threshold, not a bound)
-- Using normal distribution VaR for fat-tailed return series
-- Assuming correlations remain stable during stress events
-- Scaling VaR beyond a few days using the square-root-of-time rule
-- Ignoring liquidity risk (model says you can sell, but the market may disagree)
+```
+CVaR_i = w_i * (partial VaR / partial w_i)
+sum(CVaR_i) = VaR_p
+```
+
+This decomposition identifies which positions are the largest contributors to portfolio risk.
+
+### Marginal VaR
+Measures the rate of change of portfolio VaR with respect to a small increase in a position's weight.
+
+```
+MVaR_i = partial(VaR_p) / partial(w_i) = z_alpha * (Sigma * w)_i / sigma_p
+```
+
+Marginal VaR is used for position sizing: adding to a position with low marginal VaR reduces portfolio risk more efficiently.
+
+### Scenario Analysis
+Apply specific historical or hypothetical market moves to the current portfolio to estimate P&L impact.
+
+- **Historical scenarios:** Replay actual market events (e.g., 2008 GFC, 2020 COVID crash, 2022 rate hiking cycle) with current holdings.
+- **Hypothetical scenarios:** Construct custom shocks (e.g., "equities -20%, rates +200bp, credit spreads +300bp, USD +10%").
+
+Scenario P&L is computed by applying the scenario returns to current position exposures and revaluing.
+
+### Stress Testing
+A structured framework for assessing portfolio resilience under extreme but plausible conditions.
+
+Common stress scenarios:
+- Equity crash: S&P 500 -30% to -40%
+- Interest rate shock: +300bp parallel shift
+- Credit crisis: investment-grade spreads +200bp, high-yield +800bp
+- Liquidity freeze: bid-ask spreads widen 10x, forced selling at discount
+- Currency shock: major currency pair moves 15-20%
+- Stagflation: inflation +5%, GDP -3%, rates +200bp
+
+Stress tests should include second-order effects: margin calls, liquidity demands, correlation spikes, counterparty risk.
+
+### Factor-Based Risk Decomposition
+Separate total portfolio risk into systematic factor risk and idiosyncratic (security-specific) risk.
+
+```
+sigma^2_p = b' * Sigma_f * b + sum(w_i^2 * sigma^2_epsilon_i)
+```
+
+where:
+- b = vector of portfolio factor exposures
+- Sigma_f = factor covariance matrix
+- sigma^2_epsilon_i = idiosyncratic variance of asset i
+
+Common factor models: Fama-French (market, size, value, momentum), Barra risk models, PCA-based statistical factors.
+
+## Key Formulas
+
+| Formula | Expression | Use Case |
+|---------|-----------|----------|
+| Parametric VaR (single) | W * z_alpha * sigma | Simple position VaR |
+| Portfolio VaR | W * z_alpha * sqrt(w' * Sigma * w) | Multi-asset VaR |
+| Multi-day VaR | VaR_1 * sqrt(h) | Scale to h-day horizon |
+| CVaR (normal) | mu + sigma * phi(z_alpha) / (1 - alpha) | Expected tail loss |
+| Component VaR | w_i * beta_i * VaR_p | Risk contribution per position |
+| Marginal VaR | z_alpha * (Sigma * w)_i / sigma_p | Sensitivity to weight change |
+| Factor Risk | b' * Sigma_f * b | Systematic risk component |
+| Idiosyncratic Risk | sum(w_i^2 * sigma^2_epsilon_i) | Security-specific risk |
+
+## Worked Examples
+
+### Example 1: Parametric 95% VaR
+**Given:** A $1,000,000 equity portfolio with an annualized volatility of 15%.
+
+**Calculate:** 1-day 95% parametric VaR (assuming 252 trading days and zero expected daily return).
+
+**Solution:**
+
+Daily volatility:
+```
+sigma_daily = 0.15 / sqrt(252) = 0.15 / 15.875 = 0.00945
+```
+
+1-day 95% VaR:
+```
+VaR = $1,000,000 * 1.645 * 0.00945 = $15,545
+```
+
+Alternatively, computing directly from annual figures:
+```
+VaR_annual = $1,000,000 * 1.645 * 0.15 = $246,750
+VaR_1-day = $246,750 / sqrt(252) = $15,545
+```
+
+Interpretation: There is a 5% chance of losing more than $15,545 in a single day under normal market conditions.
+
+### Example 2: Monte Carlo VaR
+**Given:** A two-asset portfolio (60% equities, 40% bonds). Equities: mu=10%, sigma=18%. Bonds: mu=4%, sigma=5%. Correlation rho=-0.2. Portfolio value = $1,000,000.
+
+**Calculate:** 95% annual VaR via Monte Carlo simulation (conceptual steps).
+
+**Solution:**
+
+1. Construct covariance matrix:
+```
+Sigma = [[0.0324, -0.0018],
+         [-0.0018, 0.0025]]
+```
+
+2. Cholesky decomposition of Sigma to get lower triangular matrix L.
+
+3. Simulate 10,000 scenarios: For each simulation, draw z ~ N(0, I), compute r = mu + L*z, then portfolio return R_p = w' * r.
+
+4. Compute portfolio P&L for each scenario: P&L = $1,000,000 * R_p.
+
+5. Sort P&L from worst to best. The 500th worst (5th percentile) is the 95% VaR.
+
+For this portfolio, the analytical answer provides a benchmark:
+```
+sigma_p = sqrt(0.6^2 * 0.0324 + 0.4^2 * 0.0025 + 2 * 0.6 * 0.4 * (-0.0018))
+        = sqrt(0.01105) = 10.51%
+VaR_95% = $1,000,000 * 1.645 * 0.1051 = $172,890
+```
+
+The Monte Carlo result should converge to approximately this value for a multivariate normal assumption.
+
+### Example 3: Expected Shortfall
+**Given:** From the Monte Carlo simulation above, the losses exceeding VaR (the worst 500 out of 10,000 scenarios) have an average loss of $225,000.
+
+**Calculate:** 95% CVaR.
+
+**Solution:**
+
+```
+CVaR_95% = $225,000
+```
+
+Interpretation: When losses exceed the 95% VaR threshold, the average loss is $225,000. This is 30% worse than the VaR figure, highlighting the severity of tail events.
+
+## Common Pitfalls
+- **VaR says nothing about tail shape:** VaR only identifies a threshold. Two portfolios with identical VaR can have vastly different tail losses. Always compute CVaR alongside VaR to understand tail severity.
+- **Parametric VaR assumes normality:** Financial returns exhibit fat tails and skewness. Parametric VaR systematically underestimates tail risk. Use Monte Carlo with fat-tailed distributions or historical simulation for more realistic estimates.
+- **Correlation breakdown in crises:** Correlations spike toward 1.0 during market stress, precisely when diversification is most needed. Stress tests should use crisis-period correlations, not calm-period correlations.
+- **Using too short a lookback for covariance estimation:** Too short a window is noisy; too long a window includes stale data from different market regimes. A common compromise is 1-3 years of daily data, or use EWMA-weighted covariances.
+- **Not distinguishing between absolute VaR and relative VaR:** Absolute VaR includes expected return (VaR = -mu + z*sigma); relative VaR excludes it (VaR = z*sigma). For short horizons (1-10 days), the expected return is negligible and the distinction is minor. For longer horizons, it matters.
+- **Square-root-of-time scaling:** VaR_h = VaR_1 * sqrt(h) assumes i.i.d. returns. With serial correlation or volatility clustering, this scaling is inaccurate.
 
 ## Cross-References
-
-- **Dependencies**: statistics-fundamentals (distributional theory), return-calculations (return series construction)
-- **Feeds into**: asset-allocation (risk budgeting), diversification (correlation-based), liquidity-management (stress liquidity)
-- **Related retrospective skill**: historical-risk (measures what happened; forward-risk estimates what could happen)
-- **Related**: volatility-modeling (provides volatility forecasts used as inputs to VaR)
+- **historical-risk:** Historical VaR and realized volatility serve as non-parametric alternatives and calibration benchmarks for the forward-looking models in this skill.
+- **performance-metrics:** VaR and CVaR can be used as risk denominators in modified risk-adjusted ratios (e.g., return/CVaR).
+- **volatility-modeling:** EWMA and GARCH volatility forecasts provide the volatility inputs (sigma) for parametric and Monte Carlo VaR.
 
 ## Reference Implementation
-
-See `scripts/forward_risk.py` for a complete `RiskForecaster` class implementing parametric VaR, parametric CVaR, Monte Carlo VaR and CVaR, scenario analysis, historical stress testing, and portfolio VaR. The implementation uses numpy and scipy.stats.
+See `scripts/forward_risk.py` for computational helpers.
