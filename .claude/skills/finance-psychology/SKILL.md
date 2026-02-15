@@ -4,13 +4,10 @@ description: Behavioral finance biases, nudges, decision frameworks, emotional d
 allowed-tools: ["Bash", "Read", "Write", "Edit"]
 ---
 
-# Behavioral Finance & Investor Psychology
+# Finance Psychology — Behavioral Finance
 
 ## Purpose
-Identify and mitigate cognitive and emotional biases that impair investment
-decision-making. Provide evidence-based frameworks, nudges, and choice
-architecture so users can make more rational financial decisions and maintain
-emotional discipline through market cycles.
+Help users recognize and mitigate cognitive and emotional biases that impair investment decisions. This skill provides frameworks for identifying behavioral pitfalls, implementing nudges and choice architecture, and coaching investors toward disciplined, evidence-based decision-making.
 
 ## Layer
 7 — Behavioral Finance
@@ -19,221 +16,157 @@ emotional discipline through market cycles.
 both
 
 ## When to Use
-- Helping users recognize cognitive biases affecting their investment decisions
-- Making better financial decisions under uncertainty
-- Understanding market psychology and crowd behavior
-- Behavioral coaching during periods of market stress or euphoria
-- Designing choice architecture (defaults, auto-enrollment, auto-escalation)
-- Evaluating whether an investment thesis is driven by evidence or by bias
+- Helping users recognize cognitive biases affecting their financial decisions
+- Making better financial decisions by applying debiasing techniques
+- Understanding market psychology, sentiment extremes, and crowd behavior
+- Behavioral coaching: building emotional discipline and rules-based investing habits
+- Designing choice architecture (defaults, auto-enrollment, commitment devices)
+- Evaluating whether a decision is driven by analysis or by emotion
 
 ## Core Concepts
 
 ### Loss Aversion
-Losses hurt roughly 2x more than equivalent gains feel good (Kahneman &
-Tversky, 1979 — Prospect Theory).
+Losses hurt approximately 2x more than equivalent gains feel good (Kahneman & Tversky, Prospect Theory 1979).
 
-**Impact:** Investors sell winners too early to "lock in" gains and hold losers
-too long hoping to break even. This is the *disposition effect* — one of the
-most reliably documented patterns in individual investor behavior.
+**Impact:** Investors sell winners too early to "lock in" gains while holding losers too long hoping to break even. This is the *disposition effect* — it reverses the rational approach of cutting losses and letting winners run.
 
 **Mitigation:**
-- Pre-commit to stop-loss levels before entering a position.
-- Use rules-based rebalancing that forces sells mechanically.
-- Frame decisions in terms of total portfolio value, not individual positions.
+- Pre-commit to stop-loss levels at the time of purchase, before emotions engage.
+- Use rules-based rebalancing that forces trimming winners and adding to underperformers mechanically.
+- Reframe: evaluate the holding as if you held cash — "would I buy this today at this price?"
 
 ### Overconfidence
-Investors systematically overestimate their own skill and underestimate
-uncertainty. Calibration studies show people who say they are "99% sure" are
-correct only about 80% of the time.
+Investors systematically overestimate their own skill, knowledge, and precision while underestimating uncertainty and the role of luck.
 
-**Impact:** Excessive trading (Barber & Odean found overconfident investors
-trade more and earn less), concentrated positions, and under-diversification.
+**Impact:** Excessive trading frequency (which erodes returns through costs and taxes), concentrated positions, under-diversification, and underestimation of tail risks.
 
 **Mitigation:**
-- Track prediction accuracy over time — keep a decision journal.
-- Use base rates: "What is the historical success rate of stock-pickers?"
-- Size positions to survive being wrong.
+- Track prediction accuracy over time — most people discover their hit rate is far lower than they believe.
+- Use base rates: "what fraction of active stock pickers beat the index over 10 years?" (historically ~10-15%).
+- Size positions according to conviction *and* uncertainty; use Kelly-criterion-inspired frameworks.
 
 ### Anchoring
-Over-relying on an initial reference point — often the purchase price, a
-52-week high, or an analyst price target — when making subsequent judgments.
+Over-relying on an initial reference point — often the purchase price, a 52-week high, or an analyst price target — when making decisions.
 
-**Impact:** Holding a losing position because "it was worth $X" or refusing to
-buy because a stock is "too far above" an arbitrary anchor, even when
-fundamentals have changed.
+**Impact:** Holding a stock because "it was worth $X" even though fundamentals have changed. Refusing to sell below cost basis despite deteriorating prospects. Fixating on round numbers as support/resistance.
 
 **Mitigation:**
-- Evaluate current fundamentals and forward expectations, not historical prices.
-- Ask: "If I did not own this, would I buy it today at this price?"
-- Use valuation models that are anchored to cash flows, not past prices.
+- Evaluate current fundamentals and forward-looking value, not historical prices.
+- Ask: "If I didn't own this, would I buy it today at this price with this information?"
+- Use multiple independent valuation methods to avoid anchoring on a single estimate.
 
 ### Recency Bias
-Overweighting recent events when forming expectations about the future. After a
-strong bull market, investors expect further gains; after a drawdown, they
-expect further losses.
+Overweighting recent events and extrapolating them into the future, while underweighting long-term historical base rates.
 
-**Impact:** Chasing performance (buying what has gone up), panic selling after
-drawdowns, and extrapolating short-term trends into long-term forecasts.
+**Impact:** Chasing performance after strong recent returns, panic selling after drawdowns, extrapolating recent trends indefinitely (e.g., "stocks always go up" after a bull run, or "the market is broken" after a crash).
 
 **Mitigation:**
-- Provide long-term historical context (e.g., average recovery time after a
-  20%+ drawdown).
-- Systematic rebalancing forces a "buy low, sell high" discipline.
-- Use base rates: "How often do drawdowns of this size lead to permanent loss?"
+- Provide long-term historical context: show 50+ year return distributions, not just recent quarters.
+- Systematic rebalancing forces buying what has fallen and selling what has risen.
+- Use dollar-cost averaging to remove timing decisions.
 
 ### Herding
-Following the crowd — driven by FOMO (fear of missing out), social proof, or
-the assumption that others have superior information.
+Following the crowd, driven by fear of missing out (FOMO) or social proof. The impulse to buy when everyone is buying and sell when everyone is selling.
 
-**Impact:** Buying at market tops when enthusiasm is highest, selling at bottoms
-when fear is greatest. Herding amplifies bubbles and crashes.
+**Impact:** Buying at market tops when euphoria peaks, selling at bottoms when panic is greatest. This is the single most reliable way to destroy wealth over time.
 
 **Mitigation:**
-- Contrarian checklist: "Am I buying because of analysis or because everyone
-  else is?"
-- Pre-committed Investment Policy Statement (IPS) that specifies allocation
-  targets independent of market sentiment.
-- Waiting periods before acting on "hot tips."
+- Contrarian checklist: when you feel strongest urge to act with the crowd, pause and review your Investment Policy Statement (IPS).
+- Pre-committed IPS with rebalancing bands removes the decision from the emotional moment.
+- Warren Buffett's rule: "Be fearful when others are greedy, and greedy when others are fearful."
 
 ### Mental Accounting
-Treating money differently depending on its source, intended use, or label —
-even though money is fungible.
+Treating money differently based on its source, label, or intended use, rather than recognizing that money is fungible.
 
-**Impact:** Taking excessive risk with "house money" (gains from previous
-wins), maintaining separate "buckets" that prevent holistic portfolio
-optimization, and ignoring the opportunity cost of idle cash in a savings
-account while carrying high-interest debt.
+**Impact:** Taking more risk with "house money" (gains), keeping too much in low-yield savings earmarked for specific goals while carrying high-interest debt, evaluating each account in isolation rather than viewing the total portfolio holistically.
 
 **Mitigation:**
-- View the total portfolio as a single entity with a unified risk-return
-  profile.
-- Recognize that a dollar is a dollar regardless of its source.
-- Use goals-based investing deliberately, but optimize across goals.
+- View total portfolio across all accounts as a single allocation.
+- Recognize the fungibility of money: a dollar of gains is worth exactly the same as a dollar of salary.
+- Use a unified financial plan that considers all assets and liabilities together.
 
 ### Status Quo Bias
-Preferring the current state of affairs and resisting change, even when change
-would be beneficial. Inertia is the default human behavior.
+Preference for the current state of affairs, inertia, and the tendency to avoid making changes even when changes are beneficial.
 
-**Impact:** Not rebalancing drifted portfolios, staying in underperforming
-funds due to inertia, failing to roll over old 401(k) accounts, and keeping
-legacy positions out of habit.
+**Impact:** Not rebalancing portfolios that have drifted far from targets, staying in underperforming investments, remaining in high-fee funds, keeping legacy holdings for no analytical reason.
 
 **Mitigation:**
-- Automated rebalancing (calendar or threshold-based).
-- Periodic portfolio reviews with explicit "keep or sell" decisions.
-- Default options that work in the investor's favor (see Nudges below).
+- Automated rebalancing (calendar-based or threshold-based) removes the need for active decisions.
+- Periodic portfolio review (quarterly or semi-annually) with a structured checklist.
+- Apply the "clean slate" test: "if I were building this portfolio from scratch today, would I hold these same positions?"
 
 ### Confirmation Bias
-Seeking, interpreting, and remembering information that confirms existing
-beliefs while ignoring or dismissing disconfirming evidence.
+Seeking, interpreting, and remembering information in a way that confirms pre-existing beliefs while ignoring or discounting disconfirming evidence.
 
-**Impact:** An investor with a bullish thesis on a stock reads only positive
-analysis, ignores warning signs, and interprets ambiguous news as supportive.
+**Impact:** Ignoring disconfirming evidence for a stock thesis, reading only bullish research on a long position, dismissing valid criticisms as "FUD" (fear, uncertainty, doubt).
 
 **Mitigation:**
-- Actively seek opposing viewpoints — read the bear case.
-- Devil's advocate process: before any major decision, articulate the three
-  strongest reasons the thesis is wrong.
-- Pre-mortem analysis: "Assume this investment failed — why did it fail?"
+- Actively seek opposing viewpoints: for every bull case, find the strongest bear case.
+- Devil's advocate process: assign someone (or yourself) to argue the opposite side before making a decision.
+- Pre-mortem analysis: "assume this investment loses 50% — what went wrong?"
 
 ### Framing Effects
-Decisions change depending on how choices are presented, even when the
-underlying economics are identical.
+Decisions change depending on how choices are presented, even when the underlying facts are identical.
 
-- "90% survival rate" vs "10% mortality rate" feel very different.
-- "You will lose $500/year in fees" vs "Your fee is 0.5%" triggers different
-  reactions.
-- Presenting returns as nominal vs real (inflation-adjusted) changes
-  risk perception.
+- "90% survival rate" vs "10% mortality rate" feel very different despite being logically equivalent.
+- "You could lose $10,000" vs "there is a small probability of a 5% drawdown" trigger different responses.
+- Presenting returns in nominal vs real terms changes perceived attractiveness.
 
-**Application:** Be deliberate about framing when presenting information.
-Show both frames when the choice of frame could influence the decision.
+**Mitigation:** Always reframe important financial decisions in multiple ways before acting. Present both gains and losses, both probabilities and dollar amounts.
 
 ### Nudges and Choice Architecture
-Small design choices in how options are presented can dramatically shift
-behavior without restricting freedom of choice (Thaler & Sunstein).
+Designing the decision environment to guide better outcomes without restricting freedom of choice (Thaler & Sunstein).
 
 **Key nudges in investing:**
-- **Auto-enrollment in 401(k):** Increases participation from ~60% to ~90%.
-- **Auto-escalation:** Automatically increase contribution rate with raises
-  (Save More Tomorrow program).
-- **Default to diversified portfolio:** Target-date fund as the default
-  removes the paralysis of choice.
-- **Simplification:** Reducing the number of fund options increases
-  participation and improves diversification.
+- **Auto-enrollment** in 401(k) plans dramatically increases participation rates (from ~50% to ~90% in studies).
+- **Auto-escalation** increases contribution rates automatically with raises, overcoming inertia.
+- **Default to diversified portfolio** (target-date fund) prevents naive 1/N allocation across random options.
+- **Commitment devices** such as pre-set rebalancing rules, automatic savings transfers, and written Investment Policy Statements.
+- **Cooling-off periods** before executing large trades based on emotional reactions.
 
 ## Worked Examples
 
 ### Example 1: Disposition Effect — Holding a Loser
-**Given:** An investor bought shares at $100. The stock is now at $80 with
-deteriorating fundamentals (declining revenue, rising debt, lowered guidance).
-The investor resists selling, saying "I'll sell when it gets back to $100."
+**Given:** An investor bought shares of XYZ Corp at $100 per share. The stock is now at $80. The company has reported two consecutive quarters of declining revenue, lost a major customer, and faces a new competitive threat. The investor says, "I can't sell now — I'd be locking in a loss. I'll wait until it gets back to $100."
 
 **Analysis:**
-1. **Identify the bias:** This is classic loss aversion manifesting as the
-   disposition effect. The $100 purchase price is an anchor, and selling at $80
-   would crystallize a loss that feels painful.
-2. **Reframe the decision:** "Forget the purchase price. You have $80 per
-   share today. Would you buy this stock at $80 given current fundamentals?"
-   If the answer is no, holding is equivalent to buying — you are choosing to
-   allocate capital here every day you hold.
-3. **Evaluate objectively:** Review the current thesis — revenue declining,
-   debt rising, guidance lowered. The fundamentals that justified the original
-   purchase no longer hold.
-4. **Consider tax consequences:** If in a taxable account, the $20/share loss
-   can be harvested for tax benefit — turning the bias on its head.
-5. **Pre-commit going forward:** Establish rules: "I will sell any position
-   that drops 15% below my intrinsic value estimate, regardless of purchase
-   price." Write it in your IPS.
+1. **Identify the bias:** This is classic loss aversion manifesting as the disposition effect. The investor is anchored to the $100 purchase price and is holding to avoid the psychological pain of realizing a loss.
+2. **Reframe the decision:** The purchase price is a sunk cost — it is irrelevant to the forward-looking decision. The correct question is: "If I had $80 in cash right now, would I buy XYZ Corp today given its deteriorating fundamentals?"
+3. **Evaluate fundamentals objectively:** Two quarters of declining revenue, lost customer, new competition — the thesis that justified buying at $100 may be broken.
+4. **Apply a framework:** If the original investment thesis is invalidated, the rational action is to sell regardless of the current price relative to cost basis. Tax-loss harvesting may even provide a tangible benefit from realizing the loss.
+5. **Implement safeguards for the future:** Set stop-loss rules at time of purchase (e.g., "I will re-evaluate if the stock falls 15% or if the company misses revenue estimates for two consecutive quarters"). Write these rules down before buying.
 
 ### Example 2: Recency Bias — Panic After a Drawdown
-**Given:** After a 25% market drawdown in 2022, an investor wants to move
-their entire portfolio to cash, saying "The market is going to keep falling."
+**Given:** After a 25% market drawdown in 2022, an investor wants to move their entire portfolio to 100% cash. They say, "The market is clearly broken. I need to protect what I have left."
 
 **Analysis:**
-1. **Identify the bias:** Recency bias — the investor is extrapolating the
-   recent drawdown into an expectation of continued decline.
+1. **Identify the bias:** Recency bias — the investor is extrapolating the recent drawdown into an expectation of continued decline. The emotional pain of recent losses is dominating their assessment of future probabilities.
 2. **Provide historical context:**
-   - Since 1950, the S&P 500 has experienced 20%+ drawdowns roughly every
-     5-7 years.
-   - Average time to recover from a 20-30% drawdown: ~14 months.
-   - An investor who went to cash after the 2008 crash and waited for
-     "safety" missed the 68% rally in 2009-2010.
-3. **Quantify the cost of market timing:** Missing the 10 best days over a
-   20-year period cuts total return roughly in half. Most of those best days
-   occur within two weeks of the worst days.
-4. **Reframe:** "You are not predicting the market — you are reacting to pain.
-   The decision to go to cash is a market-timing bet that requires being right
-   twice: when to get out and when to get back in."
-5. **Constructive action:** If the investor's risk tolerance has genuinely
-   changed, adjust the asset allocation modestly and systematically — do not
-   make an all-or-nothing move driven by fear.
+   - The S&P 500 has experienced drawdowns of 20%+ roughly every 4-6 years on average.
+   - After every previous bear market, the market recovered and reached new highs (median recovery time ~2 years).
+   - Missing the 10 best days in the market (which often cluster near the worst days) dramatically reduces long-term returns.
+3. **Quantify the cost of market timing:** Selling after a 25% drop and waiting for "clarity" means the investor has already absorbed the loss and now needs to correctly time the re-entry — getting two decisions right instead of zero.
+4. **Behavioral coaching approach:**
+   - Validate the emotion: "It is completely normal to feel anxious after a significant decline."
+   - Reframe with data: show historical drawdown and recovery chart.
+   - Revisit the financial plan: "Your retirement is 20 years away. Does a 25% drawdown in one year change the long-term math?"
+   - Offer a compromise if needed: "If you must act, reduce equity by 5-10% rather than going to 100% cash. This satisfies the urge to do something while preserving most of the recovery upside."
 
 ## Common Pitfalls
-- **Biases are easier to spot in others than in ourselves.** Self-awareness is
-  necessary but not sufficient — use processes and rules to compensate.
-- **Knowing about biases does not eliminate them.** Debiasing is hard.
-  Education alone reduces bias only marginally; structural interventions
-  (automation, checklists, rules) are more effective.
-- **Over-correcting is also a bias.** Contrarianism for its own sake is not
-  rational — sometimes the crowd is right.
-- **One-size-fits-all behavioral advice ignores individual differences.** Risk
-  tolerance, time horizon, financial literacy, and personality all affect which
-  biases are most relevant for a given person.
-- **Being patronizing or condescending.** Recognize biases respectfully —
-  these are universal human tendencies, not signs of ignorance or stupidity.
+- Biases are far easier to spot in others than in ourselves — self-awareness is necessary but not sufficient.
+- Knowing about biases does not eliminate them; debiasing is genuinely hard and requires structural safeguards (rules, automation, accountability).
+- Over-correcting: contrarianism for its own sake is also a bias (reactance). Being contrarian is only valuable when supported by independent analysis.
+- One-size-fits-all behavioral advice ignores individual differences in risk tolerance, time horizon, financial literacy, and emotional temperament.
+- Patronizing tone: recognize and name biases without being condescending. The goal is to empower the investor, not to demonstrate intellectual superiority.
+- Assuming rationality is always optimal: some "irrational" behaviors (e.g., holding cash for sleep-at-night comfort) may be utility-maximizing for that individual even if not return-maximizing.
 
 ## Cross-References
-- **Layer 2 — Statistics Fundamentals** (`statistics-fundamentals`): base rates
-  and probability concepts that support debiasing.
-- **Layer 3 — Asset Allocation** (`asset-allocation`): rules-based rebalancing
-  as a structural mitigation for behavioral biases.
-- **Layer 3 — Diversification** (`diversification`): diversification reduces
-  the impact of overconfident concentrated bets.
-- **Layer 5 — Historical Risk** (`historical-risk`): historical drawdown data
-  provides context to counter recency bias.
-- **Layer 8 — Performance Reporting** (`performance-reporting`): framing
-  effects in how returns and risk are presented to clients.
+- Layer 1: `statistics-fundamentals` — base rates, probability calibration
+- Layer 2: `time-value-of-money` — framing decisions in present value terms
+- Layer 4: `historical-risk` — long-term drawdown context for recency bias discussions
+- Layer 5: `asset-allocation` — systematic rebalancing as a debiasing mechanism
+- Layer 5: `diversification` — structural protection against overconfidence and concentration
+- Layer 8: `performance-reporting` — framing effects in how returns are presented
 
 ## Reference Implementation
 See `scripts/finance_psychology.py` for computational helpers.
