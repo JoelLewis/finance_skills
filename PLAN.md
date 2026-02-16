@@ -2,7 +2,7 @@
 
 ## Overview
 
-34 Claude Code skills across 9 layers (Layer 0–8), organized by dependency order.
+45 Claude Code skills across 10 layers (Layer 0–9), organized by dependency order.
 Each skill lives in `.claude/skills/<skill-name>/` and consists of:
 
 - **SKILL.md** — The skill specification: purpose, concepts, formulas, worked examples, pitfalls
@@ -107,7 +107,30 @@ finance_skills/
     ├── finance-psychology/              # Layer 7 — Behavioral Finance
     │   └── SKILL.md
     │
-    └── performance-reporting/           # Layer 8 — Reporting
+    ├── performance-reporting/           # Layer 8 — Reporting
+    │   └── SKILL.md
+    │
+    ├── investment-suitability/          # Layer 9 — Compliance & Regulatory Guidance
+    │   └── SKILL.md
+    ├── know-your-customer/
+    │   └── SKILL.md
+    ├── anti-money-laundering/
+    │   └── SKILL.md
+    ├── reg-bi/
+    │   └── SKILL.md
+    ├── fiduciary-standards/
+    │   └── SKILL.md
+    ├── fee-disclosure/
+    │   └── SKILL.md
+    ├── advice-standards/
+    │   └── SKILL.md
+    ├── sales-practices/
+    │   └── SKILL.md
+    ├── advertising-compliance/
+    │   └── SKILL.md
+    ├── client-disclosures/
+    │   └── SKILL.md
+    └── conflicts-of-interest/
         └── SKILL.md
 ```
 
@@ -127,8 +150,9 @@ finance_skills/
 | 6 | Personal Finance | debt-management, lending, emergency-fund, savings-goals, liquidity-management | both |
 | 7 | Behavioral Finance | finance-psychology | both |
 | 8 | Reporting | performance-reporting | retrospective |
+| 9 | Compliance & Regulatory Guidance | investment-suitability, know-your-customer, anti-money-laundering, reg-bi, fiduciary-standards, fee-disclosure, advice-standards, sales-practices, advertising-compliance, client-disclosures, conflicts-of-interest | prospective |
 
-**Total: 34 skills**
+**Total: 45 skills**
 
 ---
 
@@ -167,6 +191,8 @@ Explanation with formulas.
 ## Worked Examples
 ### Example 1: <title>
 **Given:** ... **Calculate:** ... **Solution:** ...
+(Layer 9 compliance skills use scenario-based examples:
+**Scenario:** ... **Compliance Issues:** ... **Analysis:** ...)
 
 ## Common Pitfalls
 - Things to watch out for
@@ -174,7 +200,7 @@ Explanation with formulas.
 ## Cross-References
 - Related skills
 
-## Reference Implementation
+## Reference Implementation (optional — omit for guidance-only skills)
 See `scripts/<name>.py` for computational helpers.
 ```
 
@@ -192,6 +218,16 @@ See `scripts/<name>.py` for computational helpers.
 | Prospective → allocation | forward-risk, volatility-modeling → asset-allocation | Input/output |
 | Covariance matrix flow | statistics-fundamentals → historical-risk, forward-risk, diversification, asset-allocation | Shared computation |
 | Return math flow | return-calculations → nearly every skill | Foundation |
+| Suitability → policy | investment-suitability → investment-policy | Suitability obligations inform IPS constraints |
+| KYC → suitability | know-your-customer → investment-suitability, reg-bi | Customer profile feeds suitability/BI analysis |
+| KYC → AML | know-your-customer → anti-money-laundering | CDD/CIP feeds AML monitoring |
+| Fiduciary vs Reg BI | fiduciary-standards ↔ reg-bi | Parallel standards for IAs vs BDs |
+| Advice line | advice-standards → fiduciary-standards, reg-bi | Determines which standard applies |
+| Fee transparency | fee-disclosure → fund-vehicles, investment-policy | Fee rules constrain product/policy design |
+| Sales oversight | sales-practices → investment-suitability, reg-bi | Supervision enforces suitability/BI |
+| Marketing rules | advertising-compliance → performance-reporting, performance-metrics | Constrains how performance can be presented |
+| Disclosure docs | client-disclosures → fee-disclosure, conflicts-of-interest | Delivery vehicles for fee and COI disclosures |
+| COI across layer | conflicts-of-interest → reg-bi, fiduciary-standards, sales-practices | COI obligation embedded in multiple standards |
 
 ---
 
@@ -207,6 +243,7 @@ See `scripts/<name>.py` for computational helpers.
 - [x] Layer 6 — Personal Finance (5 skills)
 - [x] Layer 7 — Behavioral Finance (1 skill)
 - [x] Layer 8 — Reporting (1 skill)
+- [ ] Layer 9 — Compliance & Regulatory Guidance (11 skills)
 
 ### Phase 2: Python Reference Implementations
 - [x] Layer 0 scripts (return-calculations, time-value-of-money, statistics-fundamentals)
@@ -229,3 +266,4 @@ See `scripts/<name>.py` for computational helpers.
 - **Scripts**: Each skill's `scripts/` dir contains runnable Python with clear functions
 - **Formulas in SKILL.md**: LaTeX-style notation for clarity
 - **Direction labeling**: Every concept tagged as retrospective or prospective
+- **Layer 9 conventions**: Compliance skills are guidance-only (no Python scripts). Worked examples use scenario-based format (**Scenario / Compliance Issues / Analysis**) rather than numerical calculations. Primary sources cited inline (rule numbers, act sections, form references).
