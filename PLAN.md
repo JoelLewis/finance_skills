@@ -2,11 +2,11 @@
 
 ## Overview
 
-27 Claude Code skills across 9 layers (Layer 0–8), organized by dependency order.
+34 Claude Code skills across 9 layers (Layer 0–8), organized by dependency order.
 Each skill lives in `.claude/skills/<skill-name>/` and consists of:
 
 - **SKILL.md** — The skill specification: purpose, concepts, formulas, worked examples, pitfalls
-- **scripts/<name>.py** — Reference implementation (Python computational helpers)
+- **scripts/<name>.py** — Reference implementation (Python computational helpers; not all skills have scripts yet)
 
 Skills are designed to be loaded by Claude Code when a user asks a finance question.
 The SKILL.md teaches Claude the domain knowledge; the scripts provide runnable
@@ -20,154 +20,95 @@ computational tools.
 finance_skills/
 ├── PLAN.md                              # This file
 ├── LICENSE
-├── CLAUDE.md                            # Project-level Claude instructions
 │
 └── .claude/skills/
     ├── return-calculations/             # Layer 0 — Mathematical Foundations
     │   ├── SKILL.md
     │   └── scripts/
-    │       └── return_calculations.py
+    │       └── return_calculations.py   ✅
     ├── time-value-of-money/
     │   ├── SKILL.md
     │   └── scripts/
-    │       └── time_value_of_money.py
+    │       └── time_value_of_money.py   ✅
     ├── statistics-fundamentals/
     │   ├── SKILL.md
     │   └── scripts/
-    │       └── statistics_fundamentals.py
+    │       └── statistics_fundamentals.py ✅
     │
     ├── historical-risk/                 # Layer 1a — Realized Risk & Performance
     │   ├── SKILL.md
     │   └── scripts/
-    │       └── historical_risk.py
+    │       └── historical_risk.py       ✅
     ├── performance-metrics/
     │   ├── SKILL.md
     │   └── scripts/
-    │       └── performance_metrics.py
+    │       └── performance_metrics.py   ✅
     │
     ├── forward-risk/                    # Layer 1b — Forward-Looking Risk
-    │   ├── SKILL.md
-    │   └── scripts/
-    │       └── forward_risk.py
+    │   └── SKILL.md
     ├── volatility-modeling/
-    │   ├── SKILL.md
-    │   └── scripts/
-    │       └── volatility_modeling.py
+    │   └── SKILL.md
     │
     ├── equities/                        # Layer 2 — Asset Classes
-    │   ├── SKILL.md
-    │   └── scripts/
-    │       └── equities.py
+    │   └── SKILL.md
     ├── fixed-income-sovereign/
-    │   ├── SKILL.md
-    │   └── scripts/
-    │       └── fixed_income_sovereign.py
+    │   └── SKILL.md
     ├── fixed-income-municipal/
-    │   ├── SKILL.md
-    │   └── scripts/
-    │       └── fixed_income_municipal.py
+    │   └── SKILL.md
     ├── fixed-income-corporate/
-    │   ├── SKILL.md
-    │   └── scripts/
-    │       └── fixed_income_corporate.py
+    │   └── SKILL.md
     ├── fixed-income-structured/
-    │   ├── SKILL.md
-    │   └── scripts/
-    │       └── fixed_income_structured.py
+    │   └── SKILL.md
     ├── commodities/
-    │   ├── SKILL.md
-    │   └── scripts/
-    │       └── commodities.py
+    │   └── SKILL.md
     ├── real-assets/
-    │   ├── SKILL.md
-    │   └── scripts/
-    │       └── real_assets.py
+    │   └── SKILL.md
     ├── alternatives/
-    │   ├── SKILL.md
-    │   └── scripts/
-    │       └── alternatives.py
+    │   └── SKILL.md
     ├── fund-vehicles/
-    │   ├── SKILL.md
-    │   └── scripts/
-    │       └── fund_vehicles.py
+    │   └── SKILL.md
     ├── currencies-and-fx/
-    │   ├── SKILL.md
-    │   └── scripts/
-    │       └── currencies_and_fx.py
+    │   └── SKILL.md
     ├── digital-assets/
-    │   ├── SKILL.md
-    │   └── scripts/
-    │       └── digital_assets.py
+    │   └── SKILL.md
     │
     ├── quantitative-valuation/          # Layer 3 — Valuation
-    │   ├── SKILL.md
-    │   └── scripts/
-    │       └── quantitative_valuation.py
+    │   └── SKILL.md
     ├── qualitative-valuation/
-    │   ├── SKILL.md
-    │   └── scripts/
-    │       └── qualitative_valuation.py
+    │   └── SKILL.md
     │
     ├── diversification/                 # Layer 4 — Portfolio Construction
-    │   ├── SKILL.md
-    │   └── scripts/
-    │       └── diversification.py
+    │   └── SKILL.md
     ├── asset-allocation/
-    │   ├── SKILL.md
-    │   └── scripts/
-    │       └── asset_allocation.py
+    │   └── SKILL.md
     ├── bet-sizing/
-    │   ├── SKILL.md
-    │   └── scripts/
-    │       └── bet_sizing.py
+    │   └── SKILL.md
     ├── rebalancing/
-    │   ├── SKILL.md
-    │   └── scripts/
-    │       └── rebalancing.py
+    │   └── SKILL.md
     │
     ├── investment-policy/               # Layer 5 — Policy & Planning
-    │   ├── SKILL.md
-    │   └── scripts/
-    │       └── investment_policy.py
+    │   └── SKILL.md
     ├── tax-efficiency/
-    │   ├── SKILL.md
-    │   └── scripts/
-    │       └── tax_efficiency.py
+    │   └── SKILL.md
     ├── performance-attribution/
-    │   ├── SKILL.md
-    │   └── scripts/
-    │       └── performance_attribution.py
+    │   └── SKILL.md
     │
     ├── debt-management/                 # Layer 6 — Personal Finance
-    │   ├── SKILL.md
-    │   └── scripts/
-    │       └── debt_management.py
+    │   └── SKILL.md
     ├── lending/
-    │   ├── SKILL.md
-    │   └── scripts/
-    │       └── lending.py
+    │   └── SKILL.md
     ├── emergency-fund/
-    │   ├── SKILL.md
-    │   └── scripts/
-    │       └── emergency_fund.py
+    │   └── SKILL.md
     ├── savings-goals/
-    │   ├── SKILL.md
-    │   └── scripts/
-    │       └── savings_goals.py
+    │   └── SKILL.md
     ├── liquidity-management/
-    │   ├── SKILL.md
-    │   └── scripts/
-    │       └── liquidity_management.py
+    │   └── SKILL.md
     │
     ├── finance-psychology/              # Layer 7 — Behavioral Finance
-    │   ├── SKILL.md
-    │   └── scripts/
-    │       └── finance_psychology.py
+    │   └── SKILL.md
     │
     └── performance-reporting/           # Layer 8 — Reporting
-        ├── SKILL.md
-        └── scripts/
-            └── performance_reporting.py
+        └── SKILL.md
 ```
 
 ---
@@ -187,7 +128,7 @@ finance_skills/
 | 7 | Behavioral Finance | finance-psychology | both |
 | 8 | Reporting | performance-reporting | retrospective |
 
-**Total: 27 skills**
+**Total: 34 skills**
 
 ---
 
@@ -220,7 +161,7 @@ retrospective | prospective | both
 ### <Concept>
 Explanation with formulas.
 
-## Key Formulas
+## Key Formulas (optional — omit for non-quantitative skills)
 | Formula | Expression | Use Case |
 
 ## Worked Examples
@@ -268,8 +209,9 @@ See `scripts/<name>.py` for computational helpers.
 - [x] Layer 8 — Reporting (1 skill)
 
 ### Phase 2: Python Reference Implementations
-- [ ] Layer 0 scripts
-- [ ] Layer 1 scripts
+- [x] Layer 0 scripts (return-calculations, time-value-of-money, statistics-fundamentals)
+- [x] Layer 1a scripts (historical-risk, performance-metrics)
+- [ ] Layer 1b scripts
 - [ ] Layer 2 scripts
 - [ ] Layer 3 scripts
 - [ ] Layer 4 scripts
