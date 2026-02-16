@@ -8,10 +8,10 @@ flag compliance concerns. See `PLAN.md` for the full architecture and roadmap.
 
 ## Current State
 
-45 skills across 3 plugin domains (all currently in `.claude/skills/`):
+50 skills across 3 plugin domains (all currently in `.claude/skills/`):
 - **core** (3 skills) — math foundations (returns, TVM, statistics)
 - **wealth-management** (31 skills) — investment knowledge, asset classes, portfolio construction, personal finance
-- **compliance** (11 skills) — US securities regulatory guidance (FINRA, SEC, ERISA, FinCEN)
+- **compliance** (16 skills) — US securities regulatory guidance (FINRA, SEC, ERISA, FinCEN, CFA Institute GIPS)
 
 Future plugins planned: advisory-practice, trading-operations, client-operations, data-integration.
 

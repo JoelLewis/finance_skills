@@ -7,8 +7,8 @@ self-contained domain of skills that can be installed independently into a proje
 `.claude/skills/` directory. Plugins declare dependencies on other plugins and share
 a common skill template.
 
-Currently **45 skills** are implemented across two plugins (`core`, `wealth-management`,
-`compliance`). The roadmap adds four more plugins for a total of **~80 skills** across
+Currently **50 skills** are implemented across three plugins (`core`, `wealth-management`,
+`compliance`). The roadmap adds four more plugins for a total of **~81 skills** across
 **7 plugins**.
 
 ---
@@ -88,11 +88,9 @@ Investment knowledge for personal and institutional wealth management. Consumer/
 
 **Python scripts completed:** historical-risk, performance-metrics (Layer 1a). Remaining layers pending.
 
-### 3. `compliance` — 11 existing + 5 planned = 16 skills
+### 3. `compliance` — 16 skills ✅
 
 Regulatory guidance for US securities law compliance. Guidance-only (no Python scripts). Skills flag problems to design around and share distilled takes from public compliance guides, enforcement actions, and industry practice.
-
-**Existing (Layer 9) — 11 skills ✅:**
 
 | Skill | Primary Sources |
 |-------|----------------|
@@ -107,13 +105,8 @@ Regulatory guidance for US securities law compliance. Guidance-only (no Python s
 | advertising-compliance | SEC Marketing Rule (206(4)-1); FINRA Rule 2210 |
 | client-disclosures | Form ADV; Form CRS; Reg S-P; prospectus delivery rules |
 | conflicts-of-interest | Reg BI COI obligation; IA Act fiduciary duty; FINRA compensation rules |
-
-**Planned — 5 skills:**
-
-| Skill | Coverage |
-|-------|----------|
 | books-and-records | SEC 17a-3/17a-4 (BDs), Rule 204-2 (IAs), FINRA retention, WORM, e-comms archiving |
-| regulatory-reporting | Form PF, 13F/13H, Form ADV amendments, FOCUS reports, blue sheets, CAT reporting — both rules and operational requirements |
+| regulatory-reporting | Form PF, 13F/13H, Form ADV amendments, FOCUS reports, blue sheets, CAT reporting |
 | gips-compliance | CFA Institute GIPS standards, composite construction, performance presentation, verification |
 | privacy-data-security | Reg S-P, Reg S-ID, SEC cybersecurity rules (2023), state privacy law intersections |
 | examination-readiness | SEC/FINRA exam process, document production, deficiency findings, mock exam frameworks |
@@ -185,12 +178,12 @@ Data foundations that every system depends on.
 |--------|----------|---------|-------|
 | core | 3 | 0 | 3 |
 | wealth-management | 31 | 0 | 31 |
-| compliance | 11 | 5 | 16 |
+| compliance | 16 | 0 | 16 |
 | advisory-practice | 0 | 10 | 10 |
 | trading-operations | 0 | 9 | 9 |
 | client-operations | 0 | 8 | 8 |
 | data-integration | 0 | 4 | 4 |
-| **Total** | **45** | **36** | **81** |
+| **Total** | **50** | **31** | **81** |
 
 ---
 
@@ -207,7 +200,7 @@ Data foundations that every system depends on.
 
 ## Current Repository Structure
 
-All 45 existing skills currently live in `.claude/skills/`. Plugin reorganization
+All 50 existing skills currently live in `.claude/skills/`. Plugin reorganization
 (moving skills into `plugins/` subdirectories) will happen in a future phase.
 
 ```
@@ -271,7 +264,12 @@ finance_skills/
     ├── sales-practices/
     ├── advertising-compliance/
     ├── client-disclosures/
-    └── conflicts-of-interest/
+    ├── conflicts-of-interest/
+    ├── books-and-records/
+    ├── regulatory-reporting/
+    ├── gips-compliance/
+    ├── privacy-data-security/
+    └── examination-readiness/
 ```
 
 ---
@@ -348,6 +346,11 @@ See `scripts/<name>.py` for computational helpers.
 | Marketing rules | advertising-compliance → performance-reporting, performance-metrics | Constrains how performance can be presented |
 | Disclosure docs | client-disclosures → fee-disclosure, conflicts-of-interest | Delivery vehicles for fee and COI disclosures |
 | COI across layer | conflicts-of-interest → reg-bi, fiduciary-standards, sales-practices | COI obligation embedded in multiple standards |
+| Records foundation | books-and-records → client-disclosures, sales-practices, anti-money-laundering | Retention rules underpin all compliance recordkeeping |
+| Reporting mechanics | regulatory-reporting → anti-money-laundering, client-disclosures, know-your-customer | Filing obligations tie to KYC, AML, and disclosure data |
+| GIPS performance chain | gips-compliance → performance-metrics, performance-attribution, performance-reporting | GIPS constrains calculation, attribution, and presentation |
+| Privacy data flows | privacy-data-security → client-disclosures, know-your-customer, books-and-records | NPI protection overlays disclosure, KYC, and retention |
+| Exam readiness umbrella | examination-readiness → all compliance skills | Exam preparation draws on every compliance domain |
 
 ---
 
@@ -356,8 +359,7 @@ See `scripts/<name>.py` for computational helpers.
 ### Phase 1: SKILL.md Files
 - [x] core (3 skills)
 - [x] wealth-management (31 skills)
-- [x] compliance — existing skills (11 skills)
-- [ ] compliance — planned skills (5 skills: books-and-records, regulatory-reporting, gips-compliance, privacy-data-security, examination-readiness)
+- [x] compliance (16 skills)
 - [ ] advisory-practice (10 skills)
 - [ ] trading-operations (9 skills)
 - [ ] client-operations (8 skills)
