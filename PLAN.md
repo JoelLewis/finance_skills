@@ -7,9 +7,9 @@ self-contained domain of skills that can be installed independently into a proje
 `.claude/skills/` directory. Plugins declare dependencies on other plugins and share
 a common skill template.
 
-Currently **50 skills** are implemented across three plugins (`core`, `wealth-management`,
-`compliance`). The roadmap adds four more plugins for a total of **~81 skills** across
-**7 plugins**.
+All **81 skills** are implemented across seven plugins (`core`, `wealth-management`,
+`compliance`, `advisory-practice`, `trading-operations`, `client-operations`,
+`data-integration`).
 
 ---
 
@@ -111,7 +111,7 @@ Regulatory guidance for US securities law compliance. Guidance-only (no Python s
 | privacy-data-security | Reg S-P, Reg S-ID, SEC cybersecurity rules (2023), state privacy law intersections |
 | examination-readiness | SEC/FINRA exam process, document production, deficiency findings, mock exam frameworks |
 
-### 4. `advisory-practice` (Front Office) — 10 skills — PLANNED
+### 4. `advisory-practice` (Front Office) — 10 skills ✅
 
 Advisor-facing systems and workflows. Teaches Claude how advisor platforms work so it can help design, evaluate, or integrate with them.
 
@@ -128,7 +128,7 @@ Advisor-facing systems and workflows. Teaches Claude how advisor platforms work 
 | fee-billing | Fee calculation (tiered, flat, breakpoint), billing cycles, collection methods, revenue recognition |
 | client-reporting-delivery | Report generation, customization, delivery channels, frequency management |
 
-### 5. `trading-operations` (Order Lifecycle & Execution) — 9 skills — PLANNED
+### 5. `trading-operations` (Order Lifecycle & Execution) — 9 skills ✅
 
 Order lifecycle from entry through settlement, plus operational risk. Serves multiple front-ends (advisor, algorithmic, client-direct).
 
@@ -144,7 +144,7 @@ Order lifecycle from entry through settlement, plus operational risk. Serves mul
 | operational-risk | Trade breaks, settlement fails, error handling, loss event taxonomy, key risk indicators |
 | counterparty-risk | Counterparty exposure, credit risk monitoring, netting, collateral management |
 
-### 6. `client-operations` (Account Lifecycle & Servicing) — 8 skills — PLANNED
+### 6. `client-operations` (Account Lifecycle & Servicing) — 8 skills ✅
 
 Back-office account operations and servicing workflows.
 
@@ -159,7 +159,7 @@ Back-office account operations and servicing workflows.
 | stp-automation | STP design, exception-based workflow, STP rate metrics, integration patterns |
 | workflow-automation | BPM concepts, task routing, approval chains, escalation, SLA monitoring, case management |
 
-### 7. `data-integration` (Reference Data & Integration) — 4 skills — PLANNED
+### 7. `data-integration` (Reference Data & Integration) — 4 skills ✅
 
 Data foundations that every system depends on.
 
@@ -174,16 +174,16 @@ Data foundations that every system depends on.
 
 ## Skill Count Summary
 
-| Plugin | Existing | Planned | Total |
-|--------|----------|---------|-------|
-| core | 3 | 0 | 3 |
-| wealth-management | 31 | 0 | 31 |
-| compliance | 16 | 0 | 16 |
-| advisory-practice | 0 | 10 | 10 |
-| trading-operations | 0 | 9 | 9 |
-| client-operations | 0 | 8 | 8 |
-| data-integration | 0 | 4 | 4 |
-| **Total** | **50** | **31** | **81** |
+| Plugin | Skills | Status |
+|--------|--------|--------|
+| core | 3 | ✅ |
+| wealth-management | 31 | ✅ |
+| compliance | 16 | ✅ |
+| advisory-practice | 10 | ✅ |
+| trading-operations | 9 | ✅ |
+| client-operations | 8 | ✅ |
+| data-integration | 4 | ✅ |
+| **Total** | **81** | |
 
 ---
 
@@ -200,7 +200,7 @@ Data foundations that every system depends on.
 
 ## Current Repository Structure
 
-All 50 existing skills currently live in `.claude/skills/`. Plugin reorganization
+All 81 skills currently live in `.claude/skills/`. Plugin reorganization
 (moving skills into `plugins/` subdirectories) will happen in a future phase.
 
 ```
@@ -209,7 +209,7 @@ finance_skills/
 ├── CLAUDE.md                            # Project-level Claude instructions
 ├── LICENSE
 │
-└── .claude/skills/                      # All 45 skills (flat, pre-plugin-reorganization)
+└── .claude/skills/                      # All 81 skills (flat, pre-plugin-reorganization)
     ├── return-calculations/             # core
     │   ├── SKILL.md
     │   └── scripts/return_calculations.py ✅
@@ -360,10 +360,10 @@ See `scripts/<name>.py` for computational helpers.
 - [x] core (3 skills)
 - [x] wealth-management (31 skills)
 - [x] compliance (16 skills)
-- [ ] advisory-practice (10 skills)
-- [ ] trading-operations (9 skills)
-- [ ] client-operations (8 skills)
-- [ ] data-integration (4 skills)
+- [x] advisory-practice (10 skills)
+- [x] trading-operations (9 skills)
+- [x] client-operations (8 skills)
+- [x] data-integration (4 skills)
 
 ### Phase 2: Python Reference Implementations (quantitative plugins only)
 - [x] core scripts (return-calculations, time-value-of-money, statistics-fundamentals)
