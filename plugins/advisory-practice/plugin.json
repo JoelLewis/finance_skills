@@ -1,0 +1,21 @@
+{
+  "name": "advisory-practice",
+  "version": "1.0.0",
+  "description": "Advisor-facing systems and workflows. Teaches Claude how advisor platforms work so it can help design, evaluate, or integrate with them. Covers the full advisor workflow from onboarding through reporting.",
+  "dependencies": ["core", "wealth-management"],
+  "skills": [
+    "client-onboarding",
+    "crm-client-lifecycle",
+    "portfolio-management-systems",
+    "order-management-advisor",
+    "financial-planning-integration",
+    "proposal-generation",
+    "advisor-dashboards",
+    "next-best-action",
+    "fee-billing",
+    "client-reporting-delivery"
+  ],
+  "tags": ["advisor", "wealth-management", "front-office", "crm", "billing"],
+  "scripts": false,
+  "notes": "crm-client-lifecycle and advisor-dashboards skills are planned but not yet implemented."
+}

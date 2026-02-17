@@ -1,0 +1,15 @@
+{
+  "name": "data-integration",
+  "version": "1.0.0",
+  "description": "Data foundations that every financial system depends on. Covers reference data management, market data feeds, integration patterns for financial systems, and data quality governance.",
+  "dependencies": ["core"],
+  "skills": [
+    "reference-data",
+    "market-data",
+    "integration-patterns",
+    "data-quality"
+  ],
+  "tags": ["data", "reference-data", "market-data", "integration", "data-quality"],
+  "scripts": false,
+  "notes": "integration-patterns and data-quality skills are planned but not yet implemented."
+}

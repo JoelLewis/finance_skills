@@ -1,0 +1,26 @@
+{
+  "name": "compliance",
+  "version": "1.0.0",
+  "description": "US securities regulatory guidance for broker-dealers and investment advisers. Covers FINRA, SEC, ERISA, FinCEN, and CFA Institute GIPS requirements. Guidance-only — no Python scripts.",
+  "dependencies": ["core"],
+  "skills": [
+    "investment-suitability",
+    "know-your-customer",
+    "anti-money-laundering",
+    "reg-bi",
+    "fiduciary-standards",
+    "fee-disclosure",
+    "advice-standards",
+    "sales-practices",
+    "advertising-compliance",
+    "client-disclosures",
+    "conflicts-of-interest",
+    "books-and-records",
+    "regulatory-reporting",
+    "gips-compliance",
+    "privacy-data-security",
+    "examination-readiness"
+  ],
+  "tags": ["compliance", "regulatory", "SEC", "FINRA", "ERISA", "AML"],
+  "scripts": false
+}

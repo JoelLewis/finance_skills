@@ -1,0 +1,19 @@
+{
+  "name": "client-operations",
+  "version": "1.0.0",
+  "description": "Back-office account operations and servicing workflows. Covers the full account lifecycle from opening through maintenance, transfers, reconciliation, and corporate actions.",
+  "dependencies": ["core"],
+  "skills": [
+    "account-opening-workflow",
+    "account-opening-compliance",
+    "account-maintenance",
+    "account-transfers",
+    "reconciliation",
+    "corporate-actions",
+    "stp-automation",
+    "workflow-automation"
+  ],
+  "tags": ["back-office", "account-management", "transfers", "reconciliation", "corporate-actions"],
+  "scripts": false,
+  "notes": "workflow-automation skill is planned but not yet implemented."
+}

@@ -8,7 +8,7 @@ flag compliance concerns. See `PLAN.md` for the full architecture and roadmap.
 
 ## Current State
 
-81 skills across 7 plugin domains (all currently in `.claude/skills/`):
+81 skills across 7 plugin domains, organized under `plugins/`:
 - **core** (3 skills) — math foundations (returns, TVM, statistics)
 - **wealth-management** (31 skills) — investment knowledge, asset classes, portfolio construction, personal finance
 - **compliance** (16 skills) — US securities regulatory guidance (FINRA, SEC, ERISA, FinCEN, CFA Institute GIPS)
@@ -17,12 +17,14 @@ flag compliance concerns. See `PLAN.md` for the full architecture and roadmap.
 - **client-operations** (8 skills) — account opening, maintenance, transfers, reconciliation, corporate actions, STP
 - **data-integration** (4 skills) — reference data, market data, integration patterns, data quality
 
+Skills are installed into a project's `.claude/skills/` via `install.sh`.
+
 ## Working With Skills
 
 ### Skill Structure
-Each skill is a directory in `.claude/skills/` containing a `SKILL.md` and optionally
-a `scripts/` subdirectory with Python reference implementations. The SKILL.md teaches
-domain knowledge; scripts provide runnable computation.
+Each skill is a directory in `plugins/<plugin-name>/skills/` containing a `SKILL.md`
+and optionally a `scripts/` subdirectory with Python reference implementations. The
+SKILL.md teaches domain knowledge; scripts provide runnable computation.
 
 ### Template
 All skills follow the template documented in `PLAN.md`. Key sections:
@@ -35,7 +37,8 @@ All skills follow the template documented in `PLAN.md`. Key sections:
 
 ### Creating New Skills
 1. Check `PLAN.md` for the planned skill list and plugin assignment
-2. Follow the SKILL.md template exactly
+2. Create the skill directory under `plugins/<plugin-name>/skills/<skill-name>/`
+3. Follow the SKILL.md template exactly
 3. For quantitative skills: include Key Formulas and worked numerical examples
 4. For compliance/operations skills: use scenario-based examples (Scenario / Compliance Issues / Analysis), cite specific rule numbers, omit Key Formulas and Reference Implementation sections
 5. Add cross-references to related skills in both directions
