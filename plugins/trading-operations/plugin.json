@@ -1,0 +1,19 @@
+{
+  "name": "trading-operations",
+  "version": "1.0.0",
+  "description": "Order lifecycle from entry through settlement, plus operational and counterparty risk. Serves advisor, algorithmic, and client-direct trading contexts.",
+  "dependencies": ["core"],
+  "skills": [
+    "order-lifecycle",
+    "trade-execution",
+    "pre-trade-compliance",
+    "post-trade-compliance",
+    "settlement-clearing",
+    "exchange-connectivity",
+    "margin-operations",
+    "operational-risk",
+    "counterparty-risk"
+  ],
+  "tags": ["trading", "order-management", "settlement", "execution", "risk"],
+  "scripts": false
+}

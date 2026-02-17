@@ -1,0 +1,13 @@
+{
+  "name": "core",
+  "version": "1.0.0",
+  "description": "Mathematical and statistical foundations required by all other plugins. Always installed — every plugin implicitly depends on core.",
+  "dependencies": [],
+  "skills": [
+    "return-calculations",
+    "time-value-of-money",
+    "statistics-fundamentals"
+  ],
+  "tags": ["math", "statistics", "foundations"],
+  "scripts": true
+}

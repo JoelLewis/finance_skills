@@ -198,78 +198,53 @@ Data foundations that every system depends on.
 
 ---
 
-## Current Repository Structure
+## Repository Structure
 
-All 81 skills currently live in `.claude/skills/`. Plugin reorganization
-(moving skills into `plugins/` subdirectories) will happen in a future phase.
+Skills live in `plugins/<plugin-name>/skills/`. The `install.sh` script symlinks
+them into a target project's `.claude/skills/` directory.
 
 ```
 finance_skills/
+├── README.md                            # Usage and plugin overview
 ├── PLAN.md                              # This file
 ├── CLAUDE.md                            # Project-level Claude instructions
 ├── LICENSE
+├── install.sh                           # Plugin installer
 │
-└── .claude/skills/                      # All 81 skills (flat, pre-plugin-reorganization)
-    ├── return-calculations/             # core
-    │   ├── SKILL.md
-    │   └── scripts/return_calculations.py ✅
-    ├── time-value-of-money/
-    │   ├── SKILL.md
-    │   └── scripts/time_value_of_money.py ✅
-    ├── statistics-fundamentals/
-    │   ├── SKILL.md
-    │   └── scripts/statistics_fundamentals.py ✅
-    ├── historical-risk/                 # wealth-management
-    │   ├── SKILL.md
-    │   └── scripts/historical_risk.py ✅
-    ├── performance-metrics/
-    │   ├── SKILL.md
-    │   └── scripts/performance_metrics.py ✅
-    ├── forward-risk/
-    ├── volatility-modeling/
-    ├── equities/
-    ├── fixed-income-sovereign/
-    ├── fixed-income-municipal/
-    ├── fixed-income-corporate/
-    ├── fixed-income-structured/
-    ├── commodities/
-    ├── real-assets/
-    ├── alternatives/
-    ├── fund-vehicles/
-    ├── currencies-and-fx/
-    ├── digital-assets/
-    ├── quantitative-valuation/
-    ├── qualitative-valuation/
-    ├── diversification/
-    ├── asset-allocation/
-    ├── bet-sizing/
-    ├── rebalancing/
-    ├── investment-policy/
-    ├── tax-efficiency/
-    ├── performance-attribution/
-    ├── debt-management/
-    ├── lending/
-    ├── emergency-fund/
-    ├── savings-goals/
-    ├── liquidity-management/
-    ├── finance-psychology/
-    ├── performance-reporting/
-    ├── investment-suitability/          # compliance
-    ├── know-your-customer/
-    ├── anti-money-laundering/
-    ├── reg-bi/
-    ├── fiduciary-standards/
-    ├── fee-disclosure/
-    ├── advice-standards/
-    ├── sales-practices/
-    ├── advertising-compliance/
-    ├── client-disclosures/
-    ├── conflicts-of-interest/
-    ├── books-and-records/
-    ├── regulatory-reporting/
-    ├── gips-compliance/
-    ├── privacy-data-security/
-    └── examination-readiness/
+└── plugins/
+    ├── core/
+    │   ├── plugin.json
+    │   └── skills/
+    │       ├── return-calculations/
+    │       │   ├── SKILL.md
+    │       │   └── scripts/return_calculations.py ✅
+    │       ├── time-value-of-money/
+    │       │   ├── SKILL.md
+    │       │   └── scripts/time_value_of_money.py ✅
+    │       └── statistics-fundamentals/
+    │           ├── SKILL.md
+    │           └── scripts/statistics_fundamentals.py ✅
+    ├── wealth-management/
+    │   ├── plugin.json
+    │   └── skills/                      # 31 skills
+    │       ├── historical-risk/         # scripts/historical_risk.py ✅
+    │       ├── performance-metrics/     # scripts/performance_metrics.py ✅
+    │       └── ... (29 more)
+    ├── compliance/
+    │   ├── plugin.json
+    │   └── skills/                      # 16 skills, guidance-only
+    ├── advisory-practice/
+    │   ├── plugin.json
+    │   └── skills/                      # 10 skills (8 implemented)
+    ├── trading-operations/
+    │   ├── plugin.json
+    │   └── skills/                      # 9 skills
+    ├── client-operations/
+    │   ├── plugin.json
+    │   └── skills/                      # 8 skills (7 implemented)
+    └── data-integration/
+        ├── plugin.json
+        └── skills/                      # 4 skills (2 implemented)
 ```
 
 ---
@@ -372,10 +347,10 @@ See `scripts/<name>.py` for computational helpers.
 - [ ] trading-operations scripts (where applicable)
 
 ### Phase 3: Plugin Reorganization
-- [ ] Create `plugins/` directory structure
-- [ ] Move existing skills into plugin subdirectories
-- [ ] Create `plugin.json` manifests for each plugin
-- [ ] Build `install.sh` installer script
+- [x] Create `plugins/` directory structure
+- [x] Move existing skills into plugin subdirectories
+- [x] Create `plugin.json` manifests for each plugin
+- [x] Build `install.sh` installer script
 - [ ] Update skill cross-references for plugin-relative paths
 
 ---
