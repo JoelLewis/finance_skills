@@ -53,22 +53,44 @@ EOF
 }
 
 list_plugins() {
+  local marketplace="$SCRIPT_DIR/marketplace.json"
   echo "Available plugins:"
   echo ""
-  for plugin in "${ALL_PLUGINS[@]}"; do
-    manifest="$PLUGINS_DIR/$plugin/plugin.json"
-    if [[ -f "$manifest" ]]; then
-      description=$(python3 -c "import json,sys; d=json.load(open('$manifest')); print(d.get('description',''))" 2>/dev/null || echo "")
-      skill_count=$(ls "$PLUGINS_DIR/$plugin/skills/" 2>/dev/null | wc -l | tr -d ' ')
-      echo "  $plugin ($skill_count skills)"
-      echo "    $description"
-      deps="${PLUGIN_DEPS[$plugin]:-}"
-      if [[ -n "$deps" ]]; then
-        echo "    Dependencies: $deps"
+  if [[ -f "$marketplace" ]]; then
+    python3 - "$marketplace" <<'PYEOF'
+import json, sys
+
+with open(sys.argv[1]) as f:
+    catalog = json.load(f)
+
+for plugin in catalog.get("plugins", []):
+    name = plugin.get("name", "")
+    description = plugin.get("description", "")
+    skill_count = plugin.get("skillCount", len(plugin.get("skills", [])))
+    deps = plugin.get("dependencies", [])
+    print(f"  {name} ({skill_count} skills)")
+    print(f"    {description}")
+    if deps:
+        print(f"    Dependencies: {' '.join(deps)}")
+    print()
+PYEOF
+  else
+    # Fallback: read individual plugin.json files
+    for plugin in "${ALL_PLUGINS[@]}"; do
+      manifest="$PLUGINS_DIR/$plugin/plugin.json"
+      if [[ -f "$manifest" ]]; then
+        description=$(python3 -c "import json,sys; d=json.load(open('$manifest')); print(d.get('description',''))" 2>/dev/null || echo "")
+        skill_count=$(ls "$PLUGINS_DIR/$plugin/skills/" 2>/dev/null | wc -l | tr -d ' ')
+        echo "  $plugin ($skill_count skills)"
+        echo "    $description"
+        deps="${PLUGIN_DEPS[$plugin]:-}"
+        if [[ -n "$deps" ]]; then
+          echo "    Dependencies: $deps"
+        fi
+        echo ""
       fi
-      echo ""
-    fi
-  done
+    done
+  fi
 }
 
 install_plugin() {

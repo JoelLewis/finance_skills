@@ -1,0 +1,172 @@
+{
+  "name": "finance-skills",
+  "version": "1.0.0",
+  "description": "Claude Code skill plugins for financial services — 81 skills across 7 domain plugins covering investment management, compliance, advisory practice, trading, and operations.",
+  "plugins": [
+    {
+      "name": "core",
+      "version": "1.0.0",
+      "description": "Mathematical and statistical foundations required by all other plugins. Always installed — every plugin implicitly depends on core.",
+      "path": "plugins/core",
+      "dependencies": [],
+      "skillCount": 3,
+      "skills": [
+        "return-calculations",
+        "time-value-of-money",
+        "statistics-fundamentals"
+      ],
+      "tags": ["math", "statistics", "foundations"],
+      "scripts": true
+    },
+    {
+      "name": "wealth-management",
+      "version": "1.0.0",
+      "description": "Investment knowledge for personal and institutional wealth management. Covers risk measurement, asset classes, valuation, portfolio construction, policy and planning, personal finance, behavioral finance, and reporting.",
+      "path": "plugins/wealth-management",
+      "dependencies": ["core"],
+      "skillCount": 31,
+      "skills": [
+        "historical-risk",
+        "performance-metrics",
+        "forward-risk",
+        "volatility-modeling",
+        "equities",
+        "fixed-income-sovereign",
+        "fixed-income-municipal",
+        "fixed-income-corporate",
+        "fixed-income-structured",
+        "commodities",
+        "real-assets",
+        "alternatives",
+        "fund-vehicles",
+        "currencies-and-fx",
+        "digital-assets",
+        "quantitative-valuation",
+        "qualitative-valuation",
+        "diversification",
+        "asset-allocation",
+        "bet-sizing",
+        "rebalancing",
+        "investment-policy",
+        "tax-efficiency",
+        "performance-attribution",
+        "debt-management",
+        "lending",
+        "emergency-fund",
+        "savings-goals",
+        "liquidity-management",
+        "finance-psychology",
+        "performance-reporting"
+      ],
+      "tags": ["investment", "portfolio", "risk", "personal-finance", "asset-classes"],
+      "scripts": true
+    },
+    {
+      "name": "compliance",
+      "version": "1.0.0",
+      "description": "US securities regulatory guidance for broker-dealers and investment advisers. Covers FINRA, SEC, ERISA, FinCEN, and CFA Institute GIPS requirements. Guidance-only — no Python scripts.",
+      "path": "plugins/compliance",
+      "dependencies": ["core"],
+      "skillCount": 16,
+      "skills": [
+        "investment-suitability",
+        "know-your-customer",
+        "anti-money-laundering",
+        "reg-bi",
+        "fiduciary-standards",
+        "fee-disclosure",
+        "advice-standards",
+        "sales-practices",
+        "advertising-compliance",
+        "client-disclosures",
+        "conflicts-of-interest",
+        "books-and-records",
+        "regulatory-reporting",
+        "gips-compliance",
+        "privacy-data-security",
+        "examination-readiness"
+      ],
+      "tags": ["compliance", "regulatory", "SEC", "FINRA", "ERISA", "AML"],
+      "scripts": false
+    },
+    {
+      "name": "advisory-practice",
+      "version": "1.0.0",
+      "description": "Advisor-facing systems and workflows. Teaches Claude how advisor platforms work so it can help design, evaluate, or integrate with them. Covers the full advisor workflow from onboarding through reporting.",
+      "path": "plugins/advisory-practice",
+      "dependencies": ["core", "wealth-management"],
+      "skillCount": 10,
+      "skills": [
+        "client-onboarding",
+        "crm-client-lifecycle",
+        "portfolio-management-systems",
+        "order-management-advisor",
+        "financial-planning-integration",
+        "proposal-generation",
+        "advisor-dashboards",
+        "next-best-action",
+        "fee-billing",
+        "client-reporting-delivery"
+      ],
+      "tags": ["advisor", "wealth-management", "front-office", "crm", "billing"],
+      "scripts": false
+    },
+    {
+      "name": "trading-operations",
+      "version": "1.0.0",
+      "description": "Order lifecycle from entry through settlement, plus operational and counterparty risk. Serves advisor, algorithmic, and client-direct trading contexts.",
+      "path": "plugins/trading-operations",
+      "dependencies": ["core"],
+      "skillCount": 9,
+      "skills": [
+        "order-lifecycle",
+        "trade-execution",
+        "pre-trade-compliance",
+        "post-trade-compliance",
+        "settlement-clearing",
+        "exchange-connectivity",
+        "margin-operations",
+        "operational-risk",
+        "counterparty-risk"
+      ],
+      "tags": ["trading", "order-management", "settlement", "execution", "risk"],
+      "scripts": false
+    },
+    {
+      "name": "client-operations",
+      "version": "1.0.0",
+      "description": "Back-office account operations and servicing workflows. Covers the full account lifecycle from opening through maintenance, transfers, reconciliation, and corporate actions.",
+      "path": "plugins/client-operations",
+      "dependencies": ["core"],
+      "skillCount": 8,
+      "skills": [
+        "account-opening-workflow",
+        "account-opening-compliance",
+        "account-maintenance",
+        "account-transfers",
+        "reconciliation",
+        "corporate-actions",
+        "stp-automation",
+        "workflow-automation"
+      ],
+      "tags": ["back-office", "account-management", "transfers", "reconciliation", "corporate-actions"],
+      "scripts": false
+    },
+    {
+      "name": "data-integration",
+      "version": "1.0.0",
+      "description": "Data foundations that every financial system depends on. Covers reference data management, market data feeds, integration patterns for financial systems, and data quality governance.",
+      "path": "plugins/data-integration",
+      "dependencies": ["core"],
+      "skillCount": 4,
+      "skills": [
+        "reference-data",
+        "market-data",
+        "integration-patterns",
+        "data-quality"
+      ],
+      "tags": ["data", "reference-data", "market-data", "integration", "data-quality"],
+      "scripts": false
+    }
+  ]
+}

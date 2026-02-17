@@ -177,6 +177,24 @@ Data foundations that every financial system depends on.
 
 ---
 
+## Marketplace Config
+
+`marketplace.json` is a machine-readable catalog of every plugin in this repo. It
+aggregates each plugin's name, description, version, dependencies, skill list, and
+tags into a single document for use by tooling, CI, and the `install.sh --list`
+command.
+
+```bash
+# Inspect the full catalog
+cat marketplace.json | python3 -m json.tool
+```
+
+Each entry mirrors the corresponding `plugin.json` but is consolidated at the repo
+level, making it the authoritative source for plugin discovery without requiring
+directory traversal.
+
+---
+
 ## Installation
 
 ### Prerequisites
@@ -257,6 +275,7 @@ finance_skills/
 ├── README.md
 ├── PLAN.md                    # Architecture and implementation roadmap
 ├── CLAUDE.md                  # Claude Code project instructions
+├── marketplace.json           # Machine-readable catalog of all plugins
 ├── install.sh                 # Plugin installer
 └── plugins/
     ├── core/
