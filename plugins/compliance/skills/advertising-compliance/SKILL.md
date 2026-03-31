@@ -6,7 +6,7 @@ description: "Ensure investment advertising and marketing materials comply with 
 # Advertising Compliance — Investment Marketing & Communications
 
 ## Purpose
-Ensure investment advertising and marketing communications comply with the SEC Marketing Rule, FINRA Rule 2210, and related regulatory requirements. This skill covers performance advertising constraints, testimonial and endorsement disclosures, social media supervision, third-party ratings, recordkeeping obligations, and current SEC enforcement priorities.
+Ensure investment advertising and marketing communications comply with the SEC Marketing Rule (Rule 206(4)-1) and FINRA Rule 2210, covering performance advertising, testimonials, social media, third-party ratings, and recordkeeping.
 
 ## Layer
 9 — Compliance & Regulatory Guidance
@@ -15,215 +15,146 @@ Ensure investment advertising and marketing communications comply with the SEC M
 prospective
 
 ## When to Use
-- Reviewing or drafting marketing materials for an investment adviser or broker-dealer
-- Presenting investment performance in advertisements, pitchbooks, or websites
-- Evaluating whether hypothetical, backtested, or extracted performance can be shown and under what conditions
-- Using client testimonials or endorsements in marketing materials
-- Posting investment-related content on social media (firm accounts or associated persons' accounts)
-- Incorporating third-party ratings or rankings in advertisements
-- Assessing whether predecessor or portability performance can be presented
-- Designing compliance review workflows for advertising approval
-- Responding to SEC or FINRA examination findings on advertising practices
-- Establishing recordkeeping procedures for advertisements and marketing communications
+- Reviewing or drafting marketing materials for an adviser or broker-dealer
+- Presenting investment performance (live, hypothetical, backtested, extracted, or predecessor)
+- Using client testimonials, endorsements, or third-party ratings in advertising
+- Posting investment-related content on social media
+- Designing advertising compliance review workflows or recordkeeping procedures
+- Responding to SEC/FINRA examination findings on advertising
 
 ## Core Concepts
 
-### SEC Marketing Rule (Rule 206(4)-1)
-Effective November 4, 2022, the SEC's Marketing Rule replaced both the prior Advertising Rule (old Rule 206(4)-1) and the Cash Solicitation Rule (old Rule 206(4)-3) for investment advisers registered under the Investment Advisers Act of 1940. The rule applies to any "advertisement" — defined broadly as (1) any direct or indirect communication by an adviser that offers or promotes investment advisory services, or (2) any endorsement or testimonial for which the adviser provides compensation.
+### Advertising Compliance Review Checklist
 
-**Seven general prohibitions.** An advertisement may not:
+When reviewing any marketing material, work through these steps in order:
 
-1. **Include untrue statements of material fact or omit material facts** necessary to make the statement not misleading in light of the circumstances.
-2. **Include material statements of fact that the adviser does not have a reasonable basis for believing** it can substantiate upon demand by the SEC.
-3. **Include information that would reasonably be likely to cause an untrue or misleading inference** to be drawn about a material fact relating to the adviser.
-4. **Discuss potential benefits without providing fair and balanced treatment of associated material risks or limitations.** A one-sided presentation of returns without discussing the corresponding risks violates this prohibition.
-5. **Reference specific investment advice in a misleading manner.** This prohibition targets cherry-picking — presenting only favorable past recommendations while omitting unfavorable ones.
-6. **Include or exclude performance results, or present performance time periods, in a manner that is not fair and balanced.** This encompasses selective time-period presentation, choosing only the best-performing periods and ignoring others.
-7. **Be otherwise materially misleading.**
+1. **Classify the communication** — Determine the applicable regulatory regime (see FINRA 2210 Categories table below) and whether SEC Marketing Rule applies.
+2. **Check the seven general prohibitions** — Confirm the material contains no untrue statements, unsubstantiable claims, misleading inferences, one-sided benefit presentations, cherry-picked advice references, unfair performance periods, or other materially misleading content (Rule 206(4)-1(a)(1)-(7)). These apply to all advertisements regardless of audience — there is no "sophisticated investor" exception.
+3. **Evaluate performance presentation** — Use the Performance Requirements table below to identify which rules apply based on the type of performance shown.
+4. **Verify testimonial/endorsement disclosures** — If testimonials or endorsements are present, confirm all three required disclosures (client status, compensation, conflicts).
+5. **Check third-party ratings** — Confirm no cherry-picking, methodology/survey available, and required disclosures (date, period, rating org, compensation) are present.
+6. **Assess social media classification** — Determine static vs. interactive; confirm appropriate pre-approval, supervision, and archiving.
+7. **Confirm recordkeeping** — Verify the material will be archived per SEC Rule 204-2(a)(11) (5 years) or FINRA Rules 3110/4511 (3 years).
 
-These prohibitions apply to all advertisements regardless of the audience. There is no "sophisticated investor" exception — even materials shown only to institutional investors must comply.
+### Content Type Decision Tree
 
-### Performance Advertising Under the Marketing Rule
-Performance presentation is the most technically demanding area of advertising compliance. The Marketing Rule imposes specific requirements depending on the type of performance shown.
+**What type of content is being reviewed?**
 
-**Net performance requirement.** Whenever gross performance is presented, net performance must also be shown with at least equal prominence. Net performance must reflect the deduction of all fees and expenses that a client would pay, including advisory fees, custodial fees, and any other fees the adviser charges. Model fees are permitted only if they reflect the adviser's current fee schedule and the highest fee charged to the relevant audience.
+- **Contains performance data** --> Go to Performance Requirements table
+- **Contains testimonials or endorsements** --> Apply three required disclosures (Rule 206(4)-1(b)); if compensation exceeds $1,000/12 months, require written promoter agreement; check disqualification provisions (10-year lookback)
+- **Contains third-party ratings** --> Require: no cherry-picking, questionnaire/survey available, disclosure of date/period/rating org/compensation
+- **Social media post** --> Classify as static (pre-approval required, treated as retail communication) or interactive (supervision and post-review, treated as correspondence/public appearance); see FINRA RN 10-06, 11-39, 17-18
+- **General promotional material** --> Apply seven general prohibitions; check fair-and-balanced treatment of risks
 
-**Time period requirements.** Performance must be shown for standardized time periods of 1-year, 5-year, and 10-year periods (or since inception if the track record is shorter than the prescribed period). These periods must end on the most recent practicable date. An adviser cannot show only a favorable 3-year period while omitting the required 1-, 5-, and 10-year figures.
+### FINRA Rule 2210 Communication Categories
 
-**Hypothetical performance.** Includes backtested performance, model performance, and targeted or projected returns. The Marketing Rule permits hypothetical performance only if the adviser:
+| Category | Audience | Pre-Use Principal Approval | FINRA Filing |
+|----------|----------|---------------------------|--------------|
+| Institutional | Entities with $50M+ assets, registered BDs/IAs/banks only | Not required (training/supervision required) | Not required |
+| Retail | Available to >25 retail investors in 30 days | Required (limited exceptions for pre-approved templates) | Required for new members (10 days before use), options (10 days before), mutual funds/ETFs (10 days after) |
+| Correspondence | Available to 25 or fewer retail investors in 30 days | Not required (supervision and review required) | Not required |
 
-- Adopts and implements written policies and procedures reasonably designed to ensure that the hypothetical performance is relevant to the likely financial situation and investment objectives of the intended audience.
-- Provides sufficient information to enable the intended audience to understand the criteria used and assumptions made in calculating the hypothetical performance.
-- Provides (or, if the intended audience is an investor in a private fund, provides or offers to provide promptly) sufficient information to enable the intended audience to understand the risks and limitations of using such hypothetical performance in making investment decisions.
+### Performance Advertising Requirements
 
-Hypothetical performance cannot be used in advertisements directed to a mass audience (such as a public website accessible to all visitors) unless appropriate controls are in place (e.g., requiring the viewer to enter information demonstrating that the content is relevant to their situation before accessing the hypothetical performance).
+| Performance Type | Key Requirements | Rule Basis |
+|-----------------|-----------------|------------|
+| **Gross performance** | Must show net performance with at least equal prominence; net must deduct all client-borne fees | Rule 206(4)-1(d)(2) |
+| **Time periods** | Must present 1-year, 5-year, and 10-year periods (or since inception) ending on most recent practicable date | Rule 206(4)-1(d)(3) |
+| **Hypothetical/backtested** | Requires: (1) written policies ensuring relevance to intended audience; (2) methodology and assumptions disclosed; (3) risks and limitations disclosed. Cannot be shown on mass-audience channels without access controls | Rule 206(4)-1(d)(5)-(6) |
+| **Extracted** (subset of portfolio) | Must present total portfolio performance alongside extracted results | Rule 206(4)-1(d)(4) |
+| **Predecessor/portability** | Requires: same key personnel managing accounts; sufficiently similar accounts; all similarly managed accounts included (no cherry-picking); clear disclosure of different entity and any differences | SEC Staff guidance |
 
-**Extracted performance.** When showing the performance of a subset of investments from a portfolio (for example, only the equity sleeve of a balanced account), the total portfolio performance must be presented alongside it. The purpose is to prevent advisers from highlighting only the best-performing segment of a portfolio in isolation.
+### Testimonials and Endorsements — Required Disclosures
 
-**Related performance (predecessor performance and portability).** An adviser may present performance from a predecessor firm or from an account managed at a prior employer, but only if:
+Every testimonial or endorsement must include all three disclosures (Rule 206(4)-1(b)):
 
-- The person or persons primarily responsible for achieving the prior performance manage accounts at the current adviser.
-- The accounts managed at the prior firm are sufficiently similar to the accounts currently managed that the prior performance provides relevant information.
-- All accounts managed in a substantially similar manner are included (no cherry-picking of the best-performing accounts).
-- The advertisement clearly discloses that the performance was achieved at a different entity and describes any differences in personnel, investment process, or account structure.
+1. **Client/investor status** — Whether the person is a current client; for endorsements, whether affiliated with the adviser
+2. **Compensation** — Whether the person received cash or non-cash compensation
+3. **Conflicts of interest** — Description of any material conflicts
 
-### Testimonials and Endorsements
-The Marketing Rule permits investment advisers to use testimonials (statements by current clients about their experience) and endorsements (statements by non-clients — including solicitors — recommending the adviser) in advertising, overturning the prior blanket prohibition. However, specific disclosure requirements apply.
-
-**Required disclosures for all testimonials and endorsements:**
-
-1. Whether the person giving the testimonial or endorsement is a current client or investor. For endorsements, whether the person is affiliated with the adviser.
-2. Whether the person was compensated (cash or non-cash) for providing the testimonial or endorsement.
-3. A description of any material conflicts of interest on the part of the person giving the testimonial or endorsement.
-
-**Additional requirements when compensation is provided:**
-
-- If the promoter (formerly "solicitor") receives cash compensation of more than $1,000 (or non-cash compensation of more than $1,000 in value) over the preceding 12 months, the adviser must enter into a written agreement with the promoter.
-- The written agreement must describe the scope of the promoter's activities and the terms of compensation.
-- The adviser must have a reasonable basis for believing the promoter complies with the terms of the agreement.
-- The adviser must reasonably oversee the promoter's activities.
-
-**Disqualification provisions.** Certain persons are ineligible to serve as promoters — specifically those who have been subject to SEC disciplinary orders, certain criminal convictions, or other disqualifying events within the prior 10 years.
-
-### Third-Party Ratings
-An adviser may include third-party ratings (from publications, ranking organizations, or rating services) in advertisements only if:
-
-- The rating is not cherry-picked — the adviser does not provide or contribute to the preparation of the rating in a way that favors the adviser.
-- The advertisement includes, or the adviser offers to promptly provide, the questionnaire or survey used to obtain the rating.
-- The advertisement clearly and prominently discloses the date of the rating, the period covered, the identity of the rating organization, and any compensation paid to the rating organization.
-
-Selecting only the highest rating from among several received, or showing a rating from one service while omitting a lower rating from another, would likely violate the anti-cherry-picking prohibition.
-
-### FINRA Rule 2210 (Communications with the Public)
-FINRA Rule 2210 governs communications by broker-dealer member firms and their associated persons. It establishes three categories with different supervision and filing requirements.
-
-**Three categories of communications:**
-
-1. **Institutional communication.** Distributed only to institutional investors (entities with at least $50 million in total assets, or registered broker-dealers, investment advisers, and banks). These do not require pre-use principal approval but must be subject to training, education, and supervision procedures.
-2. **Retail communication.** Any written or electronic communication distributed or made available to more than 25 retail investors within any 30-calendar-day period. Retail communications generally require pre-use approval by a registered principal (with limited exceptions for previously approved templates).
-3. **Correspondence.** Any written or electronic communication distributed or made available to 25 or fewer retail investors within any 30-calendar-day period. Correspondence does not require pre-use principal approval but must be subject to appropriate supervision and review.
-
-**Content standards (applicable to all categories):**
-
-- All communications must be fair and balanced. Presentations of benefits must be accompanied by equally prominent discussion of risks and limitations.
-- Communications may not predict or project performance, or imply that past performance will recur, unless there is a reasonable basis for the claim.
-- Claims about products, services, or strategies must not be exaggerated or unwarranted.
-- Comparisons between investments must disclose all material differences, including risk, fees, and liquidity.
-- Testimonials in retail communications must comply with additional FINRA guidance (balanced presentation, disclosure of compensation).
-
-**Filing requirements with FINRA:**
-
-- New member firms (within the first year of FINRA membership) must file all retail communications with FINRA at least 10 business days before first use.
-- Options-related retail communications must be filed at least 10 business days before first use.
-- Mutual fund and ETF retail communications must be filed within 10 business days of first use.
-- Communications about registered investment companies (other than mutual funds) must be filed within 10 business days of first use.
+**Compensation threshold:** If a promoter receives >$1,000 (cash or non-cash) over the preceding 12 months, a written agreement describing scope and compensation terms is required. The adviser must have a reasonable basis for believing the promoter complies and must oversee their activities.
 
 ### Social Media Compliance
-Social media presents unique advertising compliance challenges. Both the SEC and FINRA have provided guidance on how firms and their associated persons should handle social media content.
 
-**Key FINRA guidance documents:**
+- **Static content** (blog posts, profile pages, pre-scripted posts) = retail communication; requires pre-use principal approval and potential FINRA filing
+- **Interactive content** (real-time posts, comments, live chat) = correspondence/public appearance; no pre-approval but must be supervised and subject to post-review
+- Firms adopting, sharing, or endorsing third-party posts may be deemed to have "adopted" the content and assume compliance responsibility
+- All business-related social media must be captured and archived per FINRA RN 10-06, 11-39, 17-18
 
-- Regulatory Notice 10-06 (January 2010): Established the framework for applying existing communication rules to social media.
-- Regulatory Notice 11-39 (August 2011): Addressed social media websites and the use of personal devices.
-- Regulatory Notice 17-18 (April 2017): Updated guidance on social media and digital communications, including text messaging and mobile apps.
+### SEC Enforcement Priorities
 
-**Static vs. interactive content:**
+| Area | Risk |
+|------|------|
+| **AI-washing** | Claims about AI/algorithm use must be accurate and substantiable |
+| **ESG greenwashing** | Investment process must actually integrate ESG factors as marketed |
+| **Cherry-picked performance** | Showing only best-performing accounts, strategies, or periods |
+| **Inadequate hypothetical disclaimers** | Boilerplate disclaimers are insufficient; must be tailored to the specific performance shown |
 
-- Static content (a blog post, a profile page, pre-scripted content) is treated as advertising/retail communication and generally requires pre-use principal approval and potential FINRA filing.
-- Interactive content (real-time posts, comments, live chat) is treated as correspondence or public appearance. It does not require pre-use approval but must be supervised and may be subject to post-review.
+### Recordkeeping
 
-**Supervision of associated persons' social media:**
+| Requirement | Retention Period | Rule |
+|-------------|-----------------|------|
+| SEC — all advertisements (print, digital, social, pitchbooks, fact sheets) | 5 years from fiscal year-end of last dissemination; first 2 years easily accessible | Rule 204-2(a)(11) |
+| FINRA — communications with public | 3 years minimum | Rules 3110, 4511 |
+| FINRA — complaint-related communications | 4 years minimum | Rule 4511 |
 
-- Firms must have written supervisory procedures (WSPs) addressing associated persons' use of social media for business purposes.
-- Firms must train personnel on the distinction between business and personal use.
-- Third-party posts on a firm's social media page: if the firm adopts, entangles with, or endorses a third-party post (e.g., by sharing, liking, or commenting favorably), the firm may be deemed to have "adopted" the content and become responsible for its compliance.
-- Linking to third-party content can also create compliance obligations if the link implies an endorsement.
-
-**Recordkeeping:**
-
-- All business-related social media communications must be captured and retained. Firms must have technology systems in place to archive social media activity.
-- This applies to all platforms — LinkedIn, X (formerly Twitter), Facebook, Instagram, YouTube, and any other platforms used for business.
-
-### SEC Enforcement Trends
-Recent SEC enforcement actions highlight several priority areas in advertising compliance.
-
-**AI-washing.** The SEC has brought enforcement actions against advisers that claim to use artificial intelligence in their investment process when AI plays no meaningful role, or when the AI capabilities are materially overstated. Any claim about the use of technology, algorithms, or AI must be accurate and substantiable.
-
-**Misleading ESG claims (greenwashing).** Advisers and funds that market themselves as ESG-focused must ensure their investment process actually integrates ESG factors as described. The SEC has sanctioned firms for claiming ESG integration in marketing materials while failing to follow through in practice.
-
-**Cherry-picked performance.** Showing only the best-performing accounts, strategies, or time periods while omitting underperformers remains a perennial enforcement target. The Marketing Rule's fair-and-balanced requirements and the general prohibition against misleading performance presentations make this a high-risk violation.
-
-**Inadequate hypothetical disclaimers.** Advisers that show backtested or hypothetical performance without adequate disclosure of assumptions, methodology, risks, and limitations face enforcement risk. The SEC has emphasized that boilerplate disclaimers are insufficient — disclosures must be tailored to the specific hypothetical performance being shown.
-
-### Recordkeeping Requirements
-**SEC Rule 204-2(a)(11):** Requires registered investment advisers to make and keep true, accurate, and current copies of all advertisements disseminated, directly or indirectly, to any person. These records must be preserved for five years from the end of the fiscal year in which the advertisement was last published or disseminated (with the first two years in an easily accessible location).
-
-This includes all forms of advertisements — print, digital, social media, email blasts, website content, pitchbooks, fact sheets, and any other promotional material.
-
-**FINRA recordkeeping:** FINRA Rules 3110 (Supervision) and 4511 (General Requirements) require broker-dealers to retain communications with the public for at least three years. Communications related to customer complaints must be retained for at least four years.
-
-**Best practices for recordkeeping:**
-
-- Maintain a centralized advertising review log that records the date of each advertisement, the reviewer, the approval status, and any required modifications.
-- Archive all versions of advertisements, including drafts and redlined versions showing compliance review changes.
-- Capture and archive social media content using dedicated compliance archiving tools.
-- Retain documentation of the policies and procedures governing hypothetical performance, including the basis for determining that hypothetical performance is relevant to the intended audience.
+Maintain a centralized advertising review log (date, reviewer, approval status, modifications). Archive all versions including drafts. Use dedicated compliance archiving tools for social media.
 
 ## Worked Examples
 
-### Example 1: RIA Showing Gross-Only Backtest Results on Website
-**Scenario:** An RIA develops a quantitative equity strategy and publishes backtested performance results on its public website. The backtest shows a 22% annualized return over a 10-year historical period. The results are presented gross of fees. The website is accessible to anyone without registration or qualification.
+### Example 1: RIA Showing Gross-Only Backtest on Public Website
+
+**Scenario:** An RIA publishes backtested performance (22% annualized over 10 years, gross of fees) on its public website accessible without registration.
 
 **Compliance Issues:**
+1. **Net performance omission** — Gross shown without net at equal prominence (Rule 206(4)-1(d)(2))
+2. **Hypothetical on mass-audience channel** — Backtested performance is hypothetical; public website without access controls violates audience-relevance requirement (Rule 206(4)-1(d)(5)-(6))
+3. **Missing methodology disclosures** — No universe, rebalancing frequency, transaction cost assumptions, benchmark, or overfitting/look-ahead bias discussion
+4. **Missing standardized time periods** — Must show 1/5/10-year periods ending most recent practicable date
+5. **No written policies** — Must adopt hypothetical performance policies before publishing
 
-1. **Net performance omission.** The Marketing Rule requires that whenever gross performance is shown, net performance must be presented with at least equal prominence. Showing only gross backtest results violates this requirement.
-2. **Hypothetical performance on a mass-audience channel.** Backtested performance is hypothetical performance under the Marketing Rule. Hypothetical performance may not be included in advertisements directed to a mass audience unless the adviser has implemented controls to ensure relevance to the viewer. A public website accessible without any qualification or registration is a mass-audience channel.
-3. **Missing methodology and assumptions.** The advertisement must provide sufficient information for the audience to understand the criteria, assumptions, risks, and limitations of the backtested results. At minimum, this includes the universe of securities, rebalancing frequency, transaction cost assumptions, benchmark used, start and end dates, and whether the strategy was developed using the same historical data (look-ahead bias and overfitting risks).
-4. **Missing standardized time periods.** Performance must be shown for 1-, 5-, and 10-year periods ending on the most recent practicable date.
-5. **Policies and procedures.** The adviser must have adopted and implemented written policies and procedures governing the use of hypothetical performance before publishing this content.
-
-**Analysis:** This advertisement has at least five distinct violations. To remediate: (a) add net performance alongside gross for all periods; (b) implement an access-controlled mechanism (e.g., a questionnaire or login) so that hypothetical performance is shown only to persons for whom it is relevant; (c) add comprehensive methodology disclosures including assumptions, risks, and limitations tailored to the specific backtest; (d) present standardized 1/5/10-year periods; (e) adopt written policies and procedures governing hypothetical performance presentation before republishing. Until remediated, the backtest results should be removed from the public website.
+**Analysis:** Remove backtest from public site until remediated. Remediation: (a) add net performance for all periods; (b) implement access controls (questionnaire or login); (c) add tailored methodology disclosures; (d) present standardized periods; (e) adopt written policies governing hypothetical performance.
 
 ### Example 2: BD Rep Posting Performance on Personal Social Media
-**Scenario:** A registered representative of a broker-dealer posts on their personal Instagram account: "My clients are up 35% this year! DM me to learn how I can help you achieve similar results. #investing #wealth #financialfreedom." The post was not submitted for firm review.
+
+**Scenario:** A registered rep posts on Instagram: "My clients are up 35% this year! DM me to learn how I can help you achieve similar results." Not submitted for firm review.
 
 **Compliance Issues:**
+1. **Retail communication without pre-approval** — Instagram post reaches >25 retail investors; requires principal approval under FINRA Rule 2210
+2. **Performance without context** — No time period, benchmark, gross/net disclosure, or risk discussion; violates fair-and-balanced requirement
+3. **Implied projection** — "Achieve similar results" implies past performance will recur (FINRA Rule 2210 prohibition)
+4. **Cherry-picking** — "My clients" likely refers to select accounts; omitting underperformers violates anti-cherry-picking rules
+5. **Recordkeeping failure** — Post not captured in firm's compliance archive
 
-1. **Retail communication without principal pre-approval.** If the post reaches or is available to more than 25 retail investors within 30 days (which an Instagram post almost certainly does), it is a retail communication under FINRA Rule 2210 and requires pre-use approval by a registered principal. The rep bypassed this requirement entirely.
-2. **Performance claim without required context.** The 35% figure is presented without any of the required context — no time period, no benchmark comparison, no disclosure of whether it is gross or net of fees, and no indication of risk. It violates both FINRA's fair-and-balanced requirement and the SEC Marketing Rule's general prohibitions.
-3. **Prediction/projection of future results.** The phrase "achieve similar results" implies that past performance will recur, violating FINRA Rule 2210's prohibition on predictions or projections without a reasonable basis.
-4. **Cherry-picking.** Stating "my clients are up 35%" likely refers to a subset of clients or a single account. If the rep's other clients are down or have lower returns, this is selective presentation of performance — a violation of both the Marketing Rule's anti-cherry-picking prohibition and FINRA content standards.
-5. **Recordkeeping failure.** The firm likely has no record of this communication because it was not submitted through the firm's compliance review and archiving process.
+**Analysis:** Immediate corrective action: (a) remove the post; (b) retrain rep on social media and FINRA rules; (c) review all rep social media for other violations; (d) evaluate WSP adequacy; (e) consider FINRA Rule 4530 filing and disciplinary action.
 
-**Analysis:** The firm should take immediate corrective action: (a) the post must be taken down; (b) the rep must be retrained on social media policies and FINRA communication rules; (c) the firm should review all of the rep's social media activity for other non-compliant posts; (d) the firm should evaluate whether its written supervisory procedures for social media are adequate and whether this failure represents a systemic gap; (e) depending on severity, the firm may need to file a FINRA Rule 4530 report and consider disciplinary action against the rep.
+### Example 3: Client Testimonials Without Required Disclosures
 
-### Example 3: Adviser Using Client Testimonials Without Required Disclosures
-**Scenario:** An RIA publishes a page on its website titled "What Our Clients Say" featuring five quotes from current clients praising the firm's investment advice and client service. Two of the clients received a $500 reduction in their quarterly advisory fee as a thank-you for providing testimonials. The page includes no disclosures.
+**Scenario:** An RIA's website features five client quotes praising the firm. Two clients received $500 fee reductions for providing testimonials. No disclosures appear on the page.
 
 **Compliance Issues:**
+1. **Missing client status disclosure** — Must state testimonials are from current clients
+2. **Missing compensation disclosure** — $500 fee reductions constitute compensation and must be disclosed (even under $1,000 threshold)
+3. **Missing conflicts disclosure** — Fee reduction creates incentive bias; this material conflict must be described
+4. **Potential cherry-picking** — Selecting only favorable testimonials may violate fair-and-balanced requirements
+5. **No written policies** — Must have policies governing testimonial solicitation, selection, and presentation
 
-1. **Missing disclosure of client status.** The Marketing Rule requires disclosure of whether the person giving the testimonial is a current client. The website page does not state this.
-2. **Missing disclosure of compensation.** Two clients received a fee reduction ($500 each) in exchange for their testimonials. This constitutes compensation and must be disclosed. Even though the amount is below $1,000, the fact of compensation must still be disclosed.
-3. **Missing disclosure of conflicts of interest.** There is no description of material conflicts of interest. The fact that a client received a fee reduction creates an incentive that could bias their testimonial — this is a material conflict that must be disclosed.
-4. **Fair-and-balanced presentation.** If the adviser selected only the most favorable testimonials and excluded negative or mixed client feedback, the presentation may violate the general prohibition against cherry-picking or misleading implications.
-5. **Policies and procedures.** The adviser should have written policies governing the solicitation, selection, and presentation of testimonials, including criteria for choosing which testimonials to display.
-
-**Analysis:** To remediate, the adviser must add disclosures stating: (a) that the testimonials are from current clients; (b) which testimonials were compensated and the nature of the compensation (fee reduction); (c) a description of the conflict of interest arising from the compensation arrangement. Additionally, the adviser should review whether the selection of testimonials is representative and fair, and adopt written policies and procedures governing testimonial use if none exist. Because the individual fee reductions are under $1,000 over 12 months, a written promoter agreement is not required for these particular testimonials, but the disclosure obligations still apply in full.
+**Analysis:** Add all three required disclosures (client status, compensation nature, conflict description). Review whether testimonial selection is representative. Adopt written testimonial policies. Note: individual fee reductions under $1,000/12 months do not trigger written promoter agreement requirement, but disclosure obligations still apply in full.
 
 ## Common Pitfalls
-- Showing gross performance without corresponding net performance, or burying net figures in footnotes while featuring gross prominently — the Marketing Rule requires at least equal prominence.
-- Publishing backtested or hypothetical performance on a public website without access controls or audience qualification mechanisms.
-- Using boilerplate hypothetical performance disclaimers rather than tailored disclosures that address the specific methodology, assumptions, and limitations of the performance shown.
-- Displaying only the best-performing time period, account, or strategy while omitting underperformers — cherry-picking violates both the Marketing Rule and FINRA content standards.
-- Allowing associated persons to post investment-related content on personal social media accounts without firm review, approval, and archiving.
-- Using client testimonials without the three required disclosures (client status, compensation, conflicts of interest).
-- Treating the distinction between "institutional" and "retail" communications as a compliance safe harbor — the Marketing Rule's seven general prohibitions apply to all advertisements regardless of audience sophistication.
-- Claiming AI, machine learning, or algorithmic capabilities in marketing materials that do not accurately reflect the firm's actual investment process.
-- Marketing a fund or strategy as ESG-integrated when the investment process does not systematically incorporate ESG factors as described.
-- Failing to preserve all advertisements for five years (SEC) or three years (FINRA), including social media posts, email campaigns, and website content.
-- Sharing third-party ratings without disclosing the date, period, methodology, and whether compensation was paid to the rating organization.
-- Assuming that interactive social media posts (tweets, comments, real-time responses) are exempt from all compliance requirements — they are still subject to supervision and recordkeeping even if pre-approval is not required.
-- Presenting predecessor or portability performance without disclosing that it was achieved at a different entity, or without including all similarly managed accounts from the prior firm.
+- Showing gross performance without net at equal prominence, or burying net figures in footnotes (Rule 206(4)-1(d)(2))
+- Publishing hypothetical/backtested performance on public websites without access controls
+- Using boilerplate hypothetical disclaimers instead of tailored methodology, assumption, and limitation disclosures
+- Cherry-picking best-performing periods, accounts, or strategies while omitting underperformers
+- Allowing associated persons to post investment content on personal social media without firm review and archiving
+- Omitting any of the three required testimonial disclosures (client status, compensation, conflicts)
+- Treating "institutional" vs. "retail" classification as a safe harbor — the seven general prohibitions apply to all advertisements regardless of audience
+- AI-washing: claiming AI/ML capabilities that do not reflect the actual investment process
+- ESG greenwashing: marketing ESG integration without systematic factor incorporation in practice
+- Failing to preserve advertisements for 5 years (SEC) or 3 years (FINRA), including social media and email campaigns
+- Using third-party ratings without disclosing date, period, methodology, and compensation to rating organization
+- Assuming interactive social media posts are exempt from all compliance — supervision and recordkeeping still apply
+- Presenting predecessor performance without disclosing the different entity or without including all similarly managed accounts
 
 ## Cross-References
 - Layer 8: `performance-reporting` — return presentation standards, gross/net reporting, benchmark comparison, and GIPS requirements that overlap with advertising performance rules.

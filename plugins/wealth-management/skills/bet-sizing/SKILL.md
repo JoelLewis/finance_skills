@@ -6,7 +6,7 @@ description: "Determine how much capital to allocate to individual positions wit
 # Bet Sizing
 
 ## Purpose
-Provides frameworks for determining how much capital to allocate to individual positions within a portfolio. Covers the Kelly criterion, fractional Kelly, risk budgeting, liquidity-based sizing, and conviction weighting. Proper bet sizing is critical — even a portfolio of good ideas can fail with poor sizing.
+Frameworks for determining how much capital to allocate to individual positions. Even a portfolio of good ideas can fail with poor sizing.
 
 ## Layer
 4 — Portfolio Construction
@@ -15,103 +15,73 @@ Provides frameworks for determining how much capital to allocate to individual p
 prospective
 
 ## When to Use
-- Determining the appropriate size for a new position
-- Applying the Kelly criterion to a bet or investment with estimable odds
+- Sizing a new position or adjusting an existing one
+- Applying Kelly criterion to a bet or investment with estimable odds
 - Allocating a risk budget across active positions
-- Setting maximum position sizes based on liquidity or risk limits
-- Sizing positions proportional to conviction and edge
-- Deciding the optimal number of positions in a concentrated portfolio
+- Setting maximum position sizes (liquidity, risk, or regulatory limits)
 - Scaling position sizes with volatility changes
 
 ## Core Concepts
 
-### Kelly Criterion (Discrete)
-For a binary bet with payoff odds b, win probability p, and loss probability q = 1-p:
+### Sizing Method Decision Framework
 
-f* = (b*p - q) / b
+Use this to select the appropriate method:
 
-where f* is the optimal fraction of wealth to wager. The Kelly criterion maximizes the expected logarithm of wealth (geometric growth rate) over repeated bets.
+| Situation | Method | Key Input |
+|-----------|--------|-----------|
+| Binary bet with known odds | Kelly (Discrete) | win prob p, payoff odds b |
+| Investment with return/vol estimates | Kelly (Continuous) | excess return mu-r_f, volatility sigma |
+| Parameter uncertainty is high | Fractional Kelly | Kelly fraction (1/2, 1/3, 1/4) |
+| Portfolio-level risk constraint | Risk Budgeting | total VaR or tracking error budget |
+| Hard caps required (regulatory, liquidity) | Max Position Limits | ADV, mandate rules |
+| Qualitative edge, no precise probabilities | Conviction Weighting | edge score x certainty score |
+| Volatility regime is shifting | Volatility Scaling | target risk / current vol |
 
-Properties:
-- f* = 0 when edge = 0 (no bet when there is no advantage)
-- f* < 0 when negative edge (the formula tells you to bet the other side)
-- f* > 0 only when b*p > q (positive expected value)
+### Sizing Workflow
 
-### Kelly Criterion (Continuous / Investment)
-For a normally distributed investment return with expected excess return mu-r_f and variance sigma^2:
+1. **Determine edge**: Estimate expected return, win probability, or conviction score
+2. **Select method** from the table above based on available inputs
+3. **Calculate raw size** using the appropriate formula (see Key Formulas)
+4. **Apply fractional Kelly** if using Kelly — default to half Kelly unless parameter confidence is high
+5. **Check constraints**: liquidity limit (position < 10-25% of ADV), risk limit (position risk < 10% of portfolio risk), regulatory caps
+6. **Final size** = min(calculated size, all binding constraints)
 
-f* = (mu - r_f) / sigma^2
+### Kelly Criterion
 
-This gives the fraction of total wealth to allocate. For example, an asset with 8% expected excess return and 20% volatility: f* = 0.08 / 0.04 = 2.0 (200% of wealth — implying leverage).
+**Discrete** (binary bet): f* = (b*p - q) / b where b = payoff odds, p = win prob, q = 1-p. Bet only when b*p > q (positive edge).
+
+**Continuous** (investment): f* = (mu - r_f) / sigma^2. Often implies leverage — an asset with 8% excess return and 20% vol gives f* = 200%.
 
 ### Fractional Kelly
-Full Kelly sizing is theoretically optimal but practically too aggressive because:
-- It assumes perfect knowledge of probabilities and payoffs
-- It produces large drawdowns (the expected drawdown of full Kelly is significant)
-- Estimation error in parameters can turn optimal into catastrophic
 
-Practical approach: use a fraction of Kelly, commonly:
-- **Half Kelly (f*/2):** Achieves 75% of the growth rate with substantially lower variance and drawdown risk
-- **Third Kelly (f*/3):** Even more conservative; appropriate when parameter uncertainty is high
-- **Quarter Kelly (f*/4):** Suitable for highly uncertain estimates
+Full Kelly maximizes geometric growth but assumes perfect parameter knowledge. Use a fraction to trade small growth reduction for large risk reduction:
 
-The key insight: the growth rate curve is flat near the peak. Reducing from full Kelly to half Kelly only sacrifices 25% of growth but reduces risk dramatically.
+| Fraction | Growth Retained | When to Use |
+|----------|----------------|-------------|
+| Half (f*/2) | ~75% | Default practical choice |
+| Third (f*/3) | ~56% | High parameter uncertainty |
+| Quarter (f*/4) | ~44% | Very uncertain estimates |
 
 ### Risk Budgeting
-Allocate risk (not capital) across positions. The total risk budget is the maximum acceptable portfolio risk (e.g., 10% VaR or 5% tracking error).
 
-**VaR-based budgeting:**
-- Total VaR budget: e.g., $1M at 95% confidence
-- Allocate across positions: Position VaR_i <= allocated VaR_i
-- Position VaR = w_i * sigma_i * z_alpha * Portfolio Value
+Allocate risk (not capital) across positions against a total budget (e.g., portfolio VaR or tracking error).
 
-**Tracking error budgeting (for active managers):**
-- Total active risk budget: e.g., 4% tracking error
-- Allocate across bets: each active bet consumes a portion of tracking error
-- Size active positions so that sum of risk contributions equals total risk budget
+- **VaR-based**: Position VaR_i = w_i * sigma_i * z_alpha * V; sum of position VaRs <= total VaR budget
+- **Tracking error**: Size active positions so risk contributions sum to active risk budget
 
-### Maximum Position Sizes
-Hard limits on individual positions to prevent concentration risk:
+### Maximum Position Limits
 
-**Liquidity-based limits:**
-- Position < X% of average daily volume (ADV) — common limits: 10-25% of ADV
-- Ensures ability to exit within a reasonable time frame (e.g., 5-10 trading days)
-
-**Risk-based limits:**
-- Position risk contribution < X% of portfolio volatility (e.g., max 10% of portfolio risk)
-- Single position < X% of portfolio value (common: 5% for diversified, 10% for concentrated)
-
-**Regulatory/mandate limits:**
-- Mutual fund: no more than 5% in a single name (diversified fund) or 25% (non-diversified)
-- Index tracking: weight cannot deviate from benchmark by more than specified amount
+- **Liquidity**: Position < 10-25% of ADV (exit within 5-10 trading days)
+- **Risk**: Single position risk contribution < 10% of portfolio risk; weight < 5% (diversified) or 10% (concentrated)
+- **Regulatory**: Diversified mutual fund max 5% per name; non-diversified max 25%
 
 ### Conviction Weighting
-Size positions proportional to the strength of the investment thesis:
 
-- **High conviction (largest positions):** Strong edge, deep research, multiple confirming factors
-- **Medium conviction:** Solid thesis but some uncertainty or limited information
-- **Low conviction (smallest positions):** Early-stage idea, limited edge, or purely diversification-motivated
-
-Framework: Score each position on edge strength (1-5) and certainty (1-5). Size proportional to the product: edge * certainty.
-
-### Optimal Number of Positions
-Trade-off between diversification and conviction:
-
-- **Concentrated (10-20 positions):** High conviction, deep research. Each position is 5-10% of the portfolio. Appropriate when the manager has genuine skill and edge.
-- **Diversified (50-100 positions):** Lower conviction per position but broader risk reduction. Each position is 1-3%. Appropriate for systematic or factor-based strategies.
-- **Very diversified (100+):** Index-like. Risk comes from factor tilts, not individual positions.
+Score each position: edge strength (1-5) x certainty (1-5). Size proportional to the product. Use when precise probabilities are unavailable but qualitative assessment of edge exists.
 
 ### Volatility Scaling
-Adjust position sizes inversely with volatility to maintain consistent risk per position:
 
-Adjusted size = Target risk / Current volatility
-
-When volatility doubles, position size halves, keeping the dollar risk constant. This is a core principle in managed futures and risk-targeting strategies.
-
-### Anti-Martingale (Kelly-like) Sizing
-Increase position sizes after gains (wealth grows, so Kelly fraction applied to larger base) and decrease after losses. This contrasts with martingale strategies (doubling down after losses) which can lead to ruin.
-
-Kelly naturally implements anti-martingale sizing: bet a constant fraction of current wealth, so absolute bet size grows with wealth and shrinks with losses.
+Adjusted size = Target risk / Current volatility. When vol doubles, size halves, keeping dollar risk constant. Core principle in managed futures and risk-targeting strategies.
 
 ## Key Formulas
 
@@ -127,55 +97,35 @@ Kelly naturally implements anti-martingale sizing: bet a constant fraction of cu
 
 ## Worked Examples
 
-### Example 1: Kelly Criterion for a Discrete Bet
-**Given:**
-- Win probability: p = 55%
-- Loss probability: q = 45%
-- Even-money payoff: b = 1 (win $1 for every $1 wagered)
+### Example 1: Discrete Kelly with Fractional Adjustment
+**Given:** p = 55%, q = 45%, b = 1 (even-money bet)
 
-**Calculate:** Optimal bet size
+f* = (1 * 0.55 - 0.45) / 1 = **10%** of wealth per bet
 
-**Solution:**
-
-f* = (b*p - q) / b = (1 * 0.55 - 0.45) / 1 = 0.10 / 1 = **10%**
-
-Interpretation: Wager 10% of current wealth on each bet. This maximizes long-run geometric growth.
-
-Practical adjustment (half Kelly): f = 10% / 2 = **5%** — achieves 75% of the maximum growth rate with much lower drawdown risk.
-
-Full Kelly expected drawdown: the probability of losing 50% of wealth at some point is substantial. Half Kelly dramatically reduces this tail risk.
+Half Kelly: 10% / 2 = **5%** — retains 75% of growth rate, substantially lower drawdown.
 
 ### Example 2: Continuous Kelly for an Investment
-**Given:**
-- Expected excess return (mu - r_f): 8%
-- Volatility (sigma): 20%
+**Given:** Excess return (mu - r_f) = 8%, volatility (sigma) = 20%
 
-**Calculate:** Kelly-optimal allocation
+f* = 0.08 / 0.04 = **200%** (implies 2x leverage)
 
-**Solution:**
+Apply fractional Kelly given parameter uncertainty:
 
-f* = (mu - r_f) / sigma^2 = 0.08 / (0.20)^2 = 0.08 / 0.04 = **2.00 (200%)**
+| Fraction | Allocation | Growth Rate |
+|----------|-----------|-------------|
+| Full Kelly | 200% | g* = 0.08^2 / (2 * 0.04) = 8.0% p.a. |
+| Half Kelly | 100% | g = 1.0 * 0.08 - 1.0^2 * 0.04/2 = 6.0% p.a. (75%) |
+| Quarter Kelly | 50% | g = 0.5 * 0.08 - 0.25 * 0.04/2 = 3.5% p.a. (44%) |
 
-This implies 200% allocation (2x leverage), which is extremely aggressive.
-
-Practical adjustments:
-- Half Kelly: 100% (no leverage, fully invested)
-- Third Kelly: 67% allocation
-- Quarter Kelly: 50% allocation
-
-Given that the 8% expected return and 20% volatility are estimates with significant uncertainty, half Kelly (100%) or less is prudent. The growth rate curve is:
-- Full Kelly: g* = 0.08^2 / (2 * 0.04) = 8% per year
-- Half Kelly: g(1.0) = 1.0 * 0.08 - 1.0^2 * 0.04/2 = 6% per year (75% of maximum)
-- Quarter Kelly: g(0.5) = 0.5 * 0.08 - 0.5^2 * 0.04/2 = 3.5% per year (44% of maximum)
+Half Kelly (100% allocation, no leverage) is prudent given estimation uncertainty.
 
 ## Common Pitfalls
-- Full Kelly is too aggressive for practical use — estimation errors in probabilities and payoffs can lead to over-betting and ruin; always use fractional Kelly
-- Kelly assumes known probabilities and payoffs — in reality these are estimated with significant error, making full Kelly dangerous
-- Kelly maximizes log wealth (geometric growth rate), which may not match an investor's actual utility function or risk tolerance
-- Ignoring liquidity constraints: Kelly-optimal size may exceed what the market can absorb without impact
-- Correlation between positions: the single-asset Kelly formula does not account for portfolio effects; positions with correlated risk collectively require smaller sizing
-- Survivorship bias in parameter estimation: historical win rates may overstate future edge
-- Not adjusting for regime changes: edge and volatility are time-varying
+- Never use full Kelly in practice — parameter estimation error turns optimal into catastrophic; default to half Kelly or less
+- Kelly maximizes log wealth, which may not match the investor's utility function or risk tolerance
+- Kelly-optimal size may exceed market liquidity — always check against ADV constraints
+- Single-asset Kelly ignores correlations; correlated positions collectively require smaller sizing
+- Historical win rates overstate future edge (survivorship bias) — discount estimates before sizing
+- Edge and volatility are time-varying — re-evaluate sizing as regimes shift
 
 ## Cross-References
 - **historical-risk** (wealth-management plugin, Layer 1a): realized volatility as a key input to Kelly sizing

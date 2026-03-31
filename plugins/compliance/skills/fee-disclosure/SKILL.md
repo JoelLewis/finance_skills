@@ -6,7 +6,7 @@ description: "Guide fee disclosure compliance across advisory, brokerage, fund, 
 # Fee Disclosure
 
 ## Purpose
-Guide the understanding and application of fee disclosure requirements across the advisory and brokerage landscape. This skill covers RIA fee disclosure (Form ADV), fund-level fee tables, Reg BI cost obligations, wrap fee programs, ERISA fee transparency, and revenue sharing — enabling a user or agent to identify where fee disclosure gaps or violations may arise.
+Identify fee disclosure gaps and violations across RIA, broker-dealer, fund, and retirement plan contexts by applying the correct regulatory framework and an all-in cost analysis workflow.
 
 ## Layer
 9 — Compliance & Regulatory Guidance
@@ -15,137 +15,140 @@ Guide the understanding and application of fee disclosure requirements across th
 prospective
 
 ## When to Use
-- Designing fee schedules and fee disclosure documents for advisory firms
-- Reviewing Form ADV Part 2A Item 5 (Fees and Compensation) for completeness
-- Evaluating fund prospectus fee tables for compliance with SEC format requirements
-- Assessing Reg BI disclosure obligations related to costs and compensation
-- Analyzing wrap fee programs for cost-effectiveness and disclosure adequacy
-- Reviewing ERISA fee disclosures for retirement plan service providers
-- Evaluating revenue sharing arrangements and their disclosure requirements
-- Identifying hidden fees, indirect compensation, and all-in cost analysis
+- Drafting or reviewing Form ADV Part 2A Item 5 fee schedules
+- Evaluating Reg BI cost disclosure for a brokerage recommendation
+- Checking prospectus fee table compliance (mutual fund or ETF)
+- Assessing wrap fee program cost-effectiveness
+- Reviewing ERISA 408(b)(2) or 404a-5 fee disclosures
+- Investigating revenue sharing, 12b-1 conflicts, or hidden cost layers
 
 ## Core Concepts
 
-### Form ADV Part 2A — Item 5 (Fees and Compensation)
-RIAs must disclose in their firm brochure:
-- **Fee schedule** — how fees are calculated (asset-based, fixed, hourly, performance-based), fee rates and tiers, minimum account sizes
-- **Billing method** — frequency (monthly, quarterly), in advance or arrears, pro-ration for partial periods
-- **Other fees and expenses** — custodian fees, fund expense ratios, transaction costs, wire fees, and any other costs the client will bear in addition to the advisory fee
-- **Compensation for sales of securities** — if the adviser or its supervised persons receive commissions, 12b-1 fees, or other sales-based compensation, this must be disclosed with a description of the conflict
-- **Refund policy** — how prepaid fees are refunded if the relationship terminates mid-period
+### Decision Framework: Which Disclosure Regime Applies?
 
-The disclosure must be "full and fair" and not misleading. The SEC has brought enforcement actions for advisers who disclosed fee schedules but obscured the total cost to clients by omitting indirect compensation or failing to describe how fund-level fees compound on top of advisory fees.
+| Entity / Context | Primary Regime | Key Document | Governing Rule |
+|---|---|---|---|
+| RIA (investment adviser) | Advisers Act | Form ADV Part 2A, Item 5 | SEC Rule 204-3 |
+| Dual registrant (IA + BD) | Both regimes | ADV Part 2A + Form CRS + Reg BI disclosure | Advisers Act + Exchange Act Rule 15l-1 |
+| Broker-dealer recommendation | Reg BI | Relationship Summary (Form CRS) + transaction disclosure | Exchange Act Rule 15l-1 |
+| Mutual fund / ETF | Securities Act | Prospectus fee table | Form N-1A, Item 3 |
+| Wrap fee program | Advisers Act | ADV Part 2A Appendix 1 (wrap brochure) | SEC Rule 204-3 |
+| Retirement plan (ERISA) | ERISA | 408(b)(2) provider disclosure + 404a-5 participant disclosure | DOL Reg 2550.408b-2, 2550.404a-5 |
 
-### Form CRS Fee Disclosure
-The "What are your fees?" section of Form CRS must include:
-- Principal fees and costs for the firm's services
-- A description of other fees and costs the client may pay (transaction, custodian, fund expenses)
-- A statement that the client will pay fees and costs whether or not they make or lose money
-- Conversation starters: "Help me understand how these fees and costs might affect my investments. If I give you $10,000 to invest, how much will go to fees and costs, and how much will be invested for me?"
+Start every review by matching the entity and transaction type to the correct row. Dual registrants and wrap sponsors often trigger multiple rows.
 
-Form CRS is limited to 2 pages (4 for dual registrants), so fee disclosure is necessarily summarized. It must direct clients to the ADV Part 2A for more detailed information.
+### Fee Disclosure Review Workflow
 
-### Reg BI Disclosure Obligation — Costs
-Reg BI requires broker-dealers to disclose material facts about costs and fees before or at the time of a recommendation:
-- All fees and costs that apply to the customer's transactions, holdings, and accounts
-- Material limitations on recommendations (e.g., proprietary products only, limited product shelf)
-- Compensation the BD and representative receive, including from third parties
+1. **Identify the regime** using the table above
+2. **Inventory all compensation streams** — direct fees, indirect compensation, third-party payments
+3. **Map each stream to a required disclosure** in the governing document
+4. **Check completeness** — is every stream disclosed with amount (or method of calculation), recipient, and conflict description?
+5. **Assess clarity** — would a reasonable client understand total cost and compare alternatives?
+6. **Verify currency** — do disclosures reflect current fee schedules and compensation arrangements?
 
-The SEC has emphasized that the disclosure must be specific enough to allow the customer to understand the total cost of the recommendation and compare it to alternatives. Vague references to "standard industry fees" are insufficient.
+### RIA Fee Disclosure (Form ADV Part 2A, Item 5)
 
-### Prospectus Fee Tables
-SEC rules require a standardized fee table in mutual fund and ETF prospectuses:
+Required disclosures:
 
-**Shareholder Fees (paid directly from the investor's investment):**
-- Maximum sales charge (load) on purchases
-- Maximum deferred sales charge (CDSC)
-- Redemption fees
-- Exchange fees
-- Account fees
+| Element | What Must Be Disclosed |
+|---|---|
+| Fee schedule | Calculation method (AUM, fixed, hourly, performance), rates/tiers, minimums |
+| Billing method | Frequency, advance vs. arrears, pro-ration on termination |
+| Other client costs | Custodian fees, fund expenses, transaction costs, wire fees |
+| Third-party compensation | Commissions, 12b-1 fees, revenue sharing received by adviser or supervised persons, with conflict description |
+| Refund policy | How prepaid fees are returned on mid-period termination |
 
-**Annual Fund Operating Expenses (deducted from fund assets):**
-- Management fees
-- Distribution (12b-1) fees
-- Other expenses
-- Acquired fund fees and expenses (for fund-of-funds)
-- Total annual fund operating expenses
-- Fee waiver/expense reimbursement (if applicable)
-- Net expenses after waiver
+The standard is "full and fair" disclosure (SEC Rule 204-3). The SEC has enforced against advisers who disclosed their fee schedule but omitted how fund-level expenses compound on top of advisory fees.
 
-**Expense Example:** A standardized illustration showing the dollar cost of investing $10,000 over 1, 3, 5, and 10 years, assuming a 5% annual return and redemption at the end of each period. This enables cross-fund comparison regardless of marketing language.
+**Form CRS** ("What are your fees?"): Summarizes principal fees, other costs, and includes the conversation starter: "If I give you $10,000 to invest, how much will go to fees?" Limited to 2 pages (4 for dual registrants); must direct clients to ADV Part 2A for detail.
 
-### 12b-1 Fees
-Named after SEC Rule 12b-1, these are annual distribution and marketing fees charged to fund assets:
-- **Maximum permitted:** 0.75% for distribution, plus 0.25% for shareholder services (total 1.00%)
-- **Disclosure:** Must appear in the prospectus fee table and in the fund's Statement of Additional Information
-- **Conflict:** 12b-1 fees create an incentive for advisers and brokers to recommend higher-cost share classes. The SEC and FINRA have brought numerous enforcement actions for recommending share classes with 12b-1 fees when lower-cost share classes of the same fund were available to the client.
-- **Share class selection:** Firms must have policies to ensure clients are placed in the most appropriate share class. The SEC's Share Class Selection Disclosure Initiative (2018) resulted in over $139 million in disgorgement from advisers who failed to disclose 12b-1 revenue.
+### Reg BI Cost Disclosure (Exchange Act Rule 15l-1)
 
-### Revenue Sharing and Shelf-Space Arrangements
-Fund companies may pay broker-dealers or advisory platforms for preferred placement, marketing support, or inclusion on recommended lists:
-- **Revenue sharing** — payments above standard 12b-1 fees, often basis points on assets held on the platform
-- **Shelf space** — payments for inclusion on "preferred" or "recommended" fund lists
-- **Sub-TA fees** — payments for sub-transfer agency and recordkeeping services, which may exceed the actual cost of providing those services
+Before or at the time of recommendation, broker-dealers must disclose:
+- All fees and costs on transactions, holdings, and accounts
+- Material limitations on recommendations (proprietary shelf, limited menu)
+- All BD and representative compensation, including third-party payments
 
-Disclosure requirements: Both FINRA and the SEC expect clear disclosure of revenue sharing arrangements. Failure to disclose that a firm receives additional compensation for recommending specific funds is a serious conflict-of-interest violation. The SEC has brought enforcement actions where firms described fund selection as "objective" while receiving undisclosed revenue sharing.
+Disclosures must be specific enough for the customer to understand total cost and compare alternatives. Vague references to "standard industry fees" are insufficient per SEC guidance.
 
-### Wrap Fee Programs
-Wrap fee programs bundle advisory, brokerage, custody, and other services into a single asset-based fee:
-- **Form ADV Part 2A Appendix 1** — wrap fee sponsors must deliver a wrap fee brochure disclosing the services included, the total fee, and a comparison to unbundled pricing
-- **Cost-effectiveness analysis** — wrap fees benefit active traders (who would otherwise pay per-trade commissions) but penalize buy-and-hold investors. Firms must evaluate whether wrap is cost-effective for each client.
-- **Trading away** — when a wrap program adviser executes trades through a broker-dealer other than the wrap sponsor, the client may pay additional transaction costs. These must be disclosed.
-- **Reverse churning** — the wrap equivalent of churning: charging an ongoing asset-based fee for an account with little trading activity. FINRA and the SEC have flagged this as a concern.
+### Fund Fee Tables (Form N-1A, Item 3)
+
+Two required sections in every prospectus:
+- **Shareholder fees** (paid directly): sales loads, CDSC, redemption/exchange/account fees
+- **Annual fund operating expenses** (deducted from assets): management fees, 12b-1 fees (max 0.75% distribution + 0.25% service = 1.00% per Rule 12b-1), other expenses, acquired fund fees, total expenses, waivers, net expenses
+
+Plus a standardized **expense example**: dollar cost of $10,000 invested over 1, 3, 5, and 10 years at 5% annual return.
+
+### 12b-1 Fees and Share Class Selection
+
+12b-1 fees create a conflict: advisers and brokers may favor higher-cost share classes that pay distribution fees. The SEC's Share Class Selection Disclosure Initiative (2018) resulted in $139M+ in disgorgement. Requirements:
+- Disclose receipt of 12b-1 revenue and the conflict it creates (ADV Item 5)
+- Evaluate whether lower-cost share classes are available and appropriate
+- Document why the recommended share class serves the client's interest
+- Maintain firm-wide share class selection policies
+
+### Revenue Sharing and Indirect Compensation
+
+| Compensation Type | Description | Disclosure Requirement |
+|---|---|---|
+| Revenue sharing | Payments from fund companies above standard 12b-1, often bps on platform AUM | Disclose in ADV or Reg BI materials; cannot describe selection as "objective" if receiving payments |
+| Shelf-space fees | Payments for preferred/recommended list inclusion | Same as revenue sharing |
+| Sub-TA fees | Sub-transfer agency payments, potentially exceeding actual service cost | Disclose amount and conflict |
+
+### Wrap Fee Programs (ADV Part 2A, Appendix 1)
+
+Wrap brochure must disclose: bundled services, total fee, and comparison to unbundled pricing. Key compliance concerns:
+- **Cost-effectiveness**: Wrap benefits active traders; penalizes buy-and-hold. Firms must evaluate per client.
+- **Trading away**: Trades executed outside the wrap sponsor may incur additional costs — must be disclosed.
+- **Reverse churning**: Charging an ongoing wrap fee on a low-activity account. Both FINRA and the SEC treat this as a suitability/best-interest concern.
 
 ### ERISA Fee Disclosure
-**DOL Section 408(b)(2) disclosure** — retirement plan service providers must disclose to plan fiduciaries:
-- A description of services
-- Whether the provider will act as an ERISA fiduciary
-- All direct and indirect compensation (including revenue sharing, 12b-1 fees, float, sub-TA fees)
-- Compensation paid among related parties
 
-**DOL Section 404a-5 disclosure** — plan administrators must provide participants with:
-- Plan-level information (general plan administration and individual expenses that may be charged)
-- Investment-level information (performance, benchmark, fees and expenses for each investment option)
-- Quarterly statements showing actual fees and expenses charged to the participant's account
+**408(b)(2) — provider to plan fiduciary**: Disclose all services, fiduciary status, and every form of direct and indirect compensation (revenue sharing, 12b-1, float, sub-TA, related-party payments).
 
-### Hidden Fees and All-In Cost
-Beyond explicit fees, clients bear costs that may not be separately disclosed:
-- **Trading costs** — bid-ask spreads, market impact, commission-equivalent costs in "commission-free" accounts
-- **Soft dollars** — research and services paid for with client brokerage, under Section 28(e) safe harbor
-- **Cash sweep rates** — below-market interest rates on uninvested cash, where the spread constitutes implicit compensation
-- **Securities lending revenue** — funds may retain a portion of securities lending income rather than passing it to shareholders
-- **Foreign exchange markups** — spreads on currency conversions for international securities
+**404a-5 — administrator to participants**: Investment-level chart with expense ratios (percentage and $/per $1,000), benchmark performance, and website URLs. Quarterly statements must show actual dollar fees charged to each participant's account.
 
-Comprehensive fee analysis requires looking beyond the stated fee schedule to capture total cost of ownership.
+### All-In Cost Analysis Checklist
+
+Beyond stated fees, check for these implicit cost layers:
+
+- [ ] Bid-ask spreads and market impact on trades
+- [ ] Soft dollar arrangements (Section 28(e) safe harbor)
+- [ ] Cash sweep rate spread (below-market interest as implicit compensation)
+- [ ] Securities lending revenue retained by fund
+- [ ] Foreign exchange markups on international holdings
+- [ ] Payment for order flow in "commission-free" accounts
+
+Total cost of ownership = explicit advisory/brokerage fee + fund expenses + transaction costs + implicit costs above.
 
 ## Worked Examples
 
 ### Example 1: RIA failing to disclose 12b-1 fee revenue
-**Scenario:** An RIA charges clients a 1% annual advisory fee. The firm also recommends mutual funds that pay 0.25% 12b-1 fees to the adviser. The ADV Part 2A describes the 1% advisory fee in detail but mentions 12b-1 fees only in a general statement: "Some funds we recommend may charge distribution fees." The firm does not disclose that it receives these 12b-1 payments.
-**Compliance Issues:** ADV Part 2A Item 5 requires disclosure of compensation received from third parties, including 12b-1 fees. The failure to disclose that the firm receives this revenue — and that it creates a conflict (incentive to recommend funds with 12b-1 fees over those without) — violates the fiduciary duty of loyalty. Total client cost is actually 1.25%, not 1%.
-**Analysis:** This scenario matches the pattern targeted by the SEC's Share Class Selection Disclosure Initiative. The firm must: (1) specifically disclose that it receives 12b-1 fee revenue, (2) quantify or estimate the amount, (3) explain the conflict it creates, (4) evaluate whether lower-cost share classes are available, and (5) document why the recommended share class is in the client's best interest. If an institutional share class without 12b-1 fees is available and the client qualifies, recommending the 12b-1 class without disclosure is a violation.
+**Scenario:** An RIA charges 1% AUM. It recommends mutual funds paying 0.25% 12b-1 fees to the adviser. The ADV states only: "Some funds we recommend may charge distribution fees." The firm does not disclose it receives these payments.
+**Compliance Issues:** ADV Item 5 requires disclosure of all third-party compensation, including 12b-1 fees, with a description of the resulting conflict. True client cost is 1.25%, not 1%. This matches the SEC's Share Class Selection Disclosure Initiative pattern.
+**Analysis:** Remediation: (1) disclose 12b-1 receipt and estimated amount, (2) describe the conflict, (3) evaluate availability of lower-cost institutional share classes, (4) document share class selection rationale per client, (5) adopt firm-wide share class selection policy.
 
 ### Example 2: Wrap fee program cost-effectiveness
-**Scenario:** A BD places a 68-year-old retired buy-and-hold client in a wrap fee program charging 1.5% annually. The client's $800,000 account holds 5 ETFs and rebalances once per year. An unbundled account would cost approximately 0.3% (advisory fee) plus ~$50 in annual trading costs.
-**Compliance Issues:** Potential reverse churning. The wrap fee ($12,000/year) is dramatically higher than unbundled cost (~$2,450/year) for a client whose low trading activity does not benefit from the wrap structure. The firm's wrap fee brochure must assess cost-effectiveness, and both FINRA and Reg BI require that the account type recommendation serve the client's interest.
-**Analysis:** The firm should have a periodic cost-effectiveness review process for wrap accounts. A client paying $9,550 more per year for a structure designed for active trading is not receiving corresponding value. Under Reg BI's Care Obligation, the BD must consider whether this account type is in the client's best interest. Under IA fiduciary duty (if the firm is dually registered), the ongoing fee without corresponding service may violate the duty of care.
+**Scenario:** A BD places a retired buy-and-hold client ($800K, 5 ETFs, 1 annual rebalance) in a 1.5% wrap program. Unbundled cost: ~0.3% advisory + ~$50 trading = ~$2,450/year vs. $12,000/year wrap fee.
+**Compliance Issues:** Potential reverse churning. The $9,550/year cost difference provides no corresponding value for a low-activity client. Reg BI Care Obligation and the wrap brochure (ADV Appendix 1) both require cost-effectiveness assessment.
+**Analysis:** The firm needs a periodic wrap cost-effectiveness review. Compare wrap fee to projected unbundled cost based on actual trading frequency. If wrap cost exceeds unbundled by a material margin with no offsetting service value, the account type recommendation fails best-interest standards under both Reg BI and IA fiduciary duty.
 
 ### Example 3: Inadequate 401(k) participant fee disclosure
-**Scenario:** A 401(k) plan with $15M in assets provides participants with an annual fee disclosure that lists fund names and ticker symbols but does not include expense ratios, benchmark performance, or a statement of actual fees charged to each participant's account. Quarterly statements show account balances but not fee deductions.
-**Compliance Issues:** DOL Section 404a-5 violation. The regulation requires investment-level fee and performance information in a specific format (chart/table), including total annual operating expenses as both a percentage and dollar amount per $1,000 invested. Quarterly statements must show actual dollar amounts of fees and expenses charged.
-**Analysis:** The plan fiduciary (and its service provider under 408(b)(2)) must provide compliant disclosures. Non-compliant fee disclosure exposes the plan fiduciary to liability and undermines participants' ability to make informed investment decisions. The fix requires producing the DOL-prescribed comparative chart with expense ratios, benchmark comparisons, and website URLs for additional information, plus detailed fee breakdowns on quarterly statements.
+**Scenario:** A $15M 401(k) plan provides annual disclosure listing fund names and tickers but omits expense ratios, benchmark performance, and per-participant fee amounts. Quarterly statements show balances without fee deductions.
+**Compliance Issues:** DOL 404a-5 violation. The regulation mandates an investment-level comparative chart with total annual operating expenses (percentage and $/per $1,000), benchmark comparisons, and website URLs. Quarterly statements must itemize actual dollar fees charged.
+**Analysis:** The plan fiduciary and service provider (under 408(b)(2)) must produce compliant disclosures: DOL-prescribed comparative chart, complete expense and performance data, and quarterly fee itemization. Non-compliance exposes the fiduciary to personal liability.
 
 ## Common Pitfalls
 - Disclosing the advisory fee but omitting indirect compensation (12b-1 fees, revenue sharing, sub-TA fees)
-- Using boilerplate language about fund fees without disclosing the firm's financial interest in specific share classes
-- Not evaluating wrap fee cost-effectiveness for each client based on actual trading patterns
-- Failing to update fee disclosures when fee schedules change or new indirect compensation arrangements are established
-- Describing fund selection as "objective" or "independent" while receiving revenue sharing from recommended funds
-- Not providing the standardized prospectus fee table format when required
-- ERISA plans failing to provide participant-level fee disclosure in the DOL-prescribed format
-- Overlooking cash sweep rate differentials as a form of indirect compensation
-- Not distinguishing between gross and net expense ratios in fund comparisons
-- Assuming "commission-free" means "cost-free" — bid-ask spreads and payment for order flow still represent costs
+- Using boilerplate fund fee language without disclosing the firm's financial interest in specific share classes
+- Not evaluating wrap fee cost-effectiveness per client based on actual trading patterns
+- Failing to update disclosures when fee schedules or compensation arrangements change
+- Describing fund selection as "objective" while receiving undisclosed revenue sharing
+- Omitting the standardized prospectus fee table format required by Form N-1A
+- ERISA plans failing to provide participant-level fee disclosure in the DOL-prescribed format and frequency
+- Overlooking cash sweep rate spreads as implicit compensation
+- Conflating gross and net expense ratios in fund comparisons
+- Treating "commission-free" as "cost-free" — bid-ask spreads and payment for order flow are real costs
 
 ## Cross-References
 - **fund-vehicles** (Layer 2): Fund mechanics, expense ratios, share classes — the product knowledge underlying fee disclosure
