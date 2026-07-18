@@ -126,13 +126,13 @@ The order of withdrawals from different account types in retirement:
 - Not coordinating tax strategy across spouses' accounts
 
 ## Cross-References
-- **investment-policy** (wealth-management plugin, Layer 5): Tax constraint in IPS governs asset location and turnover management
-- **performance-attribution** (wealth-management plugin, Layer 5): After-tax return attribution requires tax-aware calculations
-- **debt-management** (wealth-management plugin, Layer 6): Mortgage interest deductibility interacts with tax planning
-- **savings-goals** (wealth-management plugin, Layer 6): Account type selection (Roth vs Traditional) is a core tax decision
-- **liquidity-management** (wealth-management plugin, Layer 6): Tax implications of accessing different account types affect liquidity planning
-- **tax-loss-harvesting** (wealth-management plugin, Layer 5): dedicated TLH workflow skill with detailed candidate identification, wash-sale tracking, and execution planning
-- **financial-planning-workflow** (advisory-practice plugin, Layer 10): tax-aware strategies are core recommendations in comprehensive financial plans
+- **investment-policy** (wealth-management plugin): Tax constraint in IPS governs asset location and turnover management
+- **performance-attribution** (wealth-management plugin): After-tax return attribution requires tax-aware calculations
+- **debt-management** (wealth-management plugin): Mortgage interest deductibility interacts with tax planning
+- **savings-goals** (wealth-management plugin): Account type selection (Roth vs Traditional) is a core tax decision
+- **liquidity-management** (wealth-management plugin): Tax implications of accessing different account types affect liquidity planning
+- **tax-loss-harvesting** (wealth-management plugin): dedicated TLH workflow skill with detailed candidate identification, wash-sale tracking, and execution planning
+- **financial-planning-workflow** (advisory-practice plugin): tax-aware strategies are core recommendations in comprehensive financial plans
 
 ## Running the script
 Run with `uv run scripts/tax_efficiency.py` (the PEP 723 header resolves dependencies automatically) or with `python3 scripts/tax_efficiency.py` after `pip install numpy scipy`. The bare run prints a demo covering after-tax returns, tax drag, TLH benefit, asset location placement, and Roth conversion breakeven. Pass `--verify` to assert the demo outputs match this skill's worked examples (prints PASS/FAIL), or `--help` for an overview of the available classes. The file is primarily meant to be imported as a module (e.g., `from tax_efficiency import AfterTaxReturn, AssetLocation, BreakevenAnalysis`).

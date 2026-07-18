@@ -136,11 +136,11 @@ Before tactical work, have the client articulate a specific, vivid picture of th
 ## Cross-References
 - **statistics-fundamentals** (core plugin): base rates, probability calibration, compounding math
 - **time-value-of-money** (core plugin): framing decisions in present value terms
-- **historical-risk**: long-term drawdown context for recency-bias conversations
-- **asset-allocation**: systematic rebalancing as a debiasing mechanism
-- **diversification**: structural protection against overconfidence and concentration
-- **tax-efficiency**: tax-loss harvesting as a consolation for loss aversion; account sequencing
-- **performance-reporting**: framing effects in how returns are presented; nominal vs real
+- **historical-risk** (wealth-management plugin): long-term drawdown context for recency-bias conversations
+- **asset-allocation** (wealth-management plugin): systematic rebalancing as a debiasing mechanism
+- **diversification** (wealth-management plugin): structural protection against overconfidence and concentration
+- **tax-efficiency** (wealth-management plugin): tax-loss harvesting as a consolation for loss aversion; account sequencing
+- **performance-reporting** (wealth-management plugin): framing effects in how returns are presented; nominal vs real
 
 ## Key Sources
 - Kahneman, D. & Tversky, A. (1979). Prospect Theory: An Analysis of Decision under Risk.

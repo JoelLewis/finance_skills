@@ -184,10 +184,10 @@ Three worked examples are in [references/examples.md](references/examples.md) �
 - Not enforcing terminal state immutability, allowing application bugs to transition orders out of Filled, Canceled, or Rejected states
 
 ## Cross-References
-- **trade-execution** (trading-operations): Execution algorithms, venue selection, smart order routing, and market microstructure that determine how orders are executed once they leave the OMS.
-- **pre-trade-compliance** (trading-operations): Compliance checks that gate order submission, including restricted list screening, position limits, and regulatory constraints integrated into the order validation workflow.
-- **post-trade-compliance** (trading-operations): Compliance monitoring after execution, including trade surveillance, best execution analysis, and exception reporting that consumes order lifecycle data.
-- **settlement-clearing** (trading-operations): The downstream process after order execution — trade matching, clearing through CCP or bilateral netting, and settlement of securities and cash that completes the order lifecycle.
-- **order-management-advisor** (advisory-practice): Advisor-specific order management covering block trading, allocation, model-driven trading, and custodian routing that builds on the order lifecycle concepts defined here.
-- **exchange-connectivity** (trading-operations): Technical infrastructure for connecting to exchanges and execution venues, including FIX engine configuration, network architecture, and failover design.
-- **books-and-records** (compliance): Recordkeeping requirements under SEC Rules 17a-3/17a-4 and Rule 204-2 that govern retention of order tickets, execution records, and audit trail data generated throughout the order lifecycle.
+- **trade-execution** (trading-operations plugin): Execution algorithms, venue selection, smart order routing, and market microstructure that determine how orders are executed once they leave the OMS.
+- **pre-trade-compliance** (trading-operations plugin): Compliance checks that gate order submission, including restricted list screening, position limits, and regulatory constraints integrated into the order validation workflow.
+- **post-trade-compliance** (trading-operations plugin): Compliance monitoring after execution, including trade surveillance, best execution analysis, and exception reporting that consumes order lifecycle data.
+- **settlement-clearing** (trading-operations plugin): The downstream process after order execution — trade matching, clearing through CCP or bilateral netting, and settlement of securities and cash that completes the order lifecycle.
+- **order-management-advisor** (advisory-practice plugin): Advisor-specific order management covering block trading, allocation, model-driven trading, and custodian routing that builds on the order lifecycle concepts defined here.
+- **exchange-connectivity** (trading-operations plugin): Technical infrastructure for connecting to exchanges and execution venues, including FIX engine configuration, network architecture, and failover design.
+- **books-and-records** (compliance plugin): Recordkeeping requirements under SEC Rules 17a-3/17a-4 and Rule 204-2 that govern retention of order tickets, execution records, and audit trail data generated throughout the order lifecycle.

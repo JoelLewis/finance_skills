@@ -106,14 +106,14 @@ Recommended priority order:
 - Using average returns without considering sequence risk near goal date
 
 ## Cross-References
-- **time-value-of-money** (core plugin, Layer 0): FV/PV calculations, annuity formulas
-- **emergency-fund** (wealth-management plugin, Layer 6): must be funded before other goals
-- **debt-management** (wealth-management plugin, Layer 6): high-interest debt payoff competes with savings
-- **tax-efficiency** (wealth-management plugin, Layer 5): 529 tax benefits, Roth vs traditional, HSA
-- **investment-policy** (wealth-management plugin, Layer 5): goal-based allocation aligns with IPS constraints
-- **asset-allocation** (wealth-management plugin, Layer 4): glide paths for target-date retirement savings
-- **finance-psychology** (wealth-management plugin, Layer 7): mental accounting, present bias, commitment devices
-- **financial-planning-workflow** (advisory-practice plugin, Layer 10): savings goals are key inputs to the comprehensive financial planning process
+- **time-value-of-money** (core plugin): FV/PV calculations, annuity formulas
+- **emergency-fund** (wealth-management plugin): must be funded before other goals
+- **debt-management** (wealth-management plugin): high-interest debt payoff competes with savings
+- **tax-efficiency** (wealth-management plugin): 529 tax benefits, Roth vs traditional, HSA
+- **investment-policy** (wealth-management plugin): goal-based allocation aligns with IPS constraints
+- **asset-allocation** (wealth-management plugin): glide paths for target-date retirement savings
+- **finance-psychology** (wealth-management plugin): mental accounting, present bias, commitment devices
+- **financial-planning-workflow** (advisory-practice plugin): savings goals are key inputs to the comprehensive financial planning process
 
 ## Running the script
 Run the reference implementation directly:

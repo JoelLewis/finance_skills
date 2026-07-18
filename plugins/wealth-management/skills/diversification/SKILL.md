@@ -142,10 +142,10 @@ Interpretation: The portfolio achieves significant diversification — the weigh
 - Using historical correlations without testing sensitivity to regime changes
 
 ## Cross-References
-- **historical-risk**: volatility, correlation, and systematic vs. idiosyncratic risk foundations
-- **asset-allocation**: diversification principles feed directly into portfolio construction and optimization
-- **rebalancing**: maintaining diversification targets over time through rebalancing
-- **bet-sizing**: position sizing interacts with diversification — concentrated vs. diversified approaches
+- **historical-risk** (wealth-management plugin): volatility, correlation, and systematic vs. idiosyncratic risk foundations
+- **asset-allocation** (wealth-management plugin): diversification principles feed directly into portfolio construction and optimization
+- **rebalancing** (wealth-management plugin): maintaining diversification targets over time through rebalancing
+- **bet-sizing** (wealth-management plugin): position sizing interacts with diversification — concentrated vs. diversified approaches
 
 ## Running the Script
 

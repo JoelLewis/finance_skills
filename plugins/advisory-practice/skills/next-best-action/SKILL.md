@@ -284,11 +284,11 @@ See [references/examples.md](references/examples.md) for three end-to-end worked
 - Allowing the action library to become stale — talking points referencing outdated market conditions, email templates with old branding, or analysis summaries using last year's data undermine the system's credibility.
 
 ## Cross-References
-- **crm-client-lifecycle** (Layer 10, advisory-practice) — CRM activity records, client segmentation, and lifecycle data are primary inputs for NBA triggers; every NBA action updates the CRM.
-- **portfolio-management-systems** (Layer 10, advisory-practice) — Portfolio events (drift, cash position, concentrated holdings, performance) are a primary category of NBA triggers; the portfolio management system provides the data feeds and execution tools.
-- **advisor-dashboards** (Layer 10, advisory-practice) — The advisor dashboard is the primary delivery channel for NBA recommendations; the morning briefing widget displays the prioritized action queue.
-- **financial-planning-integration** (Layer 10, advisory-practice) — Financial plan status changes (goal progress, funded status, assumption changes) trigger planning-related NBA actions; plan data enriches action context.
-- **rebalancing** (Layer 4, wealth-management) — Portfolio drift and rebalancing triggers are a key category of NBA events; the NBA recommendation links directly to the rebalancing workflow.
-- **tax-efficiency** (Layer 5, wealth-management) — Tax-loss harvesting opportunities detected from cost basis data trigger NBA recommendations; tax context (gain/loss position, holding periods) enriches rebalancing and investment actions.
-- **investment-suitability** (Layer 9, compliance) — Annual suitability reviews and profile re-certifications are compliance-driven NBA actions; suitability data informs the client context assembled for all NBA recommendations.
-- **examination-readiness** (Layer 9, compliance) — NBA compliance action logs (trigger timestamps, escalation records, completion evidence) serve as auditable proof of supervisory oversight during SEC and FINRA examinations.
+- **crm-client-lifecycle** (advisory-practice plugin) — CRM activity records, client segmentation, and lifecycle data are primary inputs for NBA triggers; every NBA action updates the CRM.
+- **portfolio-management-systems** (advisory-practice plugin) — Portfolio events (drift, cash position, concentrated holdings, performance) are a primary category of NBA triggers; the portfolio management system provides the data feeds and execution tools.
+- **advisor-dashboards** (advisory-practice plugin) — The advisor dashboard is the primary delivery channel for NBA recommendations; the morning briefing widget displays the prioritized action queue.
+- **financial-planning-integration** (advisory-practice plugin) — Financial plan status changes (goal progress, funded status, assumption changes) trigger planning-related NBA actions; plan data enriches action context.
+- **rebalancing** (wealth-management plugin) — Portfolio drift and rebalancing triggers are a key category of NBA events; the NBA recommendation links directly to the rebalancing workflow.
+- **tax-efficiency** (wealth-management plugin) — Tax-loss harvesting opportunities detected from cost basis data trigger NBA recommendations; tax context (gain/loss position, holding periods) enriches rebalancing and investment actions.
+- **investment-suitability** (compliance plugin) — Annual suitability reviews and profile re-certifications are compliance-driven NBA actions; suitability data informs the client context assembled for all NBA recommendations.
+- **examination-readiness** (compliance plugin) — NBA compliance action logs (trigger timestamps, escalation records, completion evidence) serve as auditable proof of supervisory oversight during SEC and FINRA examinations.

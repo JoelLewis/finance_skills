@@ -129,13 +129,13 @@ Three worked examples are in [references/examples.md](references/examples.md) â€
 - Overlooking the purpose/non-purpose distinction in SBLOCs â€” using non-purpose loan proceeds to buy securities violates Regulation U and can result in regulatory action
 
 ## Cross-References
-- **order-lifecycle** (trading-operations): Margin requirements are checked as part of the order validation and pre-trade process
-- **trade-execution** (trading-operations): Forced liquidation requires best execution compliance even under time pressure
-- **settlement-clearing** (trading-operations): Margin is settled as part of the trade settlement process; fails can trigger margin obligations
-- **lending** (wealth-management): SBLOC products overlap with personal lending analysis; HELOC vs SBLOC comparison
-- **liquidity-management** (wealth-management): Margin calls create sudden liquidity demands that must be anticipated in cash flow planning
-- **pre-trade-compliance** (trading-operations): Pre-trade margin checks prevent orders that would exceed margin capacity
-- **operational-risk** (trading-operations): Margin system failures, forced liquidation errors, and call processing breakdowns are key operational risks
-- **counterparty-risk** (trading-operations): Margin lending creates counterparty exposure between the firm and the client
-- **investment-suitability** (compliance): Margin accounts and leverage strategies require suitability assessment
-- **diversification** (wealth-management): Concentrated position margin requirements reinforce diversification principles
+- **order-lifecycle** (trading-operations plugin): Margin requirements are checked as part of the order validation and pre-trade process
+- **trade-execution** (trading-operations plugin): Forced liquidation requires best execution compliance even under time pressure
+- **settlement-clearing** (trading-operations plugin): Margin is settled as part of the trade settlement process; fails can trigger margin obligations
+- **lending** (wealth-management plugin): SBLOC products overlap with personal lending analysis; HELOC vs SBLOC comparison
+- **liquidity-management** (wealth-management plugin): Margin calls create sudden liquidity demands that must be anticipated in cash flow planning
+- **pre-trade-compliance** (trading-operations plugin): Pre-trade margin checks prevent orders that would exceed margin capacity
+- **operational-risk** (trading-operations plugin): Margin system failures, forced liquidation errors, and call processing breakdowns are key operational risks
+- **counterparty-risk** (trading-operations plugin): Margin lending creates counterparty exposure between the firm and the client
+- **investment-suitability** (compliance plugin): Margin accounts and leverage strategies require suitability assessment
+- **diversification** (wealth-management plugin): Concentrated position margin requirements reinforce diversification principles

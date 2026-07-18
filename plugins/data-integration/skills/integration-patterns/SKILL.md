@@ -242,12 +242,12 @@ Three end-to-end design scenarios (multi-custodian RIA integration architecture,
 
 ## Cross-References
 
-- **reference-data** (Layer 13, data-integration) -- Reference data is the foundation that integrations distribute; security master, client master, and account master provide the identifiers and attributes that integration payloads carry.
-- **market-data** (Layer 13, data-integration) -- Market data feeds are a primary integration domain; real-time and delayed data distribution uses many of the same patterns (pub-sub, fan-out, conflation) described here.
-- **data-quality** (Layer 13, data-integration) -- Integration failures are a leading source of data quality issues; validation, monitoring, and exception handling at integration boundaries are the first line of defense.
-- **settlement-clearing** (Layer 11, trading-operations) -- Settlement relies on inter-system messaging between clearing firms, custodians, and depositories; settlement instruction delivery uses FIX, ISO 20022, and batch file patterns.
-- **exchange-connectivity** (Layer 11, trading-operations) -- Exchange connectivity uses FIX protocol for order routing and market data; this skill covers FIX at the protocol level while exchange-connectivity covers the operational and regulatory context.
-- **order-lifecycle** (Layer 11, trading-operations) -- Order flow across systems (OMS to broker to exchange) requires reliable integration with sequencing, acknowledgment, and error handling.
-- **stp-automation** (Layer 12, client-operations) -- STP depends on well-designed integrations; STP rate is directly constrained by the reliability and data quality of upstream integration feeds.
-- **portfolio-management-systems** (Layer 10, advisory-practice) -- PMS is a hub consuming data from many integrations (custodian positions, market data, reference data, trade confirmations) and is the primary beneficiary of robust integration architecture.
-- **books-and-records** (Layer 9, compliance) -- Integration audit trails (message logs, file processing records, transformation history) are regulatory records subject to retention and examination requirements.
+- **reference-data** (data-integration plugin) -- Reference data is the foundation that integrations distribute; security master, client master, and account master provide the identifiers and attributes that integration payloads carry.
+- **market-data** (data-integration plugin) -- Market data feeds are a primary integration domain; real-time and delayed data distribution uses many of the same patterns (pub-sub, fan-out, conflation) described here.
+- **data-quality** (data-integration plugin) -- Integration failures are a leading source of data quality issues; validation, monitoring, and exception handling at integration boundaries are the first line of defense.
+- **settlement-clearing** (trading-operations plugin) -- Settlement relies on inter-system messaging between clearing firms, custodians, and depositories; settlement instruction delivery uses FIX, ISO 20022, and batch file patterns.
+- **exchange-connectivity** (trading-operations plugin) -- Exchange connectivity uses FIX protocol for order routing and market data; this skill covers FIX at the protocol level while exchange-connectivity covers the operational and regulatory context.
+- **order-lifecycle** (trading-operations plugin) -- Order flow across systems (OMS to broker to exchange) requires reliable integration with sequencing, acknowledgment, and error handling.
+- **stp-automation** (client-operations plugin) -- STP depends on well-designed integrations; STP rate is directly constrained by the reliability and data quality of upstream integration feeds.
+- **portfolio-management-systems** (advisory-practice plugin) -- PMS is a hub consuming data from many integrations (custodian positions, market data, reference data, trade confirmations) and is the primary beneficiary of robust integration architecture.
+- **books-and-records** (compliance plugin) -- Integration audit trails (message logs, file processing records, transformation history) are regulatory records subject to retention and examination requirements.

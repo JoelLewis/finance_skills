@@ -234,8 +234,8 @@ The firm must address three parallel workstreams: (1) **Blue sheet response** �
 - Neglecting to file FINRA Rule 4530 event notifications within 30 calendar days, particularly for written customer complaints and associated person disciplinary events
 
 ## Cross-References
-- **anti-money-laundering** (Layer 9): SAR and CTR filing mechanics are regulatory reporting obligations; the substantive AML framework (detection, investigation, escalation) feeds into the reporting workflow covered here
-- **client-disclosures** (Layer 9): Form ADV amendments trigger delivery obligations to existing clients — the disclosure skill covers what must be delivered and when, while this skill covers the filing mechanics
-- **books-and-records** (Layer 9): Records retention requirements underpin all regulatory reporting; accurate books and records are the source data for FOCUS reports, 13F filings, Form PF, and CAT submissions
-- **know-your-customer** (Layer 9): CAT CAIS data and blue sheet responses require accurate customer identification information sourced from the firm's KYC and CIP processes
-- **fee-disclosure** (Layer 9): Form ADV amendments reflecting changes to fee schedules are both a filing obligation (covered here) and a fee disclosure requirement (covered in fee-disclosure)
+- **anti-money-laundering** (compliance plugin): SAR and CTR filing mechanics are regulatory reporting obligations; the substantive AML framework (detection, investigation, escalation) feeds into the reporting workflow covered here
+- **client-disclosures** (compliance plugin): Form ADV amendments trigger delivery obligations to existing clients — the disclosure skill covers what must be delivered and when, while this skill covers the filing mechanics
+- **books-and-records** (compliance plugin): Records retention requirements underpin all regulatory reporting; accurate books and records are the source data for FOCUS reports, 13F filings, Form PF, and CAT submissions
+- **know-your-customer** (compliance plugin): CAT CAIS data and blue sheet responses require accurate customer identification information sourced from the firm's KYC and CIP processes
+- **fee-disclosure** (compliance plugin): Form ADV amendments reflecting changes to fee schedules are both a filing obligation (covered here) and a fee disclosure requirement (covered in fee-disclosure)

@@ -231,9 +231,9 @@ Interpretation: When losses exceed the 95% VaR threshold, the average loss is $2
 - **Square-root-of-time scaling limitations:** VaR_h = VaR_1 * sqrt(h) assumes i.i.d. returns. With serial correlation or volatility clustering, this scaling is inaccurate.
 
 ## Cross-References
-- **historical-risk**: Historical VaR and realized volatility serve as non-parametric alternatives and calibration benchmarks for the forward-looking models in this skill.
-- **performance-metrics**: VaR and CVaR can be used as risk denominators in modified risk-adjusted ratios (e.g., return/CVaR).
-- **volatility-modeling**: EWMA and GARCH volatility forecasts provide the volatility inputs (sigma) for parametric and Monte Carlo VaR.
+- **historical-risk** (wealth-management plugin): Historical VaR and realized volatility serve as non-parametric alternatives and calibration benchmarks for the forward-looking models in this skill.
+- **performance-metrics** (wealth-management plugin): VaR and CVaR can be used as risk denominators in modified risk-adjusted ratios (e.g., return/CVaR).
+- **volatility-modeling** (wealth-management plugin): EWMA and GARCH volatility forecasts provide the volatility inputs (sigma) for parametric and Monte Carlo VaR.
 
 ## Running the Script
 

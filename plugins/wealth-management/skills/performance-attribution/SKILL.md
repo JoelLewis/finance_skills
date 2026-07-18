@@ -120,12 +120,12 @@ For international portfolios, returns decompose into:
 - Using inappropriate benchmarks that do not match the portfolio's investment universe
 
 ## Cross-References
-- **investment-policy** (wealth-management plugin, Layer 5): Benchmark selection in IPS directly feeds performance attribution analysis
-- **tax-efficiency** (wealth-management plugin, Layer 5): After-tax attribution requires adjusting returns for tax impact
-- **savings-goals** (wealth-management plugin, Layer 6): Attribution helps assess whether investment strategy is on track to meet goals
-- **liquidity-management** (wealth-management plugin, Layer 6): Cash drag from liquidity reserves affects portfolio-level attribution
-- **client-review-prep** (advisory-practice plugin, Layer 10): attribution analysis highlights are key talking points in client review meetings
-- **tax-loss-harvesting** (wealth-management plugin, Layer 5): tax alpha from TLH should be tracked and attributed separately
+- **investment-policy** (wealth-management plugin): Benchmark selection in IPS directly feeds performance attribution analysis
+- **tax-efficiency** (wealth-management plugin): After-tax attribution requires adjusting returns for tax impact
+- **savings-goals** (wealth-management plugin): Attribution helps assess whether investment strategy is on track to meet goals
+- **liquidity-management** (wealth-management plugin): Cash drag from liquidity reserves affects portfolio-level attribution
+- **client-review-prep** (advisory-practice plugin): attribution analysis highlights are key talking points in client review meetings
+- **tax-loss-harvesting** (wealth-management plugin): tax alpha from TLH should be tracked and attributed separately
 
 ## Running the script
 Run with `uv run scripts/performance_attribution.py` (the PEP 723 header resolves numpy automatically) or with `python3 scripts/performance_attribution.py` after `pip install numpy scipy`. A bare run prints three demos: the Brinson-Fachler attribution from Worked Example 1, an OLS factor attribution on seeded synthetic data, and Carino multi-period linking. Use `--verify` to assert outputs match this skill's worked example numbers (exit code 0 on PASS) and `--help` for an overview of the classes. The file is primarily meant to be imported as a module (e.g., `from performance_attribution import BrinsonFachler`).

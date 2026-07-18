@@ -187,14 +187,14 @@ The most important reporting skill is translating numbers into meaning.
 - Ignoring taxes: for taxable investors, after-tax returns are what actually matters.
 
 ## Cross-References
-- **statistics-fundamentals** (core plugin, Layer 0): return distributions, confidence intervals for projections
-- **time-value-of-money** (core plugin, Layer 0): future value projections, annualization math
-- **performance-metrics** (wealth-management plugin, Layer 1a): Sharpe, Sortino, Information Ratio calculation details
-- **historical-risk** (wealth-management plugin, Layer 1a): volatility, drawdown, VaR computation for risk dashboards
-- **asset-allocation** (wealth-management plugin, Layer 4): benchmark construction for multi-asset portfolios
-- **quantitative-valuation** (wealth-management plugin, Layer 3): forward-looking return assumptions for goal projections
-- **finance-psychology** (wealth-management plugin, Layer 7): framing effects in how performance is presented to clients
-- **client-review-prep** (advisory-practice plugin, Layer 10): performance data is assembled into the client review meeting package
+- **statistics-fundamentals** (core plugin): return distributions, confidence intervals for projections
+- **time-value-of-money** (core plugin): future value projections, annualization math
+- **performance-metrics** (wealth-management plugin): Sharpe, Sortino, Information Ratio calculation details
+- **historical-risk** (wealth-management plugin): volatility, drawdown, VaR computation for risk dashboards
+- **asset-allocation** (wealth-management plugin): benchmark construction for multi-asset portfolios
+- **quantitative-valuation** (wealth-management plugin): forward-looking return assumptions for goal projections
+- **finance-psychology** (wealth-management plugin): framing effects in how performance is presented to clients
+- **client-review-prep** (advisory-practice plugin): performance data is assembled into the client review meeting package
 
 ## Running the script
 Run with `uv run scripts/performance_reporting.py` (the PEP 723 header resolves numpy/scipy automatically) or with `python3 scripts/performance_reporting.py` after `pip install numpy scipy`. A bare run prints five demos: a Modified Dietz return, chain-linked TWR, an IRR solved via Brent's method, a GIPS composite summary, and a standard-period return table. Use `--verify` to assert the demo outputs match expected values (exit code 0 on PASS) and `--help` for an overview of the classes. The file is primarily meant to be imported as a module (e.g., `from performance_reporting import ModifiedDietz, MoneyWeightedReturn`).

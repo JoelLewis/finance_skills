@@ -100,10 +100,10 @@ Because EUR rates (3%) are lower than USD rates (5%), the EUR investor earns a p
 - CIP holds by arbitrage; UIP is a theory that often fails empirically — do not assume forward rates predict future spot rates
 
 ## Cross-References
-- **historical-risk**: return measurement in multi-currency portfolios
-- **equities**: international equity investing and currency effects
-- **fixed-income-sovereign**: international bond investing and rate differentials
-- **asset-allocation**: currency hedging decisions in portfolio context
+- **historical-risk** (wealth-management plugin): return measurement in multi-currency portfolios
+- **equities** (wealth-management plugin): international equity investing and currency effects
+- **fixed-income-sovereign** (wealth-management plugin): international bond investing and rate differentials
+- **asset-allocation** (wealth-management plugin): currency hedging decisions in portfolio context
 
 ## Running the Script
 

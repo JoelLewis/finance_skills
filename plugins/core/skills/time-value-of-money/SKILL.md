@@ -219,5 +219,5 @@ To find the IRR, we would solve for the rate where NPV = 0. Numerically, the IRR
 - For programmatic use, import rather than run: `from time_value_of_money import TimeValueOfMoney, AmortizationSchedule`, then call e.g. `TimeValueOfMoney.npv(...)`.
 
 ## Cross-References
-- **return-calculations** (core plugin, Layer 0): CAGR is a special case of compound growth; portfolio MWR uses the same NPV=0 framework and lives there
-- **statistics-fundamentals** (core plugin, Layer 0): Discount rate estimation often relies on regression (CAPM beta) and distributional assumptions
+- **return-calculations** (core plugin): CAGR is a special case of compound growth; portfolio MWR uses the same NPV=0 framework and lives there
+- **statistics-fundamentals** (core plugin): Discount rate estimation often relies on regression (CAPM beta) and distributional assumptions

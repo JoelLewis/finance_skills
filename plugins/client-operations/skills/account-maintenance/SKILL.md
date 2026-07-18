@@ -205,10 +205,10 @@ Three worked examples — an individual-to-revocable-trust re-registration (incl
 - Treating all joint accounts the same upon a co-owner's death — JTWROS and TIC accounts have fundamentally different disposition rules
 
 ## Cross-References
-- **account-opening-workflow** (Layer 12, client-operations): Account opening establishes the initial registration, beneficiary designations, and standing instructions that this skill maintains throughout the account lifecycle
-- **books-and-records** (Layer 9, compliance): Recordkeeping obligations for account maintenance documentation, including retention of change requests, authorizations, and correspondence per SEC Rules 17a-3/17a-4 and Rule 204-2
-- **privacy-data-security** (Layer 9, compliance): Address changes, contact updates, and account data maintenance involve nonpublic personal information protected by Reg S-P; data quality processes must comply with privacy requirements
-- **tax-efficiency** (Layer 5, policy-planning): Cost basis management, tax lot accounting method selection, and step-up in basis processing directly affect tax-efficient investing outcomes
-- **client-onboarding** (Layer 10, advisory-practice): Onboarding collects the initial data (beneficiaries, suitability, contact information) that account maintenance keeps current throughout the relationship
-- **corporate-actions** (Layer 12, client-operations): Corporate actions (splits, mergers, spin-offs, return of capital) alter cost basis and require coordination with the cost basis management processes described in this skill
-- **account-transfers** (Layer 12, client-operations): ACATS and non-ACATS transfers interact with cost basis transfer rules and re-registration procedures; transfer processing often triggers account maintenance updates at the receiving firm
+- **account-opening-workflow** (client-operations plugin): Account opening establishes the initial registration, beneficiary designations, and standing instructions that this skill maintains throughout the account lifecycle
+- **books-and-records** (compliance plugin): Recordkeeping obligations for account maintenance documentation, including retention of change requests, authorizations, and correspondence per SEC Rules 17a-3/17a-4 and Rule 204-2
+- **privacy-data-security** (compliance plugin): Address changes, contact updates, and account data maintenance involve nonpublic personal information protected by Reg S-P; data quality processes must comply with privacy requirements
+- **tax-efficiency** (policy-planning plugin): Cost basis management, tax lot accounting method selection, and step-up in basis processing directly affect tax-efficient investing outcomes
+- **client-onboarding** (advisory-practice plugin): Onboarding collects the initial data (beneficiaries, suitability, contact information) that account maintenance keeps current throughout the relationship
+- **corporate-actions** (client-operations plugin): Corporate actions (splits, mergers, spin-offs, return of capital) alter cost basis and require coordination with the cost basis management processes described in this skill
+- **account-transfers** (client-operations plugin): ACATS and non-ACATS transfers interact with cost basis transfer rules and re-registration procedures; transfer processing often triggers account maintenance updates at the receiving firm

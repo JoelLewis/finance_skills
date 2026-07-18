@@ -131,9 +131,9 @@ Comprehensive fee analysis requires looking beyond the stated fee schedule to ca
 - Assuming "commission-free" means "cost-free" — bid-ask spreads and payment for order flow still represent costs
 
 ## Cross-References
-- **fund-vehicles** (Layer 2): Fund mechanics, expense ratios, share classes — the product knowledge underlying fee disclosure
-- **conflicts-of-interest** (Layer 9): Revenue sharing, 12b-1 fees, and differential compensation are core conflicts requiring disclosure
-- **reg-bi** (Layer 9): Reg BI's Disclosure Obligation specifically addresses fees and costs
-- **client-disclosures** (Layer 9): Form ADV and Form CRS are the delivery vehicles for fee disclosure
-- **fiduciary-standards** (Layer 9): Fee transparency is a core fiduciary obligation
-- **investment-policy** (Layer 5): IPS fee assumptions must reflect actual total cost
+- **fund-vehicles** (wealth-management plugin): Fund mechanics, expense ratios, share classes — the product knowledge underlying fee disclosure
+- **conflicts-of-interest** (compliance plugin): Revenue sharing, 12b-1 fees, and differential compensation are core conflicts requiring disclosure
+- **reg-bi** (compliance plugin): Reg BI's Disclosure Obligation specifically addresses fees and costs
+- **client-disclosures** (compliance plugin): Form ADV and Form CRS are the delivery vehicles for fee disclosure
+- **fiduciary-standards** (compliance plugin): Fee transparency is a core fiduciary obligation
+- **investment-policy** (wealth-management plugin): IPS fee assumptions must reflect actual total cost

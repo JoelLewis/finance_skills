@@ -106,8 +106,8 @@ Firms registered as both IA and BD must clearly disclose which capacity they are
 - Not conducting the annual compliance review required by Rule 206(4)-7
 
 ## Cross-References
-- **reg-bi** (Layer 9): Parallel standard for broker-dealers; key comparison point for understanding fiduciary duty's higher bar
-- **conflicts-of-interest** (Layer 9): Fiduciary duty of loyalty requires full disclosure and informed consent for all material conflicts
-- **fee-disclosure** (Layer 9): Fee transparency is a core fiduciary obligation; ADV Part 2A fee disclosure requirements
-- **investment-policy** (Layer 5): IPS construction reflects fiduciary obligation to document investment approach and client objectives
-- **advice-standards** (Layer 9): Determines when fiduciary duty is triggered (when does information become advice?)
+- **reg-bi** (compliance plugin): Parallel standard for broker-dealers; key comparison point for understanding fiduciary duty's higher bar
+- **conflicts-of-interest** (compliance plugin): Fiduciary duty of loyalty requires full disclosure and informed consent for all material conflicts
+- **fee-disclosure** (compliance plugin): Fee transparency is a core fiduciary obligation; ADV Part 2A fee disclosure requirements
+- **investment-policy** (wealth-management plugin): IPS construction reflects fiduciary obligation to document investment approach and client objectives
+- **advice-standards** (compliance plugin): Determines when fiduciary duty is triggered (when does information become advice?)

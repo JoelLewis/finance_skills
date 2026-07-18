@@ -153,10 +153,10 @@ Three worked examples are in [references/examples.md](references/examples.md) �
 
 ## Cross-References
 
-- **crm-client-lifecycle** (Layer 10, advisory-practice) — CRM data (client segments, activity logs, pipeline, lifecycle stage) is a primary data source for dashboard metrics including client count, attrition, meeting volume, and acquisition funnel analytics.
-- **fee-billing** (Layer 10, advisory-practice) — Billing system data feeds revenue metrics, effective fee rates, billing exception counts, and fee-schedule compliance indicators displayed on revenue and exception dashboards.
-- **performance-reporting** (Layer 7, wealth-management) — Performance calculation outputs (TWR, MWR, benchmark comparisons) feed dashboard panels showing portfolio-level and firm-level investment results, and performance dispersion across accounts.
-- **client-reporting-delivery** (Layer 10, advisory-practice) — Client reporting workflows generate data on report delivery status, portal engagement, and communication frequency that inform advisor productivity and client engagement dashboard sections.
-- **portfolio-management-systems** (Layer 10, advisory-practice) — The PMS provides AUM data, position-level holdings, drift analysis, and reconciliation status that power AUM dashboards, drift alert panels, and reconciliation exception views.
-- **next-best-action** (Layer 10, advisory-practice) — NBA systems generate the prioritized action queue displayed on the advisor daily dashboard; dashboard adoption metrics (acceptance rate, completion rate) feed NBA effectiveness measurement.
-- **operational-risk** (Layer 11, trading-operations) — Operational risk event data (trade errors, settlement failures, process breakdowns) feeds exception dashboards and provides the risk metrics displayed on management and compliance views.
+- **crm-client-lifecycle** (advisory-practice plugin) — CRM data (client segments, activity logs, pipeline, lifecycle stage) is a primary data source for dashboard metrics including client count, attrition, meeting volume, and acquisition funnel analytics.
+- **fee-billing** (advisory-practice plugin) — Billing system data feeds revenue metrics, effective fee rates, billing exception counts, and fee-schedule compliance indicators displayed on revenue and exception dashboards.
+- **performance-reporting** (wealth-management plugin) — Performance calculation outputs (TWR, MWR, benchmark comparisons) feed dashboard panels showing portfolio-level and firm-level investment results, and performance dispersion across accounts.
+- **client-reporting-delivery** (advisory-practice plugin) — Client reporting workflows generate data on report delivery status, portal engagement, and communication frequency that inform advisor productivity and client engagement dashboard sections.
+- **portfolio-management-systems** (advisory-practice plugin) — The PMS provides AUM data, position-level holdings, drift analysis, and reconciliation status that power AUM dashboards, drift alert panels, and reconciliation exception views.
+- **next-best-action** (advisory-practice plugin) — NBA systems generate the prioritized action queue displayed on the advisor daily dashboard; dashboard adoption metrics (acceptance rate, completion rate) feed NBA effectiveness measurement.
+- **operational-risk** (trading-operations plugin) — Operational risk event data (trade errors, settlement failures, process breakdowns) feeds exception dashboards and provides the risk metrics displayed on management and compliance views.

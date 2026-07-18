@@ -193,11 +193,11 @@ Three worked examples — a high-value account transfer approval matrix ($500K/$
 
 ## Cross-References
 
-- **stp-automation** (Layer 12, client-operations) — STP is the end goal of operations automation; workflow automation handles the exceptions and human-in-the-loop steps that STP cannot yet cover.
-- **account-opening-workflow** (Layer 12, client-operations) — Account opening is a primary domain for workflow automation, with multi-step approval chains, conditional routing by account type, and custodian submission orchestration.
-- **account-maintenance** (Layer 12, client-operations) — Maintenance requests (name changes, beneficiary updates, re-registrations) are routed, tracked, and SLA-monitored through workflow systems.
-- **account-transfers** (Layer 12, client-operations) — Transfers require multi-step approval workflows with dollar-based thresholds, FINRA-mandated timelines, and escalation for aging items.
-- **corporate-actions** (Layer 12, client-operations) — Voluntary corporate actions have deadline-driven workflows for client notification, election collection, escalation, and DTC submission.
-- **reconciliation** (Layer 12, client-operations) — Reconciliation break resolution follows escalation workflows with aging thresholds, priority routing, and management reporting.
-- **operational-risk** (Layer 11, trading-operations) — Workflow controls (approval chains, four-eyes principle, SLA monitoring) are operational risk mitigations that reduce processing errors and missed deadlines.
-- **books-and-records** (Layer 9, compliance) — Workflow audit trails are regulatory records subject to SEC Rule 17a-3/17a-4 preservation requirements and FINRA examination review.
+- **stp-automation** (client-operations plugin) — STP is the end goal of operations automation; workflow automation handles the exceptions and human-in-the-loop steps that STP cannot yet cover.
+- **account-opening-workflow** (client-operations plugin) — Account opening is a primary domain for workflow automation, with multi-step approval chains, conditional routing by account type, and custodian submission orchestration.
+- **account-maintenance** (client-operations plugin) — Maintenance requests (name changes, beneficiary updates, re-registrations) are routed, tracked, and SLA-monitored through workflow systems.
+- **account-transfers** (client-operations plugin) — Transfers require multi-step approval workflows with dollar-based thresholds, FINRA-mandated timelines, and escalation for aging items.
+- **corporate-actions** (client-operations plugin) — Voluntary corporate actions have deadline-driven workflows for client notification, election collection, escalation, and DTC submission.
+- **reconciliation** (client-operations plugin) — Reconciliation break resolution follows escalation workflows with aging thresholds, priority routing, and management reporting.
+- **operational-risk** (trading-operations plugin) — Workflow controls (approval chains, four-eyes principle, SLA monitoring) are operational risk mitigations that reduce processing errors and missed deadlines.
+- **books-and-records** (compliance plugin) — Workflow audit trails are regulatory records subject to SEC Rule 17a-3/17a-4 preservation requirements and FINRA examination review.

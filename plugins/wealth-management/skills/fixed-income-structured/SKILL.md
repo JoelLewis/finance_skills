@@ -98,10 +98,10 @@ The AAA tranche has 35% subordination — the portfolio would need to lose more 
 - Not understanding that waterfall mechanics affect tranche risk differently — senior and subordinate tranches of the same deal have very different risk profiles
 
 ## Cross-References
-- **fixed-income-sovereign**: the Treasury curve and duration/convexity concepts
-- **fixed-income-corporate**: credit spread concepts applied to non-agency MBS and CLOs
-- **real-assets**: real estate market fundamentals underlying MBS
-- **asset-allocation**: structured products in multi-asset portfolios
+- **fixed-income-sovereign** (wealth-management plugin): the Treasury curve and duration/convexity concepts
+- **fixed-income-corporate** (wealth-management plugin): credit spread concepts applied to non-agency MBS and CLOs
+- **real-assets** (wealth-management plugin): real estate market fundamentals underlying MBS
+- **asset-allocation** (wealth-management plugin): structured products in multi-asset portfolios
 
 ## Running the Script
 

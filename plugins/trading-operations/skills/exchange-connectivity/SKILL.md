@@ -188,9 +188,9 @@ Three worked examples are in [references/examples.md](references/examples.md) �
 - Assuming that a FIX session Logon means the exchange is ready to accept orders — many exchanges have separate "trading session status" messages that indicate when the matching engine transitions from pre-open to open
 
 ## Cross-References
-- **order-lifecycle** (trading-operations): Order states, order types, and the order lifecycle from creation through execution or cancellation — exchange connectivity is the transport layer that carries order lifecycle events
-- **trade-execution** (trading-operations): Execution algorithms, venue selection, and smart order routing depend on the connectivity and market data infrastructure described in this skill
-- **pre-trade-compliance** (trading-operations): Pre-trade risk controls (Rule 15c3-5) are a regulatory requirement for market access and must be integrated into the exchange connectivity architecture
-- **settlement-clearing** (trading-operations): Post-execution, trades flow from exchange connectivity systems through clearing and settlement — correct venue and execution identifiers are critical for downstream processing
-- **operational-risk** (trading-operations): Exchange connectivity failures are a significant source of operational risk, and the resilience, failover, and monitoring practices in this skill are operational risk controls
-- **books-and-records** (compliance): Order and execution data captured through exchange connectivity must be retained per SEC Rules 17a-3 and 17a-4, and CAT reporting obligations require comprehensive audit trail data from connectivity systems
+- **order-lifecycle** (trading-operations plugin): Order states, order types, and the order lifecycle from creation through execution or cancellation — exchange connectivity is the transport layer that carries order lifecycle events
+- **trade-execution** (trading-operations plugin): Execution algorithms, venue selection, and smart order routing depend on the connectivity and market data infrastructure described in this skill
+- **pre-trade-compliance** (trading-operations plugin): Pre-trade risk controls (Rule 15c3-5) are a regulatory requirement for market access and must be integrated into the exchange connectivity architecture
+- **settlement-clearing** (trading-operations plugin): Post-execution, trades flow from exchange connectivity systems through clearing and settlement — correct venue and execution identifiers are critical for downstream processing
+- **operational-risk** (trading-operations plugin): Exchange connectivity failures are a significant source of operational risk, and the resilience, failover, and monitoring practices in this skill are operational risk controls
+- **books-and-records** (compliance plugin): Order and execution data captured through exchange connectivity must be retained per SEC Rules 17a-3 and 17a-4, and CAT reporting obligations require comprehensive audit trail data from connectivity systems

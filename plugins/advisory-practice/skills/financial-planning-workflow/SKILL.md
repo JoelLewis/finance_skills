@@ -171,14 +171,14 @@ At each update, re-run the probability-of-success analysis and compare to the pr
 - Presenting too many recommendations at once without clear prioritization, leading to client overwhelm and inaction
 
 ## Cross-References
-- **savings-goals** (wealth-management plugin, Layer 6): provides goal-based savings calculations referenced during retirement and education analysis
-- **debt-management** (wealth-management plugin, Layer 6): debt payoff strategies are evaluated during cash flow and recommendation phases
-- **emergency-fund** (wealth-management plugin, Layer 6): emergency fund adequacy is assessed early in the planning process
-- **liquidity-management** (wealth-management plugin, Layer 6): cash flow tier structure informs the plan's liquidity analysis
-- **tax-efficiency** (wealth-management plugin, Layer 5): tax-aware strategies (Roth conversions, asset location) are core plan recommendations
-- **investment-policy** (wealth-management plugin, Layer 5): the financial plan informs and is codified in the investment policy statement
-- **time-value-of-money** (core plugin, Layer 0): PV/FV/annuity calculations underpin all projection modeling
-- **client-review-prep** (advisory-practice plugin, Layer 10): plan progress review is integrated into the periodic client review workflow
-- **financial-planning-integration** (advisory-practice plugin, Layer 10): covers the software and system integration for planning tools
-- **proposal-generation** (advisory-practice plugin, Layer 10): the financial plan often leads to an investment proposal for implementation
-- **tax-loss-harvesting** (wealth-management plugin, Layer 5): TLH is a specific tax recommendation that may emerge from the plan
+- **savings-goals** (wealth-management plugin): provides goal-based savings calculations referenced during retirement and education analysis
+- **debt-management** (wealth-management plugin): debt payoff strategies are evaluated during cash flow and recommendation phases
+- **emergency-fund** (wealth-management plugin): emergency fund adequacy is assessed early in the planning process
+- **liquidity-management** (wealth-management plugin): cash flow tier structure informs the plan's liquidity analysis
+- **tax-efficiency** (wealth-management plugin): tax-aware strategies (Roth conversions, asset location) are core plan recommendations
+- **investment-policy** (wealth-management plugin): the financial plan informs and is codified in the investment policy statement
+- **time-value-of-money** (core plugin): PV/FV/annuity calculations underpin all projection modeling
+- **client-review-prep** (advisory-practice plugin): plan progress review is integrated into the periodic client review workflow
+- **financial-planning-integration** (advisory-practice plugin): covers the software and system integration for planning tools
+- **proposal-generation** (advisory-practice plugin): the financial plan often leads to an investment proposal for implementation
+- **tax-loss-harvesting** (wealth-management plugin): TLH is a specific tax recommendation that may emerge from the plan

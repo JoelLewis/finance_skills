@@ -83,11 +83,11 @@ Selection rules: default to cap-weighted for core beta; add equal- or fundamenta
 - **historical-risk** (wealth-management plugin): volatility and drawdown measurement for equity return series
 - **statistics-fundamentals** (core plugin): beta estimation via CAPM regression
 - **performance-metrics** (wealth-management plugin): Sharpe ratio and related risk-adjusted return measures
-- **fund-vehicles**: equity fund selection (ETFs, mutual funds, SMAs)
-- **currencies-and-fx**: international equity currency effects
-- **asset-allocation**: equity allocation within multi-asset portfolios
-- **real-assets**: REIT valuation (P/FFO, NAV) is owned by that skill
-- **qualitative-valuation** and **quantitative-valuation**: deeper single-company valuation workflows
+- **fund-vehicles** (wealth-management plugin): equity fund selection (ETFs, mutual funds, SMAs)
+- **currencies-and-fx** (wealth-management plugin): international equity currency effects
+- **asset-allocation** (wealth-management plugin): equity allocation within multi-asset portfolios
+- **real-assets** (wealth-management plugin): REIT valuation (P/FFO, NAV) is owned by that skill
+- **qualitative-valuation** (wealth-management plugin) and **quantitative-valuation** (wealth-management plugin): deeper single-company valuation workflows
 
 ## Running the Script
 

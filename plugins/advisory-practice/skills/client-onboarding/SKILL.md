@@ -311,12 +311,12 @@ Three worked examples are in [references/examples.md](references/examples.md) â€
 - Collecting beneficial ownership information but not verifying the identities of the beneficial owners, violating the CDD Rule's verification requirement
 
 ## Cross-References
-- **know-your-customer** (Layer 9, compliance): KYC/CIP requirements that the onboarding identity verification stage must satisfy; the KYC skill defines the regulatory standards, and this skill describes how to implement them in an onboarding workflow
-- **investment-suitability** (Layer 9, compliance): Suitability data collection during onboarding provides the foundation for all subsequent investment recommendations; the suitability skill defines the regulatory obligations, and this skill covers how to gather the required data
-- **anti-money-laundering** (Layer 9, compliance): OFAC screening and AML checks are embedded compliance gates in the onboarding flow; the AML skill covers the regulatory framework, and this skill describes the integration points
-- **reg-bi** (Layer 9, compliance): Reg BI disclosure and care obligations must be satisfied at or before account opening; Form CRS delivery is a required onboarding step for broker-dealers and RIAs
-- **client-disclosures** (Layer 9, compliance): Disclosure documents (Form ADV, Form CRS, privacy notice, prospectus) must be delivered during onboarding at prescribed trigger points
-- **crm-client-lifecycle** (Layer 10, advisory-practice): The CRM receives client and household data from the onboarding process; onboarding creates the client master record that CRM manages throughout the relationship
-- **portfolio-management-systems** (Layer 10, advisory-practice): The PMS receives new accounts from onboarding for model portfolio assignment and initial investment execution
-- **privacy-data-security** (Layer 9, compliance): Onboarding collects sensitive nonpublic personal information (SSN, financial data, identity documents) that must be protected under Reg S-P and firm cybersecurity policies
-- **account-opening-workflow** (client-operations plugin, Layer 12): Back-office account opening process that receives onboarding outputs; handles operations processing, custodian submission, and account activation
+- **know-your-customer** (compliance plugin): KYC/CIP requirements that the onboarding identity verification stage must satisfy; the KYC skill defines the regulatory standards, and this skill describes how to implement them in an onboarding workflow
+- **investment-suitability** (compliance plugin): Suitability data collection during onboarding provides the foundation for all subsequent investment recommendations; the suitability skill defines the regulatory obligations, and this skill covers how to gather the required data
+- **anti-money-laundering** (compliance plugin): OFAC screening and AML checks are embedded compliance gates in the onboarding flow; the AML skill covers the regulatory framework, and this skill describes the integration points
+- **reg-bi** (compliance plugin): Reg BI disclosure and care obligations must be satisfied at or before account opening; Form CRS delivery is a required onboarding step for broker-dealers and RIAs
+- **client-disclosures** (compliance plugin): Disclosure documents (Form ADV, Form CRS, privacy notice, prospectus) must be delivered during onboarding at prescribed trigger points
+- **crm-client-lifecycle** (advisory-practice plugin): The CRM receives client and household data from the onboarding process; onboarding creates the client master record that CRM manages throughout the relationship
+- **portfolio-management-systems** (advisory-practice plugin): The PMS receives new accounts from onboarding for model portfolio assignment and initial investment execution
+- **privacy-data-security** (compliance plugin): Onboarding collects sensitive nonpublic personal information (SSN, financial data, identity documents) that must be protected under Reg S-P and firm cybersecurity policies
+- **account-opening-workflow** (client-operations plugin): Back-office account opening process that receives onboarding outputs; handles operations processing, custodian submission, and account activation

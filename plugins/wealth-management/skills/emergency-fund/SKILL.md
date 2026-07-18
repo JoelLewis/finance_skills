@@ -143,11 +143,11 @@ After using the emergency fund:
 - Treating the emergency fund as an investment account rather than an insurance policy
 
 ## Cross-References
-- **liquidity-management**: emergency fund is the foundation of the personal liquidity tier structure
-- **savings-goals**: emergency fund is typically the highest priority savings goal
-- **debt-management**: adequate emergency fund prevents taking on new high-interest debt during crises
-- **lending**: emergency reserves are a factor in mortgage qualification
-- **investment-policy**: emergency fund size feeds the liquidity constraint in an IPS
+- **liquidity-management** (wealth-management plugin): emergency fund is the foundation of the personal liquidity tier structure
+- **savings-goals** (wealth-management plugin): emergency fund is typically the highest priority savings goal
+- **debt-management** (wealth-management plugin): adequate emergency fund prevents taking on new high-interest debt during crises
+- **lending** (wealth-management plugin): emergency reserves are a factor in mortgage qualification
+- **investment-policy** (wealth-management plugin): emergency fund size feeds the liquidity constraint in an IPS
 - **financial-planning-workflow** (advisory-practice plugin): emergency fund adequacy is assessed early in the comprehensive financial planning process
 
 ## Running the Script

@@ -179,8 +179,8 @@ Investment adviser registration operates at both the federal and state level:
 - **Treating model portfolios as always safe.** Model portfolios published to a general audience may qualify for the publisher's exclusion, but model portfolios tailored to individual clients or adjusted based on client-specific inputs are personal advice.
 
 ## Cross-References
-- **fiduciary-standards** (compliance plugin, Layer 9): Fiduciary duties that attach once adviser status is established
-- **reg-bi** (compliance plugin, Layer 9): Regulation Best Interest obligations for broker-dealer recommendations
-- **investment-suitability** (compliance plugin, Layer 9): Suitability analysis framework underlying both advice and recommendations
-- **advertising-compliance** (compliance plugin, Layer 9): Rules governing how advisory and brokerage services are marketed
-- **conflicts-of-interest** (compliance plugin, Layer 9): Identification and management of conflicts that arise in advisory and brokerage relationships
+- **fiduciary-standards** (compliance plugin): Fiduciary duties that attach once adviser status is established
+- **reg-bi** (compliance plugin): Regulation Best Interest obligations for broker-dealer recommendations
+- **investment-suitability** (compliance plugin): Suitability analysis framework underlying both advice and recommendations
+- **advertising-compliance** (compliance plugin): Rules governing how advisory and brokerage services are marketed
+- **conflicts-of-interest** (compliance plugin): Identification and management of conflicts that arise in advisory and brokerage relationships

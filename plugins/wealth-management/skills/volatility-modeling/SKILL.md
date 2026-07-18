@@ -224,9 +224,9 @@ A systematic vol-selling strategy would sell this option, expecting to profit fr
 - **Lambda selection for EWMA:** The choice of lambda significantly affects responsiveness. lambda = 0.94 responds quickly to shocks (effective window approximately 17 days); lambda = 0.97 is smoother (effective window approximately 33 days). The choice should match the application's horizon.
 
 ## Cross-References
-- **historical-risk** (wealth-management plugin, Layer 1a): Close-to-close, Parkinson, and Yang-Zhang volatility estimators provide the realized volatility benchmarks against which GARCH forecasts and implied volatility are compared.
-- **forward-risk** (wealth-management plugin, Layer 1b): Volatility forecasts from EWMA and GARCH are direct inputs to parametric and Monte Carlo VaR calculations.
-- **performance-metrics** (wealth-management plugin, Layer 1a): Volatility estimates affect the denominators of Sharpe, Sortino, and other risk-adjusted ratios. Using forward-looking (GARCH) volatility can produce conditional performance ratios.
+- **historical-risk** (wealth-management plugin): Close-to-close, Parkinson, and Yang-Zhang volatility estimators provide the realized volatility benchmarks against which GARCH forecasts and implied volatility are compared.
+- **forward-risk** (wealth-management plugin): Volatility forecasts from EWMA and GARCH are direct inputs to parametric and Monte Carlo VaR calculations.
+- **performance-metrics** (wealth-management plugin): Volatility estimates affect the denominators of Sharpe, Sortino, and other risk-adjusted ratios. Using forward-looking (GARCH) volatility can produce conditional performance ratios.
 
 ## Running the script
 

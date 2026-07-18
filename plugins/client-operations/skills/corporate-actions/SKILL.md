@@ -232,11 +232,11 @@ Three numerically worked examples — a cash-and-stock merger with Section 368 b
 
 ## Cross-References
 
-- **reconciliation** — Entitlement reconciliation against depository and custodian records; position reconciliation after corporate action processing.
-- **account-maintenance** — Account-level updates triggered by corporate actions, including position and cash balance changes.
-- **settlement-clearing** — Settlement mechanics for corporate action entitlements, DTC processing, and claiming.
-- **tax-efficiency** — Tax implications of corporate actions: cost basis adjustments, gain/loss recognition, qualified dividend determination, and return-of-capital treatment.
-- **performance-attribution** — Impact of corporate actions on portfolio return calculations and attribution analysis.
-- **books-and-records** — Recordkeeping requirements for corporate action processing, elections, and entitlements.
-- **portfolio-management-systems** — System integration for corporate action data flow, position updates, and cost basis adjustments.
-- **operational-risk** — Corporate action processing as a key operational risk area; controls, deadline management, and error detection.
+- **reconciliation** (client-operations plugin) — Entitlement reconciliation against depository and custodian records; position reconciliation after corporate action processing.
+- **account-maintenance** (client-operations plugin) — Account-level updates triggered by corporate actions, including position and cash balance changes.
+- **settlement-clearing** (trading-operations plugin) — Settlement mechanics for corporate action entitlements, DTC processing, and claiming.
+- **tax-efficiency** (wealth-management plugin) — Tax implications of corporate actions: cost basis adjustments, gain/loss recognition, qualified dividend determination, and return-of-capital treatment.
+- **performance-attribution** (wealth-management plugin) — Impact of corporate actions on portfolio return calculations and attribution analysis.
+- **books-and-records** (compliance plugin) — Recordkeeping requirements for corporate action processing, elections, and entitlements.
+- **portfolio-management-systems** (advisory-practice plugin) — System integration for corporate action data flow, position updates, and cost basis adjustments.
+- **operational-risk** (trading-operations plugin) — Corporate action processing as a key operational risk area; controls, deadline management, and error detection.

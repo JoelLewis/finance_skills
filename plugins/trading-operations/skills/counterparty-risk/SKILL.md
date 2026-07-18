@@ -73,10 +73,10 @@ Two worked examples are in [references/examples.md](references/examples.md) — 
 - Maintaining ISDA documentation with outdated Schedules that reference superseded regulations or contain stale credit thresholds, creating legal uncertainty about close-out mechanics and collateral obligations during a default event
 
 ## Cross-References
-- **settlement-clearing** (trading-operations): Owns settlement risk mechanics — DVP/PvP, CLS, Herstatt risk, and fail management; clearing and settlement infrastructure are the structural mitigants for counterparty exposure.
-- **margin-operations** (trading-operations): Owns Reg T and FINRA Rule 4210 brokerage margin; margin call workflows are the operational implementation of the collateral concepts in this skill.
-- **trade-execution** (trading-operations): Pre-deal credit limit checks must be integrated into the trade execution workflow to prevent trades that would breach counterparty exposure limits.
-- **order-lifecycle** (trading-operations): Counterparty selection and credit validation are pre-execution steps in the order lifecycle.
-- **operational-risk** (trading-operations): Counterparty default events require documented escalation, remediation, and loss attribution processes.
-- **forward-risk** (wealth-management): PFE calculation shares Monte Carlo risk-factor simulation techniques and infrastructure with forward-looking portfolio risk analysis.
-- **fixed-income-corporate** (wealth-management): Credit analysis of corporate bond issuers uses many of the same financial metrics and rating frameworks applied to counterparty credit assessment.
+- **settlement-clearing** (trading-operations plugin): Owns settlement risk mechanics — DVP/PvP, CLS, Herstatt risk, and fail management; clearing and settlement infrastructure are the structural mitigants for counterparty exposure.
+- **margin-operations** (trading-operations plugin): Owns Reg T and FINRA Rule 4210 brokerage margin; margin call workflows are the operational implementation of the collateral concepts in this skill.
+- **trade-execution** (trading-operations plugin): Pre-deal credit limit checks must be integrated into the trade execution workflow to prevent trades that would breach counterparty exposure limits.
+- **order-lifecycle** (trading-operations plugin): Counterparty selection and credit validation are pre-execution steps in the order lifecycle.
+- **operational-risk** (trading-operations plugin): Counterparty default events require documented escalation, remediation, and loss attribution processes.
+- **forward-risk** (wealth-management plugin): PFE calculation shares Monte Carlo risk-factor simulation techniques and infrastructure with forward-looking portfolio risk analysis.
+- **fixed-income-corporate** (wealth-management plugin): Credit analysis of corporate bond issuers uses many of the same financial metrics and rating frameworks applied to counterparty credit assessment.

@@ -166,9 +166,9 @@ Interpretation: On 95% of days, the loss is expected not to exceed 2.8% based on
 - **Log returns vs simple returns:** For volatility estimation, log returns are preferred because they are additive across time. For reporting cumulative performance, simple returns are more intuitive.
 
 ## Cross-References
-- **performance-metrics** (wealth-management plugin, Layer 1a): Uses volatility, downside deviation, tracking error, and max drawdown as denominators in risk-adjusted ratios (Sharpe, Sortino, Information Ratio, Calmar).
-- **forward-risk** (wealth-management plugin, Layer 1b): Historical VaR and historical volatility serve as inputs to forward-looking VaR models and stress tests.
-- **volatility-modeling** (wealth-management plugin, Layer 1b): EWMA and GARCH models extend the simple historical volatility estimators covered here into forecasting frameworks.
+- **performance-metrics** (wealth-management plugin): Uses volatility, downside deviation, tracking error, and max drawdown as denominators in risk-adjusted ratios (Sharpe, Sortino, Information Ratio, Calmar).
+- **forward-risk** (wealth-management plugin): Historical VaR and historical volatility serve as inputs to forward-looking VaR models and stress tests.
+- **volatility-modeling** (wealth-management plugin): EWMA and GARCH models extend the simple historical volatility estimators covered here into forecasting frameworks.
 
 ## Running the script
 Run with `uv run scripts/historical_risk.py` (the PEP 723 header resolves numpy automatically) or with `python3 scripts/historical_risk.py` after `pip install numpy scipy`. A bare run prints a full risk analysis (annualized and Parkinson volatility, maximum drawdown with timing, 95%/99% historical VaR, downside deviation, semi-variance, tracking error, rolling volatility) on seeded synthetic data with an injected drawdown event. Use `--verify` to assert outputs match this skill's worked examples and the demo's expected values (exit code 0 on PASS) and `--help` for an overview of the class. The file is primarily meant to be imported as a module (e.g., `from historical_risk import HistoricalRiskAnalyzer`).

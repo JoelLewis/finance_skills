@@ -82,9 +82,9 @@ The revenue bond yields 40bp more than the GO bond. The DSCR of 1.8x is well abo
 
 ## Cross-References
 - **time-value-of-money** (core plugin): present value and discounting fundamentals
-- **fixed-income-sovereign**: yield curve context and duration concepts
-- **fixed-income-corporate**: comparing muni spreads to corporate spreads
-- **tax-efficiency**: muni bonds as a primary tax management tool
+- **fixed-income-sovereign** (wealth-management plugin): yield curve context and duration concepts
+- **fixed-income-corporate** (wealth-management plugin): comparing muni spreads to corporate spreads
+- **tax-efficiency** (wealth-management plugin): muni bonds as a primary tax management tool
 
 ## Running the Script
 

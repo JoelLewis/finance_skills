@@ -122,9 +122,9 @@ The regulatory expectation for addressing conflicts follows a clear hierarchy:
 - Treating outside business activities as a disclosure-only obligation without assessing whether they create substantive conflicts that require mitigation
 
 ## Cross-References
-- **reg-bi** (Layer 9): Regulation Best Interest's four component obligations, including the Conflict of Interest Obligation that directly governs BD conflict management
-- **fiduciary-standards** (Layer 9): The IA fiduciary framework — duty of care and duty of loyalty — that underlies all conflict-of-interest obligations for advisers
-- **fee-disclosure** (Layer 9): Disclosure requirements for fees and compensation that intersect with conflict identification and communication
-- **sales-practices** (Layer 9): Suitability, churning, and selling-away rules that address conduct flowing from unmanaged conflicts
-- **client-disclosures** (Layer 9): Form ADV, Form CRS, and other disclosure documents that serve as the primary vehicles for communicating conflicts to clients
-- **investment-suitability** (Layer 9): Suitability and best interest analysis that must account for conflicts when evaluating whether a recommendation is appropriate
+- **reg-bi** (compliance plugin): Regulation Best Interest's four component obligations, including the Conflict of Interest Obligation that directly governs BD conflict management
+- **fiduciary-standards** (compliance plugin): The IA fiduciary framework — duty of care and duty of loyalty — that underlies all conflict-of-interest obligations for advisers
+- **fee-disclosure** (compliance plugin): Disclosure requirements for fees and compensation that intersect with conflict identification and communication
+- **sales-practices** (compliance plugin): Suitability, churning, and selling-away rules that address conduct flowing from unmanaged conflicts
+- **client-disclosures** (compliance plugin): Form ADV, Form CRS, and other disclosure documents that serve as the primary vehicles for communicating conflicts to clients
+- **investment-suitability** (compliance plugin): Suitability and best interest analysis that must account for conflicts when evaluating whether a recommendation is appropriate

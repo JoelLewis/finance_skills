@@ -165,8 +165,9 @@ FINRA Rule 2360 governs the conduct of member firms and associated persons in op
 - Failing to update WSPs when regulations change or when the firm's business model evolves, leaving gaps in supervisory coverage
 
 ## Cross-References
-- **investment-suitability** (Layer 9): Suitability obligations (FINRA Rule 2111) are closely intertwined with sales practices — churning is a quantitative suitability violation
-- **reg-bi** (Layer 9): Regulation Best Interest imposes a heightened standard on broker-dealer recommendations that overlaps with and strengthens sales practice requirements
-- **conflicts-of-interest** (Layer 9): Selling away, undisclosed compensation, and breakpoint abuse all involve conflicts of interest that must be identified, disclosed, and mitigated
-- **know-your-customer** (Layer 9): KYC obligations under FINRA Rule 2090 provide the customer information foundation for detecting sales practice violations
-- **fiduciary-standards** (Layer 9): For dual-registrants, fiduciary duties may impose obligations beyond FINRA sales practice rules
+- **investment-suitability** (compliance plugin): Suitability obligations (FINRA Rule 2111) are closely intertwined with sales practices — churning is a quantitative suitability violation
+- **reg-bi** (compliance plugin): Regulation Best Interest imposes a heightened standard on broker-dealer recommendations that overlaps with and strengthens sales practice requirements
+- **conflicts-of-interest** (compliance plugin): Selling away, undisclosed compensation, and breakpoint abuse all involve conflicts of interest that must be identified, disclosed, and mitigated
+- **know-your-customer** (compliance plugin): KYC obligations under FINRA Rule 2090 provide the customer information foundation for detecting sales practice violations
+- **fiduciary-standards** (compliance plugin): For dual-registrants, fiduciary duties may impose obligations beyond FINRA sales practice rules
+- **account-opening-compliance** (client-operations plugin): Trusted contact collection (FINRA Rule 4512) and senior investor protection infrastructure are established at onboarding; this skill covers the ongoing-conduct side of Rules 2165/4512

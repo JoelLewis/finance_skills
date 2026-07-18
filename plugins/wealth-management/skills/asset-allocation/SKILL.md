@@ -164,12 +164,12 @@ The posterior tilts returns toward the view in proportion to confidence. Fed int
 - Over-reliance on historical covariance matrices that may not reflect future relationships
 
 ## Cross-References
-- **historical-risk**: volatility and correlation inputs for mean-variance optimization
-- **forward-risk**: expected return forecasts and scenario analysis for portfolio optimization
-- **diversification**: diversification principles underpin all allocation frameworks
-- **bet-sizing**: position sizing within the allocated asset classes
-- **rebalancing**: maintaining allocation targets over time
-- **quantitative-valuation**: valuation signals can inform TAA decisions
+- **historical-risk** (wealth-management plugin): volatility and correlation inputs for mean-variance optimization
+- **forward-risk** (wealth-management plugin): expected return forecasts and scenario analysis for portfolio optimization
+- **diversification** (wealth-management plugin): diversification principles underpin all allocation frameworks
+- **bet-sizing** (wealth-management plugin): position sizing within the allocated asset classes
+- **rebalancing** (wealth-management plugin): maintaining allocation targets over time
+- **quantitative-valuation** (wealth-management plugin): valuation signals can inform TAA decisions
 
 ## Running the Script
 

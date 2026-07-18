@@ -174,13 +174,13 @@ Document any compliance gaps found during the pre-check and add them as agenda i
 
 ## Cross-References
 
-- **performance-reporting** (wealth-management plugin, Layer 8): provides the performance data assembled into the review package; review prep extracts summary metrics and narratives from the full performance report
-- **performance-attribution** (wealth-management plugin, Layer 5): attribution analysis highlights for discussing what drove returns; review prep pulls the top contributors and detractors for talking points
-- **investment-policy** (wealth-management plugin, Layer 5): the IPS provides the reference framework for evaluating drift and suitability; review prep checks IPS recency and uses targets for drift analysis
-- **rebalancing** (wealth-management plugin, Layer 4): drift analysis and rebalancing recommendations are core review talking points; review prep identifies drift but references rebalancing for execution methodology
-- **tax-efficiency** (wealth-management plugin, Layer 5): tax-aware recommendations (Roth conversions, asset location) for proactive review items; review prep flags opportunities without re-deriving the underlying analysis
-- **tax-loss-harvesting** (wealth-management plugin, Layer 5): TLH opportunities are flagged during review prep as proactive recommendations; the TLH skill provides the methodology and wash sale rules
-- **client-onboarding** (advisory-practice plugin, Layer 10): onboarding data populates the initial client profile used in reviews; the profile assembled during onboarding is the starting point for all future review prep
-- **client-reporting-delivery** (advisory-practice plugin, Layer 10): review prep feeds into and complements the report delivery workflow; the meeting package may include or accompany the formal client report
-- **crm-client-lifecycle** (advisory-practice plugin, Layer 10): CRM provides client segmentation, review scheduling data, life event logs, and prior meeting notes that drive review preparation
-- **financial-planning-workflow** (advisory-practice plugin, Layer 10): financial plan progress is a key review agenda item; review prep pulls goal status and probability-of-success metrics from the planning system
+- **performance-reporting** (wealth-management plugin): provides the performance data assembled into the review package; review prep extracts summary metrics and narratives from the full performance report
+- **performance-attribution** (wealth-management plugin): attribution analysis highlights for discussing what drove returns; review prep pulls the top contributors and detractors for talking points
+- **investment-policy** (wealth-management plugin): the IPS provides the reference framework for evaluating drift and suitability; review prep checks IPS recency and uses targets for drift analysis
+- **rebalancing** (wealth-management plugin): drift analysis and rebalancing recommendations are core review talking points; review prep identifies drift but references rebalancing for execution methodology
+- **tax-efficiency** (wealth-management plugin): tax-aware recommendations (Roth conversions, asset location) for proactive review items; review prep flags opportunities without re-deriving the underlying analysis
+- **tax-loss-harvesting** (wealth-management plugin): TLH opportunities are flagged during review prep as proactive recommendations; the TLH skill provides the methodology and wash sale rules
+- **client-onboarding** (advisory-practice plugin): onboarding data populates the initial client profile used in reviews; the profile assembled during onboarding is the starting point for all future review prep
+- **client-reporting-delivery** (advisory-practice plugin): review prep feeds into and complements the report delivery workflow; the meeting package may include or accompany the formal client report
+- **crm-client-lifecycle** (advisory-practice plugin): CRM provides client segmentation, review scheduling data, life event logs, and prior meeting notes that drive review preparation
+- **financial-planning-workflow** (advisory-practice plugin): financial plan progress is a key review agenda item; review prep pulls goal status and probability-of-success metrics from the planning system

@@ -103,10 +103,10 @@ FINRA disciplinary actions frequently target:
 - Failing to consider tax status — recommending tax-deferred products (VAs) in already tax-deferred accounts (IRAs) without justification
 
 ## Cross-References
-- **reg-bi** (Layer 9): Higher standard for BD recommendations to retail customers; supersedes suitability for retail
-- **know-your-customer** (Layer 9): KYC obligations provide the customer profile that feeds suitability analysis
-- **fiduciary-standards** (Layer 9): IA fiduciary duty parallel; different standard, similar customer-interest focus
-- **investment-policy** (Layer 5): IPS constraints (time horizon, risk tolerance, liquidity) map directly to suitability factors
-- **sales-practices** (Layer 9): Churning/excessive trading enforcement overlaps with quantitative suitability
-- **conflicts-of-interest** (Layer 9): Compensation conflicts can drive unsuitable recommendations
-- **tax-loss-harvesting** (wealth-management plugin, Layer 5): replacement securities selected during TLH must still satisfy suitability requirements
+- **reg-bi** (compliance plugin): Higher standard for BD recommendations to retail customers; supersedes suitability for retail
+- **know-your-customer** (compliance plugin): KYC obligations provide the customer profile that feeds suitability analysis
+- **fiduciary-standards** (compliance plugin): IA fiduciary duty parallel; different standard, similar customer-interest focus
+- **investment-policy** (wealth-management plugin): IPS constraints (time horizon, risk tolerance, liquidity) map directly to suitability factors
+- **sales-practices** (compliance plugin): Churning/excessive trading enforcement overlaps with quantitative suitability
+- **conflicts-of-interest** (compliance plugin): Compensation conflicts can drive unsuitable recommendations
+- **tax-loss-harvesting** (wealth-management plugin): replacement securities selected during TLH must still satisfy suitability requirements

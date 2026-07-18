@@ -118,14 +118,14 @@ Maintain buffer above minimum liquidity requirements:
 - Treating credit lines as liquidity (they can be revoked when most needed)
 
 ## Cross-References
-- **emergency-fund** (wealth-management plugin, Layer 6): first tier of liquidity, must be funded before optimizing
-- **lending** (wealth-management plugin, Layer 6): margin loans, HELOCs as backup liquidity (with risks)
-- **time-value-of-money** (core plugin, Layer 0): CD/bond pricing, yield calculations
-- **debt-management** (wealth-management plugin, Layer 6): debt payments are fixed cash flow obligations
-- **savings-goals** (wealth-management plugin, Layer 6): multiple goals compete for available cash flow
-- **tax-efficiency** (wealth-management plugin, Layer 5): estimated taxes, tax-loss harvesting timing
-- **fixed-income-sovereign** (wealth-management plugin, Layer 2): T-bill ladder mechanics, Treasury Direct
-- **financial-planning-workflow** (advisory-practice plugin, Layer 10): cash flow tier structure informs the liquidity analysis in comprehensive financial plans
+- **emergency-fund** (wealth-management plugin): first tier of liquidity, must be funded before optimizing
+- **lending** (wealth-management plugin): margin loans, HELOCs as backup liquidity (with risks)
+- **time-value-of-money** (core plugin): CD/bond pricing, yield calculations
+- **debt-management** (wealth-management plugin): debt payments are fixed cash flow obligations
+- **savings-goals** (wealth-management plugin): multiple goals compete for available cash flow
+- **tax-efficiency** (wealth-management plugin): estimated taxes, tax-loss harvesting timing
+- **fixed-income-sovereign** (wealth-management plugin): T-bill ladder mechanics, Treasury Direct
+- **financial-planning-workflow** (advisory-practice plugin): cash flow tier structure informs the liquidity analysis in comprehensive financial plans
 
 ## Running the script
 Run the reference implementation directly:

@@ -251,10 +251,10 @@ For a worked example of exception-based account opening processing (tiered revie
 
 ## Cross-References
 
-- **workflow-automation** — Detailed patterns for multi-step workflow orchestration, state machines, and task routing that underpin STP implementations.
-- **account-opening-workflow** — End-to-end account opening process design, including the specific STP challenges and custodian integration requirements for new accounts.
-- **reconciliation** — Automated matching logic, break categorization, and resolution workflows that serve as both an STP domain and a control over other STP processes.
-- **settlement-clearing** — Settlement instruction matching, fail management, and CSD/DTC integration patterns for trade settlement STP.
-- **corporate-actions** — Event processing, entitlement calculation, and election management workflows with their unique STP challenges.
-- **operational-risk** — Risk framework for automated operations, including control design, incident management, and regulatory expectations for operational resilience.
-- **portfolio-management-systems** — PMS architecture, data feeds, and integration patterns that serve as the hub for many operations STP workflows.
+- **workflow-automation** (client-operations plugin) — Detailed patterns for multi-step workflow orchestration, state machines, and task routing that underpin STP implementations.
+- **account-opening-workflow** (client-operations plugin) — End-to-end account opening process design, including the specific STP challenges and custodian integration requirements for new accounts.
+- **reconciliation** (client-operations plugin) — Automated matching logic, break categorization, and resolution workflows that serve as both an STP domain and a control over other STP processes.
+- **settlement-clearing** (trading-operations plugin) — Settlement instruction matching, fail management, and CSD/DTC integration patterns for trade settlement STP.
+- **corporate-actions** (client-operations plugin) — Event processing, entitlement calculation, and election management workflows with their unique STP challenges.
+- **operational-risk** (trading-operations plugin) — Risk framework for automated operations, including control design, incident management, and regulatory expectations for operational resilience.
+- **portfolio-management-systems** (advisory-practice plugin) — PMS architecture, data feeds, and integration patterns that serve as the hub for many operations STP workflows.

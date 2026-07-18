@@ -93,10 +93,10 @@ Compare to the unlevered cap rate: $35,000 / $500,000 = 7.0%. Leverage boosts th
 - Overstating returns by ignoring maintenance capex — use AFFO rather than FFO for a realistic view of distributable cash flow
 
 ## Cross-References
-- **time-value-of-money** (core plugin, Layer 0): discounted cash flow analysis of property investments
-- **equities** (wealth-management plugin, Layer 2): REIT stock analysis and equity market context
-- **fixed-income-structured** (wealth-management plugin, Layer 2): MBS and the mortgage market underlying real estate
-- **asset-allocation** (wealth-management plugin, Layer 3): real assets as a portfolio diversifier and inflation hedge
+- **time-value-of-money** (core plugin): discounted cash flow analysis of property investments
+- **equities** (wealth-management plugin): REIT stock analysis and equity market context
+- **fixed-income-structured** (wealth-management plugin): MBS and the mortgage market underlying real estate
+- **asset-allocation** (wealth-management plugin): real assets as a portfolio diversifier and inflation hedge
 
 ## Running the script
 

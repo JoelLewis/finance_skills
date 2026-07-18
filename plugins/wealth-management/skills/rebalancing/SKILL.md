@@ -231,14 +231,14 @@ Note: TLH creates a lower cost basis in the replacement security, so taxes are d
 - Rebalancing into the wrong account: selling appreciated assets in taxable accounts when the same rebalancing could be done in tax-deferred accounts
 
 ## Cross-References
-- **asset-allocation** (wealth-management plugin, Layer 4): rebalancing maintains the target asset allocation over time
-- **diversification** (wealth-management plugin, Layer 4): rebalancing preserves the intended diversification structure
-- **bet-sizing** (wealth-management plugin, Layer 4): position sizes drift and need rebalancing to maintain conviction weighting
-- **historical-risk** (wealth-management plugin, Layer 1a): drift changes portfolio risk profile; rebalancing controls it
-- **financial-statements** (wealth-management plugin, Layer 2): tax implications of rebalancing require understanding of tax accounting
-- **tax-loss-harvesting** (wealth-management plugin, Layer 5): TLH trades should be coordinated with rebalancing to minimize total transaction count and avoid wash-sale conflicts
-- **tax-efficiency** (wealth-management plugin, Layer 5): asset location and tax-lot selection strategies directly affect rebalancing trade decisions
-- **client-review-prep** (advisory-practice plugin, Layer 10): drift analysis and rebalancing recommendations are core agenda items in periodic client reviews
+- **asset-allocation** (wealth-management plugin): rebalancing maintains the target asset allocation over time
+- **diversification** (wealth-management plugin): rebalancing preserves the intended diversification structure
+- **bet-sizing** (wealth-management plugin): position sizes drift and need rebalancing to maintain conviction weighting
+- **historical-risk** (wealth-management plugin): drift changes portfolio risk profile; rebalancing controls it
+- **financial-statements** (wealth-management plugin): tax implications of rebalancing require understanding of tax accounting
+- **tax-loss-harvesting** (wealth-management plugin): TLH trades should be coordinated with rebalancing to minimize total transaction count and avoid wash-sale conflicts
+- **tax-efficiency** (wealth-management plugin): asset location and tax-lot selection strategies directly affect rebalancing trade decisions
+- **client-review-prep** (advisory-practice plugin): drift analysis and rebalancing recommendations are core agenda items in periodic client reviews
 
 ## Running the script
 Run with `uv run scripts/rebalancing.py` (the PEP 723 header resolves dependencies automatically) or with `python3 scripts/rebalancing.py` after `pip install numpy scipy`. The bare run prints a demo covering drift analysis, threshold checks, trade generation, cash flow rebalancing, transaction costs, tax-aware lot selection, Leland bands, and the rebalancing premium. Pass `--verify` to assert the demo outputs match this skill's worked examples (prints PASS/FAIL), or `--help` for an overview of the available classes. The file is primarily meant to be imported as a module (e.g., `from rebalancing import DriftAnalyzer, TradeGenerator, TaxAwareLotSelector`).
