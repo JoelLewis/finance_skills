@@ -1,0 +1,12 @@
+{
+  "eval_id": 32,
+  "eval_name": "equity-compensation-iso-amt",
+  "prompt": "My client exercised 5,000 ISOs at a $10 strike when the FMV was $50 and is holding the shares. Her other AMTI is $250,000 (married filing jointly) and her regular tax is $60,000. Using an AMT exemption of $137,000 and the 28% rate starting at $220,000 of AMT base, how much AMT will she owe on top of her regular tax, and is it money gone forever?",
+  "assertions": [
+    {"text": "AMT preference from the ISO spread is approximately $200K", "type": "numerical_accuracy"},
+    {"text": "Tentative minimum tax is approximately $83.2K", "type": "numerical_accuracy"},
+    {"text": "Incremental AMT due is approximately $23.2K", "type": "numerical_accuracy"},
+    {"text": "Mentions the AMT credit for future years", "type": "contains_concept"},
+    {"text": "Mentions the higher AMT basis in the shares", "type": "contains_concept"}
+  ]
+}

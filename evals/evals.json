@@ -491,6 +491,664 @@
         }
       ],
       "files": []
+    },
+    {
+      "id": 17,
+      "category": "triggering-confusion",
+      "pair": "retirement-decumulation vs savings-goals",
+      "prompt": "I'm 64 and retiring in March with $1.4M saved. I keep reading about sequence of returns risk - if the market drops 20% in my first year, am I sunk? I was planning to take about $60K a year. Should I use guardrails instead of just fixed inflation-adjusted withdrawals?",
+      "expected_skill": "retirement-decumulation",
+      "expected_output": "Should explain sequence-of-returns risk (early losses plus withdrawals do permanent damage), compare fixed inflation-adjusted withdrawals to a Guyton-Klinger-style guardrails rule with upper/lower withdrawal-rate bands and 10% spending adjustments, and discuss mitigants like a cash buffer and flexible spending. Should NOT pivot to accumulation-side savings-rate math.",
+      "assertions": [
+        {
+          "text": "Mentions sequence of returns risk",
+          "type": "contains_concept"
+        },
+        {
+          "text": "Discusses guardrails with upper and lower withdrawal rate bands",
+          "type": "contains_concept"
+        },
+        {
+          "text": "Mentions the 4% rule and its fixed inflation-adjusted spending assumption",
+          "type": "contains_concept"
+        },
+        {
+          "text": "Discusses a spending cut at the upper guardrail",
+          "type": "contains_concept"
+        },
+        {
+          "text": "Does not pivot to accumulation savings rate math for hitting a retirement number",
+          "type": "absence"
+        }
+      ],
+      "files": []
+    },
+    {
+      "id": 18,
+      "category": "triggering-confusion",
+      "pair": "retirement-decumulation vs savings-goals",
+      "prompt": "I'm 41, making $145K, with $210K in my 401(k). I put in 10% of salary and get a 4% employer match. Am I on track to retire at 65, and how much should I be saving each month to get there?",
+      "expected_skill": "savings-goals",
+      "expected_output": "Should project the accumulation path, estimate the retirement nest egg target, compute the required monthly savings rate to close any gap, credit the employer match, and mention catch-up contributions at 50. Should NOT center the answer on decumulation withdrawal mechanics like guardrails or RMDs.",
+      "assertions": [
+        {
+          "text": "Discusses the required monthly savings rate to stay on track",
+          "type": "contains_concept"
+        },
+        {
+          "text": "Mentions the employer match",
+          "type": "contains_concept"
+        },
+        {
+          "text": "Mentions a retirement savings target amount",
+          "type": "contains_concept"
+        },
+        {
+          "text": "Mentions catch-up contributions after age 50",
+          "type": "contains_concept"
+        },
+        {
+          "text": "Does not center the answer on safe withdrawal mechanics or RMD rules in retirement",
+          "type": "absence"
+        }
+      ],
+      "files": []
+    },
+    {
+      "id": 19,
+      "category": "triggering-confusion",
+      "pair": "estate-gifting vs tax-efficiency",
+      "prompt": "My mother is 82 with about a $6M estate. She wants to give me her taxable brokerage account now - it's worth $900K with maybe $200K of cost basis. Would it be smarter for her to gift it now or leave it to me in her will? And does the new $15 million exemption change anything?",
+      "expected_skill": "estate-gifting",
+      "expected_output": "Should frame this as the gift-now-vs-bequeath basis tradeoff: gifted assets carry over the donor's basis while bequeathed assets get a step-up at death, and with a $6M estate far under the $15M exemption (as of 2026) there is no estate tax benefit to offset losing the step-up. Should mention annual exclusion gifting of cash or high-basis assets as the alternative.",
+      "assertions": [
+        {
+          "text": "Mentions the step-up in basis at death",
+          "type": "contains_concept"
+        },
+        {
+          "text": "Mentions carryover basis for gifted assets",
+          "type": "contains_concept"
+        },
+        {
+          "text": "Mentions the $15 million lifetime exemption",
+          "type": "contains_concept"
+        },
+        {
+          "text": "Mentions the annual gift exclusion",
+          "type": "contains_concept"
+        },
+        {
+          "text": "Does not reduce the question to income-tax lot selection or asset location mechanics",
+          "type": "absence"
+        }
+      ],
+      "files": []
+    },
+    {
+      "id": 20,
+      "category": "triggering-confusion",
+      "pair": "estate-gifting vs tax-efficiency",
+      "prompt": "I'm 72, in the 24% bracket, and I give about $20K a year to my church out of my checking account. I have a $1.1M traditional IRA and a taxable account full of appreciated index funds. Is there a smarter way to do this giving from a tax standpoint - QCDs, donating shares, bunching into a donor-advised fund?",
+      "expected_skill": "tax-efficiency",
+      "expected_output": "Should focus on the income-tax mechanics of charitable giving: qualified charitable distributions from the IRA (client is over 70 1/2), donating appreciated securities to avoid capital gains, and bunching deductions through a donor-advised fund relative to the standard deduction. Should NOT drift into estate exemption, portability, or Form 706 planning.",
+      "assertions": [
+        {
+          "text": "Mentions a qualified charitable distribution",
+          "type": "contains_concept"
+        },
+        {
+          "text": "Mentions donor-advised fund bunching",
+          "type": "contains_concept"
+        },
+        {
+          "text": "Mentions giving appreciated shares to avoid capital gains",
+          "type": "contains_concept"
+        },
+        {
+          "text": "Mentions the standard deduction",
+          "type": "contains_concept"
+        },
+        {
+          "text": "Does not drift into estate exemption portability or Form 706 planning",
+          "type": "absence"
+        }
+      ],
+      "files": []
+    },
+    {
+      "id": 21,
+      "category": "triggering-confusion",
+      "pair": "equity-compensation vs tax-efficiency",
+      "prompt": "I just had 3,000 RSUs vest at $92 and I also hold 2,000 ISOs with a $12 strike while the 409A price is $45. My employer only withheld 22% on the RSU income and I'm definitely in the 35% bracket. Am I going to owe AMT if I exercise the ISOs and hold this year?",
+      "expected_skill": "equity-compensation",
+      "expected_output": "Should identify the RSU supplemental-withholding gap (22% flat rate vs 35% marginal rate means a balance due at filing) and treat the ISO exercise-and-hold as an AMT preference item on the spread, walking through the AMT exposure and the minimum tax credit. Should NOT answer with generic asset location or Roth conversion advice.",
+      "assertions": [
+        {
+          "text": "Mentions the supplemental withholding rate on RSU income",
+          "type": "contains_concept"
+        },
+        {
+          "text": "Mentions the ISO spread as an AMT preference item",
+          "type": "contains_concept"
+        },
+        {
+          "text": "Mentions the alternative minimum tax",
+          "type": "contains_concept"
+        },
+        {
+          "text": "Mentions the AMT credit in future years",
+          "type": "contains_concept"
+        },
+        {
+          "text": "Does not answer with generic asset location or Roth conversion sequencing advice",
+          "type": "absence"
+        }
+      ],
+      "files": []
+    },
+    {
+      "id": 22,
+      "category": "triggering-confusion",
+      "pair": "equity-compensation vs tax-efficiency",
+      "prompt": "I have $500K in a taxable brokerage, $700K in a traditional 401(k), and $150K in a Roth IRA. Which accounts should hold my bond funds versus my stock index funds? And does it ever make sense to do Roth conversions in my early retirement years before Social Security starts?",
+      "expected_skill": "tax-efficiency",
+      "expected_output": "Should give asset-location guidance (tax-inefficient bonds in the tax-deferred 401(k), tax-efficient equity index funds in taxable, highest-growth assets in Roth) and discuss partial Roth conversions filling low brackets in the gap years before Social Security and RMDs. Should NOT treat this as an equity-compensation or AMT question.",
+      "assertions": [
+        {
+          "text": "Discusses asset location across taxable and tax-deferred accounts",
+          "type": "contains_concept"
+        },
+        {
+          "text": "Mentions bonds in the tax-deferred account",
+          "type": "contains_concept"
+        },
+        {
+          "text": "Discusses a Roth conversion in low bracket years",
+          "type": "contains_concept"
+        },
+        {
+          "text": "Mentions the gap years before Social Security begins",
+          "type": "contains_concept"
+        },
+        {
+          "text": "Does not treat this as an equity compensation or AMT exercise timing question",
+          "type": "absence"
+        }
+      ],
+      "files": []
+    },
+    {
+      "id": 23,
+      "category": "triggering-confusion",
+      "pair": "factor-investing vs performance-metrics",
+      "prompt": "I ran my fund's monthly excess returns against the Fama-French factors: alpha 0.03 per month with a t-stat of 0.5, market beta 0.99, HML loading 0.45 with a t-stat of 23, R-squared 0.986. The fund charges 0.85%. Is this manager actually adding skill or am I just paying active fees for a value tilt?",
+      "expected_skill": "factor-investing",
+      "expected_output": "Should interpret the regression: the alpha is statistically insignificant (t well below 2) while the HML loading is a strong, significant value tilt, so the fund's returns are factor exposure, not skill, and could be replicated with a cheap value-tilted index fund - making it a fee question. Should NOT answer purely with Sharpe or capture ratio comparisons.",
+      "assertions": [
+        {
+          "text": "Mentions the alpha is not statistically significant",
+          "type": "contains_concept"
+        },
+        {
+          "text": "Identifies the value factor loading as the return driver",
+          "type": "contains_concept"
+        },
+        {
+          "text": "Mentions manager skill and factor exposure",
+          "type": "contains_concept"
+        },
+        {
+          "text": "Mentions a cheaper index or factor fund replication",
+          "type": "contains_concept"
+        },
+        {
+          "text": "Does not answer purely with Sharpe ratio or capture ratio comparisons",
+          "type": "absence"
+        }
+      ],
+      "files": []
+    },
+    {
+      "id": 24,
+      "category": "triggering-confusion",
+      "pair": "factor-investing vs performance-metrics",
+      "prompt": "Two balanced funds: Fund A returned 9.1% annualized with 11% volatility, Fund B returned 10.4% with 16% volatility. The risk-free rate is 4%. Fund B also has worse downside capture. Which one actually performed better after adjusting for risk, and which ratios should I use to compare them?",
+      "expected_skill": "performance-metrics",
+      "expected_output": "Should compute Sharpe ratios from the given data (A: 5.1/11 = 0.46, B: 6.4/16 = 0.40), bring in Sortino and downside capture for downside risk, and conclude A wins per unit of risk. Should NOT recast the question as a factor regression.",
+      "assertions": [
+        {
+          "text": "Calculates the Sharpe ratio for each fund",
+          "type": "contains_concept"
+        },
+        {
+          "text": "Mentions the Sortino ratio for downside risk",
+          "type": "contains_concept"
+        },
+        {
+          "text": "Discusses downside capture",
+          "type": "contains_concept"
+        },
+        {
+          "text": "Mentions risk-adjusted return per unit of risk",
+          "type": "contains_concept"
+        },
+        {
+          "text": "Does not recast the question as a Fama-French factor regression",
+          "type": "absence"
+        }
+      ],
+      "files": []
+    },
+    {
+      "id": 25,
+      "category": "triggering-confusion",
+      "pair": "financial-statements vs quantitative-valuation",
+      "prompt": "I'm reading a company's 10-K. Net income was $60M but cash from operations was $75M, capex was $35M, and receivables jumped 40% on only 12% revenue growth. How do I get from these statements to free cash flow, and should I be worried about the quality of the earnings?",
+      "expected_skill": "financial-statements",
+      "expected_output": "Should build FCFF/FCFE from CFO and capex, explain the FCFF vs FCFE distinction, compute or discuss the accruals ratio, and flag receivables growing far faster than revenue as a revenue-recognition red flag. Should NOT jump to a DCF intrinsic-value estimate.",
+      "assertions": [
+        {
+          "text": "Calculates free cash flow from operating cash flow and capex",
+          "type": "contains_concept"
+        },
+        {
+          "text": "Mentions the accruals ratio earnings quality signal",
+          "type": "contains_concept"
+        },
+        {
+          "text": "Flags receivables growing faster than revenue",
+          "type": "contains_concept"
+        },
+        {
+          "text": "Mentions FCFF or FCFE free cash flow measures",
+          "type": "contains_concept"
+        },
+        {
+          "text": "Does not jump to a DCF terminal value or intrinsic value estimate",
+          "type": "absence"
+        }
+      ],
+      "files": []
+    },
+    {
+      "id": 26,
+      "category": "triggering-confusion",
+      "pair": "financial-statements vs quantitative-valuation",
+      "prompt": "I want to value this stock with a DCF. Free cash flow is $47.5M, I expect 8% growth for five years and then 2.5% terminal growth, and WACC is around 9%. Walk me through getting to a fair value per share, and where can the terminal value assumptions go wrong?",
+      "expected_skill": "quantitative-valuation",
+      "expected_output": "Should project and discount the cash flows at WACC, compute a Gordon-growth terminal value, bridge enterprise value to equity value per share, and stress the sensitivity of fair value to the terminal growth and discount rate spread. Should NOT spend the answer re-deriving FCFF from the statements.",
+      "assertions": [
+        {
+          "text": "Mentions the terminal value in the DCF",
+          "type": "contains_concept"
+        },
+        {
+          "text": "Mentions the WACC discount rate",
+          "type": "contains_concept"
+        },
+        {
+          "text": "Calculates enterprise value and value per share",
+          "type": "contains_concept"
+        },
+        {
+          "text": "Mentions sensitivity of fair value to terminal growth assumptions",
+          "type": "contains_concept"
+        },
+        {
+          "text": "Does not spend the answer on earnings quality or statement analysis instead of valuation",
+          "type": "absence"
+        }
+      ],
+      "files": []
+    },
+    {
+      "id": 27,
+      "category": "triggering-confusion",
+      "pair": "private-placements vs alternatives",
+      "prompt": "A client wants to put $250K into a private real estate fund a friend of hers is raising under Reg D. She made $210K last year and $185K the year before, and her net worth is about $850K not counting her house. The sponsor has been advertising the deal on Instagram. Can she invest, and what do I need to check first?",
+      "expected_skill": "private-placements",
+      "expected_output": "Should run the Rule 501(a) accredited tests (income under $200K in one of the two most recent years, net worth under $1M ex-residence - she likely fails both), flag the Instagram posts as general solicitation forcing the offering into 506(c) with mandatory verification, and note the adviser must screen eligibility before any best-interest analysis. Should NOT treat this as a hedge fund strategy and fee evaluation.",
+      "assertions": [
+        {
+          "text": "Mentions the accredited investor income and net worth tests",
+          "type": "contains_concept"
+        },
+        {
+          "text": "Identifies the Instagram advertising as general solicitation",
+          "type": "contains_concept"
+        },
+        {
+          "text": "Mentions reasonable steps to verify accredited status",
+          "type": "contains_concept"
+        },
+        {
+          "text": "Mentions net worth excluding the primary residence",
+          "type": "contains_concept"
+        },
+        {
+          "text": "Does not treat this as a hedge fund strategy and fee evaluation",
+          "type": "absence"
+        }
+      ],
+      "files": []
+    },
+    {
+      "id": 28,
+      "category": "triggering-confusion",
+      "pair": "private-placements vs alternatives",
+      "prompt": "My client is looking at a long/short equity hedge fund charging 2-and-20 with an 8% hurdle and a one-year lockup. How do I evaluate whether the strategy and the fee structure are worth it versus just holding index funds? And if we also add a private equity fund, what should I know about the J-curve?",
+      "expected_skill": "alternatives",
+      "expected_output": "Should evaluate the hedge fund on investment merits: the 2-and-20 fee load against the hurdle, carried interest mechanics, lockup and liquidity terms, strategy fit, and the PE J-curve of early negative returns with IRR/TVPI-style performance measurement. Should NOT turn the answer into a Reg D eligibility analysis.",
+      "assertions": [
+        {
+          "text": "Explains the 2-and-20 fee structure and hurdle rate",
+          "type": "contains_concept"
+        },
+        {
+          "text": "Mentions the J-curve in private equity",
+          "type": "contains_concept"
+        },
+        {
+          "text": "Mentions carried interest",
+          "type": "contains_concept"
+        },
+        {
+          "text": "Discusses lockup and liquidity terms",
+          "type": "contains_concept"
+        },
+        {
+          "text": "Does not turn the answer into a Reg D accredited investor eligibility analysis",
+          "type": "absence"
+        }
+      ],
+      "files": []
+    },
+    {
+      "id": 29,
+      "category": "triggering-confusion",
+      "pair": "insurance-planning vs retirement-decumulation",
+      "prompt": "I'm 66, retiring next year with $1.6M, and Social Security will cover about half of my $80K annual spending. I'm nervous about outliving my money. Does it make sense to put part of the portfolio into an immediate annuity as longevity insurance and build my income plan around that floor?",
+      "expected_skill": "retirement-decumulation",
+      "expected_output": "Should frame the SPIA as longevity insurance inside the income plan: mortality credits let it out-pay a self-insured portfolio, a floor-and-upside design annuitizes enough (with Social Security) to cover essential spending while the rest stays invested, reducing sequence and longevity risk on the withdrawal plan. Should NOT center on product features like surrender charges and rider fees.",
+      "assertions": [
+        {
+          "text": "Mentions the annuity as longevity insurance",
+          "type": "contains_concept"
+        },
+        {
+          "text": "Mentions mortality credits",
+          "type": "contains_concept"
+        },
+        {
+          "text": "Discusses a guaranteed income floor for essential expenses",
+          "type": "contains_concept"
+        },
+        {
+          "text": "Mentions sequence of returns risk or the withdrawal rate on the remaining portfolio",
+          "type": "contains_concept"
+        },
+        {
+          "text": "Does not center on product features like surrender charges, caps, and rider fees",
+          "type": "absence"
+        }
+      ],
+      "files": []
+    },
+    {
+      "id": 30,
+      "category": "triggering-confusion",
+      "pair": "insurance-planning vs retirement-decumulation",
+      "prompt": "An agent is pitching my 58-year-old client a fixed indexed annuity with a 10% first-year surrender charge that declines over 9 years, a 5.5% cap on the index crediting, and an income rider that costs 1.1% a year. How do the surrender charges and the cap actually work, and is this product any good for her?",
+      "expected_skill": "insurance-planning",
+      "expected_output": "Should explain the product mechanics: the declining surrender charge schedule locking up liquidity, caps and participation rates limiting index credits (and being repriceable), the rider fee drag, and whether the annuity is suitable for this client versus simpler alternatives. Should NOT answer as retirement income plan design around guardrails and withdrawal rates.",
+      "assertions": [
+        {
+          "text": "Explains the surrender charge schedule",
+          "type": "contains_concept"
+        },
+        {
+          "text": "Discusses the participation rate and cap on index returns",
+          "type": "contains_concept"
+        },
+        {
+          "text": "Discusses the income rider cost",
+          "type": "contains_concept"
+        },
+        {
+          "text": "Discusses suitability of the annuity for this client",
+          "type": "contains_concept"
+        },
+        {
+          "text": "Does not answer as retirement income plan design around guardrails and safe withdrawal rates",
+          "type": "absence"
+        }
+      ],
+      "files": []
+    },
+    {
+      "id": 31,
+      "category": "domain-accuracy",
+      "pair": null,
+      "domain": "wealth-management",
+      "prompt": "For a company with revenue of $500M, COGS $300M, SG&A $80M, D&A $30M, interest expense $10M, a 25% tax rate, a $15M increase in net working capital, capex of $35M, and net borrowing of $5M - calculate EBITDA, FCFF, and FCFE, and show your work.",
+      "expected_skill": "financial-statements",
+      "expected_output": "EBIT = 500 - 300 - 80 - 30 = $90M; EBITDA = 90 + 30 = $120M; net income = (90 - 10) x 0.75 = $60M; CFO = 60 + 30 - 15 = $75M; FCFF = 75 + 10 x 0.75 - 35 = $47.5M (same from the EBIT route); FCFE = 75 - 35 + 5 = $45.0M. Should show both FCFF routes agreeing and note net income overstates distributable cash.",
+      "assertions": [
+        {
+          "text": "EBITDA is approximately $120M",
+          "type": "numerical_accuracy"
+        },
+        {
+          "text": "FCFF is approximately $47.5M",
+          "type": "numerical_accuracy"
+        },
+        {
+          "text": "FCFE is approximately $45M",
+          "type": "numerical_accuracy"
+        },
+        {
+          "text": "Net income is approximately $60M",
+          "type": "numerical_accuracy"
+        },
+        {
+          "text": "Mentions FCFF and FCFE",
+          "type": "contains_concept"
+        }
+      ],
+      "files": []
+    },
+    {
+      "id": 32,
+      "category": "domain-accuracy",
+      "pair": null,
+      "domain": "wealth-management",
+      "prompt": "My client exercised 5,000 ISOs at a $10 strike when the FMV was $50 and is holding the shares. Her other AMTI is $250,000 (married filing jointly) and her regular tax is $60,000. Using an AMT exemption of $137,000 and the 28% rate starting at $220,000 of AMT base, how much AMT will she owe on top of her regular tax, and is it money gone forever?",
+      "expected_skill": "equity-compensation",
+      "expected_output": "AMT preference = 5,000 x ($50 - $10) = $200,000; AMTI = $450,000; AMT base = $450,000 - $137,000 = $313,000; TMT = 26% x $220,000 + 28% x $93,000 = $57,200 + $26,040 = $83,240; AMT due = $83,240 - $60,000 = $23,240. Should explain the minimum tax credit carryforward and the higher $50 AMT basis in the shares.",
+      "assertions": [
+        {
+          "text": "AMT preference from the ISO spread is approximately $200K",
+          "type": "numerical_accuracy"
+        },
+        {
+          "text": "Tentative minimum tax is approximately $83.2K",
+          "type": "numerical_accuracy"
+        },
+        {
+          "text": "Incremental AMT due is approximately $23.2K",
+          "type": "numerical_accuracy"
+        },
+        {
+          "text": "Mentions the AMT credit for future years",
+          "type": "contains_concept"
+        },
+        {
+          "text": "Mentions the higher AMT basis in the shares",
+          "type": "contains_concept"
+        }
+      ],
+      "files": []
+    },
+    {
+      "id": 33,
+      "category": "domain-accuracy",
+      "pair": null,
+      "domain": "wealth-management",
+      "prompt": "My client turns 73 this year. Her traditional IRA was worth $850,000 on December 31 of last year. What is her RMD for the year, and what is the penalty if she misses it entirely?",
+      "expected_skill": "retirement-decumulation",
+      "expected_output": "RMD = $850,000 / 26.5 (Uniform Lifetime Table divisor at age 73) = $32,075.47. Missed entirely: 25% excise tax on the shortfall = $8,018.87, reduced to 10% ($3,207.55) if corrected within the correction window under SECURE 2.0.",
+      "assertions": [
+        {
+          "text": "RMD is approximately $32.1K",
+          "type": "numerical_accuracy"
+        },
+        {
+          "text": "Mentions the Uniform Lifetime Table divisor",
+          "type": "contains_concept"
+        },
+        {
+          "text": "The excise tax penalty if missed is approximately $8K",
+          "type": "numerical_accuracy"
+        },
+        {
+          "text": "Mentions the reduced penalty if corrected within the correction window",
+          "type": "contains_concept"
+        },
+        {
+          "text": "Mentions the excise tax on the RMD shortfall",
+          "type": "contains_concept"
+        }
+      ],
+      "files": []
+    },
+    {
+      "id": 34,
+      "category": "domain-accuracy",
+      "pair": null,
+      "domain": "wealth-management",
+      "prompt": "A fund has monthly return volatility of 4.30%, an R-squared of 0.99 against its benchmark, and an 0.85% expense ratio; a comparable index fund charges 0.05%. Compute the annualized tracking error and the breakeven information ratio, and tell me whether this looks like a closet indexer.",
+      "expected_skill": "factor-investing",
+      "expected_output": "Residual vol = 4.30% x sqrt(1 - 0.99) = 0.43% per month; tracking error = 0.43% x sqrt(12) = 1.49% annualized; fee gap = 0.80%; breakeven IR = 0.80 / 1.49 = 0.54. R-squared >= 0.98 and tracking error <= 2% both trip the closet-index screen; a 0.54 IR just to break even on fees is implausible, so hold the index fund instead.",
+      "assertions": [
+        {
+          "text": "Annualized tracking error is approximately 1.5%",
+          "type": "numerical_accuracy"
+        },
+        {
+          "text": "Fee gap is approximately 0.8%",
+          "type": "numerical_accuracy"
+        },
+        {
+          "text": "Calculates the breakeven information ratio",
+          "type": "contains_concept"
+        },
+        {
+          "text": "Identifies a closet index fund given high R-squared and low tracking error",
+          "type": "contains_concept"
+        },
+        {
+          "text": "Mentions monthly residual volatility",
+          "type": "contains_concept"
+        }
+      ],
+      "files": []
+    },
+    {
+      "id": 35,
+      "category": "domain-accuracy",
+      "pair": null,
+      "domain": "wealth-management",
+      "prompt": "Run a needs-based life insurance analysis for Spouse A: salary $110K (Spouse B earns $70K), mortgage $320K, other debts $25K, two kids who need $120K each for college, $60K per year of income replacement for 15 years discounted at a 3% real rate, and $15K of final expenses. Existing resources: $220K of group life on A and $150K of taxable investments earmarked for survivors. How much coverage should A buy?",
+      "expected_skill": "insurance-planning",
+      "expected_output": "Needs: $15K final + $345K debt + $240K education + PV of income replacement $60K x 11.938 = ~$716K, totaling ~$1,316,000. Less $370K of resources = ~$946K net need; recommend rounding up to a $1M 20-year level term policy, noting group coverage disappears at job change.",
+      "assertions": [
+        {
+          "text": "PV of income replacement is approximately $716K",
+          "type": "numerical_accuracy"
+        },
+        {
+          "text": "Total capital needs are approximately $1.3M",
+          "type": "numerical_accuracy"
+        },
+        {
+          "text": "Net coverage need is approximately $946K",
+          "type": "numerical_accuracy"
+        },
+        {
+          "text": "Recommends a level term policy",
+          "type": "contains_concept"
+        },
+        {
+          "text": "Mentions the group life coverage and existing investments as offsets",
+          "type": "contains_concept"
+        }
+      ],
+      "files": []
+    },
+    {
+      "id": 36,
+      "category": "domain-accuracy",
+      "pair": null,
+      "domain": "wealth-management",
+      "prompt": "A widowed client with an $8M estate holds stock worth $1,000,000 with a $100,000 cost basis and wants her daughter to have it. Should she gift it now or leave it in her will? Assume the daughter would sell promptly either way at a 23.8% capital gains rate, and note where the estate sits relative to the current federal exemption.",
+      "expected_skill": "estate-gifting",
+      "expected_output": "Gifted, the stock carries over the $100K basis: the daughter realizes a $900K gain and $214,200 of tax, netting $785,800. Bequeathed, basis steps up to $1,000,000 and a prompt sale nets the full amount - holding until death is worth $214,200. With the estate at $8M, far under the $15M exemption (as of 2026, OBBBA), gifting buys no offsetting estate tax benefit; gift cash or high-basis assets instead.",
+      "assertions": [
+        {
+          "text": "Capital gains tax if gifted is approximately $214K",
+          "type": "numerical_accuracy"
+        },
+        {
+          "text": "The lifetime estate exemption is approximately $15M",
+          "type": "numerical_accuracy"
+        },
+        {
+          "text": "Mentions the step-up in basis at death",
+          "type": "contains_concept"
+        },
+        {
+          "text": "Mentions carryover basis for the gifted stock",
+          "type": "contains_concept"
+        },
+        {
+          "text": "Mentions gifting cash or high-basis assets instead",
+          "type": "contains_concept"
+        }
+      ],
+      "files": []
+    },
+    {
+      "id": 37,
+      "category": "domain-accuracy",
+      "pair": null,
+      "domain": "compliance",
+      "prompt": "An advisory client wants to invest $150,000 in a private real estate fund offered under Rule 506(b). She earns $160,000 a year (her spouse is not employed) and her net worth excluding her primary residence is $700,000. She is ready to sign the subscription documents self-certifying that she is accredited. Does she actually qualify, and what should the adviser do?",
+      "expected_skill": "private-placements",
+      "expected_output": "She fails every Rule 501(a) natural-person test: income under the $200,000 individual / $300,000 joint thresholds, net worth under $1,000,000 excluding the primary residence, and no qualifying license. The adviser must not let a false self-certification through - that breaches the Advisers Act fiduciary duty - and should withdraw the recommendation; the 35 non-accredited purchaser path requires sophistication plus Rule 502(b) disclosure the offering does not provide. Concentration ($150K against $700K net worth) compounds the problem.",
+      "assertions": [
+        {
+          "text": "Individual income threshold is approximately $200K",
+          "type": "numerical_accuracy"
+        },
+        {
+          "text": "Net worth threshold is approximately $1M",
+          "type": "numerical_accuracy"
+        },
+        {
+          "text": "Mentions the joint income test with a spouse",
+          "type": "contains_concept"
+        },
+        {
+          "text": "Mentions net worth excluding the primary residence",
+          "type": "contains_concept"
+        },
+        {
+          "text": "Mentions the adviser's fiduciary duty",
+          "type": "contains_concept"
+        }
+      ],
+      "files": []
     }
   ]
 }

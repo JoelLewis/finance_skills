@@ -1,0 +1,12 @@
+{
+  "eval_id": 33,
+  "eval_name": "retirement-decumulation-rmd-age-73",
+  "prompt": "My client turns 73 this year. Her traditional IRA was worth $850,000 on December 31 of last year. What is her RMD for the year, and what is the penalty if she misses it entirely?",
+  "assertions": [
+    {"text": "RMD is approximately $32.1K", "type": "numerical_accuracy"},
+    {"text": "Mentions the Uniform Lifetime Table divisor", "type": "contains_concept"},
+    {"text": "The excise tax penalty if missed is approximately $8K", "type": "numerical_accuracy"},
+    {"text": "Mentions the reduced penalty if corrected within the correction window", "type": "contains_concept"},
+    {"text": "Mentions the excise tax on the RMD shortfall", "type": "contains_concept"}
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "eval_id": 35,
+  "eval_name": "insurance-planning-life-needs-analysis",
+  "prompt": "Run a needs-based life insurance analysis for Spouse A: salary $110K (Spouse B earns $70K), mortgage $320K, other debts $25K, two kids who need $120K each for college, $60K per year of income replacement for 15 years discounted at a 3% real rate, and $15K of final expenses. Existing resources: $220K of group life on A and $150K of taxable investments earmarked for survivors. How much coverage should A buy?",
+  "assertions": [
+    {"text": "PV of income replacement is approximately $716K", "type": "numerical_accuracy"},
+    {"text": "Total capital needs are approximately $1.3M", "type": "numerical_accuracy"},
+    {"text": "Net coverage need is approximately $946K", "type": "numerical_accuracy"},
+    {"text": "Recommends a level term policy", "type": "contains_concept"},
+    {"text": "Mentions the group life coverage and existing investments as offsets", "type": "contains_concept"}
+  ]
+}
