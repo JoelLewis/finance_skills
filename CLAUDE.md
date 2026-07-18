@@ -4,7 +4,10 @@
 
 A mono-repo of Claude Code skill plugins for financial services. Skills teach Claude
 domain knowledge so it can assist with finance questions, build financial tools, and
-flag compliance concerns. The plugin catalog lives in `marketplace.json`.
+flag compliance concerns. The plugin catalog lives in `.claude-plugin/marketplace.json`;
+per-plugin manifests live in `plugins/<name>/.claude-plugin/plugin.json`. Skill lists
+and counts are derived from the `plugins/*/skills/` directories — the filesystem is
+the source of truth.
 
 ## Current State
 
@@ -45,13 +48,13 @@ All skills follow this template:
   that self-checks the script's outputs against the SKILL.md examples.
 
 ### Creating New Skills
-1. Choose the plugin (see the plugin list above and `marketplace.json`)
+1. Choose the plugin (see the plugin list above, or run `./install.sh --list`)
 2. Create the skill directory under `plugins/<plugin-name>/skills/<skill-name>/`
 3. Follow the SKILL.md template exactly
 4. For quantitative skills: include Key Formulas and worked numerical examples
 5. For compliance/operations skills: use scenario-based examples (Scenario / Compliance Issues / Analysis), cite specific rule numbers, omit Key Formulas and Reference Implementation sections
 6. Add cross-references to related skills in both directions
-7. Update the skill counts in `marketplace.json` and this file
+7. Update the skill counts in this file, then run `./install.sh --check` to confirm counts and manifests are consistent
 
 ### Python Scripts
 Only quantitative skills (core, wealth-management) get Python scripts. Scripts should:

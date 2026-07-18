@@ -1,7 +1,7 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
   "name": "finance-skills",
-  "description": "Claude Code skill plugins for financial services \u2014 84 skills across 7 domain plugins covering investment management, compliance, advisory practice, trading, and operations.",
+  "description": "Claude Code skill plugins for financial services \u2014 7 domain plugins covering investment management, compliance, advisory practice, trading, and operations. Skill counts are derived from the plugins/*/skills/ directories.",
   "owner": {
     "name": "Joel Lewis",
     "email": "joel@eleazar.dev"

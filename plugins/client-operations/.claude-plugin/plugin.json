@@ -12,5 +12,9 @@
     "transfers",
     "reconciliation",
     "corporate-actions"
-  ]
+  ],
+  "dependencies": [
+    "core"
+  ],
+  "scripts": false
 }

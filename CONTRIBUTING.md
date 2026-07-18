@@ -15,8 +15,8 @@ You can suggest new skills by
 
 ### 1. Choose the right plugin
 
-Skills belong to one of seven plugins. Check `marketplace.json` and the
-`plugins/` directory for the full list.
+Skills belong to one of seven plugins. Check the `plugins/` directory (or run
+`./install.sh --list`) for the full list.
 
 | Plugin | Domain | Skill type |
 |--------|--------|------------|
@@ -117,20 +117,18 @@ New skills must ship with evals before they are merged:
   pass rates in your PR description. If the with-skill run does not beat or
   match the baseline, the skill needs more depth or sharper assertions.
 
-### 8. Keep both plugin manifests in sync
+### 8. Keep the manifest and counts consistent
 
-Each plugin has **two** manifest files, and both must be updated together
-whenever versions, descriptions, or the skill list change:
+Each plugin has **one** manifest: `plugins/<name>/.claude-plugin/plugin.json`
+(the Claude Code plugin spec file, extended with `dependencies` and a
+`scripts` flag used by `install.sh`). The repo catalog is
+`.claude-plugin/marketplace.json`. Skill lists and counts are **derived from
+the `plugins/*/skills/` directories** — there are no skill arrays to maintain.
 
-- `plugins/<name>/.claude-plugin/plugin.json` — the **canonical** Claude Code
-  plugin spec file (this is what the marketplace and plugin loader read)
-- `plugins/<name>/plugin.json` — the repo's extended manifest (adds
-  `dependencies`, `skills`, `tags`, `scripts` used by `install.sh` and docs)
-
-Do not delete either file. If you add or remove a skill, update the `skills`
-array in `plugins/<name>/plugin.json`, the counts in `marketplace.json` and
-`CLAUDE.md`, and keep the description/version identical across both
-plugin.json files.
+If you add or remove a skill, update the counts in `CLAUDE.md`, then run
+`./install.sh --check` — it verifies that every skill directory has a
+SKILL.md, manifests are valid and match the plugin directories, and the
+CLAUDE.md counts match the filesystem.
 
 ## Improving Existing Skills
 
@@ -160,7 +158,7 @@ plugin.json files.
 - [ ] Python scripts (if any) are standalone and match SKILL.md formulas
 - [ ] ≥3 output evals in `evals/evals.json` and ≥4 trigger queries in `evals/trigger/queries.json`
 - [ ] With-skill vs without-skill baseline run completed and graded
-- [ ] Both `plugin.json` files (spec + extended) updated together; skill counts in `marketplace.json`/`CLAUDE.md` updated
+- [ ] Skill counts in `CLAUDE.md` updated and `./install.sh --check` passes
 
 ## Questions?
 

@@ -14,23 +14,24 @@ set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PLUGINS_DIR="$SCRIPT_DIR/plugins"
 
-# Plugin dependency map (space-separated list of deps per plugin).
-# Implemented as a function rather than `declare -A` so the script runs on
-# macOS's stock bash 3.2, which has no associative arrays.
+# Plugin dependencies come from each plugin's manifest
+# (plugins/<name>/.claude-plugin/plugin.json). Returns a space-separated
+# list; empty if the manifest is missing or unreadable.
 plugin_deps() {
-  case "$1" in
-    core)               echo "" ;;
-    wealth-management)  echo "core" ;;
-    compliance)         echo "core" ;;
-    advisory-practice)  echo "core wealth-management" ;;
-    trading-operations) echo "core" ;;
-    client-operations)  echo "core" ;;
-    data-integration)   echo "core" ;;
-    *)                  echo "" ;;
-  esac
+  local manifest="$PLUGINS_DIR/$1/.claude-plugin/plugin.json"
+  if [[ -f "$manifest" ]]; then
+    python3 -c "import json,sys; d=json.load(open(sys.argv[1])); print(' '.join(d.get('dependencies',[])))" "$manifest" 2>/dev/null || echo ""
+  else
+    echo ""
+  fi
 }
 
-ALL_PLUGINS=(core wealth-management compliance advisory-practice trading-operations client-operations data-integration)
+# The filesystem is the source of truth: every directory under plugins/ is a
+# plugin. (bash 3.2 compatible — no mapfile.)
+ALL_PLUGINS=()
+for _p in "$PLUGINS_DIR"/*/; do
+  [[ -d "$_p" ]] && ALL_PLUGINS+=("$(basename "$_p")")
+done
 
 # Track installed plugins to avoid duplicates (space-delimited list;
 # bash 3.2 compatible — no associative arrays).
@@ -41,63 +42,116 @@ usage() {
 Usage: $0 --plugin <plugin-name> --target <path>
        $0 --plugin all --target <path>
        $0 --list
+       $0 --check
 
 Options:
   --plugin <name>   Plugin to install (or "all" to install everything)
   --target <path>   Target project directory (must contain .claude/)
   --list            List available plugins and exit
+  --check           Validate manifests, skill dirs, and CLAUDE.md counts
   --help            Show this help
 
-Available plugins:
-  core               Mathematical foundations (always installed)
-  wealth-management  Investment knowledge, portfolio construction, personal finance
-  compliance         US securities regulatory guidance
-  advisory-practice  Advisor-facing systems and workflows
-  trading-operations Order lifecycle, execution, settlement
-  client-operations  Account lifecycle and servicing
-  data-integration   Reference data and integration patterns
+Run '$0 --list' to see available plugins.
 EOF
 }
 
 list_plugins() {
-  local marketplace="$SCRIPT_DIR/marketplace.json"
   echo "Available plugins:"
   echo ""
-  if [[ -f "$marketplace" ]]; then
-    python3 - "$marketplace" <<'PYEOF'
-import json, sys
+  for plugin in "${ALL_PLUGINS[@]}"; do
+    manifest="$PLUGINS_DIR/$plugin/.claude-plugin/plugin.json"
+    description=""
+    if [[ -f "$manifest" ]]; then
+      description=$(python3 -c "import json,sys; d=json.load(open(sys.argv[1])); print(d.get('description',''))" "$manifest" 2>/dev/null || echo "")
+    fi
+    skill_count=$(ls "$PLUGINS_DIR/$plugin/skills/" 2>/dev/null | wc -l | tr -d ' ')
+    echo "  $plugin ($skill_count skills)"
+    echo "    $description"
+    deps="$(plugin_deps "$plugin")"
+    if [[ -n "$deps" ]]; then
+      echo "    Dependencies: $deps"
+    fi
+    echo ""
+  done
+}
 
-with open(sys.argv[1]) as f:
-    catalog = json.load(f)
+check_repo() {
+  python3 - "$SCRIPT_DIR" <<'PYEOF'
+import json, os, re, sys
 
-for plugin in catalog.get("plugins", []):
-    name = plugin.get("name", "")
-    description = plugin.get("description", "")
-    skill_count = plugin.get("skillCount", len(plugin.get("skills", [])))
-    deps = plugin.get("dependencies", [])
-    print(f"  {name} ({skill_count} skills)")
-    print(f"    {description}")
-    if deps:
-        print(f"    Dependencies: {' '.join(deps)}")
-    print()
+root = sys.argv[1]
+plugins_dir = os.path.join(root, "plugins")
+errors = []
+
+plugins = sorted(
+    p for p in os.listdir(plugins_dir)
+    if os.path.isdir(os.path.join(plugins_dir, p))
+)
+counts = {}
+
+for p in plugins:
+    skills_dir = os.path.join(plugins_dir, p, "skills")
+    skills = sorted(
+        s for s in os.listdir(skills_dir)
+        if os.path.isdir(os.path.join(skills_dir, s))
+    ) if os.path.isdir(skills_dir) else []
+    counts[p] = len(skills)
+    for s in skills:
+        if not os.path.isfile(os.path.join(skills_dir, s, "SKILL.md")):
+            errors.append(f"{p}/skills/{s}: missing SKILL.md")
+
+    manifest_path = os.path.join(plugins_dir, p, ".claude-plugin", "plugin.json")
+    if not os.path.isfile(manifest_path):
+        errors.append(f"{p}: missing .claude-plugin/plugin.json")
+        continue
+    try:
+        manifest = json.load(open(manifest_path))
+    except json.JSONDecodeError as e:
+        errors.append(f"{p}: plugin.json is invalid JSON ({e})")
+        continue
+    if manifest.get("name") != p:
+        errors.append(f"{p}: manifest name '{manifest.get('name')}' != directory name")
+    for dep in manifest.get("dependencies", []):
+        if dep not in plugins:
+            errors.append(f"{p}: dependency '{dep}' is not a plugin directory")
+
+marketplace_path = os.path.join(root, ".claude-plugin", "marketplace.json")
+try:
+    marketplace = json.load(open(marketplace_path))
+    listed = sorted(pl.get("name", "") for pl in marketplace.get("plugins", []))
+    if listed != plugins:
+        errors.append(
+            f"marketplace.json plugins {listed} != plugin directories {plugins}"
+        )
+except (OSError, json.JSONDecodeError) as e:
+    errors.append(f".claude-plugin/marketplace.json unreadable: {e}")
+
+claude_md = open(os.path.join(root, "CLAUDE.md")).read()
+for name, claimed in re.findall(r"- \*\*([\w-]+)\*\* \((\d+) skills?\)", claude_md):
+    if name in counts and counts[name] != int(claimed):
+        errors.append(
+            f"CLAUDE.md says {name} has {claimed} skills; directories have {counts[name]}"
+        )
+m = re.search(r"(\d+) skills across (\d+) plugin domains", claude_md)
+if m:
+    total, ndomains = int(m.group(1)), int(m.group(2))
+    if total != sum(counts.values()):
+        errors.append(
+            f"CLAUDE.md total {total} != actual {sum(counts.values())}"
+        )
+    if ndomains != len(plugins):
+        errors.append(f"CLAUDE.md says {ndomains} domains; found {len(plugins)}")
+
+if errors:
+    print("Check FAILED:")
+    for e in errors:
+        print(f"  - {e}")
+    sys.exit(1)
+print(
+    f"Check passed: {len(plugins)} plugins, {sum(counts.values())} skills; "
+    "manifests, skill dirs, and CLAUDE.md counts are consistent."
+)
 PYEOF
-  else
-    # Fallback: read individual plugin.json files
-    for plugin in "${ALL_PLUGINS[@]}"; do
-      manifest="$PLUGINS_DIR/$plugin/plugin.json"
-      if [[ -f "$manifest" ]]; then
-        description=$(python3 -c "import json,sys; d=json.load(open('$manifest')); print(d.get('description',''))" 2>/dev/null || echo "")
-        skill_count=$(ls "$PLUGINS_DIR/$plugin/skills/" 2>/dev/null | wc -l | tr -d ' ')
-        echo "  $plugin ($skill_count skills)"
-        echo "    $description"
-        deps="$(plugin_deps "$plugin")"
-        if [[ -n "$deps" ]]; then
-          echo "    Dependencies: $deps"
-        fi
-        echo ""
-      fi
-    done
-  fi
 }
 
 install_plugin() {
@@ -176,6 +230,10 @@ while [[ $# -gt 0 ]]; do
       CMD="list"
       shift
       ;;
+    --check)
+      CMD="check"
+      shift
+      ;;
     --help|-h)
       usage
       exit 0
@@ -190,6 +248,11 @@ done
 
 if [[ "$CMD" == "list" ]]; then
   list_plugins
+  exit 0
+fi
+
+if [[ "$CMD" == "check" ]]; then
+  check_repo
   exit 0
 fi
 
