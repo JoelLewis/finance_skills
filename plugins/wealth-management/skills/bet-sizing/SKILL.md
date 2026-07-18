@@ -162,12 +162,12 @@ Given that the 8% expected return and 20% volatility are estimates with signific
 - Not adjusting for regime changes: edge and volatility are time-varying
 
 ## Cross-References
-- **historical-risk**: realized volatility as a key input to Kelly sizing
-- **forward-risk**: expected return forecasts as inputs to Kelly criterion
-- **diversification**: tension between concentration (large bets) and diversification (many small bets)
-- **asset-allocation**: bet sizing operates within the asset allocation framework
-- **rebalancing**: positions drift from target sizes and require rebalancing
-- **quantitative-valuation**: valuation-based edge estimates feed into conviction weighting
+- **historical-risk** (wealth-management plugin): realized volatility as a key input to Kelly sizing
+- **forward-risk** (wealth-management plugin): expected return forecasts as inputs to Kelly criterion
+- **diversification** (wealth-management plugin): tension between concentration (large bets) and diversification (many small bets)
+- **asset-allocation** (wealth-management plugin): bet sizing operates within the asset allocation framework
+- **rebalancing** (wealth-management plugin): positions drift from target sizes and require rebalancing
+- **quantitative-valuation** (wealth-management plugin): valuation-based edge estimates feed into conviction weighting
 
 ## Running the Script
 

@@ -120,9 +120,9 @@ Duration alone would estimate -2.195%; the convexity correction reduces the esti
 
 ## Cross-References
 - **time-value-of-money** (core plugin): discounting and present value fundamentals
-- **fixed-income-corporate**: credit spreads over the sovereign curve
-- **fixed-income-municipal**: muni-to-Treasury yield ratios
-- **asset-allocation**: bonds as an asset class in portfolio construction
+- **fixed-income-corporate** (wealth-management plugin): credit spreads over the sovereign curve
+- **fixed-income-municipal** (wealth-management plugin): muni-to-Treasury yield ratios
+- **asset-allocation** (wealth-management plugin): bonds as an asset class in portfolio construction
 
 ## Running the Script
 

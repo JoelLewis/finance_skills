@@ -234,12 +234,12 @@ Three worked examples are in [references/examples.md](references/examples.md) â€
 - Not closing the loop on corrective actions â€” root cause analyses produce recommendations, but without tracking and verification, the same failures recur.
 
 ## Cross-References
-- **order-lifecycle** (trading-operations): The order lifecycle from order entry through execution is where many operational risk events originate; error detection and prevention are embedded at each stage.
-- **settlement-clearing** (trading-operations): Settlement fails and clearing breaks are a primary operational risk category; settlement fail management processes are closely linked to the operational risk framework.
-- **counterparty-risk** (trading-operations): Counterparty failures (failure to deliver securities or pay cash) are an external operational risk that intersects with credit risk management.
-- **trade-execution** (trading-operations): Execution quality failures, routing errors, and best execution violations are operational risk events with regulatory implications.
-- **pre-trade-compliance** (trading-operations): Pre-trade checks serve as preventive controls against trade errors, unauthorized trading, and account restriction violations.
-- **post-trade-compliance** (trading-operations): Post-trade surveillance detects errors and anomalies that escaped pre-trade controls.
-- **books-and-records** (compliance): Loss event documentation, incident records, and error account activity are regulatory books and records subject to retention requirements.
-- **examination-readiness** (compliance): Operational risk frameworks, incident logs, and BCP documentation are common examination topics for FINRA and SEC examiners.
-- **privacy-data-security** (compliance): Cybersecurity incidents affecting trading systems are operational risk events that also trigger data protection and breach notification obligations.
+- **order-lifecycle** (trading-operations plugin): The order lifecycle from order entry through execution is where many operational risk events originate; error detection and prevention are embedded at each stage.
+- **settlement-clearing** (trading-operations plugin): Settlement fails and clearing breaks are a primary operational risk category; settlement fail management processes are closely linked to the operational risk framework.
+- **counterparty-risk** (trading-operations plugin): Counterparty failures (failure to deliver securities or pay cash) are an external operational risk that intersects with credit risk management.
+- **trade-execution** (trading-operations plugin): Execution quality failures, routing errors, and best execution violations are operational risk events with regulatory implications.
+- **pre-trade-compliance** (trading-operations plugin): Pre-trade checks serve as preventive controls against trade errors, unauthorized trading, and account restriction violations.
+- **post-trade-compliance** (trading-operations plugin): Post-trade surveillance detects errors and anomalies that escaped pre-trade controls.
+- **books-and-records** (compliance plugin): Loss event documentation, incident records, and error account activity are regulatory books and records subject to retention requirements.
+- **examination-readiness** (compliance plugin): Operational risk frameworks, incident logs, and BCP documentation are common examination topics for FINRA and SEC examiners.
+- **privacy-data-security** (compliance plugin): Cybersecurity incidents affecting trading systems are operational risk events that also trigger data protection and breach notification obligations.

@@ -112,11 +112,13 @@ An appropriate benchmark must be:
 - Ignoring the interaction between constraints (e.g., tax considerations affecting asset allocation ranges)
 
 ## Cross-References
-- **tax-efficiency** (wealth-management plugin, Layer 5): asset location and withdrawal sequencing affect IPS constraint section
-- **performance-attribution** (wealth-management plugin, Layer 5): benchmark selection in IPS directly feeds performance evaluation
-- **liquidity-management** (wealth-management plugin, Layer 6): liquidity constraint in IPS depends on cash flow analysis
-- **savings-goals** (wealth-management plugin, Layer 6): return objectives often derived from goal-based planning
-- **emergency-fund** (wealth-management plugin, Layer 6): emergency reserve requirement feeds into IPS liquidity constraint
-- **client-review-prep** (advisory-practice plugin, Layer 10): IPS provides the reference framework for evaluating drift and suitability during reviews
-- **financial-planning-workflow** (advisory-practice plugin, Layer 10): the financial plan informs and is codified in the investment policy statement
-- **tax-loss-harvesting** (wealth-management plugin, Layer 5): IPS may specify TLH policy parameters (minimum loss threshold, approved replacement pairs)
+- **tax-efficiency** (wealth-management plugin): asset location and withdrawal sequencing affect IPS constraint section
+- **performance-attribution** (wealth-management plugin): benchmark selection in IPS directly feeds performance evaluation
+- **liquidity-management** (wealth-management plugin): liquidity constraint in IPS depends on cash flow analysis
+- **savings-goals** (wealth-management plugin): return objectives often derived from goal-based planning
+- **emergency-fund** (wealth-management plugin): emergency reserve requirement feeds into IPS liquidity constraint
+- **client-review-prep** (advisory-practice plugin): IPS provides the reference framework for evaluating drift and suitability during reviews
+- **financial-planning-workflow** (advisory-practice plugin): the financial plan informs and is codified in the investment policy statement
+- **tax-loss-harvesting** (wealth-management plugin): IPS may specify TLH policy parameters (minimum loss threshold, approved replacement pairs)
+- **estate-gifting** (wealth-management plugin): trust structures and multi-generational transfer objectives feed the IPS legal/regulatory and time-horizon constraints
+- **retirement-decumulation** (wealth-management plugin): the IPS spending policy documents the withdrawal rate, guardrail rules, and rebalancing discipline used in decumulation

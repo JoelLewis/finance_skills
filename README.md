@@ -1,6 +1,6 @@
 # Finance Skills for Claude Code
 
-A collection of Claude Code skill plugins for financial services. 84 skills across
+A collection of Claude Code skill plugins for financial services. 91 skills across
 7 domain plugins teach Claude investment management, regulatory compliance, advisory
 workflows, trading operations, and more — so it can assist with finance questions,
 build financial tools, and flag compliance concerns.
@@ -48,26 +48,30 @@ volatility surfaces.
 (sovereign, municipal, corporate, structured), commodities, real assets, alternatives,
 fund vehicles, currencies and FX, digital assets.
 
-**Valuation:** Quantitative models (DCF, DDM, comparables, residual income) and
-qualitative assessment (moats, management quality, ESG).
+**Valuation:** Quantitative models (DCF, DDM, comparables, residual income),
+qualitative assessment (moats, management quality, ESG), and financial-statement
+analysis (FCF/EBITDA derivation, ROIC, DuPont, earnings quality).
 
 **Portfolio construction:** Diversification theory, mean-variance optimization,
 Black-Litterman, risk parity, Kelly criterion, position sizing, calendar- and
-threshold-based rebalancing.
+threshold-based rebalancing, factor investing (Fama-French regressions, smart-beta
+evaluation).
 
 **Policy and planning:** IPS construction, tax-aware investing, asset location,
 tax-loss harvesting (dedicated workflow skill), performance attribution (Brinson,
 factor-based).
 
 **Personal finance:** Debt prioritization, mortgage and loan analysis, emergency fund
-sizing, savings goals, liquidity management.
+sizing, savings goals, liquidity management, equity compensation (RSU/ISO/NSO, AMT,
+concentrated stock), retirement decumulation (withdrawal rates, RMDs, Social Security
+claiming), insurance planning, and estate & gifting.
 
 **Behavioral finance:** Cognitive biases, nudges, emotional discipline.
 
 **Reporting:** Risk-adjusted performance ratios, performance reports, benchmark
 comparison, goal progress tracking.
 
-32 skills. Python scripts for quantitative skills (risk, performance metrics, and core
+38 skills. Python scripts for quantitative skills (risk, performance metrics, and core
 math).
 
 ---
@@ -96,8 +100,9 @@ industry practice. All skills cite specific rule numbers and act sections.
 | `gips-compliance` | CFA Institute GIPS: composites, performance presentation, verification |
 | `privacy-data-security` | Reg S-P, Reg S-ID, SEC cybersecurity rules (2023), state privacy law |
 | `examination-readiness` | SEC/FINRA exam process, document production, deficiency findings, mock exam frameworks |
+| `private-placements` | Reg D 506(b)/(c), accredited investor and qualified purchaser tests, Form D, FINRA 5122/5123 |
 
-16 skills.
+17 skills.
 
 ---
 
@@ -289,39 +294,35 @@ Installing any plugin automatically installs `core`.
 finance_skills/
 ├── README.md
 ├── CLAUDE.md                  # Claude Code project instructions
-├── marketplace.json           # Machine-readable catalog of all plugins
-├── install.sh                 # Plugin installer
+├── .claude-plugin/
+│   └── marketplace.json       # Plugin catalog (catalog of record)
+├── install.sh                 # Plugin installer (--list, --check)
 └── plugins/
     ├── core/
-    │   ├── plugin.json
+    │   ├── .claude-plugin/
+    │   │   └── plugin.json    # Plugin manifest (deps, keywords, scripts flag)
     │   └── skills/
     │       ├── return-calculations/
     │       ├── time-value-of-money/
     │       └── statistics-fundamentals/
     ├── wealth-management/
-    │   ├── plugin.json
-    │   └── skills/
-    │       └── ... (32 skills)
+    │   ├── .claude-plugin/plugin.json
+    │   └── skills/            # ... (38 skills)
     ├── compliance/
-    │   ├── plugin.json
-    │   └── skills/
-    │       └── ... (16 skills)
+    │   ├── .claude-plugin/plugin.json
+    │   └── skills/            # ... (17 skills)
     ├── advisory-practice/
-    │   ├── plugin.json
-    │   └── skills/
-    │       └── ... (12 skills)
+    │   ├── .claude-plugin/plugin.json
+    │   └── skills/            # ... (12 skills)
     ├── trading-operations/
-    │   ├── plugin.json
-    │   └── skills/
-    │       └── ... (9 skills)
+    │   ├── .claude-plugin/plugin.json
+    │   └── skills/            # ... (9 skills)
     ├── client-operations/
-    │   ├── plugin.json
-    │   └── skills/
-    │       └── ... (8 skills)
+    │   ├── .claude-plugin/plugin.json
+    │   └── skills/            # ... (8 skills)
     └── data-integration/
-        ├── plugin.json
-        └── skills/
-            └── ... (4 skills)
+        ├── .claude-plugin/plugin.json
+        └── skills/            # ... (4 skills)
 ```
 
 ---

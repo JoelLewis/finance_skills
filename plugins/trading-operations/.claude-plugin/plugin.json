@@ -12,5 +12,9 @@
     "settlement",
     "execution",
     "risk"
-  ]
+  ],
+  "dependencies": [
+    "core"
+  ],
+  "scripts": false
 }

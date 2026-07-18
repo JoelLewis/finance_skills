@@ -300,12 +300,12 @@ See [references/examples.md](references/examples.md) for three end-to-end worked
 
 ## Cross-References
 
-- **fee-disclosure** — Detailed requirements for fee disclosure in client-facing documents and regulatory filings.
-- **portfolio-management-systems** — Integration between billing engines and PMS platforms for valuation and account data.
-- **advisor-dashboards** — Revenue metrics, billing status, and fee analytics displayed on advisor-facing dashboards.
-- **client-reporting-delivery** — Inclusion of fee summaries and performance-net-of-fee figures in client reports.
-- **investment-policy** — Fee schedule terms as specified in the investment policy statement or advisory agreement.
-- **reg-bi** — Regulation Best Interest cost disclosure obligations for dual-registrant firms.
-- **fiduciary-standards** — Fiduciary duty to charge reasonable fees and act in the client's best interest regarding cost.
-- **tax-efficiency** — Tax implications of fee payment source (taxable vs. tax-advantaged accounts) and deductibility considerations.
-- **performance-reporting** — Gross-of-fee vs. net-of-fee performance calculation and the role of accurate fee data.
+- **fee-disclosure** (compliance plugin) — Detailed requirements for fee disclosure in client-facing documents and regulatory filings.
+- **portfolio-management-systems** (advisory-practice plugin) — Integration between billing engines and PMS platforms for valuation and account data.
+- **advisor-dashboards** (advisory-practice plugin) — Revenue metrics, billing status, and fee analytics displayed on advisor-facing dashboards.
+- **client-reporting-delivery** (advisory-practice plugin) — Inclusion of fee summaries and performance-net-of-fee figures in client reports.
+- **investment-policy** (wealth-management plugin) — Fee schedule terms as specified in the investment policy statement or advisory agreement.
+- **reg-bi** (compliance plugin) — Regulation Best Interest cost disclosure obligations for dual-registrant firms.
+- **fiduciary-standards** (compliance plugin) — Fiduciary duty to charge reasonable fees and act in the client's best interest regarding cost.
+- **tax-efficiency** (wealth-management plugin) — Tax implications of fee payment source (taxable vs. tax-advantaged accounts) and deductibility considerations.
+- **performance-reporting** (wealth-management plugin) — Gross-of-fee vs. net-of-fee performance calculation and the role of accurate fee data.

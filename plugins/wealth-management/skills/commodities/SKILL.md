@@ -90,10 +90,10 @@ Despite a 10% spot price increase, the futures-based investor earned only 9% due
 - Storage costs matter for physical but not financial investors — financial investors face roll yield, not storage costs
 
 ## Cross-References
-- **historical-risk**: return and risk measurement basics
-- **real-assets**: physical and collectible commodity ownership (bullion, farmland, timberland). Division of labor: this skill owns gold accessed via futures and the gold-as-safe-haven allocation question; real-assets owns physical/collectible gold ownership and storage
-- **currencies-and-fx**: commodity currency relationships
-- **asset-allocation**: commodities as a portfolio diversifier
+- **historical-risk** (wealth-management plugin): return and risk measurement basics
+- **real-assets** (wealth-management plugin): physical and collectible commodity ownership (bullion, farmland, timberland). Division of labor: this skill owns gold accessed via futures and the gold-as-safe-haven allocation question; real-assets owns physical/collectible gold ownership and storage
+- **currencies-and-fx** (wealth-management plugin): commodity currency relationships
+- **asset-allocation** (wealth-management plugin): commodities as a portfolio diversifier
 
 ## Running the Script
 

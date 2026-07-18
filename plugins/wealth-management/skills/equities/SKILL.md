@@ -7,7 +7,9 @@ description: "Analyze equity securities, factor models, and equity portfolio con
 
 This skill is a decision procedure: which valuation metric to use for which company, which index methodology fits which mandate, and the order of operations for analyzing a stock. It assumes the user can look up definitions; the value here is choosing the right tool.
 
-## Choosing the Valuation Metric
+## Core Concepts
+
+### Choosing the Valuation Metric
 
 Match the metric to the sector and capital structure — using the wrong one is the most common equity-analysis error.
 
@@ -27,7 +29,7 @@ Cross-checks that apply everywhere:
 - Compare against the company's own history and a true peer set, not the whole market.
 - Translate any multiple into its implied assumptions (growth, margin, required return) before declaring cheap/expensive — a low multiple usually encodes a real problem.
 
-## Choosing the Index Methodology
+### Choosing the Index Methodology
 
 | Mandate | Methodology | Trade-off to flag |
 |---------|-------------|-------------------|
@@ -39,7 +41,7 @@ Cross-checks that apply everywhere:
 
 Selection rules: default to cap-weighted for core beta; add equal- or fundamental-weighted only when the user explicitly wants the embedded tilt and accepts the turnover; treat any "smart beta" product as a factor portfolio and evaluate its factor loadings, not its marketing name.
 
-## Security Analysis Sequence
+### Security Analysis Sequence
 
 1. **Classify the business** — sector (GICS or equivalent), cyclical vs defensive, capital intensity, leverage. This determines the valuation toolkit (table above).
 2. **Quality screen** — revenue trend, margin trend, ROIC vs cost of capital, balance-sheet risk (net debt/EBITDA, interest coverage), share count trajectory (dilution vs buybacks).
@@ -59,7 +61,9 @@ Selection rules: default to cap-weighted for core beta; add equal- or fundamenta
 | CAPM | E(R) = R_f + beta × (E(R_m) - R_f) | Required return input for valuation |
 | Total Return | Price Return + Dividend Return | Performance comparison basis |
 
-## Worked Example: Metric Selection and Valuation
+## Worked Examples
+
+### Metric Selection and Valuation
 
 **Given:** An industrial company with market cap $500M, total debt $100M, cash $50M, EBITDA $75M, EPS $7.50, price $150.
 **Decide and calculate:**
@@ -76,13 +80,17 @@ Selection rules: default to cap-weighted for core beta; add equal- or fundamenta
 - Survivorship bias in backtested factor or screen results
 
 ## Cross-References
-- **historical-risk**: beta, volatility, and Sharpe ratio fundamentals
-- **fund-vehicles**: equity fund selection (ETFs, mutual funds, SMAs)
-- **currencies-and-fx**: international equity currency effects
-- **asset-allocation**: equity allocation within multi-asset portfolios
-- **real-assets**: REIT valuation (P/FFO, NAV) is owned by that skill
-- **qualitative-valuation** and **quantitative-valuation**: deeper single-company valuation workflows
-
+- **historical-risk** (wealth-management plugin): volatility and drawdown measurement for equity return series
+- **statistics-fundamentals** (core plugin): beta estimation via CAPM regression
+- **performance-metrics** (wealth-management plugin): Sharpe ratio and related risk-adjusted return measures
+- **fund-vehicles** (wealth-management plugin): equity fund selection (ETFs, mutual funds, SMAs)
+- **currencies-and-fx** (wealth-management plugin): international equity currency effects
+- **asset-allocation** (wealth-management plugin): equity allocation within multi-asset portfolios
+- **real-assets** (wealth-management plugin): REIT valuation (P/FFO, NAV) is owned by that skill
+- **qualitative-valuation** (wealth-management plugin) and **quantitative-valuation** (wealth-management plugin): deeper single-company valuation workflows
+- **financial-statements** (wealth-management plugin): EBITDA, free cash flow, ROIC, and margin analysis underpinning fundamental stock selection
+- **equity-compensation** (wealth-management plugin): employer stock acquired through RSUs, options, and ESPPs carries equity risk plus tax and insider-trading constraints
+- **factor-investing** (wealth-management plugin): the factor-loading evaluation of smart-beta and style products prescribed above lives in that skill
 ## Running the Script
 
 ```bash

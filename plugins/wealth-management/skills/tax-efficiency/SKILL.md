@@ -21,7 +21,7 @@ Realize investment losses to offset capital gains, reducing current tax liabilit
 
 - Sell a losing position, immediately buy a similar (but not "substantially identical") replacement
 - Harvested losses offset gains dollar-for-dollar; net losses offset up to $3,000 of ordinary income per year; excess carries forward indefinitely
-- **Wash-sale rule (30 days):** Cannot repurchase the same or substantially identical security within 30 days before or after the sale — applies across all accounts (including spouse's accounts and IRAs)
+- **Wash-sale rule (61-day window):** Cannot repurchase the same or substantially identical security within the 61-day window (30 days before + sale date + 30 days after) — applies across all accounts (including spouse's accounts and IRAs)
 - **Tax alpha from TLH:** Estimated 0.5-1.5% per year in early years of a portfolio's life, declining as cost basis rises
 - Best opportunities arise during market volatility and in the first few years of investing
 
@@ -116,7 +116,7 @@ The order of withdrawals from different account types in retirement:
 5. **Conclusion:** Under this simplification the breakeven future rate equals the current rate (24%) — both sides scale by the same (1.07)^20, so the horizon and return cancel. In reality the taxable side fund suffers tax drag on its dividends and realized gains, so paying conversion tax from outside funds tilts the comparison toward Roth even when the future rate merely equals the current rate.
 
 ## Common Pitfalls
-- TLH wash sale violations, including purchases in other accounts, IRAs, or a spouse's account within the 30-day window
+- TLH wash sale violations, including purchases in other accounts, IRAs, or a spouse's account within the 61-day wash-sale window (30 days before through 30 days after the sale)
 - Over-harvesting losses that defer gains to higher tax brackets later (basis step-down compounds)
 - Not considering state taxes in asset location decisions — state tax treatment varies significantly
 - Ignoring the tax benefit of donating appreciated securities vs cash (avoids capital gains and gets full deduction)
@@ -126,13 +126,17 @@ The order of withdrawals from different account types in retirement:
 - Not coordinating tax strategy across spouses' accounts
 
 ## Cross-References
-- **investment-policy** (wealth-management plugin, Layer 5): Tax constraint in IPS governs asset location and turnover management
-- **performance-attribution** (wealth-management plugin, Layer 5): After-tax return attribution requires tax-aware calculations
-- **debt-management** (wealth-management plugin, Layer 6): Mortgage interest deductibility interacts with tax planning
-- **savings-goals** (wealth-management plugin, Layer 6): Account type selection (Roth vs Traditional) is a core tax decision
-- **liquidity-management** (wealth-management plugin, Layer 6): Tax implications of accessing different account types affect liquidity planning
-- **tax-loss-harvesting** (wealth-management plugin, Layer 5): dedicated TLH workflow skill with detailed candidate identification, wash-sale tracking, and execution planning
-- **financial-planning-workflow** (advisory-practice plugin, Layer 10): tax-aware strategies are core recommendations in comprehensive financial plans
-
+- **investment-policy** (wealth-management plugin): Tax constraint in IPS governs asset location and turnover management
+- **performance-attribution** (wealth-management plugin): After-tax return attribution requires tax-aware calculations
+- **debt-management** (wealth-management plugin): Mortgage interest deductibility interacts with tax planning
+- **savings-goals** (wealth-management plugin): Account type selection (Roth vs Traditional) is a core tax decision
+- **liquidity-management** (wealth-management plugin): Tax implications of accessing different account types affect liquidity planning
+- **tax-loss-harvesting** (wealth-management plugin): dedicated TLH workflow skill with detailed candidate identification, wash-sale tracking, and execution planning
+- **financial-planning-workflow** (advisory-practice plugin): tax-aware strategies are core recommendations in comprehensive financial plans
+- **financial-statements** (wealth-management plugin): cost basis and embedded capital gains fundamentals behind lot selection and deferral decisions
+- **insurance-planning** (wealth-management plugin): premium-payer decisions drive taxation of disability benefits, annuity income, and life insurance proceeds
+- **estate-gifting** (wealth-management plugin): owns the transfer-tax side — lifetime exemption, annual exclusion gifting, basis step-up vs carryover, and estate-level charitable structure choice
+- **retirement-decumulation** (wealth-management plugin): applies withdrawal sequencing and RMD mechanics to retirement spending plans — guardrails, gap-year bracket-filling, and Social Security timing
+- **equity-compensation** (wealth-management plugin): RSU/option taxation, AMT on ISO exercises, and charitable use of appreciated employer stock extend tax planning to compensation events
 ## Running the script
 Run with `uv run scripts/tax_efficiency.py` (the PEP 723 header resolves dependencies automatically) or with `python3 scripts/tax_efficiency.py` after `pip install numpy scipy`. The bare run prints a demo covering after-tax returns, tax drag, TLH benefit, asset location placement, and Roth conversion breakeven. Pass `--verify` to assert the demo outputs match this skill's worked examples (prints PASS/FAIL), or `--help` for an overview of the available classes. The file is primarily meant to be imported as a module (e.g., `from tax_efficiency import AfterTaxReturn, AssetLocation, BreakevenAnalysis`).

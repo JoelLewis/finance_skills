@@ -172,9 +172,10 @@ The care obligation requires considering reasonably available alternatives, but 
 - Treating the compliance obligation as a one-time exercise rather than an ongoing requirement to maintain and enforce policies and procedures
 
 ## Cross-References
-- **investment-suitability** (Layer 9): FINRA suitability framework that Reg BI replaced and enhanced for retail customers
-- **fiduciary-standards** (Layer 9): IA fiduciary duty under the Advisers Act — the parallel standard for investment advisers
-- **conflicts-of-interest** (Layer 9): Detailed conflict identification, disclosure, and mitigation frameworks applicable across regulatory regimes
-- **fee-disclosure** (Layer 9): Fee transparency requirements that support the Disclosure Obligation
-- **advice-standards** (Layer 9): Broader standards of conduct for financial professionals across BD and IA channels
-- **client-disclosures** (Layer 9): Form CRS requirements and other client-facing disclosure obligations
+- **investment-suitability** (compliance plugin): FINRA suitability framework that Reg BI replaced and enhanced for retail customers
+- **fiduciary-standards** (compliance plugin): IA fiduciary duty under the Advisers Act — the parallel standard for investment advisers
+- **conflicts-of-interest** (compliance plugin): Detailed conflict identification, disclosure, and mitigation frameworks applicable across regulatory regimes
+- **fee-disclosure** (compliance plugin): Fee transparency requirements that support the Disclosure Obligation
+- **advice-standards** (compliance plugin): Broader standards of conduct for financial professionals across BD and IA channels
+- **client-disclosures** (compliance plugin): Form CRS requirements and other client-facing disclosure obligations
+- **private-placements** (compliance plugin): exempt offering framework and investor-eligibility rules underlying Care Obligation analysis of private placement recommendations

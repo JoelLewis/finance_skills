@@ -155,11 +155,11 @@ Data vendors are the primary external source for security reference data, pricin
 
 ## Cross-References
 
-- **market-data** (Layer 13, data-integration) — Market data covers real-time pricing and trade data; reference data provides the instrument master that market data references.
-- **data-quality** (Layer 13, data-integration) — General data quality principles (profiling, validation, monitoring) applied here specifically to financial reference data.
-- **integration-patterns** (Layer 13, data-integration) — Integration patterns (event-driven, batch, API) are the mechanisms for distributing reference data.
-- **portfolio-management-systems** (Layer 10, advisory-practice) — The PMS is a primary consumer of security master, pricing, and account master data.
+- **market-data** (data-integration plugin) — Market data covers real-time pricing and trade data; reference data provides the instrument master that market data references.
+- **data-quality** (data-integration plugin) — General data quality principles (profiling, validation, monitoring) applied here specifically to financial reference data.
+- **integration-patterns** (data-integration plugin) — Integration patterns (event-driven, batch, API) are the mechanisms for distributing reference data.
+- **portfolio-management-systems** (advisory-practice plugin) — The PMS is a primary consumer of security master, pricing, and account master data.
 - **reconciliation** (client-operations plugin) — Reference data mismatches (identifiers, stale prices) are a leading cause of reconciliation breaks.
 - **corporate-actions** (client-operations plugin) — Corporate actions drive security master changes; this skill covers the resulting reference data updates.
-- **know-your-customer** (Layer 9, compliance) — KYC requirements define what client data must be collected; the client master stores and governs it.
-- **books-and-records** (Layer 9, compliance) — Reference data records are books and records subject to retention and examination requirements.
+- **know-your-customer** (compliance plugin) — KYC requirements define what client data must be collected; the client master stores and governs it.
+- **books-and-records** (compliance plugin) — Reference data records are books and records subject to retention and examination requirements.

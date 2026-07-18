@@ -1,0 +1,12 @@
+{
+  "eval_id": 36,
+  "eval_name": "estate-gifting-gift-vs-bequeath-basis",
+  "prompt": "A widowed client with an $8M estate holds stock worth $1,000,000 with a $100,000 cost basis and wants her daughter to have it. Should she gift it now or leave it in her will? Assume the daughter would sell promptly either way at a 23.8% capital gains rate, and note where the estate sits relative to the current federal exemption.",
+  "assertions": [
+    {"text": "Capital gains tax if gifted is approximately $214K", "type": "numerical_accuracy"},
+    {"text": "The lifetime estate exemption is approximately $15M", "type": "numerical_accuracy"},
+    {"text": "Mentions the step-up in basis at death", "type": "contains_concept"},
+    {"text": "Mentions carryover basis for the gifted stock", "type": "contains_concept"},
+    {"text": "Mentions gifting cash or high-basis assets instead", "type": "contains_concept"}
+  ]
+}

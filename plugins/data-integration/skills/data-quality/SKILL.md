@@ -237,11 +237,11 @@ Financial regulators do not typically prescribe specific data quality standards,
 
 ## Cross-References
 
-- **reference-data** (Layer 13, data-integration) — Reference data (security master, client master, account master) is the primary domain where data quality governance applies; quality of reference data determines quality of all downstream processes.
-- **market-data** (Layer 13, data-integration) — Market data pricing quality is a critical data quality domain; real-time and EOD pricing validation rules are a core application of data quality principles.
-- **integration-patterns** (Layer 13, data-integration) — Integration failures (file delivery issues, API errors, transformation bugs) are a leading source of data quality issues; integration architecture determines lineage capture capability.
-- **reconciliation** (Layer 12, client-operations) — Reconciliation is the primary detective control for data quality, comparing positions, transactions, and cash across systems to identify breaks caused by data quality failures.
-- **gips-compliance** (Layer 9, compliance) — GIPS requires documented data quality controls for performance data, including composite completeness, valuation accuracy, and return calculation integrity.
-- **books-and-records** (Layer 9, compliance) — Data quality directly affects regulatory recordkeeping obligations; inaccurate or incomplete records violate SEC Rule 17a-4 and Investment Advisers Act requirements.
-- **regulatory-reporting** (Layer 9, compliance) — Regulatory filings (Form ADV, 13F, FOCUS, Form PF) depend on accurate, complete source data; data quality failures in reporting data carry direct regulatory risk.
-- **operational-risk** (Layer 11, trading-operations) — Data quality failures are an operational risk category; material data errors can cause financial losses, regulatory sanctions, and reputational damage.
+- **reference-data** (data-integration plugin) — Reference data (security master, client master, account master) is the primary domain where data quality governance applies; quality of reference data determines quality of all downstream processes.
+- **market-data** (data-integration plugin) — Market data pricing quality is a critical data quality domain; real-time and EOD pricing validation rules are a core application of data quality principles.
+- **integration-patterns** (data-integration plugin) — Integration failures (file delivery issues, API errors, transformation bugs) are a leading source of data quality issues; integration architecture determines lineage capture capability.
+- **reconciliation** (client-operations plugin) — Reconciliation is the primary detective control for data quality, comparing positions, transactions, and cash across systems to identify breaks caused by data quality failures.
+- **gips-compliance** (compliance plugin) — GIPS requires documented data quality controls for performance data, including composite completeness, valuation accuracy, and return calculation integrity.
+- **books-and-records** (compliance plugin) — Data quality directly affects regulatory recordkeeping obligations; inaccurate or incomplete records violate SEC Rule 17a-4 and Investment Advisers Act requirements.
+- **regulatory-reporting** (compliance plugin) — Regulatory filings (Form ADV, 13F, FOCUS, Form PF) depend on accurate, complete source data; data quality failures in reporting data carry direct regulatory risk.
+- **operational-risk** (trading-operations plugin) — Data quality failures are an operational risk category; material data errors can cause financial losses, regulatory sanctions, and reputational damage.

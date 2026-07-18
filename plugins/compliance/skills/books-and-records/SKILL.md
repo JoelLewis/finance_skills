@@ -194,9 +194,9 @@ This scenario reflects a pattern that has been the subject of major SEC and FINR
 - Failing to update the document retention schedule after regulatory amendments — for example, the 2022 amendments to Rule 17a-4 changed certain requirements that may affect the firm's storage architecture and vendor relationships
 
 ## Cross-References
-- **client-disclosures** (Layer 9): Records of disclosure document delivery (Form ADV, Form CRS, prospectuses, privacy notices) are themselves books and records subject to retention requirements under Rules 17a-4 and 204-2
-- **sales-practices** (Layer 9): Supervisory records required under FINRA Rule 3110 — including exception reports, branch inspection reports, and written supervisory procedures — are a major component of books and records obligations
-- **anti-money-laundering** (Layer 9): BSA/AML recordkeeping (SARs, CTRs, CIP documentation) feeds directly into the books-and-records framework and is subject to its own retention requirements that run parallel to Rules 17a-4 and 204-2
-- **advertising-compliance** (Layer 9): Advertising materials and performance records are subject to retention requirements under Rule 17a-4 for broker-dealers and Rule 204-2(a)(11) for investment advisers
-- **conflicts-of-interest** (Layer 9): Code of ethics records, personal trading reports, and conflict disclosure documentation are books and records that must be retained under both the BD and IA frameworks
-- **know-your-customer** (Layer 9): CIP and CDD records collected during account opening are retained under Rule 17a-4 as customer account records and under BSA regulations for a minimum of five years after account closure
+- **client-disclosures** (compliance plugin): Records of disclosure document delivery (Form ADV, Form CRS, prospectuses, privacy notices) are themselves books and records subject to retention requirements under Rules 17a-4 and 204-2
+- **sales-practices** (compliance plugin): Supervisory records required under FINRA Rule 3110 — including exception reports, branch inspection reports, and written supervisory procedures — are a major component of books and records obligations
+- **anti-money-laundering** (compliance plugin): BSA/AML recordkeeping (SARs, CTRs, CIP documentation) feeds directly into the books-and-records framework and is subject to its own retention requirements that run parallel to Rules 17a-4 and 204-2
+- **advertising-compliance** (compliance plugin): Advertising materials and performance records are subject to retention requirements under Rule 17a-4 for broker-dealers and Rule 204-2(a)(11) for investment advisers
+- **conflicts-of-interest** (compliance plugin): Code of ethics records, personal trading reports, and conflict disclosure documentation are books and records that must be retained under both the BD and IA frameworks
+- **know-your-customer** (compliance plugin): CIP and CDD records collected during account opening are retained under Rule 17a-4 as customer account records and under BSA regulations for a minimum of five years after account closure

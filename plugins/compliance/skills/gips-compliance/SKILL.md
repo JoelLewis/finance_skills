@@ -239,8 +239,8 @@ GIPS 2020 includes specific provisions for advertisements — abbreviated commun
 - Presenting GIPS-compliant advertisements without the required elements (firm definition, compliance statement, benchmark, standardized-period returns).
 
 ## Cross-References
-- **performance-metrics** (Layer 1a): GIPS requires time-weighted return calculation consistent with the TWR methods defined in the performance-metrics skill; composite return accuracy depends on correct application of Modified Dietz or true daily valuation methods.
-- **performance-attribution** (Layer 5): Attribution analysis presented alongside GIPS-compliant reports must be labeled as supplemental information and cannot contradict or be inconsistent with the reported composite returns.
-- **performance-reporting** (Layer 8): GIPS constrains how performance can be presented in client and prospective-client reports, including required elements, standardized time periods, and the prohibition on cherry-picked performance.
-- **advertising-compliance** (Layer 9): GIPS advertising guidelines layer on top of SEC Marketing Rule and FINRA Rule 2210 requirements; firms subject to both must comply with the more restrictive standard for each element.
-- **fee-disclosure** (Layer 9): GIPS requires fee schedule disclosure in compliant presentations and mandates clear labeling of gross-of-fees versus net-of-fees returns, consistent with the broader fee transparency requirements covered in the fee-disclosure skill.
+- **performance-metrics** (wealth-management plugin): GIPS requires time-weighted return calculation consistent with the TWR methods defined in the performance-metrics skill; composite return accuracy depends on correct application of Modified Dietz or true daily valuation methods.
+- **performance-attribution** (wealth-management plugin): Attribution analysis presented alongside GIPS-compliant reports must be labeled as supplemental information and cannot contradict or be inconsistent with the reported composite returns.
+- **performance-reporting** (wealth-management plugin): GIPS constrains how performance can be presented in client and prospective-client reports, including required elements, standardized time periods, and the prohibition on cherry-picked performance.
+- **advertising-compliance** (compliance plugin): GIPS advertising guidelines layer on top of SEC Marketing Rule and FINRA Rule 2210 requirements; firms subject to both must comply with the more restrictive standard for each element.
+- **fee-disclosure** (compliance plugin): GIPS requires fee schedule disclosure in compliant presentations and mandates clear labeling of gross-of-fees versus net-of-fees returns, consistent with the broader fee transparency requirements covered in the fee-disclosure skill.

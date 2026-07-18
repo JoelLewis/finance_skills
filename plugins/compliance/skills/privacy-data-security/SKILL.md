@@ -151,9 +151,9 @@ To prepare for the examination, the firm should: (1) Assemble all responsive doc
 - Assuming that outsourcing data processing or storage to a cloud provider eliminates the firm's regulatory responsibility for data security — the shared responsibility model requires the firm to secure its own configurations, access controls, and data within the cloud environment
 
 ## Cross-References
-- **client-disclosures** (Layer 9): The Reg S-P privacy notice is a required client disclosure document; its content, delivery timing, and the FAST Act exception are addressed in the client-disclosures skill
-- **books-and-records** (Layer 9): Data retention and destruction requirements under privacy regulations must be reconciled with books-and-records retention rules under SEC Rule 17a-4 and IA Act Rule 204-2
-- **know-your-customer** (Layer 9): KYC data — including Social Security numbers, dates of birth, addresses, and identification documents — constitutes NPI requiring protection under Reg S-P and is a primary target for identity theft under Reg S-ID
-- **anti-money-laundering** (Layer 9): Cybersecurity incidents involving unauthorized account access, funds theft, or identity theft may trigger SAR filing obligations under BSA/AML requirements
-- **examination-readiness** (Layer 9): Cybersecurity is consistently among the SEC Division of Examinations' top examination priorities; cybersecurity document requests, interview topics, and common deficiency findings are central to examination preparation
-- **conflicts-of-interest** (Layer 9): Information barriers, access controls, and data segregation policies serve dual purposes — preventing misuse of material nonpublic information and protecting customer NPI from unauthorized internal access
+- **client-disclosures** (compliance plugin): The Reg S-P privacy notice is a required client disclosure document; its content, delivery timing, and the FAST Act exception are addressed in the client-disclosures skill
+- **books-and-records** (compliance plugin): Data retention and destruction requirements under privacy regulations must be reconciled with books-and-records retention rules under SEC Rule 17a-4 and IA Act Rule 204-2
+- **know-your-customer** (compliance plugin): KYC data — including Social Security numbers, dates of birth, addresses, and identification documents — constitutes NPI requiring protection under Reg S-P and is a primary target for identity theft under Reg S-ID
+- **anti-money-laundering** (compliance plugin): Cybersecurity incidents involving unauthorized account access, funds theft, or identity theft may trigger SAR filing obligations under BSA/AML requirements
+- **examination-readiness** (compliance plugin): Cybersecurity is consistently among the SEC Division of Examinations' top examination priorities; cybersecurity document requests, interview topics, and common deficiency findings are central to examination preparation
+- **conflicts-of-interest** (compliance plugin): Information barriers, access controls, and data segregation policies serve dual purposes — preventing misuse of material nonpublic information and protecting customer NPI from unauthorized internal access

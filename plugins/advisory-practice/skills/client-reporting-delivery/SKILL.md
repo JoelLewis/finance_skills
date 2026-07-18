@@ -307,15 +307,15 @@ See [references/examples.md](references/examples.md) for three end-to-end worked
 
 ## Cross-References
 
-- **performance-reporting** (Layer 8, wealth-management) — Client reports implement the performance reporting standards defined in this skill. Report templates and content must align with the firm's performance reporting policy.
-- **performance-metrics** (Layer 1a, wealth-management) — Reports display the return and risk metrics calculated per this skill. Ensures consistency between the metrics definition and their presentation in reports.
-- **performance-attribution** (Layer 5, wealth-management) — Attribution analysis is included in detailed client reports for HNW and UHNW tiers. The attribution skill defines the methodology; this skill addresses how to present attribution results clearly.
-- **gips-compliance** (Layer 9, compliance) — GIPS presentation standards apply to composite-level performance reporting and influence client-level report design for firms claiming compliance.
-- **advertising-compliance** (Layer 9, compliance) — Reports shared with prospects become marketing materials subject to the SEC Marketing Rule and advertising compliance requirements.
-- **books-and-records** (Layer 9, compliance) — Delivered reports must be retained per SEC and FINRA recordkeeping rules. The delivery channel and archiving process must support compliant record retention.
-- **client-disclosures** (Layer 9, compliance) — Required disclaimers and disclosures that appear in client reports are defined and maintained per this compliance skill.
-- **portfolio-management-systems** (Layer 10, advisory-practice) — The PMS is the primary data source for report generation. Data quality, reconciliation status, and system configuration directly affect report accuracy.
-- **advisor-dashboards** (Layer 10, advisory-practice) — Dashboards provide real-time portfolio views that complement the periodic snapshots in client reports. Together they form a complete client information ecosystem.
-- **fee-billing** (Layer 10, advisory-practice) — Fee summaries included in client reports draw data from the billing system. Fee calculation accuracy in reports depends on billing system integration.
-- **financial-planning-integration** (Layer 10, advisory-practice) — Financial plan progress reporting is included in comprehensive client reports, connecting portfolio performance to goal achievement.
-- **client-review-prep** (Layer 10, advisory-practice) — Review preparation feeds into and complements the report delivery workflow; reports are a key component of the review meeting package.
+- **performance-reporting** (wealth-management plugin) — Client reports implement the performance reporting standards defined in this skill. Report templates and content must align with the firm's performance reporting policy.
+- **performance-metrics** (wealth-management plugin) — Reports display the return and risk metrics calculated per this skill. Ensures consistency between the metrics definition and their presentation in reports.
+- **performance-attribution** (wealth-management plugin) — Attribution analysis is included in detailed client reports for HNW and UHNW tiers. The attribution skill defines the methodology; this skill addresses how to present attribution results clearly.
+- **gips-compliance** (compliance plugin) — GIPS presentation standards apply to composite-level performance reporting and influence client-level report design for firms claiming compliance.
+- **advertising-compliance** (compliance plugin) — Reports shared with prospects become marketing materials subject to the SEC Marketing Rule and advertising compliance requirements.
+- **books-and-records** (compliance plugin) — Delivered reports must be retained per SEC and FINRA recordkeeping rules. The delivery channel and archiving process must support compliant record retention.
+- **client-disclosures** (compliance plugin) — Required disclaimers and disclosures that appear in client reports are defined and maintained per this compliance skill.
+- **portfolio-management-systems** (advisory-practice plugin) — The PMS is the primary data source for report generation. Data quality, reconciliation status, and system configuration directly affect report accuracy.
+- **advisor-dashboards** (advisory-practice plugin) — Dashboards provide real-time portfolio views that complement the periodic snapshots in client reports. Together they form a complete client information ecosystem.
+- **fee-billing** (advisory-practice plugin) — Fee summaries included in client reports draw data from the billing system. Fee calculation accuracy in reports depends on billing system integration.
+- **financial-planning-integration** (advisory-practice plugin) — Financial plan progress reporting is included in comprehensive client reports, connecting portfolio performance to goal achievement.
+- **client-review-prep** (advisory-practice plugin) — Review preparation feeds into and complements the report delivery workflow; reports are a key component of the review meeting package.

@@ -12,5 +12,10 @@
     "front-office",
     "crm",
     "billing"
-  ]
+  ],
+  "dependencies": [
+    "core",
+    "wealth-management"
+  ],
+  "scripts": false
 }

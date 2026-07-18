@@ -29,7 +29,7 @@ Registered investment advisers must keep Form ADV current through two amendment 
 **Form ADV-W (Withdrawal)** — An adviser withdrawing from SEC registration files Form ADV-W via IARD. Partial withdrawal (from specific states) or full withdrawal from SEC registration. A withdrawal filing becomes effective 60 days after filing unless the SEC institutes proceedings. Firms must maintain books and records for the applicable retention periods after withdrawal.
 
 ### Form PF (Private Fund Reporting)
-SEC Form PF, required under Section 204(b) of the Advisers Act and Rule 204(b)-1, applies to SEC-registered investment advisers that manage one or more private funds.
+SEC Form PF, required under Section 204(b) of the Advisers Act and Rule 204(b)-1, applies to SEC-registered investment advisers that manage one or more private funds. (The dollar thresholds below are set by rule and are not inflation-indexed; unchanged as of 2026.)
 
 **Filing thresholds and frequency:**
 - **Large private fund advisers to hedge funds** — advisers with at least $1.5 billion in hedge fund AUM must file quarterly within 60 days of quarter end. They report on each qualifying hedge fund individually.
@@ -46,7 +46,7 @@ SEC Form PF, required under Section 204(b) of the Advisers Act and Rule 204(b)-1
 Filing is through the Private Fund Reporting Depository (PFRD), an electronic filing system operated by FINRA on the IARD infrastructure — Form PF is not filed on EDGAR. A filing fee applies to each initial and update filing.
 
 ### 13F Filings (Institutional Holdings)
-SEC Rule 13f-1 under Section 13(f) of the Securities Exchange Act of 1934 requires institutional investment managers exercising investment discretion over $100 million or more in 13(f) securities to file Form 13F quarterly.
+SEC Rule 13f-1 under Section 13(f) of the Securities Exchange Act of 1934 requires institutional investment managers exercising investment discretion over $100 million or more in 13(f) securities to file Form 13F quarterly. (The $100 million threshold is statutory, set in 1975 and not inflation-indexed; it remains unchanged as of 2026.)
 
 **Who must file:** Any "institutional investment manager" — a broad category that includes investment advisers, banks, insurance companies, broker-dealers, pension funds, and corporations — that exercises investment discretion over the threshold amount. The threshold is measured as of the last trading day of any month in the calendar year. Once crossed, the manager must file for every quarter of that calendar year and the following calendar year.
 
@@ -66,6 +66,8 @@ SEC Rule 13h-1 under Section 13(h) of the Exchange Act requires "large traders" 
 **Large trader thresholds:** A person (including a firm) is a "large trader" if their transactions in NMS securities equal or exceed:
 - **2 million shares or $20 million in fair market value** during any single calendar day, or
 - **20 million shares or $200 million in fair market value** during any calendar month.
+
+(The 13H identifying-activity thresholds are fixed by Rule 13h-1 and are not inflation-indexed; unchanged as of 2026.)
 
 Transactions across all accounts over which the person exercises investment discretion are aggregated. The thresholds apply to both purchases and sales.
 
@@ -232,8 +234,8 @@ The firm must address three parallel workstreams: (1) **Blue sheet response** �
 - Neglecting to file FINRA Rule 4530 event notifications within 30 calendar days, particularly for written customer complaints and associated person disciplinary events
 
 ## Cross-References
-- **anti-money-laundering** (Layer 9): SAR and CTR filing mechanics are regulatory reporting obligations; the substantive AML framework (detection, investigation, escalation) feeds into the reporting workflow covered here
-- **client-disclosures** (Layer 9): Form ADV amendments trigger delivery obligations to existing clients — the disclosure skill covers what must be delivered and when, while this skill covers the filing mechanics
-- **books-and-records** (Layer 9): Records retention requirements underpin all regulatory reporting; accurate books and records are the source data for FOCUS reports, 13F filings, Form PF, and CAT submissions
-- **know-your-customer** (Layer 9): CAT CAIS data and blue sheet responses require accurate customer identification information sourced from the firm's KYC and CIP processes
-- **fee-disclosure** (Layer 9): Form ADV amendments reflecting changes to fee schedules are both a filing obligation (covered here) and a fee disclosure requirement (covered in fee-disclosure)
+- **anti-money-laundering** (compliance plugin): SAR and CTR filing mechanics are regulatory reporting obligations; the substantive AML framework (detection, investigation, escalation) feeds into the reporting workflow covered here
+- **client-disclosures** (compliance plugin): Form ADV amendments trigger delivery obligations to existing clients — the disclosure skill covers what must be delivered and when, while this skill covers the filing mechanics
+- **books-and-records** (compliance plugin): Records retention requirements underpin all regulatory reporting; accurate books and records are the source data for FOCUS reports, 13F filings, Form PF, and CAT submissions
+- **know-your-customer** (compliance plugin): CAT CAIS data and blue sheet responses require accurate customer identification information sourced from the firm's KYC and CIP processes
+- **fee-disclosure** (compliance plugin): Form ADV amendments reflecting changes to fee schedules are both a filing obligation (covered here) and a fee disclosure requirement (covered in fee-disclosure)

@@ -13,5 +13,9 @@
     "FINRA",
     "ERISA",
     "AML"
-  ]
+  ],
+  "dependencies": [
+    "core"
+  ],
+  "scripts": false
 }

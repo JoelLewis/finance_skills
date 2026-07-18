@@ -22,6 +22,8 @@ Federal + state (for in-state munis): TEY = Muni Yield / (1 - federal_rate - sta
 
 This converts a tax-exempt yield to the pre-tax yield a taxable bond would need to offer to match the muni's after-tax income.
 
+Note: the state_rate × (1 - federal_rate) term assumes state income tax is fully deductible against federal tax. For taxpayers at or above the SALT deduction cap (or taking the standard deduction), state tax provides no incremental federal deduction, and the formula simplifies to TEY = Muni Yield / (1 - federal_rate - state_rate) — the combined formula above understates the in-state muni's advantage for capped itemizers and overstates the precision of the comparison generally. Check the client's actual SALT position before choosing the formula.
+
 ### Alternative Minimum Tax (AMT)
 Certain private activity bonds generate interest that is subject to AMT. For taxpayers subject to AMT, the tax advantage of these bonds is reduced. AMT-subject bonds typically trade at slightly higher yields to compensate. Non-AMT munis (governmental purpose bonds) are not affected.
 
@@ -80,9 +82,9 @@ The revenue bond yields 40bp more than the GO bond. The DSCR of 1.8x is well abo
 
 ## Cross-References
 - **time-value-of-money** (core plugin): present value and discounting fundamentals
-- **fixed-income-sovereign**: yield curve context and duration concepts
-- **fixed-income-corporate**: comparing muni spreads to corporate spreads
-- **tax-efficiency**: muni bonds as a primary tax management tool
+- **fixed-income-sovereign** (wealth-management plugin): yield curve context and duration concepts
+- **fixed-income-corporate** (wealth-management plugin): comparing muni spreads to corporate spreads
+- **tax-efficiency** (wealth-management plugin): muni bonds as a primary tax management tool
 
 ## Running the Script
 

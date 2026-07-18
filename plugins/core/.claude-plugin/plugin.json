@@ -10,5 +10,7 @@
     "math",
     "statistics",
     "foundations"
-  ]
+  ],
+  "dependencies": [],
+  "scripts": true
 }

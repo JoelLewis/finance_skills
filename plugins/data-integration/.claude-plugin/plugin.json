@@ -12,5 +12,9 @@
     "market-data",
     "integration",
     "data-quality"
-  ]
+  ],
+  "dependencies": [
+    "core"
+  ],
+  "scripts": false
 }

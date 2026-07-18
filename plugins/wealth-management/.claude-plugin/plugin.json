@@ -12,5 +12,9 @@
     "risk",
     "personal-finance",
     "asset-classes"
-  ]
+  ],
+  "dependencies": [
+    "core"
+  ],
+  "scripts": true
 }

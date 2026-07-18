@@ -99,7 +99,9 @@ Investment advisers have a fiduciary duty to understand their clients, which cre
 - Not training frontline staff to recognize when a customer's circumstances have changed, triggering a profile update obligation
 
 ## Cross-References
-- **anti-money-laundering** (Layer 9): KYC/CDD data feeds directly into AML monitoring and suspicious activity detection
-- **investment-suitability** (Layer 9): Customer profile gathered through KYC is the foundation for suitability analysis
-- **reg-bi** (Layer 9): Reg BI's Care Obligation requires understanding the customer's investment profile — sourced from KYC
-- **investment-policy** (Layer 5): IPS constraints (time horizon, risk tolerance, liquidity) derive from KYC profiling
+- **anti-money-laundering** (compliance plugin): KYC/CDD data feeds directly into AML monitoring and suspicious activity detection
+- **investment-suitability** (compliance plugin): Customer profile gathered through KYC is the foundation for suitability analysis
+- **reg-bi** (compliance plugin): Reg BI's Care Obligation requires understanding the customer's investment profile — sourced from KYC
+- **investment-policy** (wealth-management plugin): IPS constraints (time horizon, risk tolerance, liquidity) derive from KYC profiling
+- **account-opening-compliance** (client-operations plugin): The onboarding compliance workflow that operationalizes CIP verification, CDD, and beneficial ownership collection defined here
+- **account-opening-workflow** (client-operations plugin): The operational account opening process where KYC data collection and verification are embedded

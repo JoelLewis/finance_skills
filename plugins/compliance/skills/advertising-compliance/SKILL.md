@@ -212,3 +212,4 @@ This includes all forms of advertisements — print, digital, social media, emai
 - Layer 9: `conflicts-of-interest` — material conflicts arising from testimonial compensation, promoter arrangements, and third-party rating relationships.
 - Layer 9: `client-disclosures` — broader disclosure framework that encompasses advertising disclosures as a subset of the adviser's overall disclosure obligations.
 - Layer 9: `advice-standards` — fiduciary duty and Reg BI obligations that constrain how investment recommendations can be framed in marketing communications.
+- **private-placements** (compliance plugin): general solicitation boundaries under Rule 502(c) and permitted 506(c) marketing with verification

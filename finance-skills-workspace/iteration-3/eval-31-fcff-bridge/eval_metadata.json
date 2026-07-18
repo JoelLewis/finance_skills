@@ -1,0 +1,12 @@
+{
+  "eval_id": 31,
+  "eval_name": "financial-statements-fcff-fcfe-bridge",
+  "prompt": "For a company with revenue of $500M, COGS $300M, SG&A $80M, D&A $30M, interest expense $10M, a 25% tax rate, a $15M increase in net working capital, capex of $35M, and net borrowing of $5M - calculate EBITDA, FCFF, and FCFE, and show your work.",
+  "assertions": [
+    {"text": "EBITDA is approximately $120M", "type": "numerical_accuracy"},
+    {"text": "FCFF is approximately $47.5M", "type": "numerical_accuracy"},
+    {"text": "FCFE is approximately $45M", "type": "numerical_accuracy"},
+    {"text": "Net income is approximately $60M", "type": "numerical_accuracy"},
+    {"text": "Mentions FCFF and FCFE", "type": "contains_concept"}
+  ]
+}

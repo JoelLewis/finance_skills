@@ -15,7 +15,7 @@ The Federal Reserve's Regulation T establishes the initial margin requirement fo
 - **Special Memorandum Account (SMA):** A bookkeeping entry that tracks the client's excess Reg T equity. SMA increases when: the account has excess equity above 50%, securities are sold, dividends or cash are deposited. SMA decreases when used to purchase securities or withdraw cash. SMA is a high-water mark — it does not decrease when market values decline (unless used).
 - **Reg T extension procedures:** When a client fails to meet the initial margin requirement by settlement date, the broker-dealer must request an extension from a self-regulatory organization (SRO). Extensions are typically granted for 1-5 business days. Failure to meet the call results in forced liquidation and a 90-day freeze (restricted account).
 - **Exempt securities:** U.S. government bonds, municipal bonds, and certain agency securities are exempt from Reg T margin requirements — they can be purchased with lower or no initial margin.
-- **Day-trade margin:** FINRA Rule 4210 provides pattern day traders (4+ day trades in 5 business days) with 4:1 intraday buying power (25% margin) but requires a minimum equity of $25,000. Overnight positions revert to standard 2:1 Reg T buying power.
+- **Day-trade margin:** FINRA Rule 4210 provides pattern day traders (4+ day trades in 5 business days) with 4:1 intraday buying power (25% margin) but requires a minimum equity of $25,000 — day-trade buying power = (equity - $25,000 minimum) × 4. Overnight positions revert to standard 2:1 Reg T buying power.
 
 ### Maintenance Margin
 After the initial purchase, ongoing maintenance margin requirements determine the minimum equity the account must maintain:
@@ -23,7 +23,7 @@ After the initial purchase, ongoing maintenance margin requirements determine th
 - **FINRA Rule 4210 minimum:** 25% equity for long positions. Account equity = market value of securities minus debit balance. If equity falls below 25% of market value, a maintenance margin call is triggered.
 - **House maintenance requirements:** Most broker-dealers impose requirements above the FINRA minimum, typically 30-40% for diversified accounts. House requirements vary by firm and may change based on market conditions.
 - **Concentrated position margin:** Single-stock positions exceeding a threshold (e.g., 40-60% of account value) face elevated margin requirements, often 50-75% or higher. This discourages excessive concentration in margin accounts.
-- **Long margin formula:** Maintenance call triggered when equity / market value < maintenance requirement. Equivalently, a call is triggered when market value falls to: debit balance / (1 - maintenance requirement).
+- **Long margin formula:** Maintenance call triggered when equity / market value < maintenance requirement, where account equity = market value - debit balance. Equivalently, a call is triggered when market value falls to: debit balance / (1 - maintenance requirement). The call amount due is (maintenance requirement × market value) - equity.
 - **Short margin requirements:** Short positions require initial margin of 50% (Reg T) and maintenance of 30% of market value (FINRA minimum). Short account equity = credit balance - market value of short securities. A short squeeze (rising prices) increases the maintenance requirement.
 - **Options margin:** Options strategies have specific margin requirements under FINRA Rule 4210 and exchange rules. Covered calls require no additional margin (shares serve as collateral). Naked short options require substantial margin — typically the greater of: (a) option premium + 20% of underlying value - out-of-the-money amount, or (b) option premium + 10% of underlying value. Spreads have defined-risk margin equal to the maximum loss.
 
@@ -97,10 +97,10 @@ Lending products that use an investment portfolio as collateral, distinct from t
 ### Margin Risk Management
 Ongoing monitoring and management of margin-related risks across the firm and client accounts:
 
-- **Portfolio-level margin monitoring:** The firm's risk management system continuously monitors aggregate margin exposure, identifying accounts approaching margin call thresholds, concentrated positions, and correlated risks across the client base. Real-time intraday monitoring supplements end-of-day calculations.
+- **Portfolio-level margin monitoring:** The firm's risk management system continuously monitors aggregate margin exposure, identifying accounts approaching margin call thresholds, concentrated positions, and correlated risks across the client base. Real-time intraday monitoring supplements end-of-day calculations. FINRA Rule 4521 requires member firms to report aggregate margin balances and related data to FINRA.
 - **Stress testing margin requirements:** The firm should stress test margin exposure under adverse scenarios — market declines of 10-20%, sector-specific shocks, volatility spikes, and correlation breakdowns. Stress tests reveal accounts and portfolios that would face large margin calls under stressed conditions.
 - **Concentrated position risk:** Positions that represent a large percentage of account value or a large percentage of a security's outstanding shares create elevated margin risk. Firms typically impose higher margin requirements and may impose position limits or require diversification plans.
-- **Margin impact on investment returns:** Margin amplifies both gains and losses. A 50% margin (2:1 leverage) doubles the percentage gain or loss:
+- **Margin impact on investment returns:** Margin amplifies both gains and losses — return on equity = (portfolio return × leverage) - (interest rate × (leverage - 1)). A 50% margin (2:1 leverage) doubles the percentage gain or loss:
   - Unleveraged: $100K invested, market +10% = $10K gain (10% return)
   - Leveraged at 2:1: $200K invested with $100K equity, market +10% = $20K gain minus interest = ~18% return on equity
   - Leveraged at 2:1: $200K invested with $100K equity, market -10% = $20K loss plus interest = ~-22% return on equity
@@ -110,21 +110,6 @@ Ongoing monitoring and management of margin-related risks across the firm and cl
   - Rates are tiered by debit balance size: larger balances receive lower rates
   - Illustrative rate schedule: <$25K = broker call rate + 1.5%; $25K-$100K = call rate + 1.0%; >$100K = call rate + 0.5% (spreads and the call rate itself vary by firm and rate environment)
 - **Tax treatment of margin interest:** Margin interest is deductible as investment interest expense on Schedule A (Form 1040), but only up to the amount of net investment income. Excess margin interest can be carried forward. Investment interest does not include qualified dividends or long-term capital gains unless the taxpayer elects to treat them as ordinary income. This deduction requires itemizing.
-
-## Key Formulas
-
-| Formula | Expression | Use Case |
-|---------|-----------|----------|
-| Reg T buying power | SMA x 2 | Maximum purchase amount |
-| Initial margin requirement | Purchase price x 50% | Cash/equity deposit required |
-| Account equity (long) | Market value - debit balance | Current equity in account |
-| Maintenance call trigger (long) | Debit balance / (1 - maintenance %) | Price at which call is triggered |
-| Maintenance call amount | (Maintenance % x market value) - equity | Dollar amount due |
-| Short account equity | Credit balance - market value (short) | Equity in short positions |
-| Margin interest (daily) | Debit balance x (annual rate / 360) | Daily interest accrual |
-| Leveraged return | (Portfolio return x leverage) - (interest x (leverage - 1)) | Return on equity with margin |
-| SBLOC borrowing capacity | Sum(collateral value x LTV by type) | Maximum loan amount |
-| Day-trade buying power | (Equity - $25,000 minimum) x 4 | Intraday purchasing power |
 
 ## Worked Examples
 
@@ -143,25 +128,14 @@ Three worked examples are in [references/examples.md](references/examples.md) �
 - Assuming the firm must contact the client before liquidation — the firm has the right to liquidate margin-deficient accounts without prior notice or client consent
 - Overlooking the purpose/non-purpose distinction in SBLOCs — using non-purpose loan proceeds to buy securities violates Regulation U and can result in regulatory action
 
-## Regulatory Reference Summary
-
-| Regulation / Rule | Authority | Scope |
-|-------------------|-----------|-------|
-| Regulation T | Federal Reserve | Initial margin for broker-dealer credit |
-| Regulation U | Federal Reserve | Credit by banks secured by margin stock |
-| FINRA Rule 4210 | FINRA | Maintenance margin, portfolio margin, day-trade margin |
-| SEC Rule 15c3-3 | SEC | Customer protection, segregation of funds |
-| FINRA Rule 4521 | FINRA | Margin reporting requirements to FINRA |
-| OCC TIMS | Options Clearing Corporation | Theoretical pricing model for portfolio margin |
-
 ## Cross-References
-- **order-lifecycle** (trading-operations): Margin requirements are checked as part of the order validation and pre-trade process
-- **trade-execution** (trading-operations): Forced liquidation requires best execution compliance even under time pressure
-- **settlement-clearing** (trading-operations): Margin is settled as part of the trade settlement process; fails can trigger margin obligations
-- **lending** (wealth-management): SBLOC products overlap with personal lending analysis; HELOC vs SBLOC comparison
-- **liquidity-management** (wealth-management): Margin calls create sudden liquidity demands that must be anticipated in cash flow planning
-- **pre-trade-compliance** (trading-operations): Pre-trade margin checks prevent orders that would exceed margin capacity
-- **operational-risk** (trading-operations): Margin system failures, forced liquidation errors, and call processing breakdowns are key operational risks
-- **counterparty-risk** (trading-operations): Margin lending creates counterparty exposure between the firm and the client
-- **investment-suitability** (compliance): Margin accounts and leverage strategies require suitability assessment
-- **diversification** (wealth-management): Concentrated position margin requirements reinforce diversification principles
+- **order-lifecycle** (trading-operations plugin): Margin requirements are checked as part of the order validation and pre-trade process
+- **trade-execution** (trading-operations plugin): Forced liquidation requires best execution compliance even under time pressure
+- **settlement-clearing** (trading-operations plugin): Margin is settled as part of the trade settlement process; fails can trigger margin obligations
+- **lending** (wealth-management plugin): SBLOC products overlap with personal lending analysis; HELOC vs SBLOC comparison
+- **liquidity-management** (wealth-management plugin): Margin calls create sudden liquidity demands that must be anticipated in cash flow planning
+- **pre-trade-compliance** (trading-operations plugin): Pre-trade margin checks prevent orders that would exceed margin capacity
+- **operational-risk** (trading-operations plugin): Margin system failures, forced liquidation errors, and call processing breakdowns are key operational risks
+- **counterparty-risk** (trading-operations plugin): Margin lending creates counterparty exposure between the firm and the client
+- **investment-suitability** (compliance plugin): Margin accounts and leverage strategies require suitability assessment
+- **diversification** (wealth-management plugin): Concentrated position margin requirements reinforce diversification principles

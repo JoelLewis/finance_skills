@@ -31,7 +31,7 @@ Sortino = (R_p - R_f) / sigma_downside
 
 where sigma_downside = sqrt((1/n) * sum(min(R_i - MAR, 0)^2)).
 
-Common MAR choices: 0%, risk-free rate, or a target return. Always state which MAR is used.
+Common MAR choices: 0%, risk-free rate, or a target return. Always state which MAR is used, and use the same reference point in the numerator as in the downside deviation: if the MAR is not the risk-free rate, the numerator should be (R_p - MAR), not (R_p - R_f). Mixing reference points makes the ratio internally inconsistent.
 
 ### Information Ratio
 Measures active return (alpha) per unit of active risk (tracking error) relative to a benchmark.
@@ -170,10 +170,10 @@ The manager generated 0.50 units of active return per unit of active risk. This 
 - **Comparing Sharpe ratios across different time periods:** A Sharpe of 1.0 in a low-vol environment is not the same as 1.0 in a high-vol environment. Performance ratios are period-specific and not directly comparable across different market regimes.
 
 ## Cross-References
-- **historical-risk** (wealth-management plugin, Layer 1a): Provides the risk measures (volatility, drawdown, downside deviation, tracking error) used as denominators in these performance ratios.
-- **performance-reporting** (wealth-management plugin, Layer 8) and **return-calculations** (core plugin, Layer 0): For TWR/MWR calculation methodology and reporting presentation, see performance-reporting and core/return-calculations.
-- **forward-risk** (wealth-management plugin, Layer 1b): Forward-looking risk measures (VaR, CVaR) complement retrospective performance assessment by estimating future potential losses.
-- **volatility-modeling** (wealth-management plugin, Layer 1b): Volatility forecasts from GARCH or EWMA can be used to compute forward-looking or conditional Sharpe ratios.
-
+- **historical-risk** (wealth-management plugin): Provides the risk measures (volatility, drawdown, downside deviation, tracking error) used as denominators in these performance ratios.
+- **performance-reporting** (wealth-management plugin) and **return-calculations** (core plugin): For TWR/MWR calculation methodology and reporting presentation, see performance-reporting and core/return-calculations.
+- **forward-risk** (wealth-management plugin): Forward-looking risk measures (VaR, CVaR) complement retrospective performance assessment by estimating future potential losses.
+- **volatility-modeling** (wealth-management plugin): Volatility forecasts from GARCH or EWMA can be used to compute forward-looking or conditional Sharpe ratios.
+- **factor-investing** (wealth-management plugin): Factor regressions decompose the alpha behind these ratios; the closet-index screen uses tracking error and a breakeven Information Ratio
 ## Running the script
 Run with `uv run scripts/performance_metrics.py` (the PEP 723 header resolves numpy automatically) or with `python3 scripts/performance_metrics.py` after `pip install numpy scipy`. A bare run prints a full scorecard (Sharpe, Sortino, Information Ratio, Calmar, Treynor, Omega, capture ratios, batting average, win/loss) on seeded synthetic portfolio and benchmark data. Use `--verify` to assert outputs match this skill's worked examples and the demo's expected values (exit code 0 on PASS) and `--help` for an overview of the class. The file is primarily meant to be imported as a module (e.g., `from performance_metrics import PerformanceScorecard`).

@@ -104,7 +104,7 @@ FinCEN has significantly increased enforcement activity in recent years. Key tre
 - **Willful blindness** — Firms and individuals can be held liable for willfully failing to implement adequate AML controls, even without direct knowledge of specific illicit transactions.
 - **Areas of focus** — Virtual currency exchanges and administrators, money services businesses, and firms with repeated examination deficiencies. FinCEN has also focused on failures to file timely and complete SARs.
 - **Coordination with other regulators** — FinCEN actions are frequently accompanied by parallel actions from the SEC, FINRA, OCC, or DOJ, resulting in cumulative penalties and remedial orders.
-- **Beneficial Ownership Information (BOI)** — The Corporate Transparency Act (effective 2024) requires many companies to report beneficial ownership information to FinCEN, creating a new tool for AML enforcement and due diligence.
+- **Beneficial Ownership Information (BOI)** — The Corporate Transparency Act originally required most companies to report beneficial ownership information to FinCEN beginning in 2024, but under FinCEN's March 2025 interim final rule all US-formed entities are exempt; only foreign entities registered to do business in the US remain reporting companies, and they need not report US-person beneficial owners. CTA data is therefore not a substitute for a firm's own CDD Rule beneficial ownership collection (see account-opening-compliance in the client-operations plugin). Verify the current state of CTA rulemaking, which remains in flux.
 
 ## Worked Examples
 
@@ -151,6 +151,9 @@ The firm should not open the account pending resolution of the OFAC match. The c
 - Not retaining SAR and CTR supporting documentation for the full 5-year period required under BSA regulations
 
 ## Cross-References
-- **know-your-customer** (Layer 9) — CIP and CDD are prerequisite inputs to AML monitoring; customer identification and verification feed directly into risk rating and transaction monitoring
-- **sales-practices** (Layer 9) — Supervisory systems for detecting unsuitable activity overlap with AML surveillance for detecting suspicious transaction patterns
-- **client-disclosures** (Layer 9) — AML program disclosures at account opening and the interplay between SAR confidentiality and client communication obligations
+- **know-your-customer** (compliance plugin) — CIP and CDD are prerequisite inputs to AML monitoring; customer identification and verification feed directly into risk rating and transaction monitoring
+- **sales-practices** (compliance plugin) — Supervisory systems for detecting unsuitable activity overlap with AML surveillance for detecting suspicious transaction patterns
+- **client-disclosures** (compliance plugin) — AML program disclosures at account opening and the interplay between SAR confidentiality and client communication obligations
+- **account-opening-compliance** (client-operations plugin) — The operational onboarding workflow where CIP verification, OFAC screening, and beneficial ownership collection are executed as compliance gates
+- **account-opening-workflow** (client-operations plugin) — The back-office account opening process that produces the customer records and risk ratings AML monitoring consumes
+- **private-placements** (compliance plugin): AML and beneficial-ownership diligence context for private fund subscriptions and placement agents

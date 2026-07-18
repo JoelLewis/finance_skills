@@ -220,18 +220,18 @@ Three worked scenarios (vendor selection and licensing for a mid-size RIA, SIP-p
 
 ## Cross-References
 
-- **reference-data** (Layer 13) — Security master and symbology underpin market data
+- **reference-data** (data-integration plugin) — Security master and symbology underpin market data
   infrastructure; market data systems rely on reference data for symbol mapping and
   corporate action processing.
 - **exchange-connectivity** (trading-operations plugin) — Physical and logical exchange connections over
   which market data feeds travel; covers co-location and protocol handling.
 - **trade-execution** (trading-operations plugin) — Smart order routers and execution algorithms consume
   Level 2/3 market data for routing decisions and execution pacing.
-- **portfolio-management-systems** (Layer 10) — PMS platforms consume market data for
+- **portfolio-management-systems** (advisory-practice plugin) — PMS platforms consume market data for
   position valuation, drift monitoring, and rebalancing triggers.
-- **performance-metrics** (Layer 1a) — EOD pricing feeds provide closing prices for daily
+- **performance-metrics** (wealth-management plugin) — EOD pricing feeds provide closing prices for daily
   return calculations; data quality directly affects computed metrics.
-- **volatility-modeling** (Layer 1b) — Implied volatility derived from OPRA options data;
+- **volatility-modeling** (wealth-management plugin) — Implied volatility derived from OPRA options data;
   GARCH/EWMA models calibrated on historical price series from market data infrastructure.
-- **equities** (Layer 2) — Equity market structure and instruments; this skill covers the
+- **equities** (wealth-management plugin) — Equity market structure and instruments; this skill covers the
   data infrastructure delivering equity market information to consuming systems.

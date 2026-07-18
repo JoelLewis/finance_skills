@@ -127,8 +127,8 @@ After using the emergency fund:
 **Calculate:** Optimal tiered allocation.
 **Solution:**
 1. **Tier 1 — Checking account: $4,500 (1 month).** Immediate access for sudden expenses (car repair, medical co-pay). Earning ~0.01% but provides instant liquidity.
-2. **Tier 2 — High-yield savings account: $13,500 (3 months).** Core emergency reserves. Earning ~4.5% APY (e.g., ~4-5% as of 2025 — check current HYSA rates). Available in 1-2 business days via transfer.
-3. **Tier 3 — T-bill ladder: $9,000 (2 months).** Three $3,000 T-bills maturing at 4-week, 8-week, and 13-week intervals. Earning ~4.8% (e.g., ~4-5% as of 2025 — check current T-bill rates). At least one tranche matures every ~4 weeks.
+2. **Tier 2 — High-yield savings account: $13,500 (3 months).** Core emergency reserves. Earning ~4.5% APY (illustrative, in the ~4-5% range seen as of 2026 — check current HYSA rates). Available in 1-2 business days via transfer.
+3. **Tier 3 — T-bill ladder: $9,000 (2 months).** Three $3,000 T-bills maturing at 4-week, 8-week, and 13-week intervals. Earning ~4.8% (illustrative, in the ~4-5% range seen as of 2026 — check current T-bill rates). At least one tranche matures every ~4 weeks.
 4. **Blended yield:** (4,500 × 0.01% + 13,500 × 4.5% + 9,000 × 4.8%) / 27,000 ≈ **3.85% weighted average.**
 5. **vs all checking (0.01%):** Earning ~$1,040/year more with the tiered approach — effectively free money for modest complexity.
 
@@ -143,13 +143,14 @@ After using the emergency fund:
 - Treating the emergency fund as an investment account rather than an insurance policy
 
 ## Cross-References
-- **liquidity-management**: emergency fund is the foundation of the personal liquidity tier structure
-- **savings-goals**: emergency fund is typically the highest priority savings goal
-- **debt-management**: adequate emergency fund prevents taking on new high-interest debt during crises
-- **lending**: emergency reserves are a factor in mortgage qualification
-- **investment-policy**: emergency fund size feeds the liquidity constraint in an IPS
+- **liquidity-management** (wealth-management plugin): emergency fund is the foundation of the personal liquidity tier structure
+- **savings-goals** (wealth-management plugin): emergency fund is typically the highest priority savings goal
+- **debt-management** (wealth-management plugin): adequate emergency fund prevents taking on new high-interest debt during crises
+- **lending** (wealth-management plugin): emergency reserves are a factor in mortgage qualification
+- **investment-policy** (wealth-management plugin): emergency fund size feeds the liquidity constraint in an IPS
 - **financial-planning-workflow** (advisory-practice plugin): emergency fund adequacy is assessed early in the comprehensive financial planning process
-
+- **insurance-planning** (wealth-management plugin): emergency fund size supports higher deductibles and longer disability elimination periods in the risk retention decision
+- **retirement-decumulation** (wealth-management plugin): the cash-reserve discipline extends into retirement as bucket one of a bucket withdrawal strategy
 ## Running the Script
 
 ```bash

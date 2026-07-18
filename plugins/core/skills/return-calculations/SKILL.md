@@ -141,5 +141,5 @@ The MWR is approximately **-0.67% annualized**.
 - For programmatic use, import rather than run: `from return_calculations import Returns`.
 
 ## Cross-References
-- **time-value-of-money** (core plugin, Layer 0): NPV, IRR, and discounting concepts overlap with MWR calculations; owns project/loan IRR
-- **statistics-fundamentals** (core plugin, Layer 0): Arithmetic and geometric means, return distribution analysis
+- **time-value-of-money** (core plugin): NPV, IRR, and discounting concepts overlap with MWR calculations; owns project/loan IRR
+- **statistics-fundamentals** (core plugin): Arithmetic and geometric means, return distribution analysis

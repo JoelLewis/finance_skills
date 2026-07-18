@@ -5,7 +5,9 @@ description: "Guide counterparty credit risk measurement and management for OTC 
 
 # Counterparty Risk
 
-## Workflow A: Assessing a New Counterparty
+## Core Concepts
+
+### Workflow A: Assessing a New Counterparty
 
 1. **Identify the legal entity and verify netting enforceability.** Map the exact legal entity (not the corporate group), its jurisdiction, and entity type. Confirm close-out netting enforceability via ISDA netting opinions for that jurisdiction and entity-type combination before counting any netting benefit — where enforceability is uncertain, risk and capital must be measured gross. Apply the sovereign ceiling for counterparties in jurisdictions with material sovereign risk.
 2. **Assess credit quality from three angles.** External ratings are a baseline but a lagging indicator — they typically reprice after the market has. Internal scoring: for banks, focus on CET1 (strong banks hold >12%), leverage ratio (well-capitalized banks target 5%+), LCR/NSFR (minimum 100%), and NPL trend; for corporates, debt/EBITDA, interest coverage (below 2x signals stress), free cash flow, and Altman Z-score, plus qualitative factors (management, franchise, regulatory standing). Market-implied: CDS spreads react fastest — annual PD ≈ CDS_spread / (1 − recovery); a 200bp spread at 40% recovery implies roughly 3.3% annual default probability.
@@ -14,7 +16,7 @@ description: "Guide counterparty credit risk measurement and management for OTC 
 5. **Set the credit limit.** Tier by credit quality, with sub-limits by product and tenor (long-dated exposure is more uncertain) and a settlement limit separate from the pre-settlement limit. Apply explicit add-ons or reduced limits for wrong-way risk, where exposure and counterparty credit quality are positively correlated (general WWR: PD correlated with market factors; specific WWR: structural, e.g., a put written on the counterparty's own stock).
 6. **Stand up measurement and monitoring.** Compute current exposure CE = max(V, 0); PFE at 95-97.5% confidence via Monte Carlo (simulate risk-factor paths, revalue the netting set at each time step, take the percentile of max(value, 0)); EE/EPE as the capital basis; EAD = 1.4 × (RC + PFE add-on) under SA-CCR; CVA = LGD × Σ EE_i × PD_i × DF_i. Aggregate across all desks, products, and legal entities facing the counterparty — a trade missing from the counterparty risk system is unmeasured exposure. Wire pre-deal limit checks into order flow, monitor post-trade for market-driven breaches, alert at ~80% utilization, and hard-block at 100%. Review cadence: annual full review for top-tier names, semi-annual for lower tiers, monthly (or more) for the watch list.
 
-## Workflow B: Responding to a Credit-Deterioration Event
+### Workflow B: Responding to a Credit-Deterioration Event
 
 Early-warning thresholds that should put a counterparty on the watch list before any downgrade: sustained CDS widening (e.g., 50bp over 30 days, or absolute spread above 300bp), stock price decline >30% over 60 days, negative rating outlook, covenant breaches, regulatory enforcement actions, accounting restatements, or significant client withdrawals.
 
@@ -27,7 +29,7 @@ Early-warning thresholds that should put a counterparty on the watch list before
 7. **Pre-position for default.** Pre-calculate close-out amounts and collateral adequacy, identify replacement counterparties for critical hedges, and confirm which agreement version and close-out methodology governs.
 8. **Document everything** — committee decisions, limit rationale, the reduction plan, and communications — as evidence of prudent risk management for internal audit and examiners.
 
-## Workflow C: Default Close-Out Playbook
+### Workflow C: Default Close-Out Playbook
 
 Maintain this playbook pre-built for every watch-list counterparty: pre-drafted Event of Default and termination notices, pre-identified valuation sources (dealer panels, pricing services, internal marks), pre-computed exposure and collateral figures, and a contact tree (legal, credit, trading, operations). Close-out must execute in days, not weeks — every day of delay is unhedged market risk on the terminated portfolio.
 
@@ -40,32 +42,17 @@ Maintain this playbook pre-built for every watch-list counterparty: pre-drafted 
 7. **Re-hedge the terminated portfolio** immediately. The close-out crystallizes the claim, but the market risk of the vanished trades is live until replaced.
 8. **For cleared trades, the CCP runs default management instead.** The default waterfall applies resources in order: (1) the defaulter's initial margin, (2) the defaulter's default fund contribution, (3) the CCP's own capital (skin-in-the-game), (4) non-defaulting members' default fund contributions, (5) capped supplemental assessments, (6) recovery tools (variation margin gains haircutting, partial tear-up). CCPs size resources to the Cover 1 / Cover 2 standard — the default of the largest one or two members under extreme but plausible conditions. Clients of a defaulted clearing member should trigger porting of positions and margin to a backup member within one to two days.
 
-## Core Reference
+### Core Reference
 
-**Exposure measures (one line each).** Current exposure: CE = max(V, 0), where V is the net mark-to-market of the netting set. PFE: the high-percentile (95-97.5%) simulated exposure profile over time — rising with horizon, then rolling off as trades mature. EE/EPE: average exposure at a date / time-averaged EE, the basis for regulatory capital under SA-CCR and IMM. EAD (SA-CCR): 1.4 × (RC + PFE add-on). CVA: the market value of counterparty credit risk, a separate Basel III capital charge that raises the cost of bilateral OTC trades. Wrong-way risk: standard PFE models assume exposure-default independence — add joint stress scenarios where they correlate.
+**Exposure measures (one line each).** Current exposure: CE = max(V, 0), where V is the net mark-to-market of the netting set. PFE: the high-percentile (95-97.5%) simulated exposure profile over time — rising with horizon, then rolling off as trades mature. EE/EPE: average exposure at a date / time-averaged EE, the basis for regulatory capital under SA-CCR and IMM. EAD (SA-CCR): 1.4 × (RC + PFE add-on). CVA: the market value of counterparty credit risk — LGD × Σ(EE_i × PD_i × DF_i), where LGD = 1 − recovery rate, EE_i is expected exposure at time i, PD_i the default probability in period i, and DF_i the discount factor — a separate Basel III capital charge that raises the cost of bilateral OTC trades. Market-implied PD can be backed out of CDS spreads as spread / (1 − recovery rate). Limit utilization is monitored as current exposure / credit limit. Wrong-way risk: standard PFE models assume exposure-default independence — add joint stress scenarios where they correlate.
 
 **Netting.** Payment netting reduces settlement flows; close-out netting is the credit-risk tool. Netting benefit = gross exposure − net exposure; netting ratio = net/gross (a ratio of 0.3 means netting cut exposure 70%). CCP multilateral netting nets across all clearing members and can exceed any bilateral result.
 
-**Collateral.** VM covers current exposure (daily exchange, typically title transfer and reusable); IM covers close-out-period exposure (posted at inception, segregated, no rehypothecation under the uncleared margin rules). ISDA SIMM (sensitivity-based, recalibrated annually) generally produces lower IM than the regulatory schedule because it recognizes hedging and diversification. Typical haircuts: cash 0%; Treasuries 0.5-4% by maturity; investment-grade corporates 5-10%; equities 15-25%; plus ~8% FX haircut for non-domestic-currency collateral. Valuation disputes are routine — transfer the undisputed amount while escalating per the CSA.
+**Collateral.** VM covers current exposure (daily exchange, typically title transfer and reusable); IM covers close-out-period exposure (posted at inception, segregated, no rehypothecation under the uncleared margin rules). Collateralized exposure = max(V − haircut-adjusted collateral, 0); with a CSA threshold, residual uncollateralized exposure = max(V − threshold, 0) − collateral held. ISDA SIMM (sensitivity-based, recalibrated annually) generally produces lower IM than the regulatory schedule because it recognizes hedging and diversification. Typical haircuts: cash 0%; Treasuries 0.5-4% by maturity; investment-grade corporates 5-10%; equities 15-25%; plus ~8% FX haircut for non-domestic-currency collateral. Valuation disputes are routine — transfer the undisputed amount while escalating per the CSA.
 
 **CCP margin methodology.** CCPs compute IM with historical-simulation VaR or Expected Shortfall at 99%+ confidence over the MPOR (typically 5 days for cleared swaps, 2 days for listed futures), plus concentration, liquidity, and wrong-way add-ons; VM is exchanged daily or intraday. Clearing concentrates risk in the CCP itself — CCPs are designated SIFMUs with heightened supervision, and members should assess each CCP's default waterfall adequacy.
 
 **Settlement risk.** Settlement risk mechanics — DVP, PvP/CLS, Herstatt risk — are owned by the settlement-clearing skill (trading-operations); the counterparty-risk implication is that settlement limits must be set separately from pre-settlement limits because the exposure is full notional, not mark-to-market.
-
-## Key Metrics and Formulas
-
-| Metric | Expression | Use Case |
-|--------|-----------|----------|
-| Current Exposure | max(V, 0) | Point-in-time counterparty exposure |
-| EAD (SA-CCR) | 1.4 * (RC + PFE_addon) | Regulatory capital calculation |
-| Netting Ratio | Net_exposure / Gross_exposure | Netting effectiveness measurement |
-| Implied PD from CDS | CDS_spread / (1 - Recovery_rate) | Market-implied default probability |
-| Collateralized Exposure | max(V - C_adjusted, 0) | Exposure net of haircut-adjusted collateral |
-| Uncollateralized Exposure | max(V - Threshold, 0) - Collateral_held | Residual exposure above CSA threshold |
-| Limit Utilization | Current_exposure / Credit_limit | Credit limit monitoring |
-| CVA | LGD * sum(EE_i * PD_i * DF_i) | Credit valuation adjustment |
-
-where V = portfolio MTM, C_adjusted = collateral after haircuts, LGD = loss given default (1 - Recovery), EE_i = expected exposure at time i, PD_i = default probability in period i, DF_i = discount factor.
 
 ## Worked Examples
 
@@ -86,10 +73,10 @@ Two worked examples are in [references/examples.md](references/examples.md) — 
 - Maintaining ISDA documentation with outdated Schedules that reference superseded regulations or contain stale credit thresholds, creating legal uncertainty about close-out mechanics and collateral obligations during a default event
 
 ## Cross-References
-- **settlement-clearing** (trading-operations): Owns settlement risk mechanics — DVP/PvP, CLS, Herstatt risk, and fail management; clearing and settlement infrastructure are the structural mitigants for counterparty exposure.
-- **margin-operations** (trading-operations): Owns Reg T and FINRA Rule 4210 brokerage margin; margin call workflows are the operational implementation of the collateral concepts in this skill.
-- **trade-execution** (trading-operations): Pre-deal credit limit checks must be integrated into the trade execution workflow to prevent trades that would breach counterparty exposure limits.
-- **order-lifecycle** (trading-operations): Counterparty selection and credit validation are pre-execution steps in the order lifecycle.
-- **operational-risk** (trading-operations): Counterparty default events require documented escalation, remediation, and loss attribution processes.
-- **forward-risk** (wealth-management): PFE calculation shares Monte Carlo risk-factor simulation techniques and infrastructure with forward-looking portfolio risk analysis.
-- **fixed-income-corporate** (wealth-management): Credit analysis of corporate bond issuers uses many of the same financial metrics and rating frameworks applied to counterparty credit assessment.
+- **settlement-clearing** (trading-operations plugin): Owns settlement risk mechanics — DVP/PvP, CLS, Herstatt risk, and fail management; clearing and settlement infrastructure are the structural mitigants for counterparty exposure.
+- **margin-operations** (trading-operations plugin): Owns Reg T and FINRA Rule 4210 brokerage margin; margin call workflows are the operational implementation of the collateral concepts in this skill.
+- **trade-execution** (trading-operations plugin): Pre-deal credit limit checks must be integrated into the trade execution workflow to prevent trades that would breach counterparty exposure limits.
+- **order-lifecycle** (trading-operations plugin): Counterparty selection and credit validation are pre-execution steps in the order lifecycle.
+- **operational-risk** (trading-operations plugin): Counterparty default events require documented escalation, remediation, and loss attribution processes.
+- **forward-risk** (wealth-management plugin): PFE calculation shares Monte Carlo risk-factor simulation techniques and infrastructure with forward-looking portfolio risk analysis.
+- **fixed-income-corporate** (wealth-management plugin): Credit analysis of corporate bond issuers uses many of the same financial metrics and rating frameworks applied to counterparty credit assessment.

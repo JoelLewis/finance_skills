@@ -171,8 +171,9 @@ Firms must maintain records of electronic delivery consent and have systems to t
 - Sending account statements through the registered representative rather than directly to the customer
 
 ## Cross-References
-- **fee-disclosure** (Layer 9): Form ADV Item 5 and Form CRS fee section are key fee disclosure vehicles
-- **reg-bi** (Layer 9): Reg BI Disclosure Obligation drives much of the BD disclosure framework
-- **fiduciary-standards** (Layer 9): Full and fair disclosure is a core fiduciary obligation; Form ADV is the primary vehicle
-- **conflicts-of-interest** (Layer 9): Conflict disclosure is embedded throughout Form ADV, Form CRS, and Reg BI disclosures
-- **advertising-compliance** (Layer 9): Marketing materials must be consistent with disclosure documents
+- **fee-disclosure** (compliance plugin): Form ADV Item 5 and Form CRS fee section are key fee disclosure vehicles
+- **reg-bi** (compliance plugin): Reg BI Disclosure Obligation drives much of the BD disclosure framework
+- **fiduciary-standards** (compliance plugin): Full and fair disclosure is a core fiduciary obligation; Form ADV is the primary vehicle
+- **conflicts-of-interest** (compliance plugin): Conflict disclosure is embedded throughout Form ADV, Form CRS, and Reg BI disclosures
+- **advertising-compliance** (compliance plugin): Marketing materials must be consistent with disclosure documents
+- **private-placements** (compliance plugin): PPM delivery, Rule 502(b) disclosure to non-accredited investors, and placement-compensation disclosure in exempt offerings

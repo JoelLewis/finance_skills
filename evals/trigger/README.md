@@ -1,7 +1,7 @@
 # Trigger Evals
 
 Tests whether the right skill triggers (and the wrong ones stay quiet) for the
-eight skill clusters with the highest description overlap:
+fifteen skill clusters with the highest description overlap:
 
 1. `financial-planning-workflow` vs `financial-planning-integration`
 2. `stp-automation` vs `workflow-automation` vs `account-opening-workflow`
@@ -11,10 +11,17 @@ eight skill clusters with the highest description overlap:
 6. `order-lifecycle` vs `exchange-connectivity` (FIX protocol)
 7. `trade-execution` vs `post-trade-compliance` (best execution)
 8. `margin-operations` vs `counterparty-risk`
+9. `retirement-decumulation` vs `savings-goals` (plus `tax-efficiency` on RMD tax planning)
+10. `estate-gifting` vs `tax-efficiency` (charitable/QCD/asset-location vs exemption/gifting/trusts)
+11. `equity-compensation` vs `tax-efficiency` vs `tax-loss-harvesting` (wash sale on RSU vest)
+12. `factor-investing` vs `performance-metrics` vs `statistics-fundamentals` (CAPM beta)
+13. `financial-statements` vs `quantitative-valuation` vs `equities` (multiples by sector)
+14. `private-placements` vs `alternatives` vs `investment-suitability`
+15. `insurance-planning` vs `retirement-decumulation` vs `emergency-fund` (annuities, income floors)
 
 ## Files
 
-- `queries.json` — 133 labeled queries (`{query, expected_skill, cluster}`).
+- `queries.json` — 203 labeled queries (`{query, expected_skill, cluster}`).
   `expected_skill: null` marks a near-miss query that should NOT trigger any
   skill in its cluster (e.g. "Rebalance the load across our Kubernetes nodes").
 - `run_trigger_evals.sh` — the harness. Runs each query through
@@ -23,11 +30,11 @@ eight skill clusters with the highest description overlap:
 
 ## Cost Warning
 
-A full run is **133 queries x 3 runs = ~399 claude invocations**, each a
+A full run is **203 queries x 3 runs = ~609 claude invocations**, each a
 complete model call. Scope your runs:
 
 ```bash
-# One cluster only (16-17 queries x 3 runs = ~50 invocations)
+# One cluster only (10-17 queries x 3 runs = ~30-50 invocations)
 ./run_trigger_evals.sh --cluster kyc-vs-aml
 
 # Smoke test: first 5 queries, 1 run each

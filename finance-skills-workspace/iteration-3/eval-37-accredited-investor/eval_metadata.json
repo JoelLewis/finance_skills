@@ -1,0 +1,12 @@
+{
+  "eval_id": 37,
+  "eval_name": "private-placements-accredited-investor",
+  "prompt": "An advisory client wants to invest $150,000 in a private real estate fund offered under Rule 506(b). She earns $160,000 a year (her spouse is not employed) and her net worth excluding her primary residence is $700,000. She is ready to sign the subscription documents self-certifying that she is accredited. Does she actually qualify, and what should the adviser do?",
+  "assertions": [
+    {"text": "Individual income threshold is approximately $200K", "type": "numerical_accuracy"},
+    {"text": "Net worth threshold is approximately $1M", "type": "numerical_accuracy"},
+    {"text": "Mentions the joint income test with a spouse", "type": "contains_concept"},
+    {"text": "Mentions net worth excluding the primary residence", "type": "contains_concept"},
+    {"text": "Mentions the adviser's fiduciary duty", "type": "contains_concept"}
+  ]
+}

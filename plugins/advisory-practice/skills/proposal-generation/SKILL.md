@@ -282,15 +282,15 @@ See [references/examples.md](references/examples.md) for three end-to-end worked
 - Using projected returns without clearly labeling them as hypothetical and subject to the Marketing Rule's requirements for hypothetical performance
 
 ## Cross-References
-- **asset-allocation** (Layer 5): Strategic and tactical asset allocation frameworks that underpin model portfolio construction and the recommended allocation in proposals
-- **investment-policy** (Layer 5): IPS construction defines the policy framework that the proposal recommendation must satisfy; the proposal is often the precursor to a formal IPS
-- **performance-reporting** (Layer 7): Ongoing performance reporting follows the same presentation standards established in the proposal; consistency between proposal projections and actual reporting builds credibility
-- **performance-metrics** (Layer 7): Risk-return metrics (Sharpe ratio, standard deviation, max drawdown) used in proposals to compare current vs recommended portfolios
-- **fee-disclosure** (Layer 9): Regulatory requirements for fee presentation that the proposal's fee illustration section must satisfy
-- **reg-bi** (Layer 9): Regulation Best Interest's Care and Disclosure Obligations govern how broker-dealers present recommendations and costs in proposals
-- **client-disclosures** (Layer 9): Form ADV, Form CRS, and other required disclosures that must accompany or be delivered alongside the proposal
-- **investment-suitability** (Layer 9): Suitability standards that the proposal recommendation must satisfy; the risk profile and model mapping must align with documented suitability requirements
-- **advertising-compliance** (Layer 9): SEC Marketing Rule and FINRA advertising rules that govern performance presentation, testimonials, and promotional claims in proposals
-- **financial-planning-integration** (Layer 10): Proposals increasingly embed financial planning elements (retirement projections, goal funding analysis); the planning integration skill covers how to connect proposals to comprehensive financial plans
-- **quantitative-valuation** (Layer 4): Valuation frameworks relevant when proposals include analysis of individual securities in the prospect's current portfolio
-- **diversification** (Layer 5): Diversification principles used to evaluate current portfolio concentration and demonstrate the improvement offered by the recommended model
+- **asset-allocation** (wealth-management plugin): Strategic and tactical asset allocation frameworks that underpin model portfolio construction and the recommended allocation in proposals
+- **investment-policy** (wealth-management plugin): IPS construction defines the policy framework that the proposal recommendation must satisfy; the proposal is often the precursor to a formal IPS
+- **performance-reporting** (wealth-management plugin): Ongoing performance reporting follows the same presentation standards established in the proposal; consistency between proposal projections and actual reporting builds credibility
+- **performance-metrics** (wealth-management plugin): Risk-return metrics (Sharpe ratio, standard deviation, max drawdown) used in proposals to compare current vs recommended portfolios
+- **fee-disclosure** (compliance plugin): Regulatory requirements for fee presentation that the proposal's fee illustration section must satisfy
+- **reg-bi** (compliance plugin): Regulation Best Interest's Care and Disclosure Obligations govern how broker-dealers present recommendations and costs in proposals
+- **client-disclosures** (compliance plugin): Form ADV, Form CRS, and other required disclosures that must accompany or be delivered alongside the proposal
+- **investment-suitability** (compliance plugin): Suitability standards that the proposal recommendation must satisfy; the risk profile and model mapping must align with documented suitability requirements
+- **advertising-compliance** (compliance plugin): SEC Marketing Rule and FINRA advertising rules that govern performance presentation, testimonials, and promotional claims in proposals
+- **financial-planning-integration** (advisory-practice plugin): Proposals increasingly embed financial planning elements (retirement projections, goal funding analysis); the planning integration skill covers how to connect proposals to comprehensive financial plans
+- **quantitative-valuation** (wealth-management plugin): Valuation frameworks relevant when proposals include analysis of individual securities in the prospect's current portfolio
+- **diversification** (wealth-management plugin): Diversification principles used to evaluate current portfolio concentration and demonstrate the improvement offered by the recommended model

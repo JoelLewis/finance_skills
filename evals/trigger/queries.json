@@ -1,5 +1,5 @@
 {
-  "description": "Trigger-accuracy queries for the eight highest-collision skill clusters. Each query is labeled with the skill that SHOULD trigger, or null if no skill in the cluster should trigger (near-miss queries). Queries follow agentskills.io guidance: realistic phrasing, casual wording, file paths, and occasional typos.",
+  "description": "Trigger-accuracy queries for the fifteen highest-collision skill clusters. Each query is labeled with the skill that SHOULD trigger, or null if no skill in the cluster should trigger (near-miss queries). Queries follow agentskills.io guidance: realistic phrasing, casual wording, file paths, and occasional typos.",
   "pass_criteria": {
     "should_trigger": "expected skill invoked in > 0.5 of runs",
     "should_not_trigger": "no cluster skill invoked in >= 0.5 of runs (i.e. cluster trigger rate < 0.5)"
@@ -670,6 +670,356 @@
       "query": "Print margins get cut off when I export the report to PDF",
       "expected_skill": null,
       "cluster": "margin-operations-vs-counterparty-risk"
+    },
+    {
+      "query": "I'm 66 and just retired with $1.4M — how much can I safely spend each year without running out?",
+      "expected_skill": "retirement-decumulation",
+      "cluster": "retirement-decumulation-vs-savings-goals"
+    },
+    {
+      "query": "Should I claim Social Security at 62 or wait until 70? whats the breakeven age on delaying?",
+      "expected_skill": "retirement-decumulation",
+      "cluster": "retirement-decumulation-vs-savings-goals"
+    },
+    {
+      "query": "Explain the Guyton-Klinger guardrails approach versus a plain 4% rule for my drawdown plan",
+      "expected_skill": "retirement-decumulation",
+      "cluster": "retirement-decumulation-vs-savings-goals"
+    },
+    {
+      "query": "How do I calculate this year's RMD on my dad's $800K IRA — he turns 75 in October?",
+      "expected_skill": "retirement-decumulation",
+      "cluster": "retirement-decumulation-vs-savings-goals"
+    },
+    {
+      "query": "How much do I need to save each month to hit $2M by 60? I'm 35 with $150K saved so far",
+      "expected_skill": "savings-goals",
+      "cluster": "retirement-decumulation-vs-savings-goals"
+    },
+    {
+      "query": "Am I on track for retirement if I'm putting 12% of salary into my 401k with a 4% employer match?",
+      "expected_skill": "savings-goals",
+      "cluster": "retirement-decumulation-vs-savings-goals"
+    },
+    {
+      "query": "We want to save for a house down payment and the kids' 529s at the same time — how do we prioritize the goals?",
+      "expected_skill": "savings-goals",
+      "cluster": "retirement-decumulation-vs-savings-goals"
+    },
+    {
+      "query": "Client has big RMDs looming in a few years — which bracket should we fill with Roth conversions to minimize lifetime taxes on the IRA?",
+      "expected_skill": "tax-efficiency",
+      "cluster": "retirement-decumulation-vs-savings-goals"
+    },
+    {
+      "query": "How do I safely decommission our retired on-prem servers before the datacenter move?",
+      "expected_skill": null,
+      "cluster": "retirement-decumulation-vs-savings-goals"
+    },
+    {
+      "query": "My Social Security card was stolen — how do I get a replacement?",
+      "expected_skill": null,
+      "cluster": "retirement-decumulation-vs-savings-goals"
+    },
+    {
+      "query": "Is the estate tax exemption really scheduled to drop — should my parents lock in large gifts before it sunsets?",
+      "expected_skill": "estate-gifting",
+      "cluster": "estate-gifting-vs-tax-efficiency"
+    },
+    {
+      "query": "whats the annual gift exclusion this year, and do my wife and I each get one per kid?",
+      "expected_skill": "estate-gifting",
+      "cluster": "estate-gifting-vs-tax-efficiency"
+    },
+    {
+      "query": "Should I gift my appreciated Apple shares to my daughter now or let her inherit them and get the step-up in basis?",
+      "expected_skill": "estate-gifting",
+      "cluster": "estate-gifting-vs-tax-efficiency"
+    },
+    {
+      "query": "Walk me through how a SLAT works and whether a couple with an $18M net worth needs one",
+      "expected_skill": "estate-gifting",
+      "cluster": "estate-gifting-vs-tax-efficiency"
+    },
+    {
+      "query": "Client wants to give $30K to charity — better to donate appreciated stock from the taxable account or write a check?",
+      "expected_skill": "tax-efficiency",
+      "cluster": "estate-gifting-vs-tax-efficiency"
+    },
+    {
+      "query": "Is a QCD straight from my IRA better than taking the RMD and donating the cash?",
+      "expected_skill": "tax-efficiency",
+      "cluster": "estate-gifting-vs-tax-efficiency"
+    },
+    {
+      "query": "Should we bunch three years of donations into a donor-advised fund to get over the standard deduction?",
+      "expected_skill": "tax-efficiency",
+      "cluster": "estate-gifting-vs-tax-efficiency"
+    },
+    {
+      "query": "Where should I hold my bond funds — taxable or IRA? trying to cut the tax drag",
+      "expected_skill": "tax-efficiency",
+      "cluster": "estate-gifting-vs-tax-efficiency"
+    },
+    {
+      "query": "Estate sale pricing for my mom's furniture — what should I ask for a mid-century dresser?",
+      "expected_skill": null,
+      "cluster": "estate-gifting-vs-tax-efficiency"
+    },
+    {
+      "query": "How does inheritance work in Python — how do subclasses call the parent constructor?",
+      "expected_skill": null,
+      "cluster": "estate-gifting-vs-tax-efficiency"
+    },
+    {
+      "query": "My RSUs vested last week and the withholding looks way too low — am I going to owe a bunch at tax time?",
+      "expected_skill": "equity-compensation",
+      "cluster": "equity-compensation-vs-tax-efficiency"
+    },
+    {
+      "query": "Should I exercise my ISOs early this year or will the AMT hit wipe out the benefit?",
+      "expected_skill": "equity-compensation",
+      "cluster": "equity-compensation-vs-tax-efficiency"
+    },
+    {
+      "query": "I'm a VP with 60% of my net worth in company stock — how do I diversify without blowing up trading windows or insider rules?",
+      "expected_skill": "equity-compensation",
+      "cluster": "equity-compensation-vs-tax-efficiency"
+    },
+    {
+      "query": "Is it worth filing an 83(b) election on my restricted stock grant at a seed-stage startup?",
+      "expected_skill": "equity-compensation",
+      "cluster": "equity-compensation-vs-tax-efficiency"
+    },
+    {
+      "query": "Which lots should I sell first — HIFO or FIFO — when trimming positions in my taxable brokerage account?",
+      "expected_skill": "tax-efficiency",
+      "cluster": "equity-compensation-vs-tax-efficiency"
+    },
+    {
+      "query": "Roth vs Traditional 401k contributions for someone in the 32% bracket — which minimizes taxes long run?",
+      "expected_skill": "tax-efficiency",
+      "cluster": "equity-compensation-vs-tax-efficiency"
+    },
+    {
+      "query": "I sold VXUS at a loss and want a replacement ETF that won't count as substantially identical for the wash sale rule",
+      "expected_skill": "tax-loss-harvesting",
+      "cluster": "equity-compensation-vs-tax-efficiency"
+    },
+    {
+      "query": "I sold company shares at a loss but I have RSUs vesting three weeks later — does the vest count as a purchase inside the wash-sale window?",
+      "expected_skill": "tax-loss-harvesting",
+      "cluster": "equity-compensation-vs-tax-efficiency"
+    },
+    {
+      "query": "What's fair equity compensation for a first engineering hire at a pre-seed startup?",
+      "expected_skill": null,
+      "cluster": "equity-compensation-vs-tax-efficiency"
+    },
+    {
+      "query": "My home equity loan rate is adjusting up next month — should I refinance?",
+      "expected_skill": null,
+      "cluster": "equity-compensation-vs-tax-efficiency"
+    },
+    {
+      "query": "Run a Fama-French 3-factor regression on my fund's returns in data/returns.csv — is there any alpha left after the factor loadings?",
+      "expected_skill": "factor-investing",
+      "cluster": "factor-investing-vs-performance-metrics"
+    },
+    {
+      "query": "Is this smart beta value ETF actually giving me a value tilt or is it closet indexing?",
+      "expected_skill": "factor-investing",
+      "cluster": "factor-investing-vs-performance-metrics"
+    },
+    {
+      "query": "Whats the difference between the academic long-short HML factor and what a long-only value fund can actually capture?",
+      "expected_skill": "factor-investing",
+      "cluster": "factor-investing-vs-performance-metrics"
+    },
+    {
+      "query": "My advisor wants to add a momentum tilt — how cyclical are these factor premia and should anyone try to time them?",
+      "expected_skill": "factor-investing",
+      "cluster": "factor-investing-vs-performance-metrics"
+    },
+    {
+      "query": "Fund A has a Sharpe of 0.9 and fund B is 0.7 but B has the better Sortino — which manager is actually better risk-adjusted?",
+      "expected_skill": "performance-metrics",
+      "cluster": "factor-investing-vs-performance-metrics"
+    },
+    {
+      "query": "How do I compute the information ratio for our large-cap strategy against the S&P 500?",
+      "expected_skill": "performance-metrics",
+      "cluster": "factor-investing-vs-performance-metrics"
+    },
+    {
+      "query": "whats a good downside capture ratio for a defensive equity fund?",
+      "expected_skill": "performance-metrics",
+      "cluster": "factor-investing-vs-performance-metrics"
+    },
+    {
+      "query": "Estimate my fund's beta with a plain CAPM regression of monthly returns on the market — and is the beta statistically significant?",
+      "expected_skill": "statistics-fundamentals",
+      "cluster": "factor-investing-vs-performance-metrics"
+    },
+    {
+      "query": "The factor() function in R keeps erroring on my dataframe column — levels come out wrong",
+      "expected_skill": null,
+      "cluster": "factor-investing-vs-performance-metrics"
+    },
+    {
+      "query": "Our app's performance metrics dashboard shows p95 latency spiking — help me debug it",
+      "expected_skill": null,
+      "cluster": "factor-investing-vs-performance-metrics"
+    },
+    {
+      "query": "Walk me through deriving FCFF from this 10-K's income statement and cash flow statement",
+      "expected_skill": "financial-statements",
+      "cluster": "financial-statements-vs-quantitative-valuation"
+    },
+    {
+      "query": "Compute ROIC for this company and tell me whether it's creating value above its cost of capital",
+      "expected_skill": "financial-statements",
+      "cluster": "financial-statements-vs-quantitative-valuation"
+    },
+    {
+      "query": "Net income is up but operating cash flow is flat and accruals look high — is this an earnings quality red flag?",
+      "expected_skill": "financial-statements",
+      "cluster": "financial-statements-vs-quantitative-valuation"
+    },
+    {
+      "query": "do a DuPont decomposition of this company's ROE — whats driving it, margins or leverage?",
+      "expected_skill": "financial-statements",
+      "cluster": "financial-statements-vs-quantitative-valuation"
+    },
+    {
+      "query": "Build a two-stage DCF for this stock — what WACC and terminal growth rate should I use?",
+      "expected_skill": "quantitative-valuation",
+      "cluster": "financial-statements-vs-quantitative-valuation"
+    },
+    {
+      "query": "Is this stock overvalued? give me a fair value estimate with a Gordon growth model",
+      "expected_skill": "quantitative-valuation",
+      "cluster": "financial-statements-vs-quantitative-valuation"
+    },
+    {
+      "query": "How sensitive is my DCF value to the exit multiple versus the perpetuity growth assumption?",
+      "expected_skill": "quantitative-valuation",
+      "cluster": "financial-statements-vs-quantitative-valuation"
+    },
+    {
+      "query": "Should I use EV/EBITDA or P/E when comparing banks versus industrials — which multiple fits which sector?",
+      "expected_skill": "equities",
+      "cluster": "financial-statements-vs-quantitative-valuation"
+    },
+    {
+      "query": "Generate quarterly financial statements for my bakery in QuickBooks",
+      "expected_skill": null,
+      "cluster": "financial-statements-vs-quantitative-valuation"
+    },
+    {
+      "query": "Can you value my Pokemon card collection for insurance purposes?",
+      "expected_skill": null,
+      "cluster": "financial-statements-vs-quantitative-valuation"
+    },
+    {
+      "query": "Client wants into a 506(c) offering — what documentation do we need to verify they're accredited?",
+      "expected_skill": "private-placements",
+      "cluster": "private-placements-vs-alternatives"
+    },
+    {
+      "query": "Whats the difference between a 3(c)(1) and a 3(c)(7) fund, and when does qualified purchaser status matter?",
+      "expected_skill": "private-placements",
+      "cluster": "private-placements-vs-alternatives"
+    },
+    {
+      "query": "Do we need to file Form D for our friends-and-family raise, and whats the filing deadline?",
+      "expected_skill": "private-placements",
+      "cluster": "private-placements-vs-alternatives"
+    },
+    {
+      "query": "can the fund manager talk up the offering on a podcast or is that general solicitation that kills the 506(b) exemption?",
+      "expected_skill": "private-placements",
+      "cluster": "private-placements-vs-alternatives"
+    },
+    {
+      "query": "Explain the J-curve in private equity and how TVPI vs DPI evolve over a fund's life",
+      "expected_skill": "alternatives",
+      "cluster": "private-placements-vs-alternatives"
+    },
+    {
+      "query": "Is 2-and-20 with an 8% hurdle still standard for hedge funds, and how does the carry actually get paid?",
+      "expected_skill": "alternatives",
+      "cluster": "private-placements-vs-alternatives"
+    },
+    {
+      "query": "How should I think about the illiquidity premium in private equity — is it worth a 10-year lockup?",
+      "expected_skill": "alternatives",
+      "cluster": "private-placements-vs-alternatives"
+    },
+    {
+      "query": "Is a 15% allocation to a non-traded REIT suitable for a 78-year-old retiree with moderate risk tolerance?",
+      "expected_skill": "investment-suitability",
+      "cluster": "private-placements-vs-alternatives"
+    },
+    {
+      "query": "How do I do a private listing for my condo without putting it on the MLS?",
+      "expected_skill": null,
+      "cluster": "private-placements-vs-alternatives"
+    },
+    {
+      "query": "What are good alternatives to Jira for sprint tracking on a small team?",
+      "expected_skill": null,
+      "cluster": "private-placements-vs-alternatives"
+    },
+    {
+      "query": "How much life insurance do I need — walk me through a DIME calculation for a family of four",
+      "expected_skill": "insurance-planning",
+      "cluster": "insurance-planning-vs-retirement-decumulation"
+    },
+    {
+      "query": "Term vs whole life for a 35-year-old — is 'buy term and invest the difference' still the right call?",
+      "expected_skill": "insurance-planning",
+      "cluster": "insurance-planning-vs-retirement-decumulation"
+    },
+    {
+      "query": "whats the elimination period on disability policies and should I pay up for own-occupation coverage?",
+      "expected_skill": "insurance-planning",
+      "cluster": "insurance-planning-vs-retirement-decumulation"
+    },
+    {
+      "query": "Client has an old variable annuity with brutal fees — does a 1035 exchange into a cheaper contract make sense?",
+      "expected_skill": "insurance-planning",
+      "cluster": "insurance-planning-vs-retirement-decumulation"
+    },
+    {
+      "query": "Should we use a SPIA to build an income floor covering my client's essential expenses in retirement?",
+      "expected_skill": "retirement-decumulation",
+      "cluster": "insurance-planning-vs-retirement-decumulation"
+    },
+    {
+      "query": "How do I set up bucket strategy withdrawals so sequence of returns risk doesn't wreck the first decade of retirement?",
+      "expected_skill": "retirement-decumulation",
+      "cluster": "insurance-planning-vs-retirement-decumulation"
+    },
+    {
+      "query": "My client retires next year — flooring versus total-return with guardrails for their retirement paycheck?",
+      "expected_skill": "retirement-decumulation",
+      "cluster": "insurance-planning-vs-retirement-decumulation"
+    },
+    {
+      "query": "I'm a freelancer with lumpy income — how many months of expenses should my cash reserve hold and where should I park it?",
+      "expected_skill": "emergency-fund",
+      "cluster": "insurance-planning-vs-retirement-decumulation"
+    },
+    {
+      "query": "My insurance license renewal is coming up — how many CE credits do I need in Texas?",
+      "expected_skill": null,
+      "cluster": "insurance-planning-vs-retirement-decumulation"
+    },
+    {
+      "query": "File a claim for my delayed flight under the credit card's travel insurance",
+      "expected_skill": null,
+      "cluster": "insurance-planning-vs-retirement-decumulation"
     }
   ]
 }

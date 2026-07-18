@@ -155,10 +155,11 @@ TLH across a household with multiple accounts requires centralized tracking:
 - Ignoring state tax differences when calculating harvest value — states with no income tax (FL, TX, NV) reduce the benefit by 5-13 percentage points versus high-tax states
 
 ## Cross-References
-- **tax-efficiency** (wealth-management plugin, Layer 5): broader tax-aware investing context; TLH is one strategy within the overall tax-efficiency framework
-- **rebalancing** (wealth-management plugin, Layer 4): TLH trades should be coordinated with rebalancing to minimize total transaction count
-- **investment-suitability** (compliance plugin, Layer 9): replacement securities must still satisfy suitability requirements
-- **investment-policy** (wealth-management plugin, Layer 5): IPS may specify TLH policy parameters (minimum loss threshold, approved replacement pairs)
-- **performance-attribution** (wealth-management plugin, Layer 5): tax alpha from TLH should be tracked and attributed separately
-- **client-review-prep** (advisory-practice plugin, Layer 10): TLH opportunities are flagged during periodic client review preparation
-- **financial-planning-workflow** (advisory-practice plugin, Layer 10): TLH is a specific tax recommendation that may emerge from the financial plan
+- **tax-efficiency** (wealth-management plugin): broader tax-aware investing context; TLH is one strategy within the overall tax-efficiency framework
+- **rebalancing** (wealth-management plugin): TLH trades should be coordinated with rebalancing to minimize total transaction count
+- **investment-suitability** (compliance plugin): replacement securities must still satisfy suitability requirements
+- **investment-policy** (wealth-management plugin): IPS may specify TLH policy parameters (minimum loss threshold, approved replacement pairs)
+- **performance-attribution** (wealth-management plugin): tax alpha from TLH should be tracked and attributed separately
+- **client-review-prep** (advisory-practice plugin): TLH opportunities are flagged during periodic client review preparation
+- **financial-planning-workflow** (advisory-practice plugin): TLH is a specific tax recommendation that may emerge from the financial plan
+- **equity-compensation** (wealth-management plugin): recurring RSU vests and ESPP purchases can trigger wash sales against losses harvested in employer stock

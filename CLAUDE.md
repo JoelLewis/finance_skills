@@ -4,14 +4,17 @@
 
 A mono-repo of Claude Code skill plugins for financial services. Skills teach Claude
 domain knowledge so it can assist with finance questions, build financial tools, and
-flag compliance concerns. The plugin catalog lives in `marketplace.json`.
+flag compliance concerns. The plugin catalog lives in `.claude-plugin/marketplace.json`;
+per-plugin manifests live in `plugins/<name>/.claude-plugin/plugin.json`. Skill lists
+and counts are derived from the `plugins/*/skills/` directories — the filesystem is
+the source of truth.
 
 ## Current State
 
-84 skills across 7 plugin domains, organized under `plugins/`:
+91 skills across 7 plugin domains, organized under `plugins/`:
 - **core** (3 skills) — math foundations (returns, TVM, statistics)
-- **wealth-management** (32 skills) — investment knowledge, asset classes, portfolio construction, personal finance
-- **compliance** (16 skills) — US securities regulatory guidance (FINRA, SEC, ERISA, FinCEN, CFA Institute GIPS)
+- **wealth-management** (38 skills) — investment knowledge, asset classes, portfolio construction, personal finance
+- **compliance** (17 skills) — US securities regulatory guidance (FINRA, SEC, ERISA, FinCEN, CFA Institute GIPS)
 - **advisory-practice** (12 skills) — advisor-facing systems, onboarding, CRM, portfolio management, proposals, billing
 - **trading-operations** (9 skills) — order lifecycle, execution, settlement, margin, exchange connectivity, operational risk
 - **client-operations** (8 skills) — account opening, maintenance, transfers, reconciliation, corporate actions, STP
@@ -45,13 +48,13 @@ All skills follow this template:
   that self-checks the script's outputs against the SKILL.md examples.
 
 ### Creating New Skills
-1. Choose the plugin (see the plugin list above and `marketplace.json`)
+1. Choose the plugin (see the plugin list above, or run `./install.sh --list`)
 2. Create the skill directory under `plugins/<plugin-name>/skills/<skill-name>/`
 3. Follow the SKILL.md template exactly
 4. For quantitative skills: include Key Formulas and worked numerical examples
 5. For compliance/operations skills: use scenario-based examples (Scenario / Compliance Issues / Analysis), cite specific rule numbers, omit Key Formulas and Reference Implementation sections
 6. Add cross-references to related skills in both directions
-7. Update the skill counts in `marketplace.json` and this file
+7. Update the skill counts in this file, then run `./install.sh --check` to confirm counts and manifests are consistent
 
 ### Python Scripts
 Only quantitative skills (core, wealth-management) get Python scripts. Scripts should:

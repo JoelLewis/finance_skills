@@ -260,12 +260,13 @@ Three worked examples — automated compliance screening for a high-volume broke
 - Overlooking state-level senior investor protection statutes that may impose reporting obligations beyond what FINRA rules require
 
 ## Cross-References
-- **know-your-customer** (Layer 9): Defines the CIP, CDD, and ongoing monitoring requirements that this skill implements within the account opening workflow
-- **anti-money-laundering** (Layer 9): OFAC screening, SAR filing, and AML program requirements that intersect with account opening compliance gates
-- **investment-suitability** (Layer 9): Suitability obligations that drive the investment profile data collection at account opening
-- **reg-bi** (Layer 9): Regulation Best Interest's Care and Disclosure Obligations that apply to account type recommendations and initial investment recommendations at opening
-- **account-opening-workflow** (Layer 12): The operational account opening process into which these compliance controls are embedded; this skill focuses on the compliance layer, that skill on the operational flow
-- **client-onboarding** (Layer 10): The broader client onboarding experience that encompasses account opening compliance as one component of the end-to-end onboarding process
-- **privacy-data-security** (Layer 9): Protection of sensitive personal information (SSN, financial data, identity documents) collected during the account opening compliance process
-- **examination-readiness** (Layer 9): Preparing account opening compliance documentation and procedures for regulatory examination
-- **books-and-records** (Layer 9): Recordkeeping requirements for CIP records, OFAC screening results, beneficial ownership certifications, and suitability documentation generated during account opening
+- **know-your-customer** (compliance plugin): Defines the CIP, CDD, and ongoing monitoring requirements that this skill implements within the account opening workflow
+- **anti-money-laundering** (compliance plugin): OFAC screening, SAR filing, and AML program requirements that intersect with account opening compliance gates
+- **investment-suitability** (compliance plugin): Suitability obligations that drive the investment profile data collection at account opening
+- **reg-bi** (compliance plugin): Regulation Best Interest's Care and Disclosure Obligations that apply to account type recommendations and initial investment recommendations at opening
+- **account-opening-workflow** (client-operations plugin): The operational account opening process into which these compliance controls are embedded; this skill focuses on the compliance layer, that skill on the operational flow
+- **client-onboarding** (advisory-practice plugin): The broader client onboarding experience that encompasses account opening compliance as one component of the end-to-end onboarding process
+- **privacy-data-security** (compliance plugin): Protection of sensitive personal information (SSN, financial data, identity documents) collected during the account opening compliance process
+- **examination-readiness** (compliance plugin): Preparing account opening compliance documentation and procedures for regulatory examination
+- **books-and-records** (compliance plugin): Recordkeeping requirements for CIP records, OFAC screening results, beneficial ownership certifications, and suitability documentation generated during account opening
+- **sales-practices** (compliance plugin): Ongoing senior investor protections (FINRA Rules 2165/4512 temporary holds and conduct standards) that build on the trusted contact and senior-review infrastructure established at account opening

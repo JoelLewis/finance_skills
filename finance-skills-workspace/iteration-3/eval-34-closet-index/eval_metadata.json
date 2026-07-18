@@ -1,0 +1,12 @@
+{
+  "eval_id": 34,
+  "eval_name": "factor-investing-closet-index-screen",
+  "prompt": "A fund has monthly return volatility of 4.30%, an R-squared of 0.99 against its benchmark, and an 0.85% expense ratio; a comparable index fund charges 0.05%. Compute the annualized tracking error and the breakeven information ratio, and tell me whether this looks like a closet indexer.",
+  "assertions": [
+    {"text": "Annualized tracking error is approximately 1.5%", "type": "numerical_accuracy"},
+    {"text": "Fee gap is approximately 0.8%", "type": "numerical_accuracy"},
+    {"text": "Calculates the breakeven information ratio", "type": "contains_concept"},
+    {"text": "Identifies a closet index fund given high R-squared and low tracking error", "type": "contains_concept"},
+    {"text": "Mentions monthly residual volatility", "type": "contains_concept"}
+  ]
+}

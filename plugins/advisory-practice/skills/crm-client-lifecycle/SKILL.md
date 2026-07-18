@@ -233,11 +233,11 @@ Track the model's effectiveness by monitoring: the percentage of high-risk house
 - Implementing a CRM without advisor input on workflows and data entry requirements, producing a system that advisors view as administrative burden rather than a productivity tool
 
 ## Cross-References
-- **client-onboarding** (Layer 10, advisory-practice): Onboarding creates the initial CRM client record, household structure, and advisor assignment that the CRM manages throughout the relationship lifecycle
-- **know-your-customer** (Layer 9, compliance): KYC data collected during onboarding and periodic reviews populates CRM profile fields; CRM tracks when KYC information was last verified and flags re-verification requirements
-- **fee-billing** (Layer 10, advisory-practice): Fee tier determination depends on household AUM aggregation managed in the CRM; revenue data from the billing system feeds into CRM segmentation and revenue-per-client analytics
-- **client-reporting-delivery** (Layer 10, advisory-practice): Client reports are generated using account and household data structured in the CRM; report delivery preferences and confirmation are tracked as CRM activities
-- **next-best-action** (Layer 10, advisory-practice): CRM activity records, segmentation data, and lifecycle stage are primary inputs for next-best-action triggers; every NBA action updates the CRM activity log
-- **investment-suitability** (Layer 9, compliance): Suitability profiles stored in the CRM must be reviewed and re-confirmed at each client review; CRM tracks when the last suitability confirmation occurred and flags overdue re-certifications
-- **privacy-data-security** (Layer 9, compliance): The CRM stores sensitive nonpublic personal information protected by Regulation S-P and firm cybersecurity policies; access controls, audit logging, and data retention policies apply to all CRM records
-- **client-review-prep** (Layer 10, advisory-practice): CRM provides client segmentation, review scheduling, and activity history used in pre-meeting review preparation
+- **client-onboarding** (advisory-practice plugin): Onboarding creates the initial CRM client record, household structure, and advisor assignment that the CRM manages throughout the relationship lifecycle
+- **know-your-customer** (compliance plugin): KYC data collected during onboarding and periodic reviews populates CRM profile fields; CRM tracks when KYC information was last verified and flags re-verification requirements
+- **fee-billing** (advisory-practice plugin): Fee tier determination depends on household AUM aggregation managed in the CRM; revenue data from the billing system feeds into CRM segmentation and revenue-per-client analytics
+- **client-reporting-delivery** (advisory-practice plugin): Client reports are generated using account and household data structured in the CRM; report delivery preferences and confirmation are tracked as CRM activities
+- **next-best-action** (advisory-practice plugin): CRM activity records, segmentation data, and lifecycle stage are primary inputs for next-best-action triggers; every NBA action updates the CRM activity log
+- **investment-suitability** (compliance plugin): Suitability profiles stored in the CRM must be reviewed and re-confirmed at each client review; CRM tracks when the last suitability confirmation occurred and flags overdue re-certifications
+- **privacy-data-security** (compliance plugin): The CRM stores sensitive nonpublic personal information protected by Regulation S-P and firm cybersecurity policies; access controls, audit logging, and data retention policies apply to all CRM records
+- **client-review-prep** (advisory-practice plugin): CRM provides client segmentation, review scheduling, and activity history used in pre-meeting review preparation

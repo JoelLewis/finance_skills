@@ -5,7 +5,9 @@ description: "Apply statistical methods to financial data including descriptive 
 
 # Statistics Fundamentals
 
-## Conventions and Decision Rules
+## Core Concepts
+
+### Conventions and Decision Rules
 
 ### Sample variance: use n-1
 When estimating variance or standard deviation from a sample of returns, divide by `n - 1` (Bessel's correction), not `n`. Dividing by `n` systematically underestimates dispersion. Standard deviation of returns is "volatility"; annualize with `sigma_annual = sigma_period * sqrt(periods_per_year)` (e.g., `* sqrt(12)` for monthly, `* sqrt(252)` for daily).
@@ -42,7 +44,7 @@ Non-parametric resampling for the sampling distribution of a statistic when anal
 
 Caveat: the i.i.d. bootstrap ignores autocorrelation and volatility clustering; use block bootstrap for serially dependent return series.
 
-## Standard Analysis Workflow
+### Standard Analysis Workflow
 
 Given a return series, run this sequence:
 
@@ -92,13 +94,15 @@ With 22 df, the 5% two-tailed critical t is 2.074. Beta is highly significant (7
 - Unstable covariance matrices with small samples: when `p` approaches or exceeds `n`, apply Ledoit-Wolf shrinkage or factor-based covariance models before optimizing.
 
 ## Running the Script
-`scripts/statistics_fundamentals.py` provides `descriptive_stats`, `covariance_matrix`, `correlation_matrix`, `shrunk_covariance` (simplified Ledoit-Wolf — see note above), `ols_regression`, `rolling_regression`, `bootstrap_mean`, and `jarque_bera_test`.
+`scripts/statistics_fundamentals.py` provides a `StatisticsFundamentals` class with static methods `descriptive_stats`, `covariance_matrix`, `correlation_matrix`, `shrunk_covariance` (simplified Ledoit-Wolf — see note above), `ols_regression`, `rolling_regression`, `bootstrap_mean`, and `jarque_bera_test`.
 
 - Run: `uv run scripts/statistics_fundamentals.py` (PEP 723 inline metadata resolves numpy and scipy), or `python3 scripts/statistics_fundamentals.py` with numpy/scipy installed.
 - Bare invocation (or `--verify`) prints a demo on synthetic data **and** asserts the Example 1 worked-example values above (mean 0.8167, std 2.195, JB 0.09 on the 12-month series), exiting nonzero on any mismatch.
-- `--help` lists the available functions and import usage.
-- For programmatic use, import rather than run: `from statistics_fundamentals import descriptive_stats, ols_regression`.
+- `--help` lists the available methods and import usage.
+- For programmatic use, import rather than run: `from statistics_fundamentals import StatisticsFundamentals`, then call e.g. `StatisticsFundamentals.descriptive_stats(...)`.
 
 ## Cross-References
-- **return-calculations** (core plugin, Layer 0): Arithmetic and geometric mean returns, log returns for statistical modeling
-- **time-value-of-money** (core plugin, Layer 0): Discount rate estimation via CAPM regression; NPV and IRR calculations use statistical inputs
+- **return-calculations** (core plugin): Arithmetic and geometric mean returns, log returns for statistical modeling
+- **time-value-of-money** (core plugin): Discount rate estimation via CAPM regression; NPV and IRR calculations use statistical inputs
+- **factor-investing** (wealth-management plugin): Extends the single-factor CAPM/OLS regression to Fama-French multifactor models for alpha attribution and fund evaluation
+- **financial-statements** (wealth-management plugin): applies descriptive statistics and trend analysis to financial ratios and peer comparisons

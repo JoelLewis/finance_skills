@@ -102,7 +102,7 @@ Alternative (often more transparent): keep the 9% discount rate and probability-
 - Static analysis: moats, competitive positioning, and regulatory risks evolve — reassess periodically
 
 ## Cross-References
-- **quantitative-valuation** (wealth-management plugin, Layer 3): quantitative models that qualitative analysis informs and contextualizes
-- **financial-statements** (wealth-management plugin, Layer 2): ROIC, margins, and cash flow patterns that validate qualitative assessments
-- **forward-risk** (wealth-management plugin, Layer 1b): risk premium adjustments from ESG and business quality factors
-- **diversification** (wealth-management plugin, Layer 4): qualitative sector/factor analysis informs diversification decisions
+- **quantitative-valuation** (wealth-management plugin): quantitative models that qualitative analysis informs and contextualizes
+- **financial-statements** (wealth-management plugin): ROIC, margins, and cash flow patterns that validate qualitative assessments
+- **forward-risk** (wealth-management plugin): risk premium adjustments from ESG and business quality factors
+- **diversification** (wealth-management plugin): qualitative sector/factor analysis informs diversification decisions
