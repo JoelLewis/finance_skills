@@ -211,12 +211,12 @@ To find the IRR, we would solve for the rate where NPV = 0. Numerically, the IRR
 - Multiple IRR solutions with non-conventional cash flows: when cash flows change sign more than once (e.g., initial outflow, inflows, then a large terminal outflow), Descartes' rule allows up to as many positive real IRR solutions as there are sign changes. In such cases, use NPV profiling or the Modified IRR (MIRR) instead.
 
 ## Running the Script
-`scripts/time_value_of_money.py` implements every formula above as standalone functions (`present_value`, `future_value`, `npv`, `irr`, `annuity_pv`, `annuity_fv`, `growing_annuity_pv`, `perpetuity_pv`, `fisher_rate`, `continuous_compounding`) plus an `AmortizationSchedule` class.
+`scripts/time_value_of_money.py` implements every formula above as static methods on a `TimeValueOfMoney` class (`present_value`, `future_value`, `npv`, `irr`, `annuity_pv`, `annuity_fv`, `growing_annuity_pv`, `perpetuity_pv`, `fisher_rate`, `continuous_compounding`) plus an `AmortizationSchedule` class.
 
 - Run: `uv run scripts/time_value_of_money.py` (PEP 723 inline metadata; stdlib-only, no third-party dependencies), or simply `python3 scripts/time_value_of_money.py`.
-- Bare invocation (or `--verify`) prints a demo of all functions **and** asserts the worked-example values above (Example 1 mortgage payment = $1,896.20; Example 2 NPV = $17,378.78 and IRR = 21.18%), exiting nonzero on any mismatch.
-- `--help` lists the available functions and import usage.
-- For programmatic use, import rather than run: `from time_value_of_money import npv, irr, AmortizationSchedule`.
+- Bare invocation (or `--verify`) prints a demo of all methods **and** asserts the worked-example values above (Example 1 mortgage payment = $1,896.20; Example 2 NPV = $17,378.78 and IRR = 21.18%), exiting nonzero on any mismatch.
+- `--help` lists the available methods and import usage.
+- For programmatic use, import rather than run: `from time_value_of_money import TimeValueOfMoney, AmortizationSchedule`, then call e.g. `TimeValueOfMoney.npv(...)`.
 
 ## Cross-References
 - **return-calculations** (core plugin, Layer 0): CAGR is a special case of compound growth; portfolio MWR uses the same NPV=0 framework and lives there

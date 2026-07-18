@@ -104,7 +104,7 @@ FinCEN has significantly increased enforcement activity in recent years. Key tre
 - **Willful blindness** — Firms and individuals can be held liable for willfully failing to implement adequate AML controls, even without direct knowledge of specific illicit transactions.
 - **Areas of focus** — Virtual currency exchanges and administrators, money services businesses, and firms with repeated examination deficiencies. FinCEN has also focused on failures to file timely and complete SARs.
 - **Coordination with other regulators** — FinCEN actions are frequently accompanied by parallel actions from the SEC, FINRA, OCC, or DOJ, resulting in cumulative penalties and remedial orders.
-- **Beneficial Ownership Information (BOI)** — The Corporate Transparency Act (effective 2024) requires many companies to report beneficial ownership information to FinCEN, creating a new tool for AML enforcement and due diligence.
+- **Beneficial Ownership Information (BOI)** — The Corporate Transparency Act originally required most companies to report beneficial ownership information to FinCEN beginning in 2024, but under FinCEN's March 2025 interim final rule all US-formed entities are exempt; only foreign entities registered to do business in the US remain reporting companies, and they need not report US-person beneficial owners. CTA data is therefore not a substitute for a firm's own CDD Rule beneficial ownership collection (see account-opening-compliance in the client-operations plugin). Verify the current state of CTA rulemaking, which remains in flux.
 
 ## Worked Examples
 

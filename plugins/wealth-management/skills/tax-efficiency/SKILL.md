@@ -21,7 +21,7 @@ Realize investment losses to offset capital gains, reducing current tax liabilit
 
 - Sell a losing position, immediately buy a similar (but not "substantially identical") replacement
 - Harvested losses offset gains dollar-for-dollar; net losses offset up to $3,000 of ordinary income per year; excess carries forward indefinitely
-- **Wash-sale rule (30 days):** Cannot repurchase the same or substantially identical security within 30 days before or after the sale — applies across all accounts (including spouse's accounts and IRAs)
+- **Wash-sale rule (61-day window):** Cannot repurchase the same or substantially identical security within the 61-day window (30 days before + sale date + 30 days after) — applies across all accounts (including spouse's accounts and IRAs)
 - **Tax alpha from TLH:** Estimated 0.5-1.5% per year in early years of a portfolio's life, declining as cost basis rises
 - Best opportunities arise during market volatility and in the first few years of investing
 
@@ -116,7 +116,7 @@ The order of withdrawals from different account types in retirement:
 5. **Conclusion:** Under this simplification the breakeven future rate equals the current rate (24%) — both sides scale by the same (1.07)^20, so the horizon and return cancel. In reality the taxable side fund suffers tax drag on its dividends and realized gains, so paying conversion tax from outside funds tilts the comparison toward Roth even when the future rate merely equals the current rate.
 
 ## Common Pitfalls
-- TLH wash sale violations, including purchases in other accounts, IRAs, or a spouse's account within the 30-day window
+- TLH wash sale violations, including purchases in other accounts, IRAs, or a spouse's account within the 61-day wash-sale window (30 days before through 30 days after the sale)
 - Over-harvesting losses that defer gains to higher tax brackets later (basis step-down compounds)
 - Not considering state taxes in asset location decisions — state tax treatment varies significantly
 - Ignoring the tax benefit of donating appreciated securities vs cash (avoids capital gains and gets full deduction)

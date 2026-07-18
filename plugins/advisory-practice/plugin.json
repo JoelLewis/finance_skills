@@ -18,6 +18,5 @@
     "financial-planning-workflow"
   ],
   "tags": ["advisor", "wealth-management", "front-office", "crm", "billing"],
-  "scripts": false,
-  "notes": "crm-client-lifecycle and advisor-dashboards skills are planned but not yet implemented."
+  "scripts": false
 }

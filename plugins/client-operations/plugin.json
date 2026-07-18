@@ -14,6 +14,5 @@
     "workflow-automation"
   ],
   "tags": ["back-office", "account-management", "transfers", "reconciliation", "corporate-actions"],
-  "scripts": false,
-  "notes": "workflow-automation skill is planned but not yet implemented."
+  "scripts": false
 }

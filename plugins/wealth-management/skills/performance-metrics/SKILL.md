@@ -31,7 +31,7 @@ Sortino = (R_p - R_f) / sigma_downside
 
 where sigma_downside = sqrt((1/n) * sum(min(R_i - MAR, 0)^2)).
 
-Common MAR choices: 0%, risk-free rate, or a target return. Always state which MAR is used.
+Common MAR choices: 0%, risk-free rate, or a target return. Always state which MAR is used, and use the same reference point in the numerator as in the downside deviation: if the MAR is not the risk-free rate, the numerator should be (R_p - MAR), not (R_p - R_f). Mixing reference points makes the ratio internally inconsistent.
 
 ### Information Ratio
 Measures active return (alpha) per unit of active risk (tracking error) relative to a benchmark.

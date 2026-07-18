@@ -10,6 +10,5 @@
     "data-quality"
   ],
   "tags": ["data", "reference-data", "market-data", "integration", "data-quality"],
-  "scripts": false,
-  "notes": "integration-patterns and data-quality skills are planned but not yet implemented."
+  "scripts": false
 }

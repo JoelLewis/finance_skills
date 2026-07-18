@@ -29,369 +29,381 @@ from scipy import stats as sp_stats
 # Descriptive Statistics
 # ---------------------------------------------------------------------------
 
-def descriptive_stats(returns: np.ndarray) -> dict:
-    """Compute descriptive statistics for a return series.
+class StatisticsFundamentals:
+    """Statistical estimators for financial return series (descriptive stats,
+    covariance/correlation, shrinkage, OLS, bootstrap, normality testing)."""
 
-    Calculates mean, standard deviation, skewness, excess kurtosis,
-    minimum, maximum, and median.
+    @staticmethod
+    def descriptive_stats(returns: np.ndarray) -> dict:
+        """Compute descriptive statistics for a return series.
 
-    Args:
-        returns: 1-D array of return observations. At least 3 observations
-            with non-zero variance are required (bias-corrected skewness is
-            undefined otherwise).
+        Calculates mean, standard deviation, skewness, excess kurtosis,
+        minimum, maximum, and median.
 
-    Returns:
-        Dictionary with keys: mean, std, skew, kurtosis (excess),
-        min, max, median. Excess kurtosis is NaN when n < 4 (the
-        bias-corrected estimator requires at least 4 observations).
+        Args:
+            returns: 1-D array of return observations. At least 3 observations
+                with non-zero variance are required (bias-corrected skewness is
+                undefined otherwise).
 
-    Raises:
-        ValueError: If fewer than 3 observations are supplied, or the
-            series has zero variance (skewness undefined).
-    """
-    returns = np.asarray(returns, dtype=float)
-    n = len(returns)
-    if n < 3:
-        raise ValueError(
-            f"descriptive_stats requires at least 3 observations for "
-            f"bias-corrected skewness; got {n}."
-        )
-    mean = float(np.mean(returns))
-    std = float(np.std(returns, ddof=1))
-    if std == 0:
-        raise ValueError(
-            "descriptive_stats requires non-zero variance; skewness and "
-            "kurtosis are undefined for a constant series."
-        )
+        Returns:
+            Dictionary with keys: mean, std, skew, kurtosis (excess),
+            min, max, median. Excess kurtosis is NaN when n < 4 (the
+            bias-corrected estimator requires at least 4 observations).
 
-    # Skewness: E[(X-mu)^3] / sigma^3, adjusted for sample bias
-    skew = float(sp_stats.skew(returns, bias=False))
+        Raises:
+            ValueError: If fewer than 3 observations are supplied, or the
+                series has zero variance (skewness undefined).
+        """
+        returns = np.asarray(returns, dtype=float)
+        n = len(returns)
+        if n < 3:
+            raise ValueError(
+                f"descriptive_stats requires at least 3 observations for "
+                f"bias-corrected skewness; got {n}."
+            )
+        mean = float(np.mean(returns))
+        std = float(np.std(returns, ddof=1))
+        if std == 0:
+            raise ValueError(
+                "descriptive_stats requires non-zero variance; skewness and "
+                "kurtosis are undefined for a constant series."
+            )
 
-    # Excess kurtosis: E[(X-mu)^4] / sigma^4 - 3, adjusted for sample bias.
-    # The bias-corrected estimator needs n >= 4; report NaN below that.
-    if n >= 4:
-        kurtosis = float(sp_stats.kurtosis(returns, bias=False))
-    else:
-        kurtosis = float("nan")
+        # Skewness: E[(X-mu)^3] / sigma^3, adjusted for sample bias
+        skew = float(sp_stats.skew(returns, bias=False))
 
-    return {
-        "mean": mean,
-        "std": std,
-        "skew": skew,
-        "kurtosis": kurtosis,
-        "min": float(np.min(returns)),
-        "max": float(np.max(returns)),
-        "median": float(np.median(returns)),
-    }
+        # Excess kurtosis: E[(X-mu)^4] / sigma^4 - 3, adjusted for sample bias.
+        # The bias-corrected estimator needs n >= 4; report NaN below that.
+        if n >= 4:
+            kurtosis = float(sp_stats.kurtosis(returns, bias=False))
+        else:
+            kurtosis = float("nan")
+
+        return {
+            "mean": mean,
+            "std": std,
+            "skew": skew,
+            "kurtosis": kurtosis,
+            "min": float(np.min(returns)),
+            "max": float(np.max(returns)),
+            "median": float(np.median(returns)),
+        }
 
 
 # ---------------------------------------------------------------------------
 # Covariance and Correlation
 # ---------------------------------------------------------------------------
 
-def covariance_matrix(returns: np.ndarray) -> np.ndarray:
-    """Compute the sample covariance matrix.
+    @staticmethod
+    def covariance_matrix(returns: np.ndarray) -> np.ndarray:
+        """Compute the sample covariance matrix.
 
-    Uses n-1 degrees of freedom (Bessel's correction).
+        Uses n-1 degrees of freedom (Bessel's correction).
 
-    Args:
-        returns: 2-D array of shape (n_observations, n_assets).
+        Args:
+            returns: 2-D array of shape (n_observations, n_assets).
 
-    Returns:
-        Covariance matrix of shape (n_assets, n_assets).
-    """
-    returns = np.asarray(returns, dtype=float)
-    return np.cov(returns, rowvar=False)
-
-
-def correlation_matrix(returns: np.ndarray) -> np.ndarray:
-    """Compute the sample correlation matrix.
-
-    Args:
-        returns: 2-D array of shape (n_observations, n_assets).
-
-    Returns:
-        Correlation matrix of shape (n_assets, n_assets).
-    """
-    returns = np.asarray(returns, dtype=float)
-    return np.corrcoef(returns, rowvar=False)
+        Returns:
+            Covariance matrix of shape (n_assets, n_assets).
+        """
+        returns = np.asarray(returns, dtype=float)
+        return np.cov(returns, rowvar=False)
 
 
-def shrunk_covariance(
-    returns: np.ndarray,
-    shrinkage_target: str = "identity",
-) -> np.ndarray:
-    """Compute a shrinkage-estimated covariance matrix (Ledoit-Wolf style).
+    @staticmethod
+    def correlation_matrix(returns: np.ndarray) -> np.ndarray:
+        """Compute the sample correlation matrix.
 
-    Sigma_shrunk = delta * Target + (1 - delta) * S_sample
+        Args:
+            returns: 2-D array of shape (n_observations, n_assets).
 
-    The shrinkage intensity delta is estimated analytically following the
-    Ledoit-Wolf (2004) approach (simplified implementation).
+        Returns:
+            Correlation matrix of shape (n_assets, n_assets).
+        """
+        returns = np.asarray(returns, dtype=float)
+        return np.corrcoef(returns, rowvar=False)
 
-    Args:
-        returns: 2-D array of shape (n_observations, n_assets).
-        shrinkage_target: Type of structured target matrix.
-            - "identity": scaled identity matrix (mu * I)
-            - "diagonal": diagonal of the sample covariance
 
-    Returns:
-        Shrunk covariance matrix of shape (n_assets, n_assets).
-    """
-    returns = np.asarray(returns, dtype=float)
-    n, p = returns.shape
+    @staticmethod
+    def shrunk_covariance(
+        returns: np.ndarray,
+        shrinkage_target: str = "identity",
+    ) -> np.ndarray:
+        """Compute a shrinkage-estimated covariance matrix (Ledoit-Wolf style).
 
-    # Sample covariance
-    sample_cov = np.cov(returns, rowvar=False)
+        Sigma_shrunk = delta * Target + (1 - delta) * S_sample
 
-    # Construct target
-    if shrinkage_target == "diagonal":
-        target = np.diag(np.diag(sample_cov))
-    else:
-        # Scaled identity: average variance on the diagonal
-        mu = np.trace(sample_cov) / p
-        target = mu * np.eye(p)
+        The shrinkage intensity delta is estimated analytically following the
+        Ledoit-Wolf (2004) approach (simplified implementation).
 
-    # Estimate optimal shrinkage intensity (simplified Ledoit-Wolf)
-    # Compute the squared Frobenius norm of (S - Target)
-    x = returns - returns.mean(axis=0)
+        Args:
+            returns: 2-D array of shape (n_observations, n_assets).
+            shrinkage_target: Type of structured target matrix.
+                - "identity": scaled identity matrix (mu * I)
+                - "diagonal": diagonal of the sample covariance
 
-    # Sum of squared sample covariances (off-diagonal estimation error)
-    # Approximation of the optimal shrinkage parameter
-    sum_sq = 0.0
-    for i in range(n):
-        outer = np.outer(x[i], x[i])
-        diff = outer - sample_cov
-        sum_sq += np.sum(diff ** 2)
-    phi_hat = sum_sq / (n ** 2)
+        Returns:
+            Shrunk covariance matrix of shape (n_assets, n_assets).
+        """
+        returns = np.asarray(returns, dtype=float)
+        n, p = returns.shape
 
-    gamma_hat = np.sum((sample_cov - target) ** 2)
+        # Sample covariance
+        sample_cov = np.cov(returns, rowvar=False)
 
-    if gamma_hat == 0:
-        delta = 1.0
-    else:
-        delta = max(0.0, min(1.0, phi_hat / gamma_hat))
+        # Construct target
+        if shrinkage_target == "diagonal":
+            target = np.diag(np.diag(sample_cov))
+        else:
+            # Scaled identity: average variance on the diagonal
+            mu = np.trace(sample_cov) / p
+            target = mu * np.eye(p)
 
-    return delta * target + (1.0 - delta) * sample_cov
+        # Estimate optimal shrinkage intensity (simplified Ledoit-Wolf)
+        # Compute the squared Frobenius norm of (S - Target)
+        x = returns - returns.mean(axis=0)
+
+        # Sum of squared sample covariances (off-diagonal estimation error)
+        # Approximation of the optimal shrinkage parameter
+        sum_sq = 0.0
+        for i in range(n):
+            outer = np.outer(x[i], x[i])
+            diff = outer - sample_cov
+            sum_sq += np.sum(diff ** 2)
+        phi_hat = sum_sq / (n ** 2)
+
+        gamma_hat = np.sum((sample_cov - target) ** 2)
+
+        if gamma_hat == 0:
+            delta = 1.0
+        else:
+            delta = max(0.0, min(1.0, phi_hat / gamma_hat))
+
+        return delta * target + (1.0 - delta) * sample_cov
 
 
 # ---------------------------------------------------------------------------
 # Regression
 # ---------------------------------------------------------------------------
 
-def ols_regression(y: np.ndarray, x: np.ndarray) -> dict:
-    """Perform OLS linear regression: y = alpha + beta * x + epsilon.
+    @staticmethod
+    def ols_regression(y: np.ndarray, x: np.ndarray) -> dict:
+        """Perform OLS linear regression: y = alpha + beta * x + epsilon.
 
-    Args:
-        y: 1-D array of dependent variable observations.
-        x: 1-D array of independent variable observations.
+        Args:
+            y: 1-D array of dependent variable observations.
+            x: 1-D array of independent variable observations.
 
-    Returns:
-        Dictionary with keys:
-            - alpha: intercept
-            - beta: slope coefficient
-            - r_squared: coefficient of determination
-            - t_stats: dict with t-statistics for alpha and beta
-            - p_values: dict with p-values for alpha and beta
-            - residuals: 1-D array of residuals
+        Returns:
+            Dictionary with keys:
+                - alpha: intercept
+                - beta: slope coefficient
+                - r_squared: coefficient of determination
+                - t_stats: dict with t-statistics for alpha and beta
+                - p_values: dict with p-values for alpha and beta
+                - residuals: 1-D array of residuals
 
-    Raises:
-        ValueError: If the design matrix is singular (e.g., x is constant
-            or contains fewer than 2 distinct observations), in which case
-            the OLS coefficients are not identified.
-    """
-    y = np.asarray(y, dtype=float)
-    x = np.asarray(x, dtype=float)
-    n = len(y)
+        Raises:
+            ValueError: If the design matrix is singular (e.g., x is constant
+                or contains fewer than 2 distinct observations), in which case
+                the OLS coefficients are not identified.
+        """
+        y = np.asarray(y, dtype=float)
+        x = np.asarray(x, dtype=float)
+        n = len(y)
 
-    # Design matrix with intercept
-    X = np.column_stack([np.ones(n), x])
+        # Design matrix with intercept
+        X = np.column_stack([np.ones(n), x])
 
-    # beta_hat = (X'X)^-1 X'y
-    if np.linalg.matrix_rank(X) < X.shape[1]:
-        raise ValueError(
-            "Singular design matrix: the regressor x is constant (or has "
-            "fewer than 2 distinct observations), so OLS coefficients are "
-            "not identified. Provide a regressor with variation."
-        )
-    try:
-        XtX_inv = np.linalg.inv(X.T @ X)
-    except np.linalg.LinAlgError as exc:
-        raise ValueError(
-            "Singular design matrix: X'X is not invertible, so OLS "
-            "coefficients are not identified."
-        ) from exc
-    beta_hat = XtX_inv @ X.T @ y
+        # beta_hat = (X'X)^-1 X'y
+        if np.linalg.matrix_rank(X) < X.shape[1]:
+            raise ValueError(
+                "Singular design matrix: the regressor x is constant (or has "
+                "fewer than 2 distinct observations), so OLS coefficients are "
+                "not identified. Provide a regressor with variation."
+            )
+        try:
+            XtX_inv = np.linalg.inv(X.T @ X)
+        except np.linalg.LinAlgError as exc:
+            raise ValueError(
+                "Singular design matrix: X'X is not invertible, so OLS "
+                "coefficients are not identified."
+            ) from exc
+        beta_hat = XtX_inv @ X.T @ y
 
-    alpha = float(beta_hat[0])
-    beta = float(beta_hat[1])
+        alpha = float(beta_hat[0])
+        beta = float(beta_hat[1])
 
-    # Residuals and R-squared
-    y_hat = X @ beta_hat
-    residuals = y - y_hat
-    ss_res = float(np.sum(residuals ** 2))
-    ss_tot = float(np.sum((y - np.mean(y)) ** 2))
-    r_squared = 1.0 - ss_res / ss_tot if ss_tot > 0 else 0.0
+        # Residuals and R-squared
+        y_hat = X @ beta_hat
+        residuals = y - y_hat
+        ss_res = float(np.sum(residuals ** 2))
+        ss_tot = float(np.sum((y - np.mean(y)) ** 2))
+        r_squared = 1.0 - ss_res / ss_tot if ss_tot > 0 else 0.0
 
-    # Standard errors and t-statistics
-    dof = n - 2  # degrees of freedom
-    if dof > 0:
-        mse = ss_res / dof
-        se = np.sqrt(np.diag(XtX_inv) * mse)
-        t_alpha = alpha / se[0] if se[0] > 0 else 0.0
-        t_beta = beta / se[1] if se[1] > 0 else 0.0
-        p_alpha = float(2.0 * (1.0 - sp_stats.t.cdf(abs(t_alpha), dof)))
-        p_beta = float(2.0 * (1.0 - sp_stats.t.cdf(abs(t_beta), dof)))
-    else:
-        t_alpha = 0.0
-        t_beta = 0.0
-        p_alpha = 1.0
-        p_beta = 1.0
+        # Standard errors and t-statistics
+        dof = n - 2  # degrees of freedom
+        if dof > 0:
+            mse = ss_res / dof
+            se = np.sqrt(np.diag(XtX_inv) * mse)
+            t_alpha = alpha / se[0] if se[0] > 0 else 0.0
+            t_beta = beta / se[1] if se[1] > 0 else 0.0
+            p_alpha = float(2.0 * (1.0 - sp_stats.t.cdf(abs(t_alpha), dof)))
+            p_beta = float(2.0 * (1.0 - sp_stats.t.cdf(abs(t_beta), dof)))
+        else:
+            t_alpha = 0.0
+            t_beta = 0.0
+            p_alpha = 1.0
+            p_beta = 1.0
 
-    return {
-        "alpha": alpha,
-        "beta": beta,
-        "r_squared": r_squared,
-        "t_stats": {"alpha": float(t_alpha), "beta": float(t_beta)},
-        "p_values": {"alpha": p_alpha, "beta": p_beta},
-        "residuals": residuals,
-    }
+        return {
+            "alpha": alpha,
+            "beta": beta,
+            "r_squared": r_squared,
+            "t_stats": {"alpha": float(t_alpha), "beta": float(t_beta)},
+            "p_values": {"alpha": p_alpha, "beta": p_beta},
+            "residuals": residuals,
+        }
 
 
-def rolling_regression(
-    y: np.ndarray,
-    x: np.ndarray,
-    window: int,
-) -> dict:
-    """Perform rolling OLS regression over a moving window.
+    @staticmethod
+    def rolling_regression(
+        y: np.ndarray,
+        x: np.ndarray,
+        window: int,
+    ) -> dict:
+        """Perform rolling OLS regression over a moving window.
 
-    Applies the ols_regression function over a sliding window of
-    observations to capture time-varying relationships.
+        Applies the ols_regression function over a sliding window of
+        observations to capture time-varying relationships.
 
-    Args:
-        y: 1-D array of dependent variable observations.
-        x: 1-D array of independent variable observations.
-        window: Number of observations in each rolling window.
+        Args:
+            y: 1-D array of dependent variable observations.
+            x: 1-D array of independent variable observations.
+            window: Number of observations in each rolling window.
 
-    Returns:
-        Dictionary with keys:
-            - alpha: list of rolling intercepts
-            - beta: list of rolling slope coefficients
-            - r_squared: list of rolling R-squared values
+        Returns:
+            Dictionary with keys:
+                - alpha: list of rolling intercepts
+                - beta: list of rolling slope coefficients
+                - r_squared: list of rolling R-squared values
 
-        Each list has length (n - window + 1), aligned to the end
-        of each window.
-    """
-    y = np.asarray(y, dtype=float)
-    x = np.asarray(x, dtype=float)
-    n = len(y)
+            Each list has length (n - window + 1), aligned to the end
+            of each window.
+        """
+        y = np.asarray(y, dtype=float)
+        x = np.asarray(x, dtype=float)
+        n = len(y)
 
-    alphas = []
-    betas = []
-    r_squareds = []
+        alphas = []
+        betas = []
+        r_squareds = []
 
-    for i in range(n - window + 1):
-        result = ols_regression(y[i : i + window], x[i : i + window])
-        alphas.append(result["alpha"])
-        betas.append(result["beta"])
-        r_squareds.append(result["r_squared"])
+        for i in range(n - window + 1):
+            result = StatisticsFundamentals.ols_regression(y[i : i + window], x[i : i + window])
+            alphas.append(result["alpha"])
+            betas.append(result["beta"])
+            r_squareds.append(result["r_squared"])
 
-    return {
-        "alpha": alphas,
-        "beta": betas,
-        "r_squared": r_squareds,
-    }
+        return {
+            "alpha": alphas,
+            "beta": betas,
+            "r_squared": r_squareds,
+        }
 
 
 # ---------------------------------------------------------------------------
 # Bootstrapping
 # ---------------------------------------------------------------------------
 
-def bootstrap_mean(
-    returns: np.ndarray,
-    n_samples: int = 10000,
-    confidence: float = 0.95,
-    seed: int | None = 42,
-) -> dict:
-    """Estimate the mean return with bootstrapped confidence interval.
+    @staticmethod
+    def bootstrap_mean(
+        returns: np.ndarray,
+        n_samples: int = 10000,
+        confidence: float = 0.95,
+        seed: int | None = 42,
+    ) -> dict:
+        """Estimate the mean return with bootstrapped confidence interval.
 
-    Resamples the return series with replacement to construct an empirical
-    distribution of the sample mean and derive a confidence interval.
+        Resamples the return series with replacement to construct an empirical
+        distribution of the sample mean and derive a confidence interval.
 
-    Args:
-        returns: 1-D array of return observations.
-        n_samples: Number of bootstrap resamples. Defaults to 10,000.
-        confidence: Confidence level (e.g., 0.95 for 95%). Defaults to 0.95.
-        seed: Seed for the random number generator. Defaults to 42 for
-            reproducible results; pass None for non-deterministic resampling.
+        Args:
+            returns: 1-D array of return observations.
+            n_samples: Number of bootstrap resamples. Defaults to 10,000.
+            confidence: Confidence level (e.g., 0.95 for 95%). Defaults to 0.95.
+            seed: Seed for the random number generator. Defaults to 42 for
+                reproducible results; pass None for non-deterministic resampling.
 
-    Returns:
-        Dictionary with keys:
-            - mean: point estimate (sample mean)
-            - ci_lower: lower bound of the confidence interval
-            - ci_upper: upper bound of the confidence interval
-            - std_error: bootstrap standard error of the mean
-    """
-    returns = np.asarray(returns, dtype=float)
-    n = len(returns)
+        Returns:
+            Dictionary with keys:
+                - mean: point estimate (sample mean)
+                - ci_lower: lower bound of the confidence interval
+                - ci_upper: upper bound of the confidence interval
+                - std_error: bootstrap standard error of the mean
+        """
+        returns = np.asarray(returns, dtype=float)
+        n = len(returns)
 
-    # Generate all bootstrap samples at once for efficiency
-    rng = np.random.default_rng(seed=seed)
-    indices = rng.integers(0, n, size=(n_samples, n))
-    boot_means = np.mean(returns[indices], axis=1)
+        # Generate all bootstrap samples at once for efficiency
+        rng = np.random.default_rng(seed=seed)
+        indices = rng.integers(0, n, size=(n_samples, n))
+        boot_means = np.mean(returns[indices], axis=1)
 
-    alpha = (1.0 - confidence) / 2.0
-    ci_lower = float(np.percentile(boot_means, 100 * alpha))
-    ci_upper = float(np.percentile(boot_means, 100 * (1.0 - alpha)))
+        alpha = (1.0 - confidence) / 2.0
+        ci_lower = float(np.percentile(boot_means, 100 * alpha))
+        ci_upper = float(np.percentile(boot_means, 100 * (1.0 - alpha)))
 
-    return {
-        "mean": float(np.mean(returns)),
-        "ci_lower": ci_lower,
-        "ci_upper": ci_upper,
-        "std_error": float(np.std(boot_means, ddof=1)),
-    }
+        return {
+            "mean": float(np.mean(returns)),
+            "ci_lower": ci_lower,
+            "ci_upper": ci_upper,
+            "std_error": float(np.std(boot_means, ddof=1)),
+        }
 
 
 # ---------------------------------------------------------------------------
 # Hypothesis Testing
 # ---------------------------------------------------------------------------
 
-def jarque_bera_test(returns: np.ndarray) -> dict:
-    """Perform the Jarque-Bera test for normality.
+    @staticmethod
+    def jarque_bera_test(returns: np.ndarray) -> dict:
+        """Perform the Jarque-Bera test for normality.
 
-    JB = (n/6) * [S^2 + (1/4) * K^2]
+        JB = (n/6) * [S^2 + (1/4) * K^2]
 
-    where S is sample skewness and K is excess kurtosis. Under the null
-    hypothesis of normality, JB follows a chi-squared distribution with
-    2 degrees of freedom.
+        where S is sample skewness and K is excess kurtosis. Under the null
+        hypothesis of normality, JB follows a chi-squared distribution with
+        2 degrees of freedom.
 
-    Args:
-        returns: 1-D array of return observations.
+        Args:
+            returns: 1-D array of return observations.
 
-    Returns:
-        Dictionary with keys:
-            - statistic: the Jarque-Bera test statistic
-            - p_value: p-value (reject normality if small, e.g. < 0.05)
-            - skewness: sample skewness
-            - kurtosis: sample excess kurtosis
-    """
-    returns = np.asarray(returns, dtype=float)
-    n = len(returns)
+        Returns:
+            Dictionary with keys:
+                - statistic: the Jarque-Bera test statistic
+                - p_value: p-value (reject normality if small, e.g. < 0.05)
+                - skewness: sample skewness
+                - kurtosis: sample excess kurtosis
+        """
+        returns = np.asarray(returns, dtype=float)
+        n = len(returns)
 
-    skew = float(sp_stats.skew(returns, bias=False))
-    kurtosis = float(sp_stats.kurtosis(returns, bias=False))
+        skew = float(sp_stats.skew(returns, bias=False))
+        kurtosis = float(sp_stats.kurtosis(returns, bias=False))
 
-    # Jarque-Bera statistic
-    jb_stat = (n / 6.0) * (skew ** 2 + (kurtosis ** 2) / 4.0)
+        # Jarque-Bera statistic
+        jb_stat = (n / 6.0) * (skew ** 2 + (kurtosis ** 2) / 4.0)
 
-    # p-value from chi-squared distribution with 2 degrees of freedom
-    p_value = float(1.0 - sp_stats.chi2.cdf(jb_stat, df=2))
+        # p-value from chi-squared distribution with 2 degrees of freedom
+        p_value = float(1.0 - sp_stats.chi2.cdf(jb_stat, df=2))
 
-    return {
-        "statistic": jb_stat,
-        "p_value": p_value,
-        "skewness": skew,
-        "kurtosis": kurtosis,
-    }
+        return {
+            "statistic": jb_stat,
+            "p_value": p_value,
+            "skewness": skew,
+            "kurtosis": kurtosis,
+        }
 
 
 # ---------------------------------------------------------------------------
@@ -400,20 +412,20 @@ def jarque_bera_test(returns: np.ndarray) -> dict:
 
 _FUNCTIONS_HELP = """\
 Available functions:
-  descriptive_stats(returns)
-  covariance_matrix(returns)              # (n_obs, n_assets) 2-D input
-  correlation_matrix(returns)
-  shrunk_covariance(returns, shrinkage_target="identity")
+  StatisticsFundamentals.descriptive_stats(returns)
+  StatisticsFundamentals.covariance_matrix(returns)              # (n_obs, n_assets) 2-D input
+  StatisticsFundamentals.correlation_matrix(returns)
+  StatisticsFundamentals.shrunk_covariance(returns, shrinkage_target="identity")
       # simplified Ledoit-Wolf-style shrinkage; for production use
       # sklearn.covariance.LedoitWolf
-  ols_regression(y, x)                    # y = alpha + beta * x + epsilon
-  rolling_regression(y, x, window)
-  bootstrap_mean(returns, n_samples=10000, confidence=0.95, seed=42)
-  jarque_bera_test(returns)
+  StatisticsFundamentals.ols_regression(y, x)                    # y = alpha + beta * x + epsilon
+  StatisticsFundamentals.rolling_regression(y, x, window)
+  StatisticsFundamentals.bootstrap_mean(returns, n_samples=10000, confidence=0.95, seed=42)
+  StatisticsFundamentals.jarque_bera_test(returns)
 
 Import usage (preferred for programmatic work):
-  from statistics_fundamentals import descriptive_stats, ols_regression
-  descriptive_stats([0.021, -0.005, 0.018, ...])
+  from statistics_fundamentals import StatisticsFundamentals
+  StatisticsFundamentals.descriptive_stats([0.021, -0.005, 0.018, ...])
 
 Running bare (or with --verify) prints a demo on synthetic data and
 asserts the worked-example values from SKILL.md, exiting nonzero on
@@ -428,7 +440,7 @@ def _verify() -> None:
         [2.1, -0.5, 1.8, -3.2, 4.5, 0.3, -1.1, 2.7, -0.8, 3.4, 1.2, -0.6]
     )
 
-    desc = descriptive_stats(monthly)
+    desc = StatisticsFundamentals.descriptive_stats(monthly)
     assert abs(desc["mean"] - 0.8167) < 5e-5, f"Example 1 mean mismatch: {desc['mean']}"
     assert abs(desc["std"] - 2.195) < 5e-4, f"Example 1 std mismatch: {desc['std']}"
     assert abs(desc["skew"] - (-0.045)) < 5e-4, f"Example 1 skew mismatch: {desc['skew']}"
@@ -439,7 +451,7 @@ def _verify() -> None:
     ann_vol = desc["std"] * np.sqrt(12)
     assert abs(ann_vol - 7.60) < 5e-3, f"Example 1 annualized vol mismatch: {ann_vol}"
 
-    jb = jarque_bera_test(monthly)
+    jb = StatisticsFundamentals.jarque_bera_test(monthly)
     assert abs(jb["statistic"] - 0.09) < 5e-3, (
         f"Example 1 Jarque-Bera mismatch: {jb['statistic']}"
     )
@@ -482,13 +494,13 @@ def _demo() -> None:
 
     # 1. Descriptive Statistics
     print("\n1. Descriptive Statistics (Equity)")
-    desc = descriptive_stats(equity_returns)
+    desc = StatisticsFundamentals.descriptive_stats(equity_returns)
     for key, val in desc.items():
         print(f"   {key:>10}: {val:>12.6f}")
 
     # 2. Covariance Matrix
     print(f"\n2. Sample Covariance Matrix ({n_assets} assets):")
-    cov_mat = covariance_matrix(returns_2d)
+    cov_mat = StatisticsFundamentals.covariance_matrix(returns_2d)
     header = "           " + "".join(f"{name:>12}" for name in asset_names)
     print(header)
     for i, name in enumerate(asset_names):
@@ -497,7 +509,7 @@ def _demo() -> None:
 
     # 3. Correlation Matrix
     print(f"\n3. Sample Correlation Matrix:")
-    corr_mat = correlation_matrix(returns_2d)
+    corr_mat = StatisticsFundamentals.correlation_matrix(returns_2d)
     print(header)
     for i, name in enumerate(asset_names):
         row = f"   {name:>8}" + "".join(f"{corr_mat[i, j]:>12.4f}" for j in range(n_assets))
@@ -505,7 +517,7 @@ def _demo() -> None:
 
     # 4. Shrunk Covariance Matrix
     print(f"\n4. Shrunk Covariance Matrix (Ledoit-Wolf, identity target):")
-    shrunk_cov = shrunk_covariance(returns_2d, shrinkage_target="identity")
+    shrunk_cov = StatisticsFundamentals.shrunk_covariance(returns_2d, shrinkage_target="identity")
     print(header)
     for i, name in enumerate(asset_names):
         row = f"   {name:>8}" + "".join(f"{shrunk_cov[i, j]:>12.7f}" for j in range(n_assets))
@@ -513,28 +525,28 @@ def _demo() -> None:
 
     # 5. OLS Regression (equity on market)
     print(f"\n5. OLS Regression: Equity = alpha + beta * Market + epsilon")
-    reg = ols_regression(equity_returns, market_returns)
+    reg = StatisticsFundamentals.ols_regression(equity_returns, market_returns)
     print(f"   Alpha:     {reg['alpha']:.6f}  (t={reg['t_stats']['alpha']:.3f}, p={reg['p_values']['alpha']:.4f})")
     print(f"   Beta:      {reg['beta']:.6f}  (t={reg['t_stats']['beta']:.3f}, p={reg['p_values']['beta']:.4f})")
     print(f"   R-squared: {reg['r_squared']:.4f}")
 
     # 6. Rolling Regression
     print(f"\n6. Rolling Regression (60-day window):")
-    rolling = rolling_regression(equity_returns, market_returns, window=60)
+    rolling = StatisticsFundamentals.rolling_regression(equity_returns, market_returns, window=60)
     print(f"   Number of windows: {len(rolling['beta'])}")
     print(f"   Beta range: [{min(rolling['beta']):.4f}, {max(rolling['beta']):.4f}]")
     print(f"   R-sq range: [{min(rolling['r_squared']):.4f}, {max(rolling['r_squared']):.4f}]")
 
     # 7. Bootstrap Mean
     print(f"\n7. Bootstrap Mean Estimate (Equity, 10k samples, 95% CI):")
-    boot = bootstrap_mean(equity_returns, n_samples=10_000, confidence=0.95)
+    boot = StatisticsFundamentals.bootstrap_mean(equity_returns, n_samples=10_000, confidence=0.95)
     print(f"   Mean:      {boot['mean']:.6f}")
     print(f"   95% CI:    [{boot['ci_lower']:.6f}, {boot['ci_upper']:.6f}]")
     print(f"   Std Error: {boot['std_error']:.6f}")
 
     # 8. Jarque-Bera Test
     print(f"\n8. Jarque-Bera Test for Normality (Equity):")
-    jb = jarque_bera_test(equity_returns)
+    jb = StatisticsFundamentals.jarque_bera_test(equity_returns)
     print(f"   JB Statistic: {jb['statistic']:.4f}")
     print(f"   p-value:      {jb['p_value']:.4f}")
     print(f"   Skewness:     {jb['skewness']:.4f}")
@@ -545,7 +557,7 @@ def _demo() -> None:
     # Also test with known fat-tailed data
     print(f"\n   Jarque-Bera on Student-t(3) synthetic data:")
     fat_tailed = rng.standard_t(df=3, size=1000)
-    jb_fat = jarque_bera_test(fat_tailed)
+    jb_fat = StatisticsFundamentals.jarque_bera_test(fat_tailed)
     print(f"   JB Statistic: {jb_fat['statistic']:.4f}")
     print(f"   p-value:      {jb_fat['p_value']:.6f}")
     normality_fat = "REJECT" if jb_fat["p_value"] < 0.05 else "FAIL TO REJECT"
