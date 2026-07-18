@@ -133,7 +133,7 @@ Amortization calculation with extra payments:
 - **tax-efficiency** (wealth-management plugin): tax deductibility of certain debt interest affects optimal payoff order
 - **liquidity-management** (wealth-management plugin): debt payments are fixed obligations in cash flow planning
 - **financial-planning-workflow** (advisory-practice plugin): debt payoff strategies are evaluated during the cash flow and recommendation phases of financial planning
-
+- **insurance-planning** (wealth-management plugin): outstanding debt balances are a direct input to life insurance needs analysis
 ## Running the Script
 
 ```bash

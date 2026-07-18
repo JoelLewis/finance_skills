@@ -149,7 +149,8 @@ After using the emergency fund:
 - **lending** (wealth-management plugin): emergency reserves are a factor in mortgage qualification
 - **investment-policy** (wealth-management plugin): emergency fund size feeds the liquidity constraint in an IPS
 - **financial-planning-workflow** (advisory-practice plugin): emergency fund adequacy is assessed early in the comprehensive financial planning process
-
+- **insurance-planning** (wealth-management plugin): emergency fund size supports higher deductibles and longer disability elimination periods in the risk retention decision
+- **retirement-decumulation** (wealth-management plugin): the cash-reserve discipline extends into retirement as bucket one of a bucket withdrawal strategy
 ## Running the Script
 
 ```bash

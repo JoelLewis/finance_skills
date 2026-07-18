@@ -88,7 +88,9 @@ Selection rules: default to cap-weighted for core beta; add equal- or fundamenta
 - **asset-allocation** (wealth-management plugin): equity allocation within multi-asset portfolios
 - **real-assets** (wealth-management plugin): REIT valuation (P/FFO, NAV) is owned by that skill
 - **qualitative-valuation** (wealth-management plugin) and **quantitative-valuation** (wealth-management plugin): deeper single-company valuation workflows
-
+- **financial-statements** (wealth-management plugin): EBITDA, free cash flow, ROIC, and margin analysis underpinning fundamental stock selection
+- **equity-compensation** (wealth-management plugin): employer stock acquired through RSUs, options, and ESPPs carries equity risk plus tax and insider-trading constraints
+- **factor-investing** (wealth-management plugin): the factor-loading evaluation of smart-beta and style products prescribed above lives in that skill
 ## Running the Script
 
 ```bash

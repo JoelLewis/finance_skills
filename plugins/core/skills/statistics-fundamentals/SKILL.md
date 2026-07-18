@@ -104,3 +104,5 @@ With 22 df, the 5% two-tailed critical t is 2.074. Beta is highly significant (7
 ## Cross-References
 - **return-calculations** (core plugin): Arithmetic and geometric mean returns, log returns for statistical modeling
 - **time-value-of-money** (core plugin): Discount rate estimation via CAPM regression; NPV and IRR calculations use statistical inputs
+- **factor-investing** (wealth-management plugin): Extends the single-factor CAPM/OLS regression to Fama-French multifactor models for alpha attribution and fund evaluation
+- **financial-statements** (wealth-management plugin): applies descriptive statistics and trend analysis to financial ratios and peer comparisons

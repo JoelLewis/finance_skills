@@ -146,7 +146,8 @@ Interpretation: The portfolio achieves significant diversification — the weigh
 - **asset-allocation** (wealth-management plugin): diversification principles feed directly into portfolio construction and optimization
 - **rebalancing** (wealth-management plugin): maintaining diversification targets over time through rebalancing
 - **bet-sizing** (wealth-management plugin): position sizing interacts with diversification — concentrated vs. diversified approaches
-
+- **equity-compensation** (wealth-management plugin): concentrated employer stock from RSUs, options, and ESPPs is a common source of single-stock concentration requiring staged diversification
+- **factor-investing** (wealth-management plugin): diversifying across factor premia (value, momentum, quality) as a layer distinct from asset-class diversification
 ## Running the Script
 
 ```bash

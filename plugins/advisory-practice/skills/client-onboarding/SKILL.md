@@ -320,3 +320,4 @@ Three worked examples are in [references/examples.md](references/examples.md) â€
 - **portfolio-management-systems** (advisory-practice plugin): The PMS receives new accounts from onboarding for model portfolio assignment and initial investment execution
 - **privacy-data-security** (compliance plugin): Onboarding collects sensitive nonpublic personal information (SSN, financial data, identity documents) that must be protected under Reg S-P and firm cybersecurity policies
 - **account-opening-workflow** (client-operations plugin): Back-office account opening process that receives onboarding outputs; handles operations processing, custodian submission, and account activation
+- **estate-gifting** (wealth-management plugin): background on trust types and beneficiary designations relevant when opening and titling trust accounts

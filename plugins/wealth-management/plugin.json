@@ -35,7 +35,13 @@
     "liquidity-management",
     "finance-psychology",
     "performance-reporting",
-    "tax-loss-harvesting"
+    "tax-loss-harvesting",
+    "financial-statements",
+    "equity-compensation",
+    "retirement-decumulation",
+    "factor-investing",
+    "insurance-planning",
+    "estate-gifting"
   ],
   "tags": ["investment", "portfolio", "risk", "personal-finance", "asset-classes"],
   "scripts": true

@@ -114,7 +114,9 @@ Recommended priority order:
 - **asset-allocation** (wealth-management plugin): glide paths for target-date retirement savings
 - **finance-psychology** (wealth-management plugin): mental accounting, present bias, commitment devices
 - **financial-planning-workflow** (advisory-practice plugin): savings goals are key inputs to the comprehensive financial planning process
-
+- **insurance-planning** (wealth-management plugin): education and survivor-income goals feed the capital-needs calculation for life insurance sizing
+- **estate-gifting** (wealth-management plugin): 529 superfunding (5-year gift-tax election) lets grandparents front-load education goals within annual exclusions
+- **retirement-decumulation** (wealth-management plugin): the drawdown-side counterpart — safe withdrawal rates and spending rules for the nest egg accumulated here
 ## Running the script
 Run the reference implementation directly:
 

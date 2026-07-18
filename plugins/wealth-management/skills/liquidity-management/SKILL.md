@@ -126,7 +126,7 @@ Maintain buffer above minimum liquidity requirements:
 - **tax-efficiency** (wealth-management plugin): estimated taxes, tax-loss harvesting timing
 - **fixed-income-sovereign** (wealth-management plugin): T-bill ladder mechanics, Treasury Direct
 - **financial-planning-workflow** (advisory-practice plugin): cash flow tier structure informs the liquidity analysis in comprehensive financial plans
-
+- **equity-compensation** (wealth-management plugin): option exercise costs, RSU withholding gaps, and AMT bills create planned liquidity needs in vest and exercise years
 ## Running the script
 Run the reference implementation directly:
 

@@ -176,3 +176,4 @@ Firms must maintain records of electronic delivery consent and have systems to t
 - **fiduciary-standards** (compliance plugin): Full and fair disclosure is a core fiduciary obligation; Form ADV is the primary vehicle
 - **conflicts-of-interest** (compliance plugin): Conflict disclosure is embedded throughout Form ADV, Form CRS, and Reg BI disclosures
 - **advertising-compliance** (compliance plugin): Marketing materials must be consistent with disclosure documents
+- **private-placements** (compliance plugin): PPM delivery, Rule 502(b) disclosure to non-accredited investors, and placement-compensation disclosure in exempt offerings

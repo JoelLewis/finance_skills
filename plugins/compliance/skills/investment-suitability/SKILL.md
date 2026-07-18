@@ -110,3 +110,6 @@ FINRA disciplinary actions frequently target:
 - **sales-practices** (compliance plugin): Churning/excessive trading enforcement overlaps with quantitative suitability
 - **conflicts-of-interest** (compliance plugin): Compensation conflicts can drive unsuitable recommendations
 - **tax-loss-harvesting** (wealth-management plugin): replacement securities selected during TLH must still satisfy suitability requirements
+- **insurance-planning** (wealth-management plugin): variable insurance products and annuity exchanges recommended in planning trigger Reg BI and FINRA Rule 2330 obligations
+- **private-placements** (compliance plugin): Reg D eligibility gates (accredited/qualified purchaser) and FINRA 5122/5123 filings that precede the suitability analysis for private offerings
+- **equity-compensation** (wealth-management plugin): concentrated employer stock and insider status inform suitability of diversification, hedging, and lending recommendations

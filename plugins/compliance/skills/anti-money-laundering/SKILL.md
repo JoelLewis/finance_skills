@@ -156,3 +156,4 @@ The firm should not open the account pending resolution of the OFAC match. The c
 - **client-disclosures** (compliance plugin) — AML program disclosures at account opening and the interplay between SAR confidentiality and client communication obligations
 - **account-opening-compliance** (client-operations plugin) — The operational onboarding workflow where CIP verification, OFAC screening, and beneficial ownership collection are executed as compliance gates
 - **account-opening-workflow** (client-operations plugin) — The back-office account opening process that produces the customer records and risk ratings AML monitoring consumes
+- **private-placements** (compliance plugin): AML and beneficial-ownership diligence context for private fund subscriptions and placement agents

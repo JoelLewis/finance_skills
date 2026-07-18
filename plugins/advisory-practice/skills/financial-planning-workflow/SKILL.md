@@ -182,3 +182,6 @@ At each update, re-run the probability-of-success analysis and compare to the pr
 - **financial-planning-integration** (advisory-practice plugin): covers the software and system integration for planning tools
 - **proposal-generation** (advisory-practice plugin): the financial plan often leads to an investment proposal for implementation
 - **tax-loss-harvesting** (wealth-management plugin): TLH is a specific tax recommendation that may emerge from the plan
+- **insurance-planning** (wealth-management plugin): risk management and insurance coverage review is a standard module of the comprehensive planning process
+- **estate-gifting** (wealth-management plugin): estate, gifting, and beneficiary review content for the estate planning module of the comprehensive plan
+- **retirement-decumulation** (wealth-management plugin): decumulation strategy — withdrawal rates, RMDs, Social Security timing — is a core deliverable of the retirement-income phase of the plan

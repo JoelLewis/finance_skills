@@ -100,3 +100,4 @@ The J-curve is visible: negative net cash flows in years 1-4, turning positive i
 - **equities** (wealth-management plugin): long/short equity strategies and factor exposures
 - **fixed-income-corporate** (wealth-management plugin): private credit and leveraged loan markets
 - **performance-attribution** (wealth-management plugin): evaluating manager alpha vs factor beta
+- **private-placements** (compliance plugin): the regulatory eligibility and exempt-offering compliance side of investing in private funds

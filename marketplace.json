@@ -1,7 +1,7 @@
 {
   "name": "finance-skills",
   "version": "1.0.0",
-  "description": "Claude Code skill plugins for financial services — 84 skills across 7 domain plugins covering investment management, compliance, advisory practice, trading, and operations.",
+  "description": "Claude Code skill plugins for financial services — 91 skills across 7 domain plugins covering investment management, compliance, advisory practice, trading, and operations.",
   "plugins": [
     {
       "name": "core",
@@ -24,7 +24,7 @@
       "description": "Investment knowledge for personal and institutional wealth management. Covers risk measurement, asset classes, valuation, portfolio construction, policy and planning, personal finance, behavioral finance, and reporting.",
       "path": "plugins/wealth-management",
       "dependencies": ["core"],
-      "skillCount": 32,
+      "skillCount": 38,
       "skills": [
         "historical-risk",
         "performance-metrics",
@@ -57,7 +57,13 @@
         "liquidity-management",
         "finance-psychology",
         "performance-reporting",
-        "tax-loss-harvesting"
+        "tax-loss-harvesting",
+        "financial-statements",
+        "equity-compensation",
+        "retirement-decumulation",
+        "factor-investing",
+        "insurance-planning",
+        "estate-gifting"
       ],
       "tags": ["investment", "portfolio", "risk", "personal-finance", "asset-classes"],
       "scripts": true
@@ -68,7 +74,7 @@
       "description": "US securities regulatory guidance for broker-dealers and investment advisers. Covers FINRA, SEC, ERISA, FinCEN, and CFA Institute GIPS requirements. Guidance-only — no Python scripts.",
       "path": "plugins/compliance",
       "dependencies": ["core"],
-      "skillCount": 16,
+      "skillCount": 17,
       "skills": [
         "investment-suitability",
         "know-your-customer",
@@ -85,7 +91,8 @@
         "regulatory-reporting",
         "gips-compliance",
         "privacy-data-security",
-        "examination-readiness"
+        "examination-readiness",
+        "private-placements"
       ],
       "tags": ["compliance", "regulatory", "SEC", "FINRA", "ERISA", "AML"],
       "scripts": false

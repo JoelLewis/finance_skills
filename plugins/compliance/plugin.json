@@ -19,7 +19,8 @@
     "regulatory-reporting",
     "gips-compliance",
     "privacy-data-security",
-    "examination-readiness"
+    "examination-readiness",
+    "private-placements"
   ],
   "tags": ["compliance", "regulatory", "SEC", "FINRA", "ERISA", "AML"],
   "scripts": false

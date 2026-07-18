@@ -178,3 +178,4 @@ The care obligation requires considering reasonably available alternatives, but 
 - **fee-disclosure** (compliance plugin): Fee transparency requirements that support the Disclosure Obligation
 - **advice-standards** (compliance plugin): Broader standards of conduct for financial professionals across BD and IA channels
 - **client-disclosures** (compliance plugin): Form CRS requirements and other client-facing disclosure obligations
+- **private-placements** (compliance plugin): exempt offering framework and investor-eligibility rules underlying Care Obligation analysis of private placement recommendations

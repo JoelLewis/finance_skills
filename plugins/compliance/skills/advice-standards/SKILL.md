@@ -184,3 +184,4 @@ Investment adviser registration operates at both the federal and state level:
 - **investment-suitability** (compliance plugin): Suitability analysis framework underlying both advice and recommendations
 - **advertising-compliance** (compliance plugin): Rules governing how advisory and brokerage services are marketed
 - **conflicts-of-interest** (compliance plugin): Identification and management of conflicts that arise in advisory and brokerage relationships
+- **private-placements** (compliance plugin): the exempt offerings and private fund structures (3(c)(1)/3(c)(7)) that private fund advisers and exempt reporting advisers manage

@@ -120,3 +120,5 @@ An appropriate benchmark must be:
 - **client-review-prep** (advisory-practice plugin): IPS provides the reference framework for evaluating drift and suitability during reviews
 - **financial-planning-workflow** (advisory-practice plugin): the financial plan informs and is codified in the investment policy statement
 - **tax-loss-harvesting** (wealth-management plugin): IPS may specify TLH policy parameters (minimum loss threshold, approved replacement pairs)
+- **estate-gifting** (wealth-management plugin): trust structures and multi-generational transfer objectives feed the IPS legal/regulatory and time-horizon constraints
+- **retirement-decumulation** (wealth-management plugin): the IPS spending policy documents the withdrawal rate, guardrail rules, and rebalancing discipline used in decumulation

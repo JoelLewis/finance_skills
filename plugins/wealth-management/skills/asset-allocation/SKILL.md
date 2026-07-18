@@ -170,7 +170,8 @@ The posterior tilts returns toward the view in proportion to confidence. Fed int
 - **bet-sizing** (wealth-management plugin): position sizing within the allocated asset classes
 - **rebalancing** (wealth-management plugin): maintaining allocation targets over time
 - **quantitative-valuation** (wealth-management plugin): valuation signals can inform TAA decisions
-
+- **retirement-decumulation** (wealth-management plugin): decumulation-phase glide paths and the sequence-of-returns risk that allocation choices must manage
+- **factor-investing** (wealth-management plugin): sizing factor tilts as deliberate, survivable deviations from the policy portfolio
 ## Running the Script
 
 ```bash

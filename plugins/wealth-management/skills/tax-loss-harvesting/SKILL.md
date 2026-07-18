@@ -162,3 +162,4 @@ TLH across a household with multiple accounts requires centralized tracking:
 - **performance-attribution** (wealth-management plugin): tax alpha from TLH should be tracked and attributed separately
 - **client-review-prep** (advisory-practice plugin): TLH opportunities are flagged during periodic client review preparation
 - **financial-planning-workflow** (advisory-practice plugin): TLH is a specific tax recommendation that may emerge from the financial plan
+- **equity-compensation** (wealth-management plugin): recurring RSU vests and ESPP purchases can trigger wash sales against losses harvested in employer stock

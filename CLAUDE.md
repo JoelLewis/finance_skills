@@ -8,10 +8,10 @@ flag compliance concerns. The plugin catalog lives in `marketplace.json`.
 
 ## Current State
 
-84 skills across 7 plugin domains, organized under `plugins/`:
+91 skills across 7 plugin domains, organized under `plugins/`:
 - **core** (3 skills) — math foundations (returns, TVM, statistics)
-- **wealth-management** (32 skills) — investment knowledge, asset classes, portfolio construction, personal finance
-- **compliance** (16 skills) — US securities regulatory guidance (FINRA, SEC, ERISA, FinCEN, CFA Institute GIPS)
+- **wealth-management** (38 skills) — investment knowledge, asset classes, portfolio construction, personal finance
+- **compliance** (17 skills) — US securities regulatory guidance (FINRA, SEC, ERISA, FinCEN, CFA Institute GIPS)
 - **advisory-practice** (12 skills) — advisor-facing systems, onboarding, CRM, portfolio management, proposals, billing
 - **trading-operations** (9 skills) — order lifecycle, execution, settlement, margin, exchange connectivity, operational risk
 - **client-operations** (8 skills) — account opening, maintenance, transfers, reconciliation, corporate actions, STP
