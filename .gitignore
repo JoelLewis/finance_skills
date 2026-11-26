@@ -21,3 +21,7 @@ Thumbs.db
 
 # Node (if using npx tools)
 node_modules/
+
+# Tests
+.hypothesis/
+.pytest_cache/
