@@ -238,7 +238,8 @@ class LiquidityManagement:
 
         # n = ln(PMT / (PMT - balance*r)) / ln(1+r)
         import math
-        n = math.log(monthly_burn / (monthly_burn - liquid_assets * r)) / math.log(1.0 + r)
+        # log1p avoids precision loss (and division by zero) near r = 0
+        n = -math.log1p(-liquid_assets * r / monthly_burn) / math.log1p(r)
         return n
 
     @staticmethod

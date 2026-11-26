@@ -70,7 +70,8 @@ class SavingsGoals:
             return remaining_fv / n
 
         # Sinking fund formula: PMT = FV * r / [(1+r)^n - 1]
-        factor = (1.0 + r) ** n - 1.0
+        # expm1(n*log1p(r)) == (1+r)^n - 1, without cancellation near r = 0
+        factor = math.expm1(n * math.log1p(r))
         return remaining_fv * r / factor
 
     @staticmethod
@@ -108,7 +109,8 @@ class SavingsGoals:
         if r == 0:
             fv_annuity = monthly_contribution * n
         else:
-            fv_annuity = monthly_contribution * ((1.0 + r) ** n - 1.0) / r
+            # expm1(n*log1p(r)) == (1+r)^n - 1, without cancellation near r = 0
+            fv_annuity = monthly_contribution * math.expm1(n * math.log1p(r)) / r
 
         return fv_lump + fv_annuity
 
@@ -156,18 +158,21 @@ class SavingsGoals:
         #   PV*x + PMT*x/r - PMT/r = FV
         #   x*(PV + PMT/r) = FV + PMT/r
         #   x = (FV + PMT/r) / (PV + PMT/r)
-        pmt_over_r = monthly_contribution / r
-        numerator = future_value + pmt_over_r
-        denominator = current_savings + pmt_over_r
-
-        if denominator <= 0 or numerator / denominator <= 0:
+        # Written as x = 1 + y with y = (FV - PV) * r / (PV * r + PMT), so
+        # log1p keeps full precision near r = 0. With r < 0 the goal can
+        # still be reachable (the balance approaches PMT/|r|).
+        denominator = current_savings * r + monthly_contribution
+        if denominator == 0:
+            return float("inf")
+        y = (future_value - current_savings) * r / denominator
+        if y <= -1.0:
             return float("inf")
 
-        x = numerator / denominator
-        if x <= 1.0:
-            return 0.0
-
-        n_months = math.log(x) / math.log(1.0 + r)
+        n_months = math.log1p(y) / math.log1p(r)
+        if not n_months > 0:
+            # Current savings are below the goal, so a non-positive solution
+            # means the balance never reaches it.
+            return float("inf")
         return n_months / 12.0
 
     @staticmethod

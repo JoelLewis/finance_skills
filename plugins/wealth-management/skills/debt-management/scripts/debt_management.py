@@ -85,7 +85,8 @@ class DebtManagement:
             return balance / payment if payment > 0 else float("inf")
         if payment <= balance * r:
             return float("inf")
-        n = -math.log(1.0 - (balance * r) / payment) / math.log(1.0 + r)
+        # log1p avoids precision loss (and division by zero) near r = 0
+        n = -math.log1p(-(balance * r) / payment) / math.log1p(r)
         return n
 
     @staticmethod
@@ -193,7 +194,8 @@ class DebtManagement:
         float
             Effective annual rate as a decimal.
         """
-        return (1.0 + apr / compounding_periods) ** compounding_periods - 1.0
+        # expm1(m*log1p(APR/m)) == (1+APR/m)^m - 1, without cancellation near 0
+        return math.expm1(compounding_periods * math.log1p(apr / compounding_periods))
 
     @staticmethod
     def after_tax_rate(apr: float, marginal_tax_rate: float) -> float:

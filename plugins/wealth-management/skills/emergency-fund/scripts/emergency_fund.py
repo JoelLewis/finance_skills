@@ -233,7 +233,10 @@ class EmergencyFund:
         balance = fund_balance
         month = 0
 
-        while balance > 0.005:
+        # If the draw does not exceed the interest on the balance, the fund
+        # never depletes; cap the schedule at 1,200 months (100 years), the
+        # same safety limit replenishment_schedule uses.
+        while balance > 0.005 and month < 1200:
             month += 1
             interest = balance * r
             balance += interest
@@ -273,7 +276,8 @@ class EmergencyFund:
         float
             Number of months the fund can sustain withdrawals.
         """
-        if monthly_draw <= 0:
+        if monthly_draw <= 0 or monthly_draw <= fund_balance * fund_yield / 12.0:
+            # Yield covers the draw: the balance never declines.
             return float("inf")
         schedule = EmergencyFund.drawdown_schedule(fund_balance, monthly_draw, fund_yield)
         return float(len(schedule))

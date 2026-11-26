@@ -49,8 +49,9 @@ class LendingAnalysis:
         r = apr / 12.0
         if r == 0:
             return principal / term_months
-        factor = (1.0 + r) ** term_months
-        return principal * (r * factor) / (factor - 1.0)
+        # P*r*(1+r)^n / [(1+r)^n - 1] == P*r / [1 - (1+r)^-n]; expm1/log1p
+        # avoid cancellation (and division by zero) near r = 0
+        return principal * r / -math.expm1(-term_months * math.log1p(r))
 
     @staticmethod
     def total_interest(principal: float, apr: float, term_months: int) -> float:
@@ -104,9 +105,12 @@ class LendingAnalysis:
             return principal * (1.0 - payments_made / term_months)
         n = term_months
         k = payments_made
-        factor_n = (1.0 + r) ** n
-        factor_k = (1.0 + r) ** k
-        balance = principal * (factor_n - factor_k) / (factor_n - 1.0)
+        # [(1+r)^n - (1+r)^k] / [(1+r)^n - 1] rewritten with expm1/log1p to
+        # avoid cancellation near r = 0
+        log_g = math.log1p(r)
+        balance = principal * (
+            math.expm1(n * log_g) - math.expm1(k * log_g)
+        ) / math.expm1(n * log_g)
         return max(balance, 0.0)
 
     @staticmethod
