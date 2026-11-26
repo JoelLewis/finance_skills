@@ -88,7 +88,8 @@ class TimeValueOfMoney:
 
     @staticmethod
     def irr(cash_flows: list[float], guess: float = 0.1) -> float:
-        """Compute the Internal Rate of Return using Newton's method.
+        """Compute the Internal Rate of Return using Newton's method,
+        with a bisection fallback when Newton's method fails.
 
         Finds the rate r such that NPV(r) = 0.
 
@@ -102,34 +103,47 @@ class TimeValueOfMoney:
             The IRR as a decimal.
 
         Raises:
-            RuntimeError: If Newton's method fails to converge.
+            RuntimeError: If no rate above -100% sets NPV to zero.
         """
-        rate = guess
-        max_iterations = 1000
-        tolerance = 1e-10
-
-        for _ in range(max_iterations):
-            npv_val = 0.0
-            npv_deriv = 0.0
+        def npv_and_slope(r: float) -> tuple[float, float]:
+            value, slope = 0.0, 0.0
             for t, cf in enumerate(cash_flows):
-                discount = (1.0 + rate) ** t
-                npv_val += cf / discount
+                value += cf / (1.0 + r) ** t
                 if t > 0:
-                    npv_deriv -= t * cf / ((1.0 + rate) ** (t + 1))
+                    slope -= t * cf / (1.0 + r) ** (t + 1)
+            return value, slope
 
-            if abs(npv_val) < tolerance:
+        # Newton's method, damped so the rate never drops to -100% or below.
+        rate = guess
+        tolerance = 1e-10
+        for _ in range(100):
+            value, slope = npv_and_slope(rate)
+            if abs(value) < tolerance:
                 return rate
+            if abs(slope) < 1e-15:
+                break
+            step = rate - value / slope
+            rate = step if step > -1.0 else (rate - 1.0) / 2.0
 
-            if abs(npv_deriv) < 1e-15:
-                raise RuntimeError(
-                    "Newton's method derivative near zero; try a different guess."
-                )
-
-            rate = rate - npv_val / npv_deriv
-
-        raise RuntimeError(
-            f"Newton's method did not converge after {max_iterations} iterations."
-        )
+        # Fallback: bisection on a bracket where NPV changes sign.
+        lo, hi = -1.0 + 1e-9, 1.0
+        while npv_and_slope(lo)[0] * npv_and_slope(hi)[0] > 0 and hi < 1e6:
+            hi *= 10.0
+        f_lo = npv_and_slope(lo)[0]
+        if f_lo * npv_and_slope(hi)[0] > 0:
+            raise RuntimeError(
+                "No rate in (-100%, 1e8%) sets NPV to zero for these cash flows."
+            )
+        for _ in range(500):
+            mid = (lo + hi) / 2.0
+            f_mid = npv_and_slope(mid)[0]
+            if abs(f_mid) < tolerance or hi - lo < 1e-15:
+                return mid
+            if f_lo * f_mid < 0:
+                hi = mid
+            else:
+                lo, f_lo = mid, f_mid
+        return (lo + hi) / 2.0
 
 
     @staticmethod
@@ -158,8 +172,9 @@ class TimeValueOfMoney:
             The present value of the annuity.
         """
         if rate == 0:
-            return payment * periods * (1.0 + rate if due else 1.0)
-        pv = payment * (1.0 - (1.0 + rate) ** (-periods)) / rate
+            return payment * periods
+        # -expm1(-n*log1p(r)) == 1 - (1+r)^(-n), without cancellation near r = 0
+        pv = payment * -math.expm1(-periods * math.log1p(rate)) / rate
         if due:
             pv *= (1.0 + rate)
         return pv
@@ -191,8 +206,9 @@ class TimeValueOfMoney:
             The future value of the annuity.
         """
         if rate == 0:
-            return payment * periods * (1.0 + rate if due else 1.0)
-        fv = payment * ((1.0 + rate) ** periods - 1.0) / rate
+            return payment * periods
+        # expm1(n*log1p(r)) == (1+r)^n - 1, without cancellation near r = 0
+        fv = payment * math.expm1(periods * math.log1p(rate)) / rate
         if due:
             fv *= (1.0 + rate)
         return fv
@@ -335,7 +351,8 @@ class AmortizationSchedule:
         n = self.periods
         if r == 0:
             return self.principal / n
-        return self.principal * r / (1.0 - (1.0 + r) ** (-n))
+        # -expm1(-n*log1p(r)) == 1 - (1+r)^(-n), without cancellation near r = 0
+        return self.principal * r / -math.expm1(-n * math.log1p(r))
 
     def schedule(self) -> list[dict]:
         """Generate the full amortization schedule.

@@ -309,9 +309,9 @@ class FactorAttribution:
 class MultiPeriodLinker:
     """Link single-period attribution effects across multiple periods.
 
-    Uses the Carino smoothing method to convert arithmetic single-period
-    effects into geometrically linked multi-period effects that sum to
-    the correct total geometric active return.
+    Uses the Carino smoothing method to scale arithmetic single-period
+    effects so they sum exactly to the full-period active return
+    (cumulative portfolio return minus cumulative benchmark return).
 
     Parameters
     ----------
@@ -349,24 +349,38 @@ class MultiPeriodLinker:
             raise ValueError("All input arrays must have the same length.")
 
     @staticmethod
-    def _log_ratio(r: float) -> float:
-        """Compute the Carino log ratio: ln(1+r) / r.
+    def _carino_factor(r_p: float, r_b: float) -> float:
+        """Compute the Carino smoothing factor for a portfolio/benchmark pair.
 
-        Handles the r=0 case via the limit (which is 1.0).
+        k = [ln(1 + r_p) - ln(1 + r_b)] / (r_p - r_b)
+
+        When r_p equals r_b the factor takes its limit, 1 / (1 + r_p).
 
         Parameters
         ----------
-        r : float
-            A return value.
+        r_p : float
+            Portfolio return.
+        r_b : float
+            Benchmark return.
 
         Returns
         -------
         float
-            ln(1+r)/r, or 1.0 if r is approximately zero.
+            The Carino factor k.
         """
-        if abs(r) < 1e-12:
-            return 1.0
-        return np.log(1.0 + r) / r
+        if abs(r_p - r_b) < 1e-12:
+            return 1.0 / (1.0 + r_p)
+        return (np.log1p(r_p) - np.log1p(r_b)) / (r_p - r_b)
+
+    def cumulative_active_return(self) -> float:
+        """Compute the full-period active return (cumulative difference).
+
+        Returns
+        -------
+        float
+            R_p_cum - R_b_cum, where R_cum = prod(1 + R_t) - 1
+        """
+        return float(np.prod(1.0 + self.r_p) - np.prod(1.0 + self.r_b))
 
     def geometric_active_return(self) -> float:
         """Compute the total geometric active return over all periods.
@@ -383,35 +397,30 @@ class MultiPeriodLinker:
     def carino_link(self) -> dict:
         """Apply the Carino smoothing method for multi-period linking.
 
-        The Carino method uses logarithmic smoothing factors to scale
-        single-period arithmetic effects so they compound to the correct
-        geometric total active return.
+        Each period's arithmetic effects are scaled by c_t = k_t / K, where
+        k_t is the Carino factor for period t and K is the Carino factor for
+        the cumulative returns. When each period's effects sum to that
+        period's active return (R_p,t - R_b,t), the linked effects sum
+        exactly to the full-period active return R_p_cum - R_b_cum.
 
         Returns
         -------
         dict
             'linked_allocation', 'linked_selection', 'linked_interaction':
-            geometrically linked effects that sum to the total geometric
-            active return. Also includes 'geometric_active_return' and
+            linked effects that sum to 'cumulative_active_return'. Also
+            includes 'geometric_active_return' (for reference) and
             'period_details' (per-period scaling factors).
         """
         n = len(self.r_p)
-        geo_active = self.geometric_active_return()
+        cum_p = float(np.prod(1.0 + self.r_p) - 1.0)
+        cum_b = float(np.prod(1.0 + self.r_b) - 1.0)
 
-        # Total-level Carino log ratio
-        k_total = self._log_ratio(geo_active)
-
-        # Period-level smoothing factors
-        k_t = np.array([self._log_ratio(float(r)) for r in self.r_p])
-
-        # Carino scaling coefficient for each period
-        # c_t = k_t / k_total (this ensures sum of c_t * arithmetic_effect_t
-        # equals the geometric total)
-        if abs(k_total) < 1e-12:
-            # Degenerate case: no active return, scaling is uniform
-            c_t = np.ones(n)
-        else:
-            c_t = k_t / k_total
+        k_total = self._carino_factor(cum_p, cum_b)
+        k_t = np.array([
+            self._carino_factor(float(rp), float(rb))
+            for rp, rb in zip(self.r_p, self.r_b)
+        ])
+        c_t = k_t / k_total
 
         # Linked effects
         linked_alloc = float(np.sum(c_t * self.alloc))
@@ -438,7 +447,8 @@ class MultiPeriodLinker:
             "linked_allocation": linked_alloc,
             "linked_selection": linked_select,
             "linked_interaction": linked_interact,
-            "geometric_active_return": geo_active,
+            "cumulative_active_return": cum_p - cum_b,
+            "geometric_active_return": self.geometric_active_return(),
             "sum_of_linked_effects": linked_alloc + linked_select + linked_interact,
             "period_details": period_details,
         }
@@ -559,24 +569,24 @@ def run_demo() -> None:
     )
 
     link_result = linker.carino_link()
-    print(f"\nGeometric active return: "
-          f"{link_result['geometric_active_return']*100:.4f}%")
+    cum_active = link_result["cumulative_active_return"]
+    print(f"\nCumulative active return (R_p - R_b): {cum_active*100:.4f}%")
     print(f"\nLinked effects (Carino method):")
     print(f"  Allocation:   {link_result['linked_allocation']*100:.4f}%")
     print(f"  Selection:    {link_result['linked_selection']*100:.4f}%")
     print(f"  Interaction:  {link_result['linked_interaction']*100:.4f}%")
     print(f"  Sum:          {link_result['sum_of_linked_effects']*100:.4f}%")
+    ok = abs(link_result["sum_of_linked_effects"] - cum_active) < 1e-12
     print(f"\nVerification: sum {link_result['sum_of_linked_effects']*100:.4f}% == "
-          f"geo active {link_result['geometric_active_return']*100:.4f}% "
-          f"{'(OK)' if abs(link_result['sum_of_linked_effects'] - link_result['geometric_active_return']) < 1e-6 else '(MISMATCH)'}")
+          f"cumulative active {cum_active*100:.4f}% "
+          f"{'(OK)' if ok else '(MISMATCH)'}")
 
-    # Show arithmetic vs geometric comparison
+    # Show the three ways of stating multi-period active return
     arith_active = float(np.sum(q_port - q_bench))
-    print(f"\nArithmetic total active return:  {arith_active*100:.4f}%")
-    print(f"Geometric total active return:   "
+    print(f"\nSum of period active returns:    {arith_active*100:.4f}%")
+    print(f"Cumulative active return:        {cum_active*100:.4f}%")
+    print(f"Geometric active return:         "
           f"{link_result['geometric_active_return']*100:.4f}%")
-    print(f"Difference (compounding effect): "
-          f"{(link_result['geometric_active_return'] - arith_active)*100:.4f}%")
 
     print("\n" + "=" * 60)
     print("Demo complete.")
@@ -657,6 +667,10 @@ def run_verify() -> int:
           0.0164362629)
     check("Demo 3 arithmetic active return", float(np.sum(q_port - q_bench)),
           0.0170)
+    link = linker.carino_link()
+    check("Demo 3 linked effects sum to cumulative active return",
+          link["sum_of_linked_effects"], link["cumulative_active_return"],
+          rel_tol=1e-12)
 
     if failures:
         print(f"\nFAIL: {failures} check(s) did not match expected values.")

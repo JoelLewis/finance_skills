@@ -82,7 +82,8 @@ class Returns:
         cash_flows: list[tuple[int, float]],
         guess: float = 0.1,
     ) -> float:
-        """Compute the money-weighted return (IRR) using Newton's method.
+        """Compute the money-weighted return (IRR) using Newton's method,
+        with a bisection fallback when Newton's method fails.
 
         Finds the rate r such that:
             sum( CF_t / (1 + r)^t ) = 0
@@ -101,34 +102,47 @@ class Returns:
             The money-weighted return (IRR) as a decimal.
 
         Raises:
-            RuntimeError: If Newton's method fails to converge.
+            RuntimeError: If no rate above -100% sets NPV to zero.
         """
-        rate = guess
-        max_iterations = 1000
-        tolerance = 1e-10
-
-        for _ in range(max_iterations):
-            npv = 0.0
-            npv_deriv = 0.0
+        def npv_and_slope(r: float) -> tuple[float, float]:
+            value, slope = 0.0, 0.0
             for t, cf in cash_flows:
-                discount = (1.0 + rate) ** t
-                npv += cf / discount
+                value += cf / (1.0 + r) ** t
                 if t != 0:
-                    npv_deriv -= t * cf / ((1.0 + rate) ** (t + 1))
+                    slope -= t * cf / (1.0 + r) ** (t + 1)
+            return value, slope
 
-            if abs(npv) < tolerance:
+        # Newton's method, damped so the rate never drops to -100% or below.
+        rate = guess
+        tolerance = 1e-10
+        for _ in range(100):
+            value, slope = npv_and_slope(rate)
+            if abs(value) < tolerance:
                 return rate
+            if abs(slope) < 1e-15:
+                break
+            step = rate - value / slope
+            rate = step if step > -1.0 else (rate - 1.0) / 2.0
 
-            if abs(npv_deriv) < 1e-15:
-                raise RuntimeError(
-                    "Newton's method derivative near zero; try a different guess."
-                )
-
-            rate = rate - npv / npv_deriv
-
-        raise RuntimeError(
-            f"Newton's method did not converge after {max_iterations} iterations."
-        )
+        # Fallback: bisection on a bracket where NPV changes sign.
+        lo, hi = -1.0 + 1e-9, 1.0
+        while npv_and_slope(lo)[0] * npv_and_slope(hi)[0] > 0 and hi < 1e6:
+            hi *= 10.0
+        f_lo = npv_and_slope(lo)[0]
+        if f_lo * npv_and_slope(hi)[0] > 0:
+            raise RuntimeError(
+                "No rate in (-100%, 1e8%) sets NPV to zero for these cash flows."
+            )
+        for _ in range(500):
+            mid = (lo + hi) / 2.0
+            f_mid = npv_and_slope(mid)[0]
+            if abs(f_mid) < tolerance or hi - lo < 1e-15:
+                return mid
+            if f_lo * f_mid < 0:
+                hi = mid
+            else:
+                lo, f_lo = mid, f_mid
+        return (lo + hi) / 2.0
 
     @staticmethod
     def cagr(begin_value: float, end_value: float, years: float) -> float:
