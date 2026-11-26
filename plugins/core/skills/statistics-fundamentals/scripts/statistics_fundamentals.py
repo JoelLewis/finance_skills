@@ -148,8 +148,8 @@ class StatisticsFundamentals:
         returns = np.asarray(returns, dtype=float)
         n, p = returns.shape
 
-        # Sample covariance
-        sample_cov = np.cov(returns, rowvar=False)
+        # Sample covariance (atleast_2d: np.cov returns a 0-d array for p == 1)
+        sample_cov = np.atleast_2d(np.cov(returns, rowvar=False))
 
         # Construct target
         if shrinkage_target == "diagonal":
