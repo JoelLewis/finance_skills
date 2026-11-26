@@ -93,6 +93,19 @@ plugins/<plugin-name>/skills/<skill-name>/
     └── <name>.py
 ```
 
+CI runs every script's `--verify` mode and the property tests in `tests/`
+on each pull request. Run them locally before you submit:
+
+```bash
+pip install -r requirements-dev.txt
+pytest tests                          # 1,000 random cases per property
+HYPOTHESIS_PROFILE=dev pytest tests   # 100 cases, for quick runs
+```
+
+Property tests (`tests/test_properties.py`) check identities that must hold
+for every valid input, such as "attribution effects sum to the active
+return". When a script implements such an identity, add a property for it.
+
 ### 6. Add cross-references
 
 Update the Cross-References section in both the new skill and any related existing
@@ -156,6 +169,7 @@ CLAUDE.md counts match the filesystem.
 - [ ] No sensitive data or credentials
 - [ ] Compliance skills cite specific rule numbers
 - [ ] Python scripts (if any) are standalone and match SKILL.md formulas
+- [ ] `pytest tests` passes
 - [ ] ≥3 output evals in `evals/evals.json` and ≥4 trigger queries in `evals/trigger/queries.json`
 - [ ] With-skill vs without-skill baseline run completed and graded
 - [ ] Skill counts in `CLAUDE.md` updated and `./install.sh --check` passes

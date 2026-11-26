@@ -1,0 +1,7 @@
+# Dev-only dependencies for CI and the tests/ suite.
+# Skill scripts themselves need only numpy, scipy and pandas.
+numpy
+scipy
+pandas
+pytest
+hypothesis

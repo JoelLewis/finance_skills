@@ -26,10 +26,10 @@ Where: w_p,i = portfolio weight in sector i, w_b,i = benchmark weight in sector 
 ### Multi-Period Attribution
 Single-period attribution does not compound across periods. Geometric linking methods are required:
 
-- **Carino method:** Applies a smoothing factor to make arithmetic effects compound to the correct geometric total
+- **Carino method:** Scales each period's arithmetic effects by c_t = k_t / K, where k = [ln(1 + R_p) - ln(1 + R_b)] / (R_p - R_b) is computed per period (k_t) and for the cumulative returns (K). The scaled effects sum exactly to the full-period active return R_p,cum - R_b,cum
 - **Menchero method:** Uses a logarithmic approach for smoother decomposition
-- **GRAP (Geometric Return Attribution Program):** Converts arithmetic effects to geometric equivalents
-- Key principle: the sum of linked attribution effects must equal the total geometric active return over the full period
+- **GRAP (Groupe de Recherche en Attribution de Performance):** Multiplies each period's effects by the cumulative portfolio return before it and the cumulative benchmark return after it
+- Key principle: the linked effects must sum to the full-period active return with no residual. Carino, Menchero and GRAP target the cumulative difference R_p,cum - R_b,cum; geometric attribution methods target the geometric active return (1 + R_p,cum) / (1 + R_b,cum) - 1. State which one a report uses
 
 ### Factor-Based Attribution
 Decomposes returns into exposures to systematic risk factors:

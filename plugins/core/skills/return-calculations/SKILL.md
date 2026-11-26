@@ -133,7 +133,7 @@ The MWR is approximately **-0.67% annualized**.
 - Trusting Modified Dietz with large intra-period flows: when a single flow exceeds roughly 10% of portfolio value, revalue the portfolio on the flow date rather than day-weighting.
 
 ## Running the Script
-`scripts/return_calculations.py` provides a `Returns` class with static methods for every formula above (holding period return, TWR, MWR/IRR via Newton's method, Modified Dietz is straightforward to compose from these, CAGR, annualization, linking, arithmetic/geometric means, log-return conversions).
+`scripts/return_calculations.py` provides a `Returns` class with static methods for every formula above (holding period return, TWR, MWR/IRR via Newton's method with a bisection fallback, Modified Dietz is straightforward to compose from these, CAGR, annualization, linking, arithmetic/geometric means, log-return conversions).
 
 - Run: `uv run scripts/return_calculations.py` (PEP 723 inline metadata resolves numpy automatically), or `python3 scripts/return_calculations.py` with numpy installed.
 - Bare invocation (or `--verify`) prints a demo of all functions **and** asserts the worked-example values above (Example 1 CAGR = 10%, Example 2 TWR = +8.0% cumulative / 3.92% annualized, MWR = -0.6682%), exiting nonzero on any mismatch.
