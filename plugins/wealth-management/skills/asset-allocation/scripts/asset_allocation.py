@@ -16,6 +16,12 @@ import sys
 import numpy as np
 from scipy.optimize import minimize
 
+# Portfolio variances are O(1e-3 to 1e-2), so SLSQP's default ftol (1e-6) can
+# stop at the equal-weight starting point well short of the optimum. A tight
+# tolerance, with exact gradients so SLSQP can reach it, makes the solvers
+# converge to the true constrained optimum.
+_SLSQP_OPTIONS = {"ftol": 1e-12, "maxiter": 1000}
+
 
 class MeanVarianceOptimizer:
     """Solve mean-variance optimization problems.
@@ -65,15 +71,21 @@ class MeanVarianceOptimizer:
             var = w @ self.cov_matrix @ w
             return -(ret - (self.risk_aversion / 2.0) * var)
 
-        constraints = [{"type": "eq", "fun": lambda w: np.sum(w) - 1.0}]
+        def neg_utility_grad(w: np.ndarray) -> np.ndarray:
+            return -(self.expected_returns - self.risk_aversion * (self.cov_matrix @ w))
+
+        constraints = [{"type": "eq", "fun": lambda w: np.sum(w) - 1.0,
+                        "jac": lambda w: np.ones_like(w)}]
         bounds = [(0.0, 1.0)] * self.n_assets if long_only else [(None, None)] * self.n_assets
 
         result = minimize(
             neg_utility,
             w0,
             method="SLSQP",
+            jac=neg_utility_grad,
             bounds=bounds,
             constraints=constraints,
+            options=_SLSQP_OPTIONS,
         )
         if not result.success:
             raise RuntimeError(
@@ -103,15 +115,21 @@ class MeanVarianceOptimizer:
         def portfolio_variance(w: np.ndarray) -> float:
             return float(w @ self.cov_matrix @ w)
 
-        constraints = [{"type": "eq", "fun": lambda w: np.sum(w) - 1.0}]
+        def variance_grad(w: np.ndarray) -> np.ndarray:
+            return 2.0 * (self.cov_matrix @ w)
+
+        constraints = [{"type": "eq", "fun": lambda w: np.sum(w) - 1.0,
+                        "jac": lambda w: np.ones_like(w)}]
         bounds = [(0.0, 1.0)] * self.n_assets if long_only else [(None, None)] * self.n_assets
 
         result = minimize(
             portfolio_variance,
             w0,
             method="SLSQP",
+            jac=variance_grad,
             bounds=bounds,
             constraints=constraints,
+            options=_SLSQP_OPTIONS,
         )
         if not result.success:
             raise RuntimeError(
@@ -157,9 +175,14 @@ class MeanVarianceOptimizer:
             def portfolio_variance(w: np.ndarray) -> float:
                 return float(w @ self.cov_matrix @ w)
 
+            def variance_grad(w: np.ndarray) -> np.ndarray:
+                return 2.0 * (self.cov_matrix @ w)
+
             constraints = [
-                {"type": "eq", "fun": lambda w: np.sum(w) - 1.0},
-                {"type": "eq", "fun": lambda w, t=target: w @ self.expected_returns - t},
+                {"type": "eq", "fun": lambda w: np.sum(w) - 1.0,
+                 "jac": lambda w: np.ones_like(w)},
+                {"type": "eq", "fun": lambda w, t=target: w @ self.expected_returns - t,
+                 "jac": lambda w: self.expected_returns},
             ]
             bounds = [(0.0, 1.0)] * self.n_assets if long_only else [(None, None)] * self.n_assets
 
@@ -167,8 +190,10 @@ class MeanVarianceOptimizer:
                 portfolio_variance,
                 w0,
                 method="SLSQP",
+                jac=variance_grad,
                 bounds=bounds,
                 constraints=constraints,
+                options=_SLSQP_OPTIONS,
             )
             if not result.success:
                 raise RuntimeError(
@@ -359,38 +384,48 @@ class RiskParity:
     def optimal_weights(self) -> np.ndarray:
         """Find weights that equalize risk contributions across all assets.
 
-        Minimizes sum of squared differences between each asset's risk
-        contribution and the target (equal) risk contribution.
+        Solves the convex equal-risk-contribution problem (Maillard,
+        Roncalli and Teiletche 2010; Spinu 2013):
+
+            min_y  (1/2) * y'*Sigma*y - (1/n) * sum(ln y_i),  y > 0
+
+        whose first-order condition y_i * (Sigma*y)_i = 1/n makes every risk
+        contribution equal; the weights are w = y / sum(y). Unlike minimizing
+        squared RC differences directly, this objective has a unique
+        minimum, so the solver cannot stall at a spurious corner solution.
 
         Returns
         -------
         np.ndarray
             Risk parity weight vector (long-only, fully invested).
         """
-        w0 = np.ones(self.n_assets) / self.n_assets
+        n = self.n_assets
+        # ERC weights are invariant to scaling Sigma; normalize for a
+        # well-scaled objective.
+        sigma = self.cov_matrix / np.mean(np.diag(self.cov_matrix))
 
-        def objective(w: np.ndarray) -> float:
-            rc = self.risk_contributions(w)
-            target_rc = np.sum(rc) / self.n_assets
-            return float(np.sum((rc - target_rc) ** 2))
+        def objective(y: np.ndarray) -> float:
+            return float(0.5 * y @ sigma @ y - np.sum(np.log(y)) / n)
 
-        constraints = [{"type": "eq", "fun": lambda w: np.sum(w) - 1.0}]
-        bounds = [(1e-6, 1.0)] * self.n_assets
+        def gradient(y: np.ndarray) -> np.ndarray:
+            return sigma @ y - 1.0 / (n * y)
 
+        y0 = np.ones(n) / np.sqrt(np.sum(sigma))
         result = minimize(
             objective,
-            w0,
+            y0,
+            jac=gradient,
             method="SLSQP",
-            bounds=bounds,
-            constraints=constraints,
+            bounds=[(1e-12, None)] * n,
+            options={"ftol": 1e-14, "maxiter": 1000},
         )
         if not result.success:
             raise RuntimeError(
                 f"Risk parity optimization failed to converge: {result.message}. "
-                "Check that the covariance matrix is positive semi-definite and "
+                "Check that the covariance matrix is positive definite and "
                 "well-conditioned."
             )
-        return result.x
+        return result.x / np.sum(result.x)
 
 
 def glide_path(
